@@ -1,8 +1,10 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <Eigen/Core>
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <fstream>
 
 static void error_callback(int error, const char* description)
 {
@@ -90,6 +92,8 @@ static GLuint make_shader_program(const char* vs_text, const char* fs_text)
     {
         fprintf(stderr, "ERROR: Unable to load vertex shader\n");
     }
+	delete[] vs_text;
+	delete[] fs_text;
     return program;
 }
 
@@ -122,11 +126,63 @@ static GLFWwindow* CreateWindow(){
 	return window;
 }
 
+static char* readfile(const char* filePath){
+
+	using namespace std;
+	streampos size;
+	char * memblock;
+
+	//ios:ate opens the file at the end so we can get the size of the file
+	ifstream file (filePath, ios::in|ios::binary|ios::ate);
+	if (file.is_open()){
+
+		size = file.tellg();
+		memblock = new char [size];
+		file.seekg (0, ios::beg);
+		file.read (memblock, size);
+		file.close();
+
+	}else{
+	   	fprintf(stderr, "Unable to open file at %s", filePath);
+	}
+
+	return memblock;
+}
+
+/* Frustum configuration */
+static GLfloat view_angle = 45.0f;
+static GLfloat aspect_ratio = 4.0f/3.0f;
+static GLfloat z_near = 1.0f;
+static GLfloat z_far = 100.f;
+
+static Eigen::Matrix<float, 4, 4, Eigen::RowMajor> projection_matrix;
+static Eigen::Matrix<float, 4, 4, Eigen::RowMajor> modelview_matrix;
+
 int main(void)
 {
 
 	GLFWwindow *window = CreateWindow();
-    shader_program = make_shader_program(vertex_shader_text, fragment_shader_text);
+	GLuint shader_program = make_shader_program(readfile("shader.vert"), readfile("shader.frag"));
+    glUseProgram(shader_program);
+    GLuint uloc_project   = glGetUniformLocation(shader_program, "project");
+    GLuint uloc_modelview = glGetUniformLocation(shader_program, "modelview");
+
+    /* Compute the projection matrix */
+    float f = 1.0f / tanf(view_angle / 2.0f);
+    projection_matrix(0)  = f / aspect_ratio;
+    projection_matrix(5)  = f;
+    projection_matrix(10) = (z_far + z_near)/ (z_near - z_far);
+    projection_matrix(11) = -1.0f;
+    projection_matrix(14) = 2.0f * (z_far * z_near) / (z_near - z_far);
+	
+    glUniformMatrix4fv(uloc_project, 1, GL_FALSE, projection_matrix.data());
+
+    /* Set the camera position  */
+    modelview_matrix(12)  = -5.0f;
+    modelview_matrix(13)  = -5.0f;
+    modelview_matrix(14)  = -20.0f;
+    glUniformMatrix4fv(uloc_modelview, 1, GL_FALSE, modelview_matrix.data());
+	
     while (!glfwWindowShouldClose(window))
     {
         float ratio;

@@ -12,6 +12,8 @@ class Window{
 	int height;
 	bool create();
 	bool shouldClose();
+	Window();
+	virtual ~Window();
 
 
 };

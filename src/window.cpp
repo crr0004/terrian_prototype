@@ -1,8 +1,8 @@
 #include "window.h"
 
-public Window::Window(){
+Window::Window(){
 }
 
-public ~Window::Window(){
+Window::~Window(){
 
 }

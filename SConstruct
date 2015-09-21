@@ -3,7 +3,7 @@ def expandPath(path):
 def getLibsPath():
 	return [expandPath("libs")]
 def getEigenPath():
-	return "./eigen3-mirror/Eigen/".split(" ")
+	return expandPath("./eigen3-mirror/").split(" ")
 def getIncludePath():
 	path = [expandPath("src/headers"), expandPath("include")]
 	path.append(getEigenPath())
