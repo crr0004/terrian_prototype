@@ -1,0 +1,25 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CreateWindow	main.cpp	/^static GLFWwindow* CreateWindow(){$/;"	kind:f	line:100	file:	signature:()
+Window	window.cpp	/^Window::Window(){$/;"	kind:f	line:3	class:Window	signature:()
+Window::Window	window.cpp	/^Window::Window(){$/;"	kind:f	line:3	class:Window	signature:()
+Window::~Window	window.cpp	/^Window::~Window(){$/;"	kind:f	line:6	class:Window	signature:()
+aspect_ratio	main.cpp	/^static GLfloat aspect_ratio = 4.0f\/3.0f;$/;"	kind:v	line:154	file:
+error_callback	main.cpp	/^static void error_callback(int error, const char* description)$/;"	kind:f	line:9	file:	signature:(int error, const char* description)
+key_callback	main.cpp	/^static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)$/;"	kind:f	line:14	file:	signature:(GLFWwindow* window, int key, int scancode, int action, int mods)
+main	main.cpp	/^int main(void)$/;"	kind:f	line:161	signature:(void)
+main.cpp	main.cpp	1;"	kind:F	line:1
+make_shader	main.cpp	/^static GLuint make_shader(GLenum type, const char* text)$/;"	kind:f	line:21	file:	signature:(GLenum type, const char* text)
+make_shader_program	main.cpp	/^static GLuint make_shader_program(const char* vs_text, const char* fs_text)$/;"	kind:f	line:48	file:	signature:(const char* vs_text, const char* fs_text)
+modelview_matrix	main.cpp	/^static Eigen::Matrix<float, 4, 4, Eigen::RowMajor> modelview_matrix;$/;"	kind:v	line:159	file:
+projection_matrix	main.cpp	/^static Eigen::Matrix<float, 4, 4, Eigen::RowMajor> projection_matrix;$/;"	kind:v	line:158	file:
+readfile	main.cpp	/^static char* readfile(const char* filePath){$/;"	kind:f	line:129	file:	signature:(const char* filePath)
+view_angle	main.cpp	/^static GLfloat view_angle = 45.0f;$/;"	kind:v	line:153	file:
+window.cpp	window.cpp	1;"	kind:F	line:1
+z_far	main.cpp	/^static GLfloat z_far = 100.f;$/;"	kind:v	line:156	file:
+z_near	main.cpp	/^static GLfloat z_near = 1.0f;$/;"	kind:v	line:155	file:
+~Window	window.cpp	/^Window::~Window(){$/;"	kind:f	line:6	class:Window	signature:()

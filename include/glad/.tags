@@ -1,0 +1,1830 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+APIENTRY	glad.h	19;"	kind:d	line:19
+APIENTRYP	glad.h	22;"	kind:d	line:22
+GLAD_GL_VERSION_1_0	glad.h	/^GLAPI int GLAD_GL_VERSION_1_0;$/;"	kind:v	line:935
+GLAD_GL_VERSION_1_1	glad.h	/^GLAPI int GLAD_GL_VERSION_1_1;$/;"	kind:v	line:1083
+GLAD_GL_VERSION_1_2	glad.h	/^GLAPI int GLAD_GL_VERSION_1_2;$/;"	kind:v	line:1126
+GLAD_GL_VERSION_1_3	glad.h	/^GLAPI int GLAD_GL_VERSION_1_3;$/;"	kind:v	line:1142
+GLAD_GL_VERSION_1_4	glad.h	/^GLAPI int GLAD_GL_VERSION_1_4;$/;"	kind:v	line:1173
+GLAD_GL_VERSION_1_5	glad.h	/^GLAPI int GLAD_GL_VERSION_1_5;$/;"	kind:v	line:1204
+GLAD_GL_VERSION_2_0	glad.h	/^GLAPI int GLAD_GL_VERSION_2_0;$/;"	kind:v	line:1265
+GLAD_GL_VERSION_2_1	glad.h	/^GLAPI int GLAD_GL_VERSION_2_1;$/;"	kind:v	line:1548
+GLAD_GL_VERSION_3_0	glad.h	/^GLAPI int GLAD_GL_VERSION_3_0;$/;"	kind:v	line:1570
+GLAD_GL_VERSION_3_1	glad.h	/^GLAPI int GLAD_GL_VERSION_3_1;$/;"	kind:v	line:1826
+GLAD_GL_VERSION_3_2	glad.h	/^GLAPI int GLAD_GL_VERSION_3_2;$/;"	kind:v	line:1866
+GLADloadproc	glad.h	/^typedef void* (* GLADloadproc)(const char *name);$/;"	kind:t	line:36
+GLAPI	glad.h	43;"	kind:d	line:43
+GLAPI	glad.h	45;"	kind:d	line:45
+GLAPI	glad.h	49;"	kind:d	line:49
+GLAPI	glad.h	51;"	kind:d	line:51
+GLAPI	glad.h	55;"	kind:d	line:55
+GLAPI	glad.h	57;"	kind:d	line:57
+GLAPI	glad.h	60;"	kind:d	line:60
+GLDEBUGPROC	glad.h	/^typedef void (APIENTRY *GLDEBUGPROC)(GLenum source,GLenum type,GLuint id,GLenum severity,GLsizei length,const GLchar *message,const void *userParam);$/;"	kind:t	line:142
+GLDEBUGPROCAMD	glad.h	/^typedef void (APIENTRY *GLDEBUGPROCAMD)(GLuint id,GLenum category,GLenum severity,GLsizei length,const GLchar *message,void *userParam);$/;"	kind:t	line:145
+GLDEBUGPROCARB	glad.h	/^typedef void (APIENTRY *GLDEBUGPROCARB)(GLenum source,GLenum type,GLuint id,GLenum severity,GLsizei length,const GLchar *message,const void *userParam);$/;"	kind:t	line:143
+GLDEBUGPROCKHR	glad.h	/^typedef void (APIENTRY *GLDEBUGPROCKHR)(GLenum source,GLenum type,GLuint id,GLenum severity,GLsizei length,const GLchar *message,const void *userParam);$/;"	kind:t	line:144
+GLEXT_64_TYPES_DEFINED	glad.h	69;"	kind:d	line:69
+GL_ACTIVE_ATTRIBUTES	glad.h	565;"	kind:d	line:565
+GL_ACTIVE_ATTRIBUTE_MAX_LENGTH	glad.h	566;"	kind:d	line:566
+GL_ACTIVE_TEXTURE	glad.h	416;"	kind:d	line:416
+GL_ACTIVE_UNIFORMS	glad.h	562;"	kind:d	line:562
+GL_ACTIVE_UNIFORM_BLOCKS	glad.h	851;"	kind:d	line:851
+GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH	glad.h	850;"	kind:d	line:850
+GL_ACTIVE_UNIFORM_MAX_LENGTH	glad.h	563;"	kind:d	line:563
+GL_ALIASED_LINE_WIDTH_RANGE	glad.h	383;"	kind:d	line:383
+GL_ALPHA	glad.h	307;"	kind:d	line:307
+GL_ALREADY_SIGNALED	glad.h	906;"	kind:d	line:906
+GL_ALWAYS	glad.h	167;"	kind:d	line:167
+GL_AND	glad.h	283;"	kind:d	line:283
+GL_AND_INVERTED	glad.h	286;"	kind:d	line:286
+GL_AND_REVERSE	glad.h	284;"	kind:d	line:284
+GL_ARRAY_BUFFER	glad.h	474;"	kind:d	line:474
+GL_ARRAY_BUFFER_BINDING	glad.h	476;"	kind:d	line:476
+GL_ATTACHED_SHADERS	glad.h	561;"	kind:d	line:561
+GL_BACK	glad.h	185;"	kind:d	line:185
+GL_BACK_LEFT	glad.h	182;"	kind:d	line:182
+GL_BACK_RIGHT	glad.h	183;"	kind:d	line:183
+GL_BGR	glad.h	370;"	kind:d	line:370
+GL_BGRA	glad.h	371;"	kind:d	line:371
+GL_BGRA_INTEGER	glad.h	664;"	kind:d	line:664
+GL_BGR_INTEGER	glad.h	663;"	kind:d	line:663
+GL_BLEND	glad.h	226;"	kind:d	line:226
+GL_BLEND_DST	glad.h	224;"	kind:d	line:224
+GL_BLEND_DST_ALPHA	glad.h	445;"	kind:d	line:445
+GL_BLEND_DST_RGB	glad.h	443;"	kind:d	line:443
+GL_BLEND_EQUATION_ALPHA	glad.h	525;"	kind:d	line:525
+GL_BLEND_EQUATION_RGB	glad.h	496;"	kind:d	line:496
+GL_BLEND_SRC	glad.h	225;"	kind:d	line:225
+GL_BLEND_SRC_ALPHA	glad.h	446;"	kind:d	line:446
+GL_BLEND_SRC_RGB	glad.h	444;"	kind:d	line:444
+GL_BLUE	glad.h	306;"	kind:d	line:306
+GL_BLUE_INTEGER	glad.h	660;"	kind:d	line:660
+GL_BOOL	glad.h	543;"	kind:d	line:543
+GL_BOOL_VEC2	glad.h	544;"	kind:d	line:544
+GL_BOOL_VEC3	glad.h	545;"	kind:d	line:545
+GL_BOOL_VEC4	glad.h	546;"	kind:d	line:546
+GL_BUFFER_ACCESS	glad.h	482;"	kind:d	line:482
+GL_BUFFER_ACCESS_FLAGS	glad.h	689;"	kind:d	line:689
+GL_BUFFER_MAPPED	glad.h	483;"	kind:d	line:483
+GL_BUFFER_MAP_LENGTH	glad.h	690;"	kind:d	line:690
+GL_BUFFER_MAP_OFFSET	glad.h	691;"	kind:d	line:691
+GL_BUFFER_MAP_POINTER	glad.h	484;"	kind:d	line:484
+GL_BUFFER_SIZE	glad.h	468;"	kind:d	line:468
+GL_BUFFER_USAGE	glad.h	469;"	kind:d	line:469
+GL_BYTE	glad.h	274;"	kind:d	line:274
+GL_CCW	glad.h	195;"	kind:d	line:195
+GL_CLAMP_READ_COLOR	glad.h	617;"	kind:d	line:617
+GL_CLAMP_TO_BORDER	glad.h	442;"	kind:d	line:442
+GL_CLAMP_TO_EDGE	glad.h	374;"	kind:d	line:374
+GL_CLEAR	glad.h	282;"	kind:d	line:282
+GL_CLIP_DISTANCE0	glad.h	593;"	kind:d	line:593
+GL_CLIP_DISTANCE1	glad.h	594;"	kind:d	line:594
+GL_CLIP_DISTANCE2	glad.h	595;"	kind:d	line:595
+GL_CLIP_DISTANCE3	glad.h	596;"	kind:d	line:596
+GL_CLIP_DISTANCE4	glad.h	597;"	kind:d	line:597
+GL_CLIP_DISTANCE5	glad.h	598;"	kind:d	line:598
+GL_CLIP_DISTANCE6	glad.h	599;"	kind:d	line:599
+GL_CLIP_DISTANCE7	glad.h	600;"	kind:d	line:600
+GL_COLOR	glad.h	299;"	kind:d	line:299
+GL_COLOR_ATTACHMENT0	glad.h	737;"	kind:d	line:737
+GL_COLOR_ATTACHMENT1	glad.h	738;"	kind:d	line:738
+GL_COLOR_ATTACHMENT10	glad.h	747;"	kind:d	line:747
+GL_COLOR_ATTACHMENT11	glad.h	748;"	kind:d	line:748
+GL_COLOR_ATTACHMENT12	glad.h	749;"	kind:d	line:749
+GL_COLOR_ATTACHMENT13	glad.h	750;"	kind:d	line:750
+GL_COLOR_ATTACHMENT14	glad.h	751;"	kind:d	line:751
+GL_COLOR_ATTACHMENT15	glad.h	752;"	kind:d	line:752
+GL_COLOR_ATTACHMENT2	glad.h	739;"	kind:d	line:739
+GL_COLOR_ATTACHMENT3	glad.h	740;"	kind:d	line:740
+GL_COLOR_ATTACHMENT4	glad.h	741;"	kind:d	line:741
+GL_COLOR_ATTACHMENT5	glad.h	742;"	kind:d	line:742
+GL_COLOR_ATTACHMENT6	glad.h	743;"	kind:d	line:743
+GL_COLOR_ATTACHMENT7	glad.h	744;"	kind:d	line:744
+GL_COLOR_ATTACHMENT8	glad.h	745;"	kind:d	line:745
+GL_COLOR_ATTACHMENT9	glad.h	746;"	kind:d	line:746
+GL_COLOR_BUFFER_BIT	glad.h	150;"	kind:d	line:150
+GL_COLOR_CLEAR_VALUE	glad.h	233;"	kind:d	line:233
+GL_COLOR_LOGIC_OP	glad.h	228;"	kind:d	line:228
+GL_COLOR_WRITEMASK	glad.h	234;"	kind:d	line:234
+GL_COMPARE_REF_TO_TEXTURE	glad.h	592;"	kind:d	line:592
+GL_COMPILE_STATUS	glad.h	557;"	kind:d	line:557
+GL_COMPRESSED_RED	glad.h	606;"	kind:d	line:606
+GL_COMPRESSED_RED_RGTC1	glad.h	781;"	kind:d	line:781
+GL_COMPRESSED_RG	glad.h	607;"	kind:d	line:607
+GL_COMPRESSED_RGB	glad.h	435;"	kind:d	line:435
+GL_COMPRESSED_RGBA	glad.h	436;"	kind:d	line:436
+GL_COMPRESSED_RG_RGTC2	glad.h	783;"	kind:d	line:783
+GL_COMPRESSED_SIGNED_RED_RGTC1	glad.h	782;"	kind:d	line:782
+GL_COMPRESSED_SIGNED_RG_RGTC2	glad.h	784;"	kind:d	line:784
+GL_COMPRESSED_SRGB	glad.h	590;"	kind:d	line:590
+GL_COMPRESSED_SRGB_ALPHA	glad.h	591;"	kind:d	line:591
+GL_COMPRESSED_TEXTURE_FORMATS	glad.h	441;"	kind:d	line:441
+GL_CONDITION_SATISFIED	glad.h	908;"	kind:d	line:908
+GL_CONSTANT_ALPHA	glad.h	466;"	kind:d	line:466
+GL_CONSTANT_COLOR	glad.h	464;"	kind:d	line:464
+GL_CONTEXT_COMPATIBILITY_PROFILE_BIT	glad.h	870;"	kind:d	line:870
+GL_CONTEXT_CORE_PROFILE_BIT	glad.h	869;"	kind:d	line:869
+GL_CONTEXT_FLAGS	glad.h	605;"	kind:d	line:605
+GL_CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT	glad.h	608;"	kind:d	line:608
+GL_CONTEXT_PROFILE_MASK	glad.h	890;"	kind:d	line:890
+GL_COPY	glad.h	285;"	kind:d	line:285
+GL_COPY_INVERTED	glad.h	294;"	kind:d	line:294
+GL_COPY_READ_BUFFER	glad.h	834;"	kind:d	line:834
+GL_COPY_WRITE_BUFFER	glad.h	835;"	kind:d	line:835
+GL_CULL_FACE	glad.h	205;"	kind:d	line:205
+GL_CULL_FACE_MODE	glad.h	206;"	kind:d	line:206
+GL_CURRENT_PROGRAM	glad.h	569;"	kind:d	line:569
+GL_CURRENT_QUERY	glad.h	471;"	kind:d	line:471
+GL_CURRENT_VERTEX_ATTRIB	glad.h	501;"	kind:d	line:501
+GL_CW	glad.h	194;"	kind:d	line:194
+GL_DECR	glad.h	316;"	kind:d	line:316
+GL_DECR_WRAP	glad.h	455;"	kind:d	line:455
+GL_DELETE_STATUS	glad.h	556;"	kind:d	line:556
+GL_DEPTH	glad.h	300;"	kind:d	line:300
+GL_DEPTH24_STENCIL8	glad.h	710;"	kind:d	line:710
+GL_DEPTH32F_STENCIL8	glad.h	693;"	kind:d	line:693
+GL_DEPTH_ATTACHMENT	glad.h	753;"	kind:d	line:753
+GL_DEPTH_BUFFER_BIT	glad.h	148;"	kind:d	line:148
+GL_DEPTH_CLAMP	glad.h	891;"	kind:d	line:891
+GL_DEPTH_CLEAR_VALUE	glad.h	211;"	kind:d	line:211
+GL_DEPTH_COMPONENT	glad.h	303;"	kind:d	line:303
+GL_DEPTH_COMPONENT16	glad.h	448;"	kind:d	line:448
+GL_DEPTH_COMPONENT24	glad.h	449;"	kind:d	line:449
+GL_DEPTH_COMPONENT32	glad.h	450;"	kind:d	line:450
+GL_DEPTH_COMPONENT32F	glad.h	692;"	kind:d	line:692
+GL_DEPTH_FUNC	glad.h	212;"	kind:d	line:212
+GL_DEPTH_RANGE	glad.h	208;"	kind:d	line:208
+GL_DEPTH_STENCIL	glad.h	708;"	kind:d	line:708
+GL_DEPTH_STENCIL_ATTACHMENT	glad.h	706;"	kind:d	line:706
+GL_DEPTH_TEST	glad.h	209;"	kind:d	line:209
+GL_DEPTH_WRITEMASK	glad.h	210;"	kind:d	line:210
+GL_DITHER	glad.h	223;"	kind:d	line:223
+GL_DONT_CARE	glad.h	271;"	kind:d	line:271
+GL_DOUBLE	glad.h	281;"	kind:d	line:281
+GL_DOUBLEBUFFER	glad.h	235;"	kind:d	line:235
+GL_DRAW_BUFFER	glad.h	229;"	kind:d	line:229
+GL_DRAW_BUFFER0	glad.h	509;"	kind:d	line:509
+GL_DRAW_BUFFER1	glad.h	510;"	kind:d	line:510
+GL_DRAW_BUFFER10	glad.h	519;"	kind:d	line:519
+GL_DRAW_BUFFER11	glad.h	520;"	kind:d	line:520
+GL_DRAW_BUFFER12	glad.h	521;"	kind:d	line:521
+GL_DRAW_BUFFER13	glad.h	522;"	kind:d	line:522
+GL_DRAW_BUFFER14	glad.h	523;"	kind:d	line:523
+GL_DRAW_BUFFER15	glad.h	524;"	kind:d	line:524
+GL_DRAW_BUFFER2	glad.h	511;"	kind:d	line:511
+GL_DRAW_BUFFER3	glad.h	512;"	kind:d	line:512
+GL_DRAW_BUFFER4	glad.h	513;"	kind:d	line:513
+GL_DRAW_BUFFER5	glad.h	514;"	kind:d	line:514
+GL_DRAW_BUFFER6	glad.h	515;"	kind:d	line:515
+GL_DRAW_BUFFER7	glad.h	516;"	kind:d	line:516
+GL_DRAW_BUFFER8	glad.h	517;"	kind:d	line:517
+GL_DRAW_BUFFER9	glad.h	518;"	kind:d	line:518
+GL_DRAW_FRAMEBUFFER	glad.h	722;"	kind:d	line:722
+GL_DRAW_FRAMEBUFFER_BINDING	glad.h	719;"	kind:d	line:719
+GL_DST_ALPHA	glad.h	174;"	kind:d	line:174
+GL_DST_COLOR	glad.h	176;"	kind:d	line:176
+GL_DYNAMIC_COPY	glad.h	493;"	kind:d	line:493
+GL_DYNAMIC_DRAW	glad.h	491;"	kind:d	line:491
+GL_DYNAMIC_READ	glad.h	492;"	kind:d	line:492
+GL_ELEMENT_ARRAY_BUFFER	glad.h	475;"	kind:d	line:475
+GL_ELEMENT_ARRAY_BUFFER_BINDING	glad.h	477;"	kind:d	line:477
+GL_EQUAL	glad.h	162;"	kind:d	line:162
+GL_EQUIV	glad.h	291;"	kind:d	line:291
+GL_EXTENSIONS	glad.h	320;"	kind:d	line:320
+GL_FALSE	glad.h	151;"	kind:d	line:151
+GL_FASTEST	glad.h	272;"	kind:d	line:272
+GL_FILL	glad.h	312;"	kind:d	line:312
+GL_FIRST_VERTEX_CONVENTION	glad.h	893;"	kind:d	line:893
+GL_FIXED_ONLY	glad.h	618;"	kind:d	line:618
+GL_FLOAT	glad.h	280;"	kind:d	line:280
+GL_FLOAT_32_UNSIGNED_INT_24_8_REV	glad.h	694;"	kind:d	line:694
+GL_FLOAT_MAT2	glad.h	547;"	kind:d	line:547
+GL_FLOAT_MAT2x3	glad.h	580;"	kind:d	line:580
+GL_FLOAT_MAT2x4	glad.h	581;"	kind:d	line:581
+GL_FLOAT_MAT3	glad.h	548;"	kind:d	line:548
+GL_FLOAT_MAT3x2	glad.h	582;"	kind:d	line:582
+GL_FLOAT_MAT3x4	glad.h	583;"	kind:d	line:583
+GL_FLOAT_MAT4	glad.h	549;"	kind:d	line:549
+GL_FLOAT_MAT4x2	glad.h	584;"	kind:d	line:584
+GL_FLOAT_MAT4x3	glad.h	585;"	kind:d	line:585
+GL_FLOAT_VEC2	glad.h	537;"	kind:d	line:537
+GL_FLOAT_VEC3	glad.h	538;"	kind:d	line:538
+GL_FLOAT_VEC4	glad.h	539;"	kind:d	line:539
+GL_FRAGMENT_SHADER	glad.h	529;"	kind:d	line:529
+GL_FRAGMENT_SHADER_DERIVATIVE_HINT	glad.h	567;"	kind:d	line:567
+GL_FRAMEBUFFER	glad.h	755;"	kind:d	line:755
+GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE	glad.h	701;"	kind:d	line:701
+GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE	glad.h	700;"	kind:d	line:700
+GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING	glad.h	696;"	kind:d	line:696
+GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE	glad.h	697;"	kind:d	line:697
+GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE	glad.h	702;"	kind:d	line:702
+GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE	glad.h	699;"	kind:d	line:699
+GL_FRAMEBUFFER_ATTACHMENT_LAYERED	glad.h	877;"	kind:d	line:877
+GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME	glad.h	726;"	kind:d	line:726
+GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE	glad.h	725;"	kind:d	line:725
+GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE	glad.h	698;"	kind:d	line:698
+GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE	glad.h	703;"	kind:d	line:703
+GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE	glad.h	728;"	kind:d	line:728
+GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER	glad.h	729;"	kind:d	line:729
+GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL	glad.h	727;"	kind:d	line:727
+GL_FRAMEBUFFER_BINDING	glad.h	718;"	kind:d	line:718
+GL_FRAMEBUFFER_COMPLETE	glad.h	730;"	kind:d	line:730
+GL_FRAMEBUFFER_DEFAULT	glad.h	704;"	kind:d	line:704
+GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT	glad.h	731;"	kind:d	line:731
+GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER	glad.h	733;"	kind:d	line:733
+GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS	glad.h	878;"	kind:d	line:878
+GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT	glad.h	732;"	kind:d	line:732
+GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE	glad.h	770;"	kind:d	line:770
+GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER	glad.h	734;"	kind:d	line:734
+GL_FRAMEBUFFER_SRGB	glad.h	773;"	kind:d	line:773
+GL_FRAMEBUFFER_UNDEFINED	glad.h	705;"	kind:d	line:705
+GL_FRAMEBUFFER_UNSUPPORTED	glad.h	735;"	kind:d	line:735
+GL_FRONT	glad.h	184;"	kind:d	line:184
+GL_FRONT_AND_BACK	glad.h	188;"	kind:d	line:188
+GL_FRONT_FACE	glad.h	207;"	kind:d	line:207
+GL_FRONT_LEFT	glad.h	180;"	kind:d	line:180
+GL_FRONT_RIGHT	glad.h	181;"	kind:d	line:181
+GL_FUNC_ADD	glad.h	459;"	kind:d	line:459
+GL_FUNC_REVERSE_SUBTRACT	glad.h	461;"	kind:d	line:461
+GL_FUNC_SUBTRACT	glad.h	460;"	kind:d	line:460
+GL_GEOMETRY_INPUT_TYPE	glad.h	881;"	kind:d	line:881
+GL_GEOMETRY_OUTPUT_TYPE	glad.h	882;"	kind:d	line:882
+GL_GEOMETRY_SHADER	glad.h	879;"	kind:d	line:879
+GL_GEOMETRY_VERTICES_OUT	glad.h	880;"	kind:d	line:880
+GL_GEQUAL	glad.h	166;"	kind:d	line:166
+GL_GREATER	glad.h	164;"	kind:d	line:164
+GL_GREEN	glad.h	305;"	kind:d	line:305
+GL_GREEN_INTEGER	glad.h	659;"	kind:d	line:659
+GL_HALF_FLOAT	glad.h	774;"	kind:d	line:774
+GL_INCR	glad.h	315;"	kind:d	line:315
+GL_INCR_WRAP	glad.h	454;"	kind:d	line:454
+GL_INDEX	glad.h	772;"	kind:d	line:772
+GL_INFO_LOG_LENGTH	glad.h	560;"	kind:d	line:560
+GL_INT	glad.h	278;"	kind:d	line:278
+GL_INTERLEAVED_ATTRIBS	glad.h	642;"	kind:d	line:642
+GL_INT_SAMPLER_1D	glad.h	673;"	kind:d	line:673
+GL_INT_SAMPLER_1D_ARRAY	glad.h	677;"	kind:d	line:677
+GL_INT_SAMPLER_2D	glad.h	674;"	kind:d	line:674
+GL_INT_SAMPLER_2D_ARRAY	glad.h	678;"	kind:d	line:678
+GL_INT_SAMPLER_2D_MULTISAMPLE	glad.h	925;"	kind:d	line:925
+GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY	glad.h	928;"	kind:d	line:928
+GL_INT_SAMPLER_2D_RECT	glad.h	811;"	kind:d	line:811
+GL_INT_SAMPLER_3D	glad.h	675;"	kind:d	line:675
+GL_INT_SAMPLER_BUFFER	glad.h	812;"	kind:d	line:812
+GL_INT_SAMPLER_CUBE	glad.h	676;"	kind:d	line:676
+GL_INT_VEC2	glad.h	540;"	kind:d	line:540
+GL_INT_VEC3	glad.h	541;"	kind:d	line:541
+GL_INT_VEC4	glad.h	542;"	kind:d	line:542
+GL_INVALID_ENUM	glad.h	190;"	kind:d	line:190
+GL_INVALID_FRAMEBUFFER_OPERATION	glad.h	695;"	kind:d	line:695
+GL_INVALID_INDEX	glad.h	868;"	kind:d	line:868
+GL_INVALID_OPERATION	glad.h	192;"	kind:d	line:192
+GL_INVALID_VALUE	glad.h	191;"	kind:d	line:191
+GL_INVERT	glad.h	292;"	kind:d	line:292
+GL_KEEP	glad.h	313;"	kind:d	line:313
+GL_LAST_VERTEX_CONVENTION	glad.h	894;"	kind:d	line:894
+GL_LEFT	glad.h	186;"	kind:d	line:186
+GL_LEQUAL	glad.h	163;"	kind:d	line:163
+GL_LESS	glad.h	161;"	kind:d	line:161
+GL_LINE	glad.h	311;"	kind:d	line:311
+GL_LINEAR	glad.h	322;"	kind:d	line:322
+GL_LINEAR_MIPMAP_LINEAR	glad.h	326;"	kind:d	line:326
+GL_LINEAR_MIPMAP_NEAREST	glad.h	324;"	kind:d	line:324
+GL_LINES	glad.h	154;"	kind:d	line:154
+GL_LINES_ADJACENCY	glad.h	871;"	kind:d	line:871
+GL_LINE_LOOP	glad.h	155;"	kind:d	line:155
+GL_LINE_SMOOTH	glad.h	199;"	kind:d	line:199
+GL_LINE_SMOOTH_HINT	glad.h	237;"	kind:d	line:237
+GL_LINE_STRIP	glad.h	156;"	kind:d	line:156
+GL_LINE_STRIP_ADJACENCY	glad.h	872;"	kind:d	line:872
+GL_LINE_WIDTH	glad.h	200;"	kind:d	line:200
+GL_LINE_WIDTH_GRANULARITY	glad.h	202;"	kind:d	line:202
+GL_LINE_WIDTH_RANGE	glad.h	201;"	kind:d	line:201
+GL_LINK_STATUS	glad.h	558;"	kind:d	line:558
+GL_LOGIC_OP_MODE	glad.h	227;"	kind:d	line:227
+GL_LOWER_LEFT	glad.h	571;"	kind:d	line:571
+GL_MAJOR_VERSION	glad.h	602;"	kind:d	line:602
+GL_MAP_FLUSH_EXPLICIT_BIT	glad.h	779;"	kind:d	line:779
+GL_MAP_INVALIDATE_BUFFER_BIT	glad.h	778;"	kind:d	line:778
+GL_MAP_INVALIDATE_RANGE_BIT	glad.h	777;"	kind:d	line:777
+GL_MAP_READ_BIT	glad.h	775;"	kind:d	line:775
+GL_MAP_UNSYNCHRONIZED_BIT	glad.h	780;"	kind:d	line:780
+GL_MAP_WRITE_BIT	glad.h	776;"	kind:d	line:776
+GL_MAX	glad.h	463;"	kind:d	line:463
+GL_MAX_3D_TEXTURE_SIZE	glad.h	362;"	kind:d	line:362
+GL_MAX_ARRAY_TEXTURE_LAYERS	glad.h	614;"	kind:d	line:614
+GL_MAX_CLIP_DISTANCES	glad.h	601;"	kind:d	line:601
+GL_MAX_COLOR_ATTACHMENTS	glad.h	736;"	kind:d	line:736
+GL_MAX_COLOR_TEXTURE_SAMPLES	glad.h	930;"	kind:d	line:930
+GL_MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS	glad.h	848;"	kind:d	line:848
+GL_MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS	glad.h	847;"	kind:d	line:847
+GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS	glad.h	535;"	kind:d	line:535
+GL_MAX_COMBINED_UNIFORM_BLOCKS	glad.h	843;"	kind:d	line:843
+GL_MAX_COMBINED_VERTEX_UNIFORM_COMPONENTS	glad.h	846;"	kind:d	line:846
+GL_MAX_CUBE_MAP_TEXTURE_SIZE	glad.h	434;"	kind:d	line:434
+GL_MAX_DEPTH_TEXTURE_SAMPLES	glad.h	931;"	kind:d	line:931
+GL_MAX_DRAW_BUFFERS	glad.h	508;"	kind:d	line:508
+GL_MAX_ELEMENTS_INDICES	glad.h	373;"	kind:d	line:373
+GL_MAX_ELEMENTS_VERTICES	glad.h	372;"	kind:d	line:372
+GL_MAX_FRAGMENT_INPUT_COMPONENTS	glad.h	889;"	kind:d	line:889
+GL_MAX_FRAGMENT_UNIFORM_BLOCKS	glad.h	842;"	kind:d	line:842
+GL_MAX_FRAGMENT_UNIFORM_COMPONENTS	glad.h	531;"	kind:d	line:531
+GL_MAX_GEOMETRY_INPUT_COMPONENTS	glad.h	887;"	kind:d	line:887
+GL_MAX_GEOMETRY_OUTPUT_COMPONENTS	glad.h	888;"	kind:d	line:888
+GL_MAX_GEOMETRY_OUTPUT_VERTICES	glad.h	884;"	kind:d	line:884
+GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS	glad.h	876;"	kind:d	line:876
+GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS	glad.h	885;"	kind:d	line:885
+GL_MAX_GEOMETRY_UNIFORM_BLOCKS	glad.h	841;"	kind:d	line:841
+GL_MAX_GEOMETRY_UNIFORM_COMPONENTS	glad.h	883;"	kind:d	line:883
+GL_MAX_INTEGER_SAMPLES	glad.h	932;"	kind:d	line:932
+GL_MAX_PROGRAM_TEXEL_OFFSET	glad.h	616;"	kind:d	line:616
+GL_MAX_RECTANGLE_TEXTURE_SIZE	glad.h	822;"	kind:d	line:822
+GL_MAX_RENDERBUFFER_SIZE	glad.h	707;"	kind:d	line:707
+GL_MAX_SAMPLES	glad.h	771;"	kind:d	line:771
+GL_MAX_SAMPLE_MASK_WORDS	glad.h	915;"	kind:d	line:915
+GL_MAX_SERVER_WAIT_TIMEOUT	glad.h	897;"	kind:d	line:897
+GL_MAX_TEXTURE_BUFFER_SIZE	glad.h	816;"	kind:d	line:816
+GL_MAX_TEXTURE_IMAGE_UNITS	glad.h	528;"	kind:d	line:528
+GL_MAX_TEXTURE_LOD_BIAS	glad.h	452;"	kind:d	line:452
+GL_MAX_TEXTURE_SIZE	glad.h	251;"	kind:d	line:251
+GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS	glad.h	640;"	kind:d	line:640
+GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS	glad.h	641;"	kind:d	line:641
+GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS	glad.h	633;"	kind:d	line:633
+GL_MAX_UNIFORM_BLOCK_SIZE	glad.h	845;"	kind:d	line:845
+GL_MAX_UNIFORM_BUFFER_BINDINGS	glad.h	844;"	kind:d	line:844
+GL_MAX_VARYING_COMPONENTS	glad.h	619;"	kind:d	line:619
+GL_MAX_VARYING_FLOATS	glad.h	533;"	kind:d	line:533
+GL_MAX_VERTEX_ATTRIBS	glad.h	526;"	kind:d	line:526
+GL_MAX_VERTEX_OUTPUT_COMPONENTS	glad.h	886;"	kind:d	line:886
+GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS	glad.h	534;"	kind:d	line:534
+GL_MAX_VERTEX_UNIFORM_BLOCKS	glad.h	840;"	kind:d	line:840
+GL_MAX_VERTEX_UNIFORM_COMPONENTS	glad.h	532;"	kind:d	line:532
+GL_MAX_VIEWPORT_DIMS	glad.h	252;"	kind:d	line:252
+GL_MIN	glad.h	462;"	kind:d	line:462
+GL_MINOR_VERSION	glad.h	603;"	kind:d	line:603
+GL_MIN_PROGRAM_TEXEL_OFFSET	glad.h	615;"	kind:d	line:615
+GL_MIRRORED_REPEAT	glad.h	451;"	kind:d	line:451
+GL_MULTISAMPLE	glad.h	417;"	kind:d	line:417
+GL_NAND	glad.h	296;"	kind:d	line:296
+GL_NEAREST	glad.h	321;"	kind:d	line:321
+GL_NEAREST_MIPMAP_LINEAR	glad.h	325;"	kind:d	line:325
+GL_NEAREST_MIPMAP_NEAREST	glad.h	323;"	kind:d	line:323
+GL_NEVER	glad.h	160;"	kind:d	line:160
+GL_NICEST	glad.h	273;"	kind:d	line:273
+GL_NONE	glad.h	179;"	kind:d	line:179
+GL_NOOP	glad.h	287;"	kind:d	line:287
+GL_NOR	glad.h	290;"	kind:d	line:290
+GL_NOTEQUAL	glad.h	165;"	kind:d	line:165
+GL_NO_ERROR	glad.h	189;"	kind:d	line:189
+GL_NUM_COMPRESSED_TEXTURE_FORMATS	glad.h	440;"	kind:d	line:440
+GL_NUM_EXTENSIONS	glad.h	604;"	kind:d	line:604
+GL_OBJECT_TYPE	glad.h	898;"	kind:d	line:898
+GL_ONE	glad.h	169;"	kind:d	line:169
+GL_ONE_MINUS_CONSTANT_ALPHA	glad.h	467;"	kind:d	line:467
+GL_ONE_MINUS_CONSTANT_COLOR	glad.h	465;"	kind:d	line:465
+GL_ONE_MINUS_DST_ALPHA	glad.h	175;"	kind:d	line:175
+GL_ONE_MINUS_DST_COLOR	glad.h	177;"	kind:d	line:177
+GL_ONE_MINUS_SRC_ALPHA	glad.h	173;"	kind:d	line:173
+GL_ONE_MINUS_SRC_COLOR	glad.h	171;"	kind:d	line:171
+GL_OR	glad.h	289;"	kind:d	line:289
+GL_OR_INVERTED	glad.h	295;"	kind:d	line:295
+GL_OR_REVERSE	glad.h	293;"	kind:d	line:293
+GL_OUT_OF_MEMORY	glad.h	193;"	kind:d	line:193
+GL_PACK_ALIGNMENT	glad.h	250;"	kind:d	line:250
+GL_PACK_IMAGE_HEIGHT	glad.h	355;"	kind:d	line:355
+GL_PACK_LSB_FIRST	glad.h	246;"	kind:d	line:246
+GL_PACK_ROW_LENGTH	glad.h	247;"	kind:d	line:247
+GL_PACK_SKIP_IMAGES	glad.h	354;"	kind:d	line:354
+GL_PACK_SKIP_PIXELS	glad.h	249;"	kind:d	line:249
+GL_PACK_SKIP_ROWS	glad.h	248;"	kind:d	line:248
+GL_PACK_SWAP_BYTES	glad.h	245;"	kind:d	line:245
+GL_PIXEL_PACK_BUFFER	glad.h	576;"	kind:d	line:576
+GL_PIXEL_PACK_BUFFER_BINDING	glad.h	578;"	kind:d	line:578
+GL_PIXEL_UNPACK_BUFFER	glad.h	577;"	kind:d	line:577
+GL_PIXEL_UNPACK_BUFFER_BINDING	glad.h	579;"	kind:d	line:579
+GL_POINT	glad.h	310;"	kind:d	line:310
+GL_POINTS	glad.h	153;"	kind:d	line:153
+GL_POINT_FADE_THRESHOLD_SIZE	glad.h	447;"	kind:d	line:447
+GL_POINT_SIZE	glad.h	196;"	kind:d	line:196
+GL_POINT_SIZE_GRANULARITY	glad.h	198;"	kind:d	line:198
+GL_POINT_SIZE_RANGE	glad.h	197;"	kind:d	line:197
+GL_POINT_SPRITE_COORD_ORIGIN	glad.h	570;"	kind:d	line:570
+GL_POLYGON_MODE	glad.h	203;"	kind:d	line:203
+GL_POLYGON_OFFSET_FACTOR	glad.h	260;"	kind:d	line:260
+GL_POLYGON_OFFSET_FILL	glad.h	259;"	kind:d	line:259
+GL_POLYGON_OFFSET_LINE	glad.h	258;"	kind:d	line:258
+GL_POLYGON_OFFSET_POINT	glad.h	257;"	kind:d	line:257
+GL_POLYGON_OFFSET_UNITS	glad.h	256;"	kind:d	line:256
+GL_POLYGON_SMOOTH	glad.h	204;"	kind:d	line:204
+GL_POLYGON_SMOOTH_HINT	glad.h	238;"	kind:d	line:238
+GL_PRIMITIVES_GENERATED	glad.h	637;"	kind:d	line:637
+GL_PRIMITIVE_RESTART	glad.h	832;"	kind:d	line:832
+GL_PRIMITIVE_RESTART_INDEX	glad.h	833;"	kind:d	line:833
+GL_PROGRAM_POINT_SIZE	glad.h	875;"	kind:d	line:875
+GL_PROVOKING_VERTEX	glad.h	895;"	kind:d	line:895
+GL_PROXY_TEXTURE_1D	glad.h	331;"	kind:d	line:331
+GL_PROXY_TEXTURE_1D_ARRAY	glad.h	621;"	kind:d	line:621
+GL_PROXY_TEXTURE_2D	glad.h	332;"	kind:d	line:332
+GL_PROXY_TEXTURE_2D_ARRAY	glad.h	623;"	kind:d	line:623
+GL_PROXY_TEXTURE_2D_MULTISAMPLE	glad.h	917;"	kind:d	line:917
+GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY	glad.h	919;"	kind:d	line:919
+GL_PROXY_TEXTURE_3D	glad.h	359;"	kind:d	line:359
+GL_PROXY_TEXTURE_CUBE_MAP	glad.h	433;"	kind:d	line:433
+GL_PROXY_TEXTURE_RECTANGLE	glad.h	821;"	kind:d	line:821
+GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION	glad.h	892;"	kind:d	line:892
+GL_QUERY_BY_REGION_NO_WAIT	glad.h	688;"	kind:d	line:688
+GL_QUERY_BY_REGION_WAIT	glad.h	687;"	kind:d	line:687
+GL_QUERY_COUNTER_BITS	glad.h	470;"	kind:d	line:470
+GL_QUERY_NO_WAIT	glad.h	686;"	kind:d	line:686
+GL_QUERY_RESULT	glad.h	472;"	kind:d	line:472
+GL_QUERY_RESULT_AVAILABLE	glad.h	473;"	kind:d	line:473
+GL_QUERY_WAIT	glad.h	685;"	kind:d	line:685
+GL_R11F_G11F_B10F	glad.h	626;"	kind:d	line:626
+GL_R16	glad.h	788;"	kind:d	line:788
+GL_R16F	glad.h	791;"	kind:d	line:791
+GL_R16I	glad.h	797;"	kind:d	line:797
+GL_R16UI	glad.h	798;"	kind:d	line:798
+GL_R16_SNORM	glad.h	827;"	kind:d	line:827
+GL_R32F	glad.h	792;"	kind:d	line:792
+GL_R32I	glad.h	799;"	kind:d	line:799
+GL_R32UI	glad.h	800;"	kind:d	line:800
+GL_R3_G3_B2	glad.h	334;"	kind:d	line:334
+GL_R8	glad.h	787;"	kind:d	line:787
+GL_R8I	glad.h	795;"	kind:d	line:795
+GL_R8UI	glad.h	796;"	kind:d	line:796
+GL_R8_SNORM	glad.h	823;"	kind:d	line:823
+GL_RASTERIZER_DISCARD	glad.h	639;"	kind:d	line:639
+GL_READ_BUFFER	glad.h	230;"	kind:d	line:230
+GL_READ_FRAMEBUFFER	glad.h	721;"	kind:d	line:721
+GL_READ_FRAMEBUFFER_BINDING	glad.h	723;"	kind:d	line:723
+GL_READ_ONLY	glad.h	479;"	kind:d	line:479
+GL_READ_WRITE	glad.h	481;"	kind:d	line:481
+GL_RED	glad.h	304;"	kind:d	line:304
+GL_RED_INTEGER	glad.h	658;"	kind:d	line:658
+GL_RENDERBUFFER	glad.h	756;"	kind:d	line:756
+GL_RENDERBUFFER_ALPHA_SIZE	glad.h	767;"	kind:d	line:767
+GL_RENDERBUFFER_BINDING	glad.h	720;"	kind:d	line:720
+GL_RENDERBUFFER_BLUE_SIZE	glad.h	766;"	kind:d	line:766
+GL_RENDERBUFFER_DEPTH_SIZE	glad.h	768;"	kind:d	line:768
+GL_RENDERBUFFER_GREEN_SIZE	glad.h	765;"	kind:d	line:765
+GL_RENDERBUFFER_HEIGHT	glad.h	758;"	kind:d	line:758
+GL_RENDERBUFFER_INTERNAL_FORMAT	glad.h	759;"	kind:d	line:759
+GL_RENDERBUFFER_RED_SIZE	glad.h	764;"	kind:d	line:764
+GL_RENDERBUFFER_SAMPLES	glad.h	724;"	kind:d	line:724
+GL_RENDERBUFFER_STENCIL_SIZE	glad.h	769;"	kind:d	line:769
+GL_RENDERBUFFER_WIDTH	glad.h	757;"	kind:d	line:757
+GL_RENDERER	glad.h	318;"	kind:d	line:318
+GL_REPEAT	glad.h	333;"	kind:d	line:333
+GL_REPLACE	glad.h	314;"	kind:d	line:314
+GL_RG	glad.h	785;"	kind:d	line:785
+GL_RG16	glad.h	790;"	kind:d	line:790
+GL_RG16F	glad.h	793;"	kind:d	line:793
+GL_RG16I	glad.h	803;"	kind:d	line:803
+GL_RG16UI	glad.h	804;"	kind:d	line:804
+GL_RG16_SNORM	glad.h	828;"	kind:d	line:828
+GL_RG32F	glad.h	794;"	kind:d	line:794
+GL_RG32I	glad.h	805;"	kind:d	line:805
+GL_RG32UI	glad.h	806;"	kind:d	line:806
+GL_RG8	glad.h	789;"	kind:d	line:789
+GL_RG8I	glad.h	801;"	kind:d	line:801
+GL_RG8UI	glad.h	802;"	kind:d	line:802
+GL_RG8_SNORM	glad.h	824;"	kind:d	line:824
+GL_RGB	glad.h	308;"	kind:d	line:308
+GL_RGB10	glad.h	338;"	kind:d	line:338
+GL_RGB10_A2	glad.h	345;"	kind:d	line:345
+GL_RGB12	glad.h	339;"	kind:d	line:339
+GL_RGB16	glad.h	340;"	kind:d	line:340
+GL_RGB16F	glad.h	612;"	kind:d	line:612
+GL_RGB16I	glad.h	655;"	kind:d	line:655
+GL_RGB16UI	glad.h	649;"	kind:d	line:649
+GL_RGB16_SNORM	glad.h	829;"	kind:d	line:829
+GL_RGB32F	glad.h	610;"	kind:d	line:610
+GL_RGB32I	glad.h	653;"	kind:d	line:653
+GL_RGB32UI	glad.h	647;"	kind:d	line:647
+GL_RGB4	glad.h	335;"	kind:d	line:335
+GL_RGB5	glad.h	336;"	kind:d	line:336
+GL_RGB5_A1	glad.h	343;"	kind:d	line:343
+GL_RGB8	glad.h	337;"	kind:d	line:337
+GL_RGB8I	glad.h	657;"	kind:d	line:657
+GL_RGB8UI	glad.h	651;"	kind:d	line:651
+GL_RGB8_SNORM	glad.h	825;"	kind:d	line:825
+GL_RGB9_E5	glad.h	628;"	kind:d	line:628
+GL_RGBA	glad.h	309;"	kind:d	line:309
+GL_RGBA12	glad.h	346;"	kind:d	line:346
+GL_RGBA16	glad.h	347;"	kind:d	line:347
+GL_RGBA16F	glad.h	611;"	kind:d	line:611
+GL_RGBA16I	glad.h	654;"	kind:d	line:654
+GL_RGBA16UI	glad.h	648;"	kind:d	line:648
+GL_RGBA16_SNORM	glad.h	830;"	kind:d	line:830
+GL_RGBA2	glad.h	341;"	kind:d	line:341
+GL_RGBA32F	glad.h	609;"	kind:d	line:609
+GL_RGBA32I	glad.h	652;"	kind:d	line:652
+GL_RGBA32UI	glad.h	646;"	kind:d	line:646
+GL_RGBA4	glad.h	342;"	kind:d	line:342
+GL_RGBA8	glad.h	344;"	kind:d	line:344
+GL_RGBA8I	glad.h	656;"	kind:d	line:656
+GL_RGBA8UI	glad.h	650;"	kind:d	line:650
+GL_RGBA8_SNORM	glad.h	826;"	kind:d	line:826
+GL_RGBA_INTEGER	glad.h	662;"	kind:d	line:662
+GL_RGB_INTEGER	glad.h	661;"	kind:d	line:661
+GL_RG_INTEGER	glad.h	786;"	kind:d	line:786
+GL_RIGHT	glad.h	187;"	kind:d	line:187
+GL_SAMPLER_1D	glad.h	550;"	kind:d	line:550
+GL_SAMPLER_1D_ARRAY	glad.h	665;"	kind:d	line:665
+GL_SAMPLER_1D_ARRAY_SHADOW	glad.h	667;"	kind:d	line:667
+GL_SAMPLER_1D_SHADOW	glad.h	554;"	kind:d	line:554
+GL_SAMPLER_2D	glad.h	551;"	kind:d	line:551
+GL_SAMPLER_2D_ARRAY	glad.h	666;"	kind:d	line:666
+GL_SAMPLER_2D_ARRAY_SHADOW	glad.h	668;"	kind:d	line:668
+GL_SAMPLER_2D_MULTISAMPLE	glad.h	924;"	kind:d	line:924
+GL_SAMPLER_2D_MULTISAMPLE_ARRAY	glad.h	927;"	kind:d	line:927
+GL_SAMPLER_2D_RECT	glad.h	808;"	kind:d	line:808
+GL_SAMPLER_2D_RECT_SHADOW	glad.h	809;"	kind:d	line:809
+GL_SAMPLER_2D_SHADOW	glad.h	555;"	kind:d	line:555
+GL_SAMPLER_3D	glad.h	552;"	kind:d	line:552
+GL_SAMPLER_BUFFER	glad.h	810;"	kind:d	line:810
+GL_SAMPLER_CUBE	glad.h	553;"	kind:d	line:553
+GL_SAMPLER_CUBE_SHADOW	glad.h	669;"	kind:d	line:669
+GL_SAMPLES	glad.h	422;"	kind:d	line:422
+GL_SAMPLES_PASSED	glad.h	494;"	kind:d	line:494
+GL_SAMPLE_ALPHA_TO_COVERAGE	glad.h	418;"	kind:d	line:418
+GL_SAMPLE_ALPHA_TO_ONE	glad.h	419;"	kind:d	line:419
+GL_SAMPLE_BUFFERS	glad.h	421;"	kind:d	line:421
+GL_SAMPLE_COVERAGE	glad.h	420;"	kind:d	line:420
+GL_SAMPLE_COVERAGE_INVERT	glad.h	424;"	kind:d	line:424
+GL_SAMPLE_COVERAGE_VALUE	glad.h	423;"	kind:d	line:423
+GL_SAMPLE_MASK	glad.h	913;"	kind:d	line:913
+GL_SAMPLE_MASK_VALUE	glad.h	914;"	kind:d	line:914
+GL_SAMPLE_POSITION	glad.h	912;"	kind:d	line:912
+GL_SCISSOR_BOX	glad.h	231;"	kind:d	line:231
+GL_SCISSOR_TEST	glad.h	232;"	kind:d	line:232
+GL_SEPARATE_ATTRIBS	glad.h	643;"	kind:d	line:643
+GL_SET	glad.h	297;"	kind:d	line:297
+GL_SHADER_SOURCE_LENGTH	glad.h	564;"	kind:d	line:564
+GL_SHADER_TYPE	glad.h	536;"	kind:d	line:536
+GL_SHADING_LANGUAGE_VERSION	glad.h	568;"	kind:d	line:568
+GL_SHORT	glad.h	276;"	kind:d	line:276
+GL_SIGNALED	glad.h	905;"	kind:d	line:905
+GL_SIGNED_NORMALIZED	glad.h	831;"	kind:d	line:831
+GL_SMOOTH_LINE_WIDTH_GRANULARITY	glad.h	382;"	kind:d	line:382
+GL_SMOOTH_LINE_WIDTH_RANGE	glad.h	381;"	kind:d	line:381
+GL_SMOOTH_POINT_SIZE_GRANULARITY	glad.h	380;"	kind:d	line:380
+GL_SMOOTH_POINT_SIZE_RANGE	glad.h	379;"	kind:d	line:379
+GL_SRC1_ALPHA	glad.h	495;"	kind:d	line:495
+GL_SRC_ALPHA	glad.h	172;"	kind:d	line:172
+GL_SRC_ALPHA_SATURATE	glad.h	178;"	kind:d	line:178
+GL_SRC_COLOR	glad.h	170;"	kind:d	line:170
+GL_SRGB	glad.h	586;"	kind:d	line:586
+GL_SRGB8	glad.h	587;"	kind:d	line:587
+GL_SRGB8_ALPHA8	glad.h	589;"	kind:d	line:589
+GL_SRGB_ALPHA	glad.h	588;"	kind:d	line:588
+GL_STATIC_COPY	glad.h	490;"	kind:d	line:490
+GL_STATIC_DRAW	glad.h	488;"	kind:d	line:488
+GL_STATIC_READ	glad.h	489;"	kind:d	line:489
+GL_STENCIL	glad.h	301;"	kind:d	line:301
+GL_STENCIL_ATTACHMENT	glad.h	754;"	kind:d	line:754
+GL_STENCIL_BACK_FAIL	glad.h	505;"	kind:d	line:505
+GL_STENCIL_BACK_FUNC	glad.h	504;"	kind:d	line:504
+GL_STENCIL_BACK_PASS_DEPTH_FAIL	glad.h	506;"	kind:d	line:506
+GL_STENCIL_BACK_PASS_DEPTH_PASS	glad.h	507;"	kind:d	line:507
+GL_STENCIL_BACK_REF	glad.h	573;"	kind:d	line:573
+GL_STENCIL_BACK_VALUE_MASK	glad.h	574;"	kind:d	line:574
+GL_STENCIL_BACK_WRITEMASK	glad.h	575;"	kind:d	line:575
+GL_STENCIL_BUFFER_BIT	glad.h	149;"	kind:d	line:149
+GL_STENCIL_CLEAR_VALUE	glad.h	214;"	kind:d	line:214
+GL_STENCIL_FAIL	glad.h	217;"	kind:d	line:217
+GL_STENCIL_FUNC	glad.h	215;"	kind:d	line:215
+GL_STENCIL_INDEX	glad.h	302;"	kind:d	line:302
+GL_STENCIL_INDEX1	glad.h	760;"	kind:d	line:760
+GL_STENCIL_INDEX16	glad.h	763;"	kind:d	line:763
+GL_STENCIL_INDEX4	glad.h	761;"	kind:d	line:761
+GL_STENCIL_INDEX8	glad.h	762;"	kind:d	line:762
+GL_STENCIL_PASS_DEPTH_FAIL	glad.h	218;"	kind:d	line:218
+GL_STENCIL_PASS_DEPTH_PASS	glad.h	219;"	kind:d	line:219
+GL_STENCIL_REF	glad.h	220;"	kind:d	line:220
+GL_STENCIL_TEST	glad.h	213;"	kind:d	line:213
+GL_STENCIL_VALUE_MASK	glad.h	216;"	kind:d	line:216
+GL_STENCIL_WRITEMASK	glad.h	221;"	kind:d	line:221
+GL_STEREO	glad.h	236;"	kind:d	line:236
+GL_STREAM_COPY	glad.h	487;"	kind:d	line:487
+GL_STREAM_DRAW	glad.h	485;"	kind:d	line:485
+GL_STREAM_READ	glad.h	486;"	kind:d	line:486
+GL_SUBPIXEL_BITS	glad.h	253;"	kind:d	line:253
+GL_SYNC_CONDITION	glad.h	899;"	kind:d	line:899
+GL_SYNC_FENCE	glad.h	902;"	kind:d	line:902
+GL_SYNC_FLAGS	glad.h	901;"	kind:d	line:901
+GL_SYNC_FLUSH_COMMANDS_BIT	glad.h	911;"	kind:d	line:911
+GL_SYNC_GPU_COMMANDS_COMPLETE	glad.h	903;"	kind:d	line:903
+GL_SYNC_STATUS	glad.h	900;"	kind:d	line:900
+GL_TEXTURE	glad.h	298;"	kind:d	line:298
+GL_TEXTURE0	glad.h	384;"	kind:d	line:384
+GL_TEXTURE1	glad.h	385;"	kind:d	line:385
+GL_TEXTURE10	glad.h	394;"	kind:d	line:394
+GL_TEXTURE11	glad.h	395;"	kind:d	line:395
+GL_TEXTURE12	glad.h	396;"	kind:d	line:396
+GL_TEXTURE13	glad.h	397;"	kind:d	line:397
+GL_TEXTURE14	glad.h	398;"	kind:d	line:398
+GL_TEXTURE15	glad.h	399;"	kind:d	line:399
+GL_TEXTURE16	glad.h	400;"	kind:d	line:400
+GL_TEXTURE17	glad.h	401;"	kind:d	line:401
+GL_TEXTURE18	glad.h	402;"	kind:d	line:402
+GL_TEXTURE19	glad.h	403;"	kind:d	line:403
+GL_TEXTURE2	glad.h	386;"	kind:d	line:386
+GL_TEXTURE20	glad.h	404;"	kind:d	line:404
+GL_TEXTURE21	glad.h	405;"	kind:d	line:405
+GL_TEXTURE22	glad.h	406;"	kind:d	line:406
+GL_TEXTURE23	glad.h	407;"	kind:d	line:407
+GL_TEXTURE24	glad.h	408;"	kind:d	line:408
+GL_TEXTURE25	glad.h	409;"	kind:d	line:409
+GL_TEXTURE26	glad.h	410;"	kind:d	line:410
+GL_TEXTURE27	glad.h	411;"	kind:d	line:411
+GL_TEXTURE28	glad.h	412;"	kind:d	line:412
+GL_TEXTURE29	glad.h	413;"	kind:d	line:413
+GL_TEXTURE3	glad.h	387;"	kind:d	line:387
+GL_TEXTURE30	glad.h	414;"	kind:d	line:414
+GL_TEXTURE31	glad.h	415;"	kind:d	line:415
+GL_TEXTURE4	glad.h	388;"	kind:d	line:388
+GL_TEXTURE5	glad.h	389;"	kind:d	line:389
+GL_TEXTURE6	glad.h	390;"	kind:d	line:390
+GL_TEXTURE7	glad.h	391;"	kind:d	line:391
+GL_TEXTURE8	glad.h	392;"	kind:d	line:392
+GL_TEXTURE9	glad.h	393;"	kind:d	line:393
+GL_TEXTURE_1D	glad.h	254;"	kind:d	line:254
+GL_TEXTURE_1D_ARRAY	glad.h	620;"	kind:d	line:620
+GL_TEXTURE_2D	glad.h	255;"	kind:d	line:255
+GL_TEXTURE_2D_ARRAY	glad.h	622;"	kind:d	line:622
+GL_TEXTURE_2D_MULTISAMPLE	glad.h	916;"	kind:d	line:916
+GL_TEXTURE_2D_MULTISAMPLE_ARRAY	glad.h	918;"	kind:d	line:918
+GL_TEXTURE_3D	glad.h	358;"	kind:d	line:358
+GL_TEXTURE_ALPHA_SIZE	glad.h	270;"	kind:d	line:270
+GL_TEXTURE_ALPHA_TYPE	glad.h	715;"	kind:d	line:715
+GL_TEXTURE_BASE_LEVEL	glad.h	377;"	kind:d	line:377
+GL_TEXTURE_BINDING_1D	glad.h	261;"	kind:d	line:261
+GL_TEXTURE_BINDING_1D_ARRAY	glad.h	624;"	kind:d	line:624
+GL_TEXTURE_BINDING_2D	glad.h	262;"	kind:d	line:262
+GL_TEXTURE_BINDING_2D_ARRAY	glad.h	625;"	kind:d	line:625
+GL_TEXTURE_BINDING_2D_MULTISAMPLE	glad.h	920;"	kind:d	line:920
+GL_TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY	glad.h	921;"	kind:d	line:921
+GL_TEXTURE_BINDING_3D	glad.h	353;"	kind:d	line:353
+GL_TEXTURE_BINDING_BUFFER	glad.h	817;"	kind:d	line:817
+GL_TEXTURE_BINDING_CUBE_MAP	glad.h	426;"	kind:d	line:426
+GL_TEXTURE_BINDING_RECTANGLE	glad.h	820;"	kind:d	line:820
+GL_TEXTURE_BLUE_SIZE	glad.h	269;"	kind:d	line:269
+GL_TEXTURE_BLUE_TYPE	glad.h	714;"	kind:d	line:714
+GL_TEXTURE_BORDER_COLOR	glad.h	266;"	kind:d	line:266
+GL_TEXTURE_BUFFER	glad.h	815;"	kind:d	line:815
+GL_TEXTURE_BUFFER_DATA_STORE_BINDING	glad.h	818;"	kind:d	line:818
+GL_TEXTURE_COMPARE_FUNC	glad.h	458;"	kind:d	line:458
+GL_TEXTURE_COMPARE_MODE	glad.h	457;"	kind:d	line:457
+GL_TEXTURE_COMPRESSED	glad.h	439;"	kind:d	line:439
+GL_TEXTURE_COMPRESSED_IMAGE_SIZE	glad.h	438;"	kind:d	line:438
+GL_TEXTURE_COMPRESSION_HINT	glad.h	437;"	kind:d	line:437
+GL_TEXTURE_CUBE_MAP	glad.h	425;"	kind:d	line:425
+GL_TEXTURE_CUBE_MAP_NEGATIVE_X	glad.h	428;"	kind:d	line:428
+GL_TEXTURE_CUBE_MAP_NEGATIVE_Y	glad.h	430;"	kind:d	line:430
+GL_TEXTURE_CUBE_MAP_NEGATIVE_Z	glad.h	432;"	kind:d	line:432
+GL_TEXTURE_CUBE_MAP_POSITIVE_X	glad.h	427;"	kind:d	line:427
+GL_TEXTURE_CUBE_MAP_POSITIVE_Y	glad.h	429;"	kind:d	line:429
+GL_TEXTURE_CUBE_MAP_POSITIVE_Z	glad.h	431;"	kind:d	line:431
+GL_TEXTURE_CUBE_MAP_SEAMLESS	glad.h	896;"	kind:d	line:896
+GL_TEXTURE_DEPTH	glad.h	360;"	kind:d	line:360
+GL_TEXTURE_DEPTH_SIZE	glad.h	456;"	kind:d	line:456
+GL_TEXTURE_DEPTH_TYPE	glad.h	716;"	kind:d	line:716
+GL_TEXTURE_FIXED_SAMPLE_LOCATIONS	glad.h	923;"	kind:d	line:923
+GL_TEXTURE_GREEN_SIZE	glad.h	268;"	kind:d	line:268
+GL_TEXTURE_GREEN_TYPE	glad.h	713;"	kind:d	line:713
+GL_TEXTURE_HEIGHT	glad.h	264;"	kind:d	line:264
+GL_TEXTURE_INTERNAL_FORMAT	glad.h	265;"	kind:d	line:265
+GL_TEXTURE_LOD_BIAS	glad.h	453;"	kind:d	line:453
+GL_TEXTURE_MAG_FILTER	glad.h	327;"	kind:d	line:327
+GL_TEXTURE_MAX_LEVEL	glad.h	378;"	kind:d	line:378
+GL_TEXTURE_MAX_LOD	glad.h	376;"	kind:d	line:376
+GL_TEXTURE_MIN_FILTER	glad.h	328;"	kind:d	line:328
+GL_TEXTURE_MIN_LOD	glad.h	375;"	kind:d	line:375
+GL_TEXTURE_RECTANGLE	glad.h	819;"	kind:d	line:819
+GL_TEXTURE_RED_SIZE	glad.h	267;"	kind:d	line:267
+GL_TEXTURE_RED_TYPE	glad.h	712;"	kind:d	line:712
+GL_TEXTURE_SAMPLES	glad.h	922;"	kind:d	line:922
+GL_TEXTURE_SHARED_SIZE	glad.h	630;"	kind:d	line:630
+GL_TEXTURE_STENCIL_SIZE	glad.h	711;"	kind:d	line:711
+GL_TEXTURE_WIDTH	glad.h	263;"	kind:d	line:263
+GL_TEXTURE_WRAP_R	glad.h	361;"	kind:d	line:361
+GL_TEXTURE_WRAP_S	glad.h	329;"	kind:d	line:329
+GL_TEXTURE_WRAP_T	glad.h	330;"	kind:d	line:330
+GL_TIMEOUT_EXPIRED	glad.h	907;"	kind:d	line:907
+GL_TIMEOUT_IGNORED	glad.h	910;"	kind:d	line:910
+GL_TRANSFORM_FEEDBACK_BUFFER	glad.h	644;"	kind:d	line:644
+GL_TRANSFORM_FEEDBACK_BUFFER_BINDING	glad.h	645;"	kind:d	line:645
+GL_TRANSFORM_FEEDBACK_BUFFER_MODE	glad.h	632;"	kind:d	line:632
+GL_TRANSFORM_FEEDBACK_BUFFER_SIZE	glad.h	636;"	kind:d	line:636
+GL_TRANSFORM_FEEDBACK_BUFFER_START	glad.h	635;"	kind:d	line:635
+GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN	glad.h	638;"	kind:d	line:638
+GL_TRANSFORM_FEEDBACK_VARYINGS	glad.h	634;"	kind:d	line:634
+GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH	glad.h	631;"	kind:d	line:631
+GL_TRIANGLES	glad.h	157;"	kind:d	line:157
+GL_TRIANGLES_ADJACENCY	glad.h	873;"	kind:d	line:873
+GL_TRIANGLE_FAN	glad.h	159;"	kind:d	line:159
+GL_TRIANGLE_STRIP	glad.h	158;"	kind:d	line:158
+GL_TRIANGLE_STRIP_ADJACENCY	glad.h	874;"	kind:d	line:874
+GL_TRUE	glad.h	152;"	kind:d	line:152
+GL_UNIFORM_ARRAY_STRIDE	glad.h	857;"	kind:d	line:857
+GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS	glad.h	863;"	kind:d	line:863
+GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES	glad.h	864;"	kind:d	line:864
+GL_UNIFORM_BLOCK_BINDING	glad.h	860;"	kind:d	line:860
+GL_UNIFORM_BLOCK_DATA_SIZE	glad.h	861;"	kind:d	line:861
+GL_UNIFORM_BLOCK_INDEX	glad.h	855;"	kind:d	line:855
+GL_UNIFORM_BLOCK_NAME_LENGTH	glad.h	862;"	kind:d	line:862
+GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER	glad.h	867;"	kind:d	line:867
+GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER	glad.h	866;"	kind:d	line:866
+GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER	glad.h	865;"	kind:d	line:865
+GL_UNIFORM_BUFFER	glad.h	836;"	kind:d	line:836
+GL_UNIFORM_BUFFER_BINDING	glad.h	837;"	kind:d	line:837
+GL_UNIFORM_BUFFER_OFFSET_ALIGNMENT	glad.h	849;"	kind:d	line:849
+GL_UNIFORM_BUFFER_SIZE	glad.h	839;"	kind:d	line:839
+GL_UNIFORM_BUFFER_START	glad.h	838;"	kind:d	line:838
+GL_UNIFORM_IS_ROW_MAJOR	glad.h	859;"	kind:d	line:859
+GL_UNIFORM_MATRIX_STRIDE	glad.h	858;"	kind:d	line:858
+GL_UNIFORM_NAME_LENGTH	glad.h	854;"	kind:d	line:854
+GL_UNIFORM_OFFSET	glad.h	856;"	kind:d	line:856
+GL_UNIFORM_SIZE	glad.h	853;"	kind:d	line:853
+GL_UNIFORM_TYPE	glad.h	852;"	kind:d	line:852
+GL_UNPACK_ALIGNMENT	glad.h	244;"	kind:d	line:244
+GL_UNPACK_IMAGE_HEIGHT	glad.h	357;"	kind:d	line:357
+GL_UNPACK_LSB_FIRST	glad.h	240;"	kind:d	line:240
+GL_UNPACK_ROW_LENGTH	glad.h	241;"	kind:d	line:241
+GL_UNPACK_SKIP_IMAGES	glad.h	356;"	kind:d	line:356
+GL_UNPACK_SKIP_PIXELS	glad.h	243;"	kind:d	line:243
+GL_UNPACK_SKIP_ROWS	glad.h	242;"	kind:d	line:242
+GL_UNPACK_SWAP_BYTES	glad.h	239;"	kind:d	line:239
+GL_UNSIGNALED	glad.h	904;"	kind:d	line:904
+GL_UNSIGNED_BYTE	glad.h	275;"	kind:d	line:275
+GL_UNSIGNED_BYTE_2_3_3_REV	glad.h	363;"	kind:d	line:363
+GL_UNSIGNED_BYTE_3_3_2	glad.h	348;"	kind:d	line:348
+GL_UNSIGNED_INT	glad.h	279;"	kind:d	line:279
+GL_UNSIGNED_INT_10F_11F_11F_REV	glad.h	627;"	kind:d	line:627
+GL_UNSIGNED_INT_10_10_10_2	glad.h	352;"	kind:d	line:352
+GL_UNSIGNED_INT_24_8	glad.h	709;"	kind:d	line:709
+GL_UNSIGNED_INT_2_10_10_10_REV	glad.h	369;"	kind:d	line:369
+GL_UNSIGNED_INT_5_9_9_9_REV	glad.h	629;"	kind:d	line:629
+GL_UNSIGNED_INT_8_8_8_8	glad.h	351;"	kind:d	line:351
+GL_UNSIGNED_INT_8_8_8_8_REV	glad.h	368;"	kind:d	line:368
+GL_UNSIGNED_INT_SAMPLER_1D	glad.h	679;"	kind:d	line:679
+GL_UNSIGNED_INT_SAMPLER_1D_ARRAY	glad.h	683;"	kind:d	line:683
+GL_UNSIGNED_INT_SAMPLER_2D	glad.h	680;"	kind:d	line:680
+GL_UNSIGNED_INT_SAMPLER_2D_ARRAY	glad.h	684;"	kind:d	line:684
+GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE	glad.h	926;"	kind:d	line:926
+GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY	glad.h	929;"	kind:d	line:929
+GL_UNSIGNED_INT_SAMPLER_2D_RECT	glad.h	813;"	kind:d	line:813
+GL_UNSIGNED_INT_SAMPLER_3D	glad.h	681;"	kind:d	line:681
+GL_UNSIGNED_INT_SAMPLER_BUFFER	glad.h	814;"	kind:d	line:814
+GL_UNSIGNED_INT_SAMPLER_CUBE	glad.h	682;"	kind:d	line:682
+GL_UNSIGNED_INT_VEC2	glad.h	670;"	kind:d	line:670
+GL_UNSIGNED_INT_VEC3	glad.h	671;"	kind:d	line:671
+GL_UNSIGNED_INT_VEC4	glad.h	672;"	kind:d	line:672
+GL_UNSIGNED_NORMALIZED	glad.h	717;"	kind:d	line:717
+GL_UNSIGNED_SHORT	glad.h	277;"	kind:d	line:277
+GL_UNSIGNED_SHORT_1_5_5_5_REV	glad.h	367;"	kind:d	line:367
+GL_UNSIGNED_SHORT_4_4_4_4	glad.h	349;"	kind:d	line:349
+GL_UNSIGNED_SHORT_4_4_4_4_REV	glad.h	366;"	kind:d	line:366
+GL_UNSIGNED_SHORT_5_5_5_1	glad.h	350;"	kind:d	line:350
+GL_UNSIGNED_SHORT_5_6_5	glad.h	364;"	kind:d	line:364
+GL_UNSIGNED_SHORT_5_6_5_REV	glad.h	365;"	kind:d	line:365
+GL_UPPER_LEFT	glad.h	572;"	kind:d	line:572
+GL_VALIDATE_STATUS	glad.h	559;"	kind:d	line:559
+GL_VENDOR	glad.h	317;"	kind:d	line:317
+GL_VERSION	glad.h	319;"	kind:d	line:319
+GL_VERSION_1_0	glad.h	934;"	kind:d	line:934
+GL_VERSION_1_1	glad.h	1082;"	kind:d	line:1082
+GL_VERSION_1_2	glad.h	1125;"	kind:d	line:1125
+GL_VERSION_1_3	glad.h	1141;"	kind:d	line:1141
+GL_VERSION_1_4	glad.h	1172;"	kind:d	line:1172
+GL_VERSION_1_5	glad.h	1203;"	kind:d	line:1203
+GL_VERSION_2_0	glad.h	1264;"	kind:d	line:1264
+GL_VERSION_2_1	glad.h	1547;"	kind:d	line:1547
+GL_VERSION_3_0	glad.h	1569;"	kind:d	line:1569
+GL_VERSION_3_1	glad.h	1825;"	kind:d	line:1825
+GL_VERSION_3_2	glad.h	1865;"	kind:d	line:1865
+GL_VERTEX_ARRAY_BINDING	glad.h	807;"	kind:d	line:807
+GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING	glad.h	478;"	kind:d	line:478
+GL_VERTEX_ATTRIB_ARRAY_ENABLED	glad.h	497;"	kind:d	line:497
+GL_VERTEX_ATTRIB_ARRAY_INTEGER	glad.h	613;"	kind:d	line:613
+GL_VERTEX_ATTRIB_ARRAY_NORMALIZED	glad.h	527;"	kind:d	line:527
+GL_VERTEX_ATTRIB_ARRAY_POINTER	glad.h	503;"	kind:d	line:503
+GL_VERTEX_ATTRIB_ARRAY_SIZE	glad.h	498;"	kind:d	line:498
+GL_VERTEX_ATTRIB_ARRAY_STRIDE	glad.h	499;"	kind:d	line:499
+GL_VERTEX_ATTRIB_ARRAY_TYPE	glad.h	500;"	kind:d	line:500
+GL_VERTEX_PROGRAM_POINT_SIZE	glad.h	502;"	kind:d	line:502
+GL_VERTEX_SHADER	glad.h	530;"	kind:d	line:530
+GL_VIEWPORT	glad.h	222;"	kind:d	line:222
+GL_WAIT_FAILED	glad.h	909;"	kind:d	line:909
+GL_WRITE_ONLY	glad.h	480;"	kind:d	line:480
+GL_XOR	glad.h	288;"	kind:d	line:288
+GL_ZERO	glad.h	168;"	kind:d	line:168
+GLbitfield	glad.h	/^typedef unsigned int GLbitfield;$/;"	kind:t	line:106
+GLboolean	glad.h	/^typedef unsigned char GLboolean;$/;"	kind:t	line:105
+GLbyte	glad.h	/^typedef signed char GLbyte;$/;"	kind:t	line:108
+GLchar	glad.h	/^typedef char GLchar;$/;"	kind:t	line:121
+GLcharARB	glad.h	/^typedef char GLcharARB;$/;"	kind:t	line:122
+GLclampd	glad.h	/^typedef double GLclampd;$/;"	kind:t	line:119
+GLclampf	glad.h	/^typedef float GLclampf;$/;"	kind:t	line:117
+GLclampx	glad.h	/^typedef int GLclampx;$/;"	kind:t	line:111
+GLdouble	glad.h	/^typedef double GLdouble;$/;"	kind:t	line:118
+GLeglImageOES	glad.h	/^typedef void *GLeglImageOES;$/;"	kind:t	line:120
+GLenum	glad.h	/^typedef unsigned int GLenum;$/;"	kind:t	line:104
+GLfixed	glad.h	/^typedef GLint GLfixed;$/;"	kind:t	line:130
+GLfloat	glad.h	/^typedef float GLfloat;$/;"	kind:t	line:116
+GLhalf	glad.h	/^typedef unsigned short GLhalf;$/;"	kind:t	line:129
+GLhalfARB	glad.h	/^typedef unsigned short GLhalfARB;$/;"	kind:t	line:128
+GLhalfNV	glad.h	/^typedef unsigned short GLhalfNV;$/;"	kind:t	line:146
+GLhandleARB	glad.h	/^typedef unsigned int GLhandleARB;$/;"	kind:t	line:126
+GLhandleARB	glad.h	/^typedef void *GLhandleARB;$/;"	kind:t	line:124
+GLint	glad.h	/^typedef int GLint;$/;"	kind:t	line:110
+GLint64	glad.h	/^typedef int64_t GLint64;$/;"	kind:t	line:133
+GLint64EXT	glad.h	/^typedef int64_t GLint64EXT;$/;"	kind:t	line:137
+GLintptr	glad.h	/^typedef ptrdiff_t GLintptr;$/;"	kind:t	line:131
+GLintptrARB	glad.h	/^typedef ptrdiff_t GLintptrARB;$/;"	kind:t	line:135
+GLshort	glad.h	/^typedef short GLshort;$/;"	kind:t	line:109
+GLsizei	glad.h	/^typedef int GLsizei;$/;"	kind:t	line:115
+GLsizeiptr	glad.h	/^typedef ptrdiff_t GLsizeiptr;$/;"	kind:t	line:132
+GLsizeiptrARB	glad.h	/^typedef ptrdiff_t GLsizeiptrARB;$/;"	kind:t	line:136
+GLsync	glad.h	/^typedef struct __GLsync *GLsync;$/;"	kind:t	line:139	typeref:struct:__GLsync
+GLubyte	glad.h	/^typedef unsigned char GLubyte;$/;"	kind:t	line:112
+GLuint	glad.h	/^typedef unsigned int GLuint;$/;"	kind:t	line:114
+GLuint64	glad.h	/^typedef uint64_t GLuint64;$/;"	kind:t	line:134
+GLuint64EXT	glad.h	/^typedef uint64_t GLuint64EXT;$/;"	kind:t	line:138
+GLushort	glad.h	/^typedef unsigned short GLushort;$/;"	kind:t	line:113
+GLvdpauSurfaceNV	glad.h	/^typedef GLintptr GLvdpauSurfaceNV;$/;"	kind:t	line:147
+GLvoid	glad.h	/^typedef void GLvoid;$/;"	kind:t	line:107
+PFNGLACTIVETEXTUREPROC	glad.h	/^typedef void (APIENTRYP PFNGLACTIVETEXTUREPROC)(GLenum);$/;"	kind:t	line:1143
+PFNGLATTACHSHADERPROC	glad.h	/^typedef void (APIENTRYP PFNGLATTACHSHADERPROC)(GLuint, GLuint);$/;"	kind:t	line:1281
+PFNGLBEGINCONDITIONALRENDERPROC	glad.h	/^typedef void (APIENTRYP PFNGLBEGINCONDITIONALRENDERPROC)(GLuint, GLenum);$/;"	kind:t	line:1610
+PFNGLBEGINQUERYPROC	glad.h	/^typedef void (APIENTRYP PFNGLBEGINQUERYPROC)(GLenum, GLuint);$/;"	kind:t	line:1214
+PFNGLBEGINTRANSFORMFEEDBACKPROC	glad.h	/^typedef void (APIENTRYP PFNGLBEGINTRANSFORMFEEDBACKPROC)(GLenum);$/;"	kind:t	line:1589
+PFNGLBINDATTRIBLOCATIONPROC	glad.h	/^typedef void (APIENTRYP PFNGLBINDATTRIBLOCATIONPROC)(GLuint, GLuint, const GLchar*);$/;"	kind:t	line:1284
+PFNGLBINDBUFFERBASEPROC	glad.h	/^typedef void (APIENTRYP PFNGLBINDBUFFERBASEPROC)(GLenum, GLuint, GLuint);$/;"	kind:t	line:1598
+PFNGLBINDBUFFERPROC	glad.h	/^typedef void (APIENTRYP PFNGLBINDBUFFERPROC)(GLenum, GLuint);$/;"	kind:t	line:1229
+PFNGLBINDBUFFERRANGEPROC	glad.h	/^typedef void (APIENTRYP PFNGLBINDBUFFERRANGEPROC)(GLenum, GLuint, GLuint, GLintptr, GLsizeiptr);$/;"	kind:t	line:1595
+PFNGLBINDFRAGDATALOCATIONPROC	glad.h	/^typedef void (APIENTRYP PFNGLBINDFRAGDATALOCATIONPROC)(GLuint, GLuint, const GLchar*);$/;"	kind:t	line:1688
+PFNGLBINDFRAMEBUFFERPROC	glad.h	/^typedef void (APIENTRYP PFNGLBINDFRAMEBUFFERPROC)(GLenum, GLuint);$/;"	kind:t	line:1766
+PFNGLBINDRENDERBUFFERPROC	glad.h	/^typedef void (APIENTRYP PFNGLBINDRENDERBUFFERPROC)(GLenum, GLuint);$/;"	kind:t	line:1748
+PFNGLBINDTEXTUREPROC	glad.h	/^typedef void (APIENTRYP PFNGLBINDTEXTUREPROC)(GLenum, GLuint);$/;"	kind:t	line:1111
+PFNGLBINDVERTEXARRAYPROC	glad.h	/^typedef void (APIENTRYP PFNGLBINDVERTEXARRAYPROC)(GLuint);$/;"	kind:t	line:1811
+PFNGLBLENDCOLORPROC	glad.h	/^typedef void (APIENTRYP PFNGLBLENDCOLORPROC)(GLfloat, GLfloat, GLfloat, GLfloat);$/;"	kind:t	line:1195
+PFNGLBLENDEQUATIONPROC	glad.h	/^typedef void (APIENTRYP PFNGLBLENDEQUATIONPROC)(GLenum);$/;"	kind:t	line:1198
+PFNGLBLENDEQUATIONSEPARATEPROC	glad.h	/^typedef void (APIENTRYP PFNGLBLENDEQUATIONSEPARATEPROC)(GLenum, GLenum);$/;"	kind:t	line:1266
+PFNGLBLENDFUNCPROC	glad.h	/^typedef void (APIENTRYP PFNGLBLENDFUNCPROC)(GLenum, GLenum);$/;"	kind:t	line:1011
+PFNGLBLENDFUNCSEPARATEPROC	glad.h	/^typedef void (APIENTRYP PFNGLBLENDFUNCSEPARATEPROC)(GLenum, GLenum, GLenum, GLenum);$/;"	kind:t	line:1174
+PFNGLBLITFRAMEBUFFERPROC	glad.h	/^typedef void (APIENTRYP PFNGLBLITFRAMEBUFFERPROC)(GLint, GLint, GLint, GLint, GLint, GLint, GLint, GLint, GLbitfield, GLenum);$/;"	kind:t	line:1796
+PFNGLBUFFERDATAPROC	glad.h	/^typedef void (APIENTRYP PFNGLBUFFERDATAPROC)(GLenum, GLsizeiptr, const void*, GLenum);$/;"	kind:t	line:1241
+PFNGLBUFFERSUBDATAPROC	glad.h	/^typedef void (APIENTRYP PFNGLBUFFERSUBDATAPROC)(GLenum, GLintptr, GLsizeiptr, const void*);$/;"	kind:t	line:1244
+PFNGLCHECKFRAMEBUFFERSTATUSPROC	glad.h	/^typedef GLenum (APIENTRYP PFNGLCHECKFRAMEBUFFERSTATUSPROC)(GLenum);$/;"	kind:t	line:1775
+PFNGLCLAMPCOLORPROC	glad.h	/^typedef void (APIENTRYP PFNGLCLAMPCOLORPROC)(GLenum, GLenum);$/;"	kind:t	line:1607
+PFNGLCLEARBUFFERFIPROC	glad.h	/^typedef void (APIENTRYP PFNGLCLEARBUFFERFIPROC)(GLenum, GLint, GLfloat, GLint);$/;"	kind:t	line:1739
+PFNGLCLEARBUFFERFVPROC	glad.h	/^typedef void (APIENTRYP PFNGLCLEARBUFFERFVPROC)(GLenum, GLint, const GLfloat*);$/;"	kind:t	line:1736
+PFNGLCLEARBUFFERIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLCLEARBUFFERIVPROC)(GLenum, GLint, const GLint*);$/;"	kind:t	line:1730
+PFNGLCLEARBUFFERUIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLCLEARBUFFERUIVPROC)(GLenum, GLint, const GLuint*);$/;"	kind:t	line:1733
+PFNGLCLEARCOLORPROC	glad.h	/^typedef void (APIENTRYP PFNGLCLEARCOLORPROC)(GLfloat, GLfloat, GLfloat, GLfloat);$/;"	kind:t	line:981
+PFNGLCLEARDEPTHPROC	glad.h	/^typedef void (APIENTRYP PFNGLCLEARDEPTHPROC)(GLdouble);$/;"	kind:t	line:987
+PFNGLCLEARPROC	glad.h	/^typedef void (APIENTRYP PFNGLCLEARPROC)(GLbitfield);$/;"	kind:t	line:978
+PFNGLCLEARSTENCILPROC	glad.h	/^typedef void (APIENTRYP PFNGLCLEARSTENCILPROC)(GLint);$/;"	kind:t	line:984
+PFNGLCLIENTWAITSYNCPROC	glad.h	/^typedef GLenum (APIENTRYP PFNGLCLIENTWAITSYNCPROC)(GLsync, GLbitfield, GLuint64);$/;"	kind:t	line:1891
+PFNGLCOLORMASKIPROC	glad.h	/^typedef void (APIENTRYP PFNGLCOLORMASKIPROC)(GLuint, GLboolean, GLboolean, GLboolean, GLboolean);$/;"	kind:t	line:1571
+PFNGLCOLORMASKPROC	glad.h	/^typedef void (APIENTRYP PFNGLCOLORMASKPROC)(GLboolean, GLboolean, GLboolean, GLboolean);$/;"	kind:t	line:993
+PFNGLCOMPILESHADERPROC	glad.h	/^typedef void (APIENTRYP PFNGLCOMPILESHADERPROC)(GLuint);$/;"	kind:t	line:1287
+PFNGLCOMPRESSEDTEXIMAGE1DPROC	glad.h	/^typedef void (APIENTRYP PFNGLCOMPRESSEDTEXIMAGE1DPROC)(GLenum, GLint, GLenum, GLsizei, GLint, GLsizei, const void*);$/;"	kind:t	line:1155
+PFNGLCOMPRESSEDTEXIMAGE2DPROC	glad.h	/^typedef void (APIENTRYP PFNGLCOMPRESSEDTEXIMAGE2DPROC)(GLenum, GLint, GLenum, GLsizei, GLsizei, GLint, GLsizei, const void*);$/;"	kind:t	line:1152
+PFNGLCOMPRESSEDTEXIMAGE3DPROC	glad.h	/^typedef void (APIENTRYP PFNGLCOMPRESSEDTEXIMAGE3DPROC)(GLenum, GLint, GLenum, GLsizei, GLsizei, GLsizei, GLint, GLsizei, const void*);$/;"	kind:t	line:1149
+PFNGLCOMPRESSEDTEXSUBIMAGE1DPROC	glad.h	/^typedef void (APIENTRYP PFNGLCOMPRESSEDTEXSUBIMAGE1DPROC)(GLenum, GLint, GLint, GLsizei, GLenum, GLsizei, const void*);$/;"	kind:t	line:1164
+PFNGLCOMPRESSEDTEXSUBIMAGE2DPROC	glad.h	/^typedef void (APIENTRYP PFNGLCOMPRESSEDTEXSUBIMAGE2DPROC)(GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLsizei, const void*);$/;"	kind:t	line:1161
+PFNGLCOMPRESSEDTEXSUBIMAGE3DPROC	glad.h	/^typedef void (APIENTRYP PFNGLCOMPRESSEDTEXSUBIMAGE3DPROC)(GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLsizei, const void*);$/;"	kind:t	line:1158
+PFNGLCOPYBUFFERSUBDATAPROC	glad.h	/^typedef void (APIENTRYP PFNGLCOPYBUFFERSUBDATAPROC)(GLenum, GLenum, GLintptr, GLintptr, GLsizeiptr);$/;"	kind:t	line:1839
+PFNGLCOPYTEXIMAGE1DPROC	glad.h	/^typedef void (APIENTRYP PFNGLCOPYTEXIMAGE1DPROC)(GLenum, GLint, GLenum, GLint, GLint, GLsizei, GLint);$/;"	kind:t	line:1093
+PFNGLCOPYTEXIMAGE2DPROC	glad.h	/^typedef void (APIENTRYP PFNGLCOPYTEXIMAGE2DPROC)(GLenum, GLint, GLenum, GLint, GLint, GLsizei, GLsizei, GLint);$/;"	kind:t	line:1096
+PFNGLCOPYTEXSUBIMAGE1DPROC	glad.h	/^typedef void (APIENTRYP PFNGLCOPYTEXSUBIMAGE1DPROC)(GLenum, GLint, GLint, GLint, GLint, GLsizei);$/;"	kind:t	line:1099
+PFNGLCOPYTEXSUBIMAGE2DPROC	glad.h	/^typedef void (APIENTRYP PFNGLCOPYTEXSUBIMAGE2DPROC)(GLenum, GLint, GLint, GLint, GLint, GLint, GLsizei, GLsizei);$/;"	kind:t	line:1102
+PFNGLCOPYTEXSUBIMAGE3DPROC	glad.h	/^typedef void (APIENTRYP PFNGLCOPYTEXSUBIMAGE3DPROC)(GLenum, GLint, GLint, GLint, GLint, GLint, GLint, GLsizei, GLsizei);$/;"	kind:t	line:1136
+PFNGLCREATEPROGRAMPROC	glad.h	/^typedef GLuint (APIENTRYP PFNGLCREATEPROGRAMPROC)();$/;"	kind:t	line:1290
+PFNGLCREATESHADERPROC	glad.h	/^typedef GLuint (APIENTRYP PFNGLCREATESHADERPROC)(GLenum);$/;"	kind:t	line:1293
+PFNGLCULLFACEPROC	glad.h	/^typedef void (APIENTRYP PFNGLCULLFACEPROC)(GLenum);$/;"	kind:t	line:936
+PFNGLDELETEBUFFERSPROC	glad.h	/^typedef void (APIENTRYP PFNGLDELETEBUFFERSPROC)(GLsizei, const GLuint*);$/;"	kind:t	line:1232
+PFNGLDELETEFRAMEBUFFERSPROC	glad.h	/^typedef void (APIENTRYP PFNGLDELETEFRAMEBUFFERSPROC)(GLsizei, const GLuint*);$/;"	kind:t	line:1769
+PFNGLDELETEPROGRAMPROC	glad.h	/^typedef void (APIENTRYP PFNGLDELETEPROGRAMPROC)(GLuint);$/;"	kind:t	line:1296
+PFNGLDELETEQUERIESPROC	glad.h	/^typedef void (APIENTRYP PFNGLDELETEQUERIESPROC)(GLsizei, const GLuint*);$/;"	kind:t	line:1208
+PFNGLDELETERENDERBUFFERSPROC	glad.h	/^typedef void (APIENTRYP PFNGLDELETERENDERBUFFERSPROC)(GLsizei, const GLuint*);$/;"	kind:t	line:1751
+PFNGLDELETESHADERPROC	glad.h	/^typedef void (APIENTRYP PFNGLDELETESHADERPROC)(GLuint);$/;"	kind:t	line:1299
+PFNGLDELETESYNCPROC	glad.h	/^typedef void (APIENTRYP PFNGLDELETESYNCPROC)(GLsync);$/;"	kind:t	line:1888
+PFNGLDELETETEXTURESPROC	glad.h	/^typedef void (APIENTRYP PFNGLDELETETEXTURESPROC)(GLsizei, const GLuint*);$/;"	kind:t	line:1114
+PFNGLDELETEVERTEXARRAYSPROC	glad.h	/^typedef void (APIENTRYP PFNGLDELETEVERTEXARRAYSPROC)(GLsizei, const GLuint*);$/;"	kind:t	line:1814
+PFNGLDEPTHFUNCPROC	glad.h	/^typedef void (APIENTRYP PFNGLDEPTHFUNCPROC)(GLenum);$/;"	kind:t	line:1023
+PFNGLDEPTHMASKPROC	glad.h	/^typedef void (APIENTRYP PFNGLDEPTHMASKPROC)(GLboolean);$/;"	kind:t	line:996
+PFNGLDEPTHRANGEPROC	glad.h	/^typedef void (APIENTRYP PFNGLDEPTHRANGEPROC)(GLdouble, GLdouble);$/;"	kind:t	line:1074
+PFNGLDETACHSHADERPROC	glad.h	/^typedef void (APIENTRYP PFNGLDETACHSHADERPROC)(GLuint, GLuint);$/;"	kind:t	line:1302
+PFNGLDISABLEIPROC	glad.h	/^typedef void (APIENTRYP PFNGLDISABLEIPROC)(GLenum, GLuint);$/;"	kind:t	line:1583
+PFNGLDISABLEPROC	glad.h	/^typedef void (APIENTRYP PFNGLDISABLEPROC)(GLenum);$/;"	kind:t	line:999
+PFNGLDISABLEVERTEXATTRIBARRAYPROC	glad.h	/^typedef void (APIENTRYP PFNGLDISABLEVERTEXATTRIBARRAYPROC)(GLuint);$/;"	kind:t	line:1305
+PFNGLDRAWARRAYSINSTANCEDPROC	glad.h	/^typedef void (APIENTRYP PFNGLDRAWARRAYSINSTANCEDPROC)(GLenum, GLint, GLsizei, GLsizei);$/;"	kind:t	line:1827
+PFNGLDRAWARRAYSPROC	glad.h	/^typedef void (APIENTRYP PFNGLDRAWARRAYSPROC)(GLenum, GLint, GLsizei);$/;"	kind:t	line:1084
+PFNGLDRAWBUFFERPROC	glad.h	/^typedef void (APIENTRYP PFNGLDRAWBUFFERPROC)(GLenum);$/;"	kind:t	line:975
+PFNGLDRAWBUFFERSPROC	glad.h	/^typedef void (APIENTRYP PFNGLDRAWBUFFERSPROC)(GLsizei, const GLenum*);$/;"	kind:t	line:1269
+PFNGLDRAWELEMENTSBASEVERTEXPROC	glad.h	/^typedef void (APIENTRYP PFNGLDRAWELEMENTSBASEVERTEXPROC)(GLenum, GLsizei, GLenum, const void*, GLint);$/;"	kind:t	line:1867
+PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXPROC	glad.h	/^typedef void (APIENTRYP PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXPROC)(GLenum, GLsizei, GLenum, const void*, GLsizei, GLint);$/;"	kind:t	line:1873
+PFNGLDRAWELEMENTSINSTANCEDPROC	glad.h	/^typedef void (APIENTRYP PFNGLDRAWELEMENTSINSTANCEDPROC)(GLenum, GLsizei, GLenum, const void*, GLsizei);$/;"	kind:t	line:1830
+PFNGLDRAWELEMENTSPROC	glad.h	/^typedef void (APIENTRYP PFNGLDRAWELEMENTSPROC)(GLenum, GLsizei, GLenum, const void*);$/;"	kind:t	line:1087
+PFNGLDRAWRANGEELEMENTSBASEVERTEXPROC	glad.h	/^typedef void (APIENTRYP PFNGLDRAWRANGEELEMENTSBASEVERTEXPROC)(GLenum, GLuint, GLuint, GLsizei, GLenum, const void*, GLint);$/;"	kind:t	line:1870
+PFNGLDRAWRANGEELEMENTSPROC	glad.h	/^typedef void (APIENTRYP PFNGLDRAWRANGEELEMENTSPROC)(GLenum, GLuint, GLuint, GLsizei, GLenum, const void*);$/;"	kind:t	line:1127
+PFNGLENABLEIPROC	glad.h	/^typedef void (APIENTRYP PFNGLENABLEIPROC)(GLenum, GLuint);$/;"	kind:t	line:1580
+PFNGLENABLEPROC	glad.h	/^typedef void (APIENTRYP PFNGLENABLEPROC)(GLenum);$/;"	kind:t	line:1002
+PFNGLENABLEVERTEXATTRIBARRAYPROC	glad.h	/^typedef void (APIENTRYP PFNGLENABLEVERTEXATTRIBARRAYPROC)(GLuint);$/;"	kind:t	line:1308
+PFNGLENDCONDITIONALRENDERPROC	glad.h	/^typedef void (APIENTRYP PFNGLENDCONDITIONALRENDERPROC)();$/;"	kind:t	line:1613
+PFNGLENDQUERYPROC	glad.h	/^typedef void (APIENTRYP PFNGLENDQUERYPROC)(GLenum);$/;"	kind:t	line:1217
+PFNGLENDTRANSFORMFEEDBACKPROC	glad.h	/^typedef void (APIENTRYP PFNGLENDTRANSFORMFEEDBACKPROC)();$/;"	kind:t	line:1592
+PFNGLFENCESYNCPROC	glad.h	/^typedef GLsync (APIENTRYP PFNGLFENCESYNCPROC)(GLenum, GLbitfield);$/;"	kind:t	line:1882
+PFNGLFINISHPROC	glad.h	/^typedef void (APIENTRYP PFNGLFINISHPROC)();$/;"	kind:t	line:1005
+PFNGLFLUSHMAPPEDBUFFERRANGEPROC	glad.h	/^typedef void (APIENTRYP PFNGLFLUSHMAPPEDBUFFERRANGEPROC)(GLenum, GLintptr, GLsizeiptr);$/;"	kind:t	line:1808
+PFNGLFLUSHPROC	glad.h	/^typedef void (APIENTRYP PFNGLFLUSHPROC)();$/;"	kind:t	line:1008
+PFNGLFRAMEBUFFERRENDERBUFFERPROC	glad.h	/^typedef void (APIENTRYP PFNGLFRAMEBUFFERRENDERBUFFERPROC)(GLenum, GLenum, GLenum, GLuint);$/;"	kind:t	line:1787
+PFNGLFRAMEBUFFERTEXTURE1DPROC	glad.h	/^typedef void (APIENTRYP PFNGLFRAMEBUFFERTEXTURE1DPROC)(GLenum, GLenum, GLenum, GLuint, GLint);$/;"	kind:t	line:1778
+PFNGLFRAMEBUFFERTEXTURE2DPROC	glad.h	/^typedef void (APIENTRYP PFNGLFRAMEBUFFERTEXTURE2DPROC)(GLenum, GLenum, GLenum, GLuint, GLint);$/;"	kind:t	line:1781
+PFNGLFRAMEBUFFERTEXTURE3DPROC	glad.h	/^typedef void (APIENTRYP PFNGLFRAMEBUFFERTEXTURE3DPROC)(GLenum, GLenum, GLenum, GLuint, GLint, GLint);$/;"	kind:t	line:1784
+PFNGLFRAMEBUFFERTEXTURELAYERPROC	glad.h	/^typedef void (APIENTRYP PFNGLFRAMEBUFFERTEXTURELAYERPROC)(GLenum, GLenum, GLuint, GLint, GLint);$/;"	kind:t	line:1802
+PFNGLFRAMEBUFFERTEXTUREPROC	glad.h	/^typedef void (APIENTRYP PFNGLFRAMEBUFFERTEXTUREPROC)(GLenum, GLenum, GLuint, GLint);$/;"	kind:t	line:1909
+PFNGLFRONTFACEPROC	glad.h	/^typedef void (APIENTRYP PFNGLFRONTFACEPROC)(GLenum);$/;"	kind:t	line:939
+PFNGLGENBUFFERSPROC	glad.h	/^typedef void (APIENTRYP PFNGLGENBUFFERSPROC)(GLsizei, GLuint*);$/;"	kind:t	line:1235
+PFNGLGENERATEMIPMAPPROC	glad.h	/^typedef void (APIENTRYP PFNGLGENERATEMIPMAPPROC)(GLenum);$/;"	kind:t	line:1793
+PFNGLGENFRAMEBUFFERSPROC	glad.h	/^typedef void (APIENTRYP PFNGLGENFRAMEBUFFERSPROC)(GLsizei, GLuint*);$/;"	kind:t	line:1772
+PFNGLGENQUERIESPROC	glad.h	/^typedef void (APIENTRYP PFNGLGENQUERIESPROC)(GLsizei, GLuint*);$/;"	kind:t	line:1205
+PFNGLGENRENDERBUFFERSPROC	glad.h	/^typedef void (APIENTRYP PFNGLGENRENDERBUFFERSPROC)(GLsizei, GLuint*);$/;"	kind:t	line:1754
+PFNGLGENTEXTURESPROC	glad.h	/^typedef void (APIENTRYP PFNGLGENTEXTURESPROC)(GLsizei, GLuint*);$/;"	kind:t	line:1117
+PFNGLGENVERTEXARRAYSPROC	glad.h	/^typedef void (APIENTRYP PFNGLGENVERTEXARRAYSPROC)(GLsizei, GLuint*);$/;"	kind:t	line:1817
+PFNGLGETACTIVEATTRIBPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETACTIVEATTRIBPROC)(GLuint, GLuint, GLsizei, GLsizei*, GLint*, GLenum*, GLchar*);$/;"	kind:t	line:1311
+PFNGLGETACTIVEUNIFORMBLOCKIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETACTIVEUNIFORMBLOCKIVPROC)(GLuint, GLuint, GLenum, GLint*);$/;"	kind:t	line:1854
+PFNGLGETACTIVEUNIFORMBLOCKNAMEPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETACTIVEUNIFORMBLOCKNAMEPROC)(GLuint, GLuint, GLsizei, GLsizei*, GLchar*);$/;"	kind:t	line:1857
+PFNGLGETACTIVEUNIFORMNAMEPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETACTIVEUNIFORMNAMEPROC)(GLuint, GLuint, GLsizei, GLsizei*, GLchar*);$/;"	kind:t	line:1848
+PFNGLGETACTIVEUNIFORMPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETACTIVEUNIFORMPROC)(GLuint, GLuint, GLsizei, GLsizei*, GLint*, GLenum*, GLchar*);$/;"	kind:t	line:1314
+PFNGLGETACTIVEUNIFORMSIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETACTIVEUNIFORMSIVPROC)(GLuint, GLsizei, const GLuint*, GLenum, GLint*);$/;"	kind:t	line:1845
+PFNGLGETATTACHEDSHADERSPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETATTACHEDSHADERSPROC)(GLuint, GLsizei, GLsizei*, GLuint*);$/;"	kind:t	line:1317
+PFNGLGETATTRIBLOCATIONPROC	glad.h	/^typedef GLint (APIENTRYP PFNGLGETATTRIBLOCATIONPROC)(GLuint, const GLchar*);$/;"	kind:t	line:1320
+PFNGLGETBOOLEANI_VPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETBOOLEANI_VPROC)(GLenum, GLuint, GLboolean*);$/;"	kind:t	line:1574
+PFNGLGETBOOLEANVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETBOOLEANVPROC)(GLenum, GLboolean*);$/;"	kind:t	line:1038
+PFNGLGETBUFFERPARAMETERI64VPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETBUFFERPARAMETERI64VPROC)(GLenum, GLenum, GLint64*);$/;"	kind:t	line:1906
+PFNGLGETBUFFERPARAMETERIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETBUFFERPARAMETERIVPROC)(GLenum, GLenum, GLint*);$/;"	kind:t	line:1256
+PFNGLGETBUFFERPOINTERVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETBUFFERPOINTERVPROC)(GLenum, GLenum, void**);$/;"	kind:t	line:1259
+PFNGLGETBUFFERSUBDATAPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETBUFFERSUBDATAPROC)(GLenum, GLintptr, GLsizeiptr, void*);$/;"	kind:t	line:1247
+PFNGLGETCOMPRESSEDTEXIMAGEPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETCOMPRESSEDTEXIMAGEPROC)(GLenum, GLint, void*);$/;"	kind:t	line:1167
+PFNGLGETDOUBLEVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETDOUBLEVPROC)(GLenum, GLdouble*);$/;"	kind:t	line:1041
+PFNGLGETERRORPROC	glad.h	/^typedef GLenum (APIENTRYP PFNGLGETERRORPROC)();$/;"	kind:t	line:1044
+PFNGLGETFLOATVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETFLOATVPROC)(GLenum, GLfloat*);$/;"	kind:t	line:1047
+PFNGLGETFRAGDATALOCATIONPROC	glad.h	/^typedef GLint (APIENTRYP PFNGLGETFRAGDATALOCATIONPROC)(GLuint, const GLchar*);$/;"	kind:t	line:1691
+PFNGLGETFRAMEBUFFERATTACHMENTPARAMETERIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETFRAMEBUFFERATTACHMENTPARAMETERIVPROC)(GLenum, GLenum, GLenum, GLint*);$/;"	kind:t	line:1790
+PFNGLGETINTEGER64I_VPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETINTEGER64I_VPROC)(GLenum, GLuint, GLint64*);$/;"	kind:t	line:1903
+PFNGLGETINTEGER64VPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETINTEGER64VPROC)(GLenum, GLint64*);$/;"	kind:t	line:1897
+PFNGLGETINTEGERI_VPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETINTEGERI_VPROC)(GLenum, GLuint, GLint*);$/;"	kind:t	line:1577
+PFNGLGETINTEGERVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETINTEGERVPROC)(GLenum, GLint*);$/;"	kind:t	line:1050
+PFNGLGETMULTISAMPLEFVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETMULTISAMPLEFVPROC)(GLenum, GLuint, GLfloat*);$/;"	kind:t	line:1918
+PFNGLGETPROGRAMINFOLOGPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETPROGRAMINFOLOGPROC)(GLuint, GLsizei, GLsizei*, GLchar*);$/;"	kind:t	line:1326
+PFNGLGETPROGRAMIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETPROGRAMIVPROC)(GLuint, GLenum, GLint*);$/;"	kind:t	line:1323
+PFNGLGETQUERYIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETQUERYIVPROC)(GLenum, GLenum, GLint*);$/;"	kind:t	line:1220
+PFNGLGETQUERYOBJECTIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETQUERYOBJECTIVPROC)(GLuint, GLenum, GLint*);$/;"	kind:t	line:1223
+PFNGLGETQUERYOBJECTUIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETQUERYOBJECTUIVPROC)(GLuint, GLenum, GLuint*);$/;"	kind:t	line:1226
+PFNGLGETRENDERBUFFERPARAMETERIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETRENDERBUFFERPARAMETERIVPROC)(GLenum, GLenum, GLint*);$/;"	kind:t	line:1760
+PFNGLGETSHADERINFOLOGPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETSHADERINFOLOGPROC)(GLuint, GLsizei, GLsizei*, GLchar*);$/;"	kind:t	line:1332
+PFNGLGETSHADERIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETSHADERIVPROC)(GLuint, GLenum, GLint*);$/;"	kind:t	line:1329
+PFNGLGETSHADERSOURCEPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETSHADERSOURCEPROC)(GLuint, GLsizei, GLsizei*, GLchar*);$/;"	kind:t	line:1335
+PFNGLGETSTRINGIPROC	glad.h	/^typedef const GLubyte* (APIENTRYP PFNGLGETSTRINGIPROC)(GLenum, GLuint);$/;"	kind:t	line:1742
+PFNGLGETSTRINGPROC	glad.h	/^typedef const GLubyte* (APIENTRYP PFNGLGETSTRINGPROC)(GLenum);$/;"	kind:t	line:1053
+PFNGLGETSYNCIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETSYNCIVPROC)(GLsync, GLenum, GLsizei, GLsizei*, GLint*);$/;"	kind:t	line:1900
+PFNGLGETTEXIMAGEPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETTEXIMAGEPROC)(GLenum, GLint, GLenum, GLenum, void*);$/;"	kind:t	line:1056
+PFNGLGETTEXLEVELPARAMETERFVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETTEXLEVELPARAMETERFVPROC)(GLenum, GLint, GLenum, GLfloat*);$/;"	kind:t	line:1065
+PFNGLGETTEXLEVELPARAMETERIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETTEXLEVELPARAMETERIVPROC)(GLenum, GLint, GLenum, GLint*);$/;"	kind:t	line:1068
+PFNGLGETTEXPARAMETERFVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETTEXPARAMETERFVPROC)(GLenum, GLenum, GLfloat*);$/;"	kind:t	line:1059
+PFNGLGETTEXPARAMETERIIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETTEXPARAMETERIIVPROC)(GLenum, GLenum, GLint*);$/;"	kind:t	line:1724
+PFNGLGETTEXPARAMETERIUIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETTEXPARAMETERIUIVPROC)(GLenum, GLenum, GLuint*);$/;"	kind:t	line:1727
+PFNGLGETTEXPARAMETERIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETTEXPARAMETERIVPROC)(GLenum, GLenum, GLint*);$/;"	kind:t	line:1062
+PFNGLGETTRANSFORMFEEDBACKVARYINGPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETTRANSFORMFEEDBACKVARYINGPROC)(GLuint, GLuint, GLsizei, GLsizei*, GLsizei*, GLenum*, GLchar*);$/;"	kind:t	line:1604
+PFNGLGETUNIFORMBLOCKINDEXPROC	glad.h	/^typedef GLuint (APIENTRYP PFNGLGETUNIFORMBLOCKINDEXPROC)(GLuint, const GLchar*);$/;"	kind:t	line:1851
+PFNGLGETUNIFORMFVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETUNIFORMFVPROC)(GLuint, GLint, GLfloat*);$/;"	kind:t	line:1341
+PFNGLGETUNIFORMINDICESPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETUNIFORMINDICESPROC)(GLuint, GLsizei, const GLchar**, GLuint*);$/;"	kind:t	line:1842
+PFNGLGETUNIFORMIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETUNIFORMIVPROC)(GLuint, GLint, GLint*);$/;"	kind:t	line:1344
+PFNGLGETUNIFORMLOCATIONPROC	glad.h	/^typedef GLint (APIENTRYP PFNGLGETUNIFORMLOCATIONPROC)(GLuint, const GLchar*);$/;"	kind:t	line:1338
+PFNGLGETUNIFORMUIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETUNIFORMUIVPROC)(GLuint, GLint, GLuint*);$/;"	kind:t	line:1685
+PFNGLGETVERTEXATTRIBDVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETVERTEXATTRIBDVPROC)(GLuint, GLenum, GLdouble*);$/;"	kind:t	line:1347
+PFNGLGETVERTEXATTRIBFVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETVERTEXATTRIBFVPROC)(GLuint, GLenum, GLfloat*);$/;"	kind:t	line:1350
+PFNGLGETVERTEXATTRIBIIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETVERTEXATTRIBIIVPROC)(GLuint, GLenum, GLint*);$/;"	kind:t	line:1619
+PFNGLGETVERTEXATTRIBIUIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETVERTEXATTRIBIUIVPROC)(GLuint, GLenum, GLuint*);$/;"	kind:t	line:1622
+PFNGLGETVERTEXATTRIBIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETVERTEXATTRIBIVPROC)(GLuint, GLenum, GLint*);$/;"	kind:t	line:1353
+PFNGLGETVERTEXATTRIBPOINTERVPROC	glad.h	/^typedef void (APIENTRYP PFNGLGETVERTEXATTRIBPOINTERVPROC)(GLuint, GLenum, void**);$/;"	kind:t	line:1356
+PFNGLHINTPROC	glad.h	/^typedef void (APIENTRYP PFNGLHINTPROC)(GLenum, GLenum);$/;"	kind:t	line:942
+PFNGLISBUFFERPROC	glad.h	/^typedef GLboolean (APIENTRYP PFNGLISBUFFERPROC)(GLuint);$/;"	kind:t	line:1238
+PFNGLISENABLEDIPROC	glad.h	/^typedef GLboolean (APIENTRYP PFNGLISENABLEDIPROC)(GLenum, GLuint);$/;"	kind:t	line:1586
+PFNGLISENABLEDPROC	glad.h	/^typedef GLboolean (APIENTRYP PFNGLISENABLEDPROC)(GLenum);$/;"	kind:t	line:1071
+PFNGLISFRAMEBUFFERPROC	glad.h	/^typedef GLboolean (APIENTRYP PFNGLISFRAMEBUFFERPROC)(GLuint);$/;"	kind:t	line:1763
+PFNGLISPROGRAMPROC	glad.h	/^typedef GLboolean (APIENTRYP PFNGLISPROGRAMPROC)(GLuint);$/;"	kind:t	line:1359
+PFNGLISQUERYPROC	glad.h	/^typedef GLboolean (APIENTRYP PFNGLISQUERYPROC)(GLuint);$/;"	kind:t	line:1211
+PFNGLISRENDERBUFFERPROC	glad.h	/^typedef GLboolean (APIENTRYP PFNGLISRENDERBUFFERPROC)(GLuint);$/;"	kind:t	line:1745
+PFNGLISSHADERPROC	glad.h	/^typedef GLboolean (APIENTRYP PFNGLISSHADERPROC)(GLuint);$/;"	kind:t	line:1362
+PFNGLISSYNCPROC	glad.h	/^typedef GLboolean (APIENTRYP PFNGLISSYNCPROC)(GLsync);$/;"	kind:t	line:1885
+PFNGLISTEXTUREPROC	glad.h	/^typedef GLboolean (APIENTRYP PFNGLISTEXTUREPROC)(GLuint);$/;"	kind:t	line:1120
+PFNGLISVERTEXARRAYPROC	glad.h	/^typedef GLboolean (APIENTRYP PFNGLISVERTEXARRAYPROC)(GLuint);$/;"	kind:t	line:1820
+PFNGLLINEWIDTHPROC	glad.h	/^typedef void (APIENTRYP PFNGLLINEWIDTHPROC)(GLfloat);$/;"	kind:t	line:945
+PFNGLLINKPROGRAMPROC	glad.h	/^typedef void (APIENTRYP PFNGLLINKPROGRAMPROC)(GLuint);$/;"	kind:t	line:1365
+PFNGLLOGICOPPROC	glad.h	/^typedef void (APIENTRYP PFNGLLOGICOPPROC)(GLenum);$/;"	kind:t	line:1014
+PFNGLMAPBUFFERPROC	glad.h	/^typedef void* (APIENTRYP PFNGLMAPBUFFERPROC)(GLenum, GLenum);$/;"	kind:t	line:1250
+PFNGLMAPBUFFERRANGEPROC	glad.h	/^typedef void* (APIENTRYP PFNGLMAPBUFFERRANGEPROC)(GLenum, GLintptr, GLsizeiptr, GLbitfield);$/;"	kind:t	line:1805
+PFNGLMULTIDRAWARRAYSPROC	glad.h	/^typedef void (APIENTRYP PFNGLMULTIDRAWARRAYSPROC)(GLenum, const GLint*, const GLsizei*, GLsizei);$/;"	kind:t	line:1177
+PFNGLMULTIDRAWELEMENTSBASEVERTEXPROC	glad.h	/^typedef void (APIENTRYP PFNGLMULTIDRAWELEMENTSBASEVERTEXPROC)(GLenum, const GLsizei*, GLenum, const void**, GLsizei, const GLint*);$/;"	kind:t	line:1876
+PFNGLMULTIDRAWELEMENTSPROC	glad.h	/^typedef void (APIENTRYP PFNGLMULTIDRAWELEMENTSPROC)(GLenum, const GLsizei*, GLenum, const void**, GLsizei);$/;"	kind:t	line:1180
+PFNGLPIXELSTOREFPROC	glad.h	/^typedef void (APIENTRYP PFNGLPIXELSTOREFPROC)(GLenum, GLfloat);$/;"	kind:t	line:1026
+PFNGLPIXELSTOREIPROC	glad.h	/^typedef void (APIENTRYP PFNGLPIXELSTOREIPROC)(GLenum, GLint);$/;"	kind:t	line:1029
+PFNGLPOINTPARAMETERFPROC	glad.h	/^typedef void (APIENTRYP PFNGLPOINTPARAMETERFPROC)(GLenum, GLfloat);$/;"	kind:t	line:1183
+PFNGLPOINTPARAMETERFVPROC	glad.h	/^typedef void (APIENTRYP PFNGLPOINTPARAMETERFVPROC)(GLenum, const GLfloat*);$/;"	kind:t	line:1186
+PFNGLPOINTPARAMETERIPROC	glad.h	/^typedef void (APIENTRYP PFNGLPOINTPARAMETERIPROC)(GLenum, GLint);$/;"	kind:t	line:1189
+PFNGLPOINTPARAMETERIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLPOINTPARAMETERIVPROC)(GLenum, const GLint*);$/;"	kind:t	line:1192
+PFNGLPOINTSIZEPROC	glad.h	/^typedef void (APIENTRYP PFNGLPOINTSIZEPROC)(GLfloat);$/;"	kind:t	line:948
+PFNGLPOLYGONMODEPROC	glad.h	/^typedef void (APIENTRYP PFNGLPOLYGONMODEPROC)(GLenum, GLenum);$/;"	kind:t	line:951
+PFNGLPOLYGONOFFSETPROC	glad.h	/^typedef void (APIENTRYP PFNGLPOLYGONOFFSETPROC)(GLfloat, GLfloat);$/;"	kind:t	line:1090
+PFNGLPRIMITIVERESTARTINDEXPROC	glad.h	/^typedef void (APIENTRYP PFNGLPRIMITIVERESTARTINDEXPROC)(GLuint);$/;"	kind:t	line:1836
+PFNGLPROVOKINGVERTEXPROC	glad.h	/^typedef void (APIENTRYP PFNGLPROVOKINGVERTEXPROC)(GLenum);$/;"	kind:t	line:1879
+PFNGLREADBUFFERPROC	glad.h	/^typedef void (APIENTRYP PFNGLREADBUFFERPROC)(GLenum);$/;"	kind:t	line:1032
+PFNGLREADPIXELSPROC	glad.h	/^typedef void (APIENTRYP PFNGLREADPIXELSPROC)(GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, void*);$/;"	kind:t	line:1035
+PFNGLRENDERBUFFERSTORAGEMULTISAMPLEPROC	glad.h	/^typedef void (APIENTRYP PFNGLRENDERBUFFERSTORAGEMULTISAMPLEPROC)(GLenum, GLsizei, GLenum, GLsizei, GLsizei);$/;"	kind:t	line:1799
+PFNGLRENDERBUFFERSTORAGEPROC	glad.h	/^typedef void (APIENTRYP PFNGLRENDERBUFFERSTORAGEPROC)(GLenum, GLenum, GLsizei, GLsizei);$/;"	kind:t	line:1757
+PFNGLSAMPLECOVERAGEPROC	glad.h	/^typedef void (APIENTRYP PFNGLSAMPLECOVERAGEPROC)(GLfloat, GLboolean);$/;"	kind:t	line:1146
+PFNGLSAMPLEMASKIPROC	glad.h	/^typedef void (APIENTRYP PFNGLSAMPLEMASKIPROC)(GLuint, GLbitfield);$/;"	kind:t	line:1921
+PFNGLSCISSORPROC	glad.h	/^typedef void (APIENTRYP PFNGLSCISSORPROC)(GLint, GLint, GLsizei, GLsizei);$/;"	kind:t	line:954
+PFNGLSHADERSOURCEPROC	glad.h	/^typedef void (APIENTRYP PFNGLSHADERSOURCEPROC)(GLuint, GLsizei, const GLchar**, const GLint*);$/;"	kind:t	line:1368
+PFNGLSTENCILFUNCPROC	glad.h	/^typedef void (APIENTRYP PFNGLSTENCILFUNCPROC)(GLenum, GLint, GLuint);$/;"	kind:t	line:1017
+PFNGLSTENCILFUNCSEPARATEPROC	glad.h	/^typedef void (APIENTRYP PFNGLSTENCILFUNCSEPARATEPROC)(GLenum, GLenum, GLint, GLuint);$/;"	kind:t	line:1275
+PFNGLSTENCILMASKPROC	glad.h	/^typedef void (APIENTRYP PFNGLSTENCILMASKPROC)(GLuint);$/;"	kind:t	line:990
+PFNGLSTENCILMASKSEPARATEPROC	glad.h	/^typedef void (APIENTRYP PFNGLSTENCILMASKSEPARATEPROC)(GLenum, GLuint);$/;"	kind:t	line:1278
+PFNGLSTENCILOPPROC	glad.h	/^typedef void (APIENTRYP PFNGLSTENCILOPPROC)(GLenum, GLenum, GLenum);$/;"	kind:t	line:1020
+PFNGLSTENCILOPSEPARATEPROC	glad.h	/^typedef void (APIENTRYP PFNGLSTENCILOPSEPARATEPROC)(GLenum, GLenum, GLenum, GLenum);$/;"	kind:t	line:1272
+PFNGLTEXBUFFERPROC	glad.h	/^typedef void (APIENTRYP PFNGLTEXBUFFERPROC)(GLenum, GLenum, GLuint);$/;"	kind:t	line:1833
+PFNGLTEXIMAGE1DPROC	glad.h	/^typedef void (APIENTRYP PFNGLTEXIMAGE1DPROC)(GLenum, GLint, GLint, GLsizei, GLint, GLenum, GLenum, const void*);$/;"	kind:t	line:969
+PFNGLTEXIMAGE2DMULTISAMPLEPROC	glad.h	/^typedef void (APIENTRYP PFNGLTEXIMAGE2DMULTISAMPLEPROC)(GLenum, GLsizei, GLenum, GLsizei, GLsizei, GLboolean);$/;"	kind:t	line:1912
+PFNGLTEXIMAGE2DPROC	glad.h	/^typedef void (APIENTRYP PFNGLTEXIMAGE2DPROC)(GLenum, GLint, GLint, GLsizei, GLsizei, GLint, GLenum, GLenum, const void*);$/;"	kind:t	line:972
+PFNGLTEXIMAGE3DMULTISAMPLEPROC	glad.h	/^typedef void (APIENTRYP PFNGLTEXIMAGE3DMULTISAMPLEPROC)(GLenum, GLsizei, GLenum, GLsizei, GLsizei, GLsizei, GLboolean);$/;"	kind:t	line:1915
+PFNGLTEXIMAGE3DPROC	glad.h	/^typedef void (APIENTRYP PFNGLTEXIMAGE3DPROC)(GLenum, GLint, GLint, GLsizei, GLsizei, GLsizei, GLint, GLenum, GLenum, const void*);$/;"	kind:t	line:1130
+PFNGLTEXPARAMETERFPROC	glad.h	/^typedef void (APIENTRYP PFNGLTEXPARAMETERFPROC)(GLenum, GLenum, GLfloat);$/;"	kind:t	line:957
+PFNGLTEXPARAMETERFVPROC	glad.h	/^typedef void (APIENTRYP PFNGLTEXPARAMETERFVPROC)(GLenum, GLenum, const GLfloat*);$/;"	kind:t	line:960
+PFNGLTEXPARAMETERIIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLTEXPARAMETERIIVPROC)(GLenum, GLenum, const GLint*);$/;"	kind:t	line:1718
+PFNGLTEXPARAMETERIPROC	glad.h	/^typedef void (APIENTRYP PFNGLTEXPARAMETERIPROC)(GLenum, GLenum, GLint);$/;"	kind:t	line:963
+PFNGLTEXPARAMETERIUIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLTEXPARAMETERIUIVPROC)(GLenum, GLenum, const GLuint*);$/;"	kind:t	line:1721
+PFNGLTEXPARAMETERIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLTEXPARAMETERIVPROC)(GLenum, GLenum, const GLint*);$/;"	kind:t	line:966
+PFNGLTEXSUBIMAGE1DPROC	glad.h	/^typedef void (APIENTRYP PFNGLTEXSUBIMAGE1DPROC)(GLenum, GLint, GLint, GLsizei, GLenum, GLenum, const void*);$/;"	kind:t	line:1105
+PFNGLTEXSUBIMAGE2DPROC	glad.h	/^typedef void (APIENTRYP PFNGLTEXSUBIMAGE2DPROC)(GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, const void*);$/;"	kind:t	line:1108
+PFNGLTEXSUBIMAGE3DPROC	glad.h	/^typedef void (APIENTRYP PFNGLTEXSUBIMAGE3DPROC)(GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLenum, const void*);$/;"	kind:t	line:1133
+PFNGLTRANSFORMFEEDBACKVARYINGSPROC	glad.h	/^typedef void (APIENTRYP PFNGLTRANSFORMFEEDBACKVARYINGSPROC)(GLuint, GLsizei, const GLchar**, GLenum);$/;"	kind:t	line:1601
+PFNGLUNIFORM1FPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORM1FPROC)(GLint, GLfloat);$/;"	kind:t	line:1374
+PFNGLUNIFORM1FVPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORM1FVPROC)(GLint, GLsizei, const GLfloat*);$/;"	kind:t	line:1398
+PFNGLUNIFORM1IPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORM1IPROC)(GLint, GLint);$/;"	kind:t	line:1386
+PFNGLUNIFORM1IVPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORM1IVPROC)(GLint, GLsizei, const GLint*);$/;"	kind:t	line:1410
+PFNGLUNIFORM1UIPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORM1UIPROC)(GLint, GLuint);$/;"	kind:t	line:1694
+PFNGLUNIFORM1UIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORM1UIVPROC)(GLint, GLsizei, const GLuint*);$/;"	kind:t	line:1706
+PFNGLUNIFORM2FPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORM2FPROC)(GLint, GLfloat, GLfloat);$/;"	kind:t	line:1377
+PFNGLUNIFORM2FVPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORM2FVPROC)(GLint, GLsizei, const GLfloat*);$/;"	kind:t	line:1401
+PFNGLUNIFORM2IPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORM2IPROC)(GLint, GLint, GLint);$/;"	kind:t	line:1389
+PFNGLUNIFORM2IVPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORM2IVPROC)(GLint, GLsizei, const GLint*);$/;"	kind:t	line:1413
+PFNGLUNIFORM2UIPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORM2UIPROC)(GLint, GLuint, GLuint);$/;"	kind:t	line:1697
+PFNGLUNIFORM2UIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORM2UIVPROC)(GLint, GLsizei, const GLuint*);$/;"	kind:t	line:1709
+PFNGLUNIFORM3FPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORM3FPROC)(GLint, GLfloat, GLfloat, GLfloat);$/;"	kind:t	line:1380
+PFNGLUNIFORM3FVPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORM3FVPROC)(GLint, GLsizei, const GLfloat*);$/;"	kind:t	line:1404
+PFNGLUNIFORM3IPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORM3IPROC)(GLint, GLint, GLint, GLint);$/;"	kind:t	line:1392
+PFNGLUNIFORM3IVPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORM3IVPROC)(GLint, GLsizei, const GLint*);$/;"	kind:t	line:1416
+PFNGLUNIFORM3UIPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORM3UIPROC)(GLint, GLuint, GLuint, GLuint);$/;"	kind:t	line:1700
+PFNGLUNIFORM3UIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORM3UIVPROC)(GLint, GLsizei, const GLuint*);$/;"	kind:t	line:1712
+PFNGLUNIFORM4FPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORM4FPROC)(GLint, GLfloat, GLfloat, GLfloat, GLfloat);$/;"	kind:t	line:1383
+PFNGLUNIFORM4FVPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORM4FVPROC)(GLint, GLsizei, const GLfloat*);$/;"	kind:t	line:1407
+PFNGLUNIFORM4IPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORM4IPROC)(GLint, GLint, GLint, GLint, GLint);$/;"	kind:t	line:1395
+PFNGLUNIFORM4IVPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORM4IVPROC)(GLint, GLsizei, const GLint*);$/;"	kind:t	line:1419
+PFNGLUNIFORM4UIPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORM4UIPROC)(GLint, GLuint, GLuint, GLuint, GLuint);$/;"	kind:t	line:1703
+PFNGLUNIFORM4UIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORM4UIVPROC)(GLint, GLsizei, const GLuint*);$/;"	kind:t	line:1715
+PFNGLUNIFORMBLOCKBINDINGPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORMBLOCKBINDINGPROC)(GLuint, GLuint, GLuint);$/;"	kind:t	line:1860
+PFNGLUNIFORMMATRIX2FVPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORMMATRIX2FVPROC)(GLint, GLsizei, GLboolean, const GLfloat*);$/;"	kind:t	line:1422
+PFNGLUNIFORMMATRIX2X3FVPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORMMATRIX2X3FVPROC)(GLint, GLsizei, GLboolean, const GLfloat*);$/;"	kind:t	line:1549
+PFNGLUNIFORMMATRIX2X4FVPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORMMATRIX2X4FVPROC)(GLint, GLsizei, GLboolean, const GLfloat*);$/;"	kind:t	line:1555
+PFNGLUNIFORMMATRIX3FVPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORMMATRIX3FVPROC)(GLint, GLsizei, GLboolean, const GLfloat*);$/;"	kind:t	line:1425
+PFNGLUNIFORMMATRIX3X2FVPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORMMATRIX3X2FVPROC)(GLint, GLsizei, GLboolean, const GLfloat*);$/;"	kind:t	line:1552
+PFNGLUNIFORMMATRIX3X4FVPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORMMATRIX3X4FVPROC)(GLint, GLsizei, GLboolean, const GLfloat*);$/;"	kind:t	line:1561
+PFNGLUNIFORMMATRIX4FVPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORMMATRIX4FVPROC)(GLint, GLsizei, GLboolean, const GLfloat*);$/;"	kind:t	line:1428
+PFNGLUNIFORMMATRIX4X2FVPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORMMATRIX4X2FVPROC)(GLint, GLsizei, GLboolean, const GLfloat*);$/;"	kind:t	line:1558
+PFNGLUNIFORMMATRIX4X3FVPROC	glad.h	/^typedef void (APIENTRYP PFNGLUNIFORMMATRIX4X3FVPROC)(GLint, GLsizei, GLboolean, const GLfloat*);$/;"	kind:t	line:1564
+PFNGLUNMAPBUFFERPROC	glad.h	/^typedef GLboolean (APIENTRYP PFNGLUNMAPBUFFERPROC)(GLenum);$/;"	kind:t	line:1253
+PFNGLUSEPROGRAMPROC	glad.h	/^typedef void (APIENTRYP PFNGLUSEPROGRAMPROC)(GLuint);$/;"	kind:t	line:1371
+PFNGLVALIDATEPROGRAMPROC	glad.h	/^typedef void (APIENTRYP PFNGLVALIDATEPROGRAMPROC)(GLuint);$/;"	kind:t	line:1431
+PFNGLVERTEXATTRIB1DPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB1DPROC)(GLuint, GLdouble);$/;"	kind:t	line:1434
+PFNGLVERTEXATTRIB1DVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB1DVPROC)(GLuint, const GLdouble*);$/;"	kind:t	line:1437
+PFNGLVERTEXATTRIB1FPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB1FPROC)(GLuint, GLfloat);$/;"	kind:t	line:1440
+PFNGLVERTEXATTRIB1FVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB1FVPROC)(GLuint, const GLfloat*);$/;"	kind:t	line:1443
+PFNGLVERTEXATTRIB1SPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB1SPROC)(GLuint, GLshort);$/;"	kind:t	line:1446
+PFNGLVERTEXATTRIB1SVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB1SVPROC)(GLuint, const GLshort*);$/;"	kind:t	line:1449
+PFNGLVERTEXATTRIB2DPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB2DPROC)(GLuint, GLdouble, GLdouble);$/;"	kind:t	line:1452
+PFNGLVERTEXATTRIB2DVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB2DVPROC)(GLuint, const GLdouble*);$/;"	kind:t	line:1455
+PFNGLVERTEXATTRIB2FPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB2FPROC)(GLuint, GLfloat, GLfloat);$/;"	kind:t	line:1458
+PFNGLVERTEXATTRIB2FVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB2FVPROC)(GLuint, const GLfloat*);$/;"	kind:t	line:1461
+PFNGLVERTEXATTRIB2SPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB2SPROC)(GLuint, GLshort, GLshort);$/;"	kind:t	line:1464
+PFNGLVERTEXATTRIB2SVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB2SVPROC)(GLuint, const GLshort*);$/;"	kind:t	line:1467
+PFNGLVERTEXATTRIB3DPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB3DPROC)(GLuint, GLdouble, GLdouble, GLdouble);$/;"	kind:t	line:1470
+PFNGLVERTEXATTRIB3DVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB3DVPROC)(GLuint, const GLdouble*);$/;"	kind:t	line:1473
+PFNGLVERTEXATTRIB3FPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB3FPROC)(GLuint, GLfloat, GLfloat, GLfloat);$/;"	kind:t	line:1476
+PFNGLVERTEXATTRIB3FVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB3FVPROC)(GLuint, const GLfloat*);$/;"	kind:t	line:1479
+PFNGLVERTEXATTRIB3SPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB3SPROC)(GLuint, GLshort, GLshort, GLshort);$/;"	kind:t	line:1482
+PFNGLVERTEXATTRIB3SVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB3SVPROC)(GLuint, const GLshort*);$/;"	kind:t	line:1485
+PFNGLVERTEXATTRIB4BVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB4BVPROC)(GLuint, const GLbyte*);$/;"	kind:t	line:1509
+PFNGLVERTEXATTRIB4DPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB4DPROC)(GLuint, GLdouble, GLdouble, GLdouble, GLdouble);$/;"	kind:t	line:1512
+PFNGLVERTEXATTRIB4DVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB4DVPROC)(GLuint, const GLdouble*);$/;"	kind:t	line:1515
+PFNGLVERTEXATTRIB4FPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB4FPROC)(GLuint, GLfloat, GLfloat, GLfloat, GLfloat);$/;"	kind:t	line:1518
+PFNGLVERTEXATTRIB4FVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB4FVPROC)(GLuint, const GLfloat*);$/;"	kind:t	line:1521
+PFNGLVERTEXATTRIB4IVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB4IVPROC)(GLuint, const GLint*);$/;"	kind:t	line:1524
+PFNGLVERTEXATTRIB4NBVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB4NBVPROC)(GLuint, const GLbyte*);$/;"	kind:t	line:1488
+PFNGLVERTEXATTRIB4NIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB4NIVPROC)(GLuint, const GLint*);$/;"	kind:t	line:1491
+PFNGLVERTEXATTRIB4NSVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB4NSVPROC)(GLuint, const GLshort*);$/;"	kind:t	line:1494
+PFNGLVERTEXATTRIB4NUBPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB4NUBPROC)(GLuint, GLubyte, GLubyte, GLubyte, GLubyte);$/;"	kind:t	line:1497
+PFNGLVERTEXATTRIB4NUBVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB4NUBVPROC)(GLuint, const GLubyte*);$/;"	kind:t	line:1500
+PFNGLVERTEXATTRIB4NUIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB4NUIVPROC)(GLuint, const GLuint*);$/;"	kind:t	line:1503
+PFNGLVERTEXATTRIB4NUSVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB4NUSVPROC)(GLuint, const GLushort*);$/;"	kind:t	line:1506
+PFNGLVERTEXATTRIB4SPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB4SPROC)(GLuint, GLshort, GLshort, GLshort, GLshort);$/;"	kind:t	line:1527
+PFNGLVERTEXATTRIB4SVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB4SVPROC)(GLuint, const GLshort*);$/;"	kind:t	line:1530
+PFNGLVERTEXATTRIB4UBVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB4UBVPROC)(GLuint, const GLubyte*);$/;"	kind:t	line:1533
+PFNGLVERTEXATTRIB4UIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB4UIVPROC)(GLuint, const GLuint*);$/;"	kind:t	line:1536
+PFNGLVERTEXATTRIB4USVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIB4USVPROC)(GLuint, const GLushort*);$/;"	kind:t	line:1539
+PFNGLVERTEXATTRIBI1IPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIBI1IPROC)(GLuint, GLint);$/;"	kind:t	line:1625
+PFNGLVERTEXATTRIBI1IVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIBI1IVPROC)(GLuint, const GLint*);$/;"	kind:t	line:1649
+PFNGLVERTEXATTRIBI1UIPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIBI1UIPROC)(GLuint, GLuint);$/;"	kind:t	line:1637
+PFNGLVERTEXATTRIBI1UIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIBI1UIVPROC)(GLuint, const GLuint*);$/;"	kind:t	line:1661
+PFNGLVERTEXATTRIBI2IPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIBI2IPROC)(GLuint, GLint, GLint);$/;"	kind:t	line:1628
+PFNGLVERTEXATTRIBI2IVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIBI2IVPROC)(GLuint, const GLint*);$/;"	kind:t	line:1652
+PFNGLVERTEXATTRIBI2UIPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIBI2UIPROC)(GLuint, GLuint, GLuint);$/;"	kind:t	line:1640
+PFNGLVERTEXATTRIBI2UIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIBI2UIVPROC)(GLuint, const GLuint*);$/;"	kind:t	line:1664
+PFNGLVERTEXATTRIBI3IPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIBI3IPROC)(GLuint, GLint, GLint, GLint);$/;"	kind:t	line:1631
+PFNGLVERTEXATTRIBI3IVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIBI3IVPROC)(GLuint, const GLint*);$/;"	kind:t	line:1655
+PFNGLVERTEXATTRIBI3UIPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIBI3UIPROC)(GLuint, GLuint, GLuint, GLuint);$/;"	kind:t	line:1643
+PFNGLVERTEXATTRIBI3UIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIBI3UIVPROC)(GLuint, const GLuint*);$/;"	kind:t	line:1667
+PFNGLVERTEXATTRIBI4BVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIBI4BVPROC)(GLuint, const GLbyte*);$/;"	kind:t	line:1673
+PFNGLVERTEXATTRIBI4IPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIBI4IPROC)(GLuint, GLint, GLint, GLint, GLint);$/;"	kind:t	line:1634
+PFNGLVERTEXATTRIBI4IVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIBI4IVPROC)(GLuint, const GLint*);$/;"	kind:t	line:1658
+PFNGLVERTEXATTRIBI4SVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIBI4SVPROC)(GLuint, const GLshort*);$/;"	kind:t	line:1676
+PFNGLVERTEXATTRIBI4UBVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIBI4UBVPROC)(GLuint, const GLubyte*);$/;"	kind:t	line:1679
+PFNGLVERTEXATTRIBI4UIPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIBI4UIPROC)(GLuint, GLuint, GLuint, GLuint, GLuint);$/;"	kind:t	line:1646
+PFNGLVERTEXATTRIBI4UIVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIBI4UIVPROC)(GLuint, const GLuint*);$/;"	kind:t	line:1670
+PFNGLVERTEXATTRIBI4USVPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIBI4USVPROC)(GLuint, const GLushort*);$/;"	kind:t	line:1682
+PFNGLVERTEXATTRIBIPOINTERPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIBIPOINTERPROC)(GLuint, GLint, GLenum, GLsizei, const void*);$/;"	kind:t	line:1616
+PFNGLVERTEXATTRIBPOINTERPROC	glad.h	/^typedef void (APIENTRYP PFNGLVERTEXATTRIBPOINTERPROC)(GLuint, GLint, GLenum, GLboolean, GLsizei, const void*);$/;"	kind:t	line:1542
+PFNGLVIEWPORTPROC	glad.h	/^typedef void (APIENTRYP PFNGLVIEWPORTPROC)(GLint, GLint, GLsizei, GLsizei);$/;"	kind:t	line:1077
+PFNGLWAITSYNCPROC	glad.h	/^typedef void (APIENTRYP PFNGLWAITSYNCPROC)(GLsync, GLbitfield, GLuint64);$/;"	kind:t	line:1894
+WIN32_LEAN_AND_MEAN	glad.h	13;"	kind:d	line:13
+__gl_h_	glad.h	9;"	kind:d	line:9
+__glad_h_	glad.h	8;"	kind:d	line:8
+glActiveTexture	glad.h	1145;"	kind:d	line:1145
+glAttachShader	glad.h	1283;"	kind:d	line:1283
+glBeginConditionalRender	glad.h	1612;"	kind:d	line:1612
+glBeginQuery	glad.h	1216;"	kind:d	line:1216
+glBeginTransformFeedback	glad.h	1591;"	kind:d	line:1591
+glBindAttribLocation	glad.h	1286;"	kind:d	line:1286
+glBindBuffer	glad.h	1231;"	kind:d	line:1231
+glBindBufferBase	glad.h	1600;"	kind:d	line:1600
+glBindBufferRange	glad.h	1597;"	kind:d	line:1597
+glBindFragDataLocation	glad.h	1690;"	kind:d	line:1690
+glBindFramebuffer	glad.h	1768;"	kind:d	line:1768
+glBindRenderbuffer	glad.h	1750;"	kind:d	line:1750
+glBindTexture	glad.h	1113;"	kind:d	line:1113
+glBindVertexArray	glad.h	1813;"	kind:d	line:1813
+glBlendColor	glad.h	1197;"	kind:d	line:1197
+glBlendEquation	glad.h	1200;"	kind:d	line:1200
+glBlendEquationSeparate	glad.h	1268;"	kind:d	line:1268
+glBlendFunc	glad.h	1013;"	kind:d	line:1013
+glBlendFuncSeparate	glad.h	1176;"	kind:d	line:1176
+glBlitFramebuffer	glad.h	1798;"	kind:d	line:1798
+glBufferData	glad.h	1243;"	kind:d	line:1243
+glBufferSubData	glad.h	1246;"	kind:d	line:1246
+glCheckFramebufferStatus	glad.h	1777;"	kind:d	line:1777
+glClampColor	glad.h	1609;"	kind:d	line:1609
+glClear	glad.h	980;"	kind:d	line:980
+glClearBufferfi	glad.h	1741;"	kind:d	line:1741
+glClearBufferfv	glad.h	1738;"	kind:d	line:1738
+glClearBufferiv	glad.h	1732;"	kind:d	line:1732
+glClearBufferuiv	glad.h	1735;"	kind:d	line:1735
+glClearColor	glad.h	983;"	kind:d	line:983
+glClearDepth	glad.h	989;"	kind:d	line:989
+glClearStencil	glad.h	986;"	kind:d	line:986
+glClientWaitSync	glad.h	1893;"	kind:d	line:1893
+glColorMask	glad.h	995;"	kind:d	line:995
+glColorMaski	glad.h	1573;"	kind:d	line:1573
+glCompileShader	glad.h	1289;"	kind:d	line:1289
+glCompressedTexImage1D	glad.h	1157;"	kind:d	line:1157
+glCompressedTexImage2D	glad.h	1154;"	kind:d	line:1154
+glCompressedTexImage3D	glad.h	1151;"	kind:d	line:1151
+glCompressedTexSubImage1D	glad.h	1166;"	kind:d	line:1166
+glCompressedTexSubImage2D	glad.h	1163;"	kind:d	line:1163
+glCompressedTexSubImage3D	glad.h	1160;"	kind:d	line:1160
+glCopyBufferSubData	glad.h	1841;"	kind:d	line:1841
+glCopyTexImage1D	glad.h	1095;"	kind:d	line:1095
+glCopyTexImage2D	glad.h	1098;"	kind:d	line:1098
+glCopyTexSubImage1D	glad.h	1101;"	kind:d	line:1101
+glCopyTexSubImage2D	glad.h	1104;"	kind:d	line:1104
+glCopyTexSubImage3D	glad.h	1138;"	kind:d	line:1138
+glCreateProgram	glad.h	1292;"	kind:d	line:1292
+glCreateShader	glad.h	1295;"	kind:d	line:1295
+glCullFace	glad.h	938;"	kind:d	line:938
+glDeleteBuffers	glad.h	1234;"	kind:d	line:1234
+glDeleteFramebuffers	glad.h	1771;"	kind:d	line:1771
+glDeleteProgram	glad.h	1298;"	kind:d	line:1298
+glDeleteQueries	glad.h	1210;"	kind:d	line:1210
+glDeleteRenderbuffers	glad.h	1753;"	kind:d	line:1753
+glDeleteShader	glad.h	1301;"	kind:d	line:1301
+glDeleteSync	glad.h	1890;"	kind:d	line:1890
+glDeleteTextures	glad.h	1116;"	kind:d	line:1116
+glDeleteVertexArrays	glad.h	1816;"	kind:d	line:1816
+glDepthFunc	glad.h	1025;"	kind:d	line:1025
+glDepthMask	glad.h	998;"	kind:d	line:998
+glDepthRange	glad.h	1076;"	kind:d	line:1076
+glDetachShader	glad.h	1304;"	kind:d	line:1304
+glDisable	glad.h	1001;"	kind:d	line:1001
+glDisableVertexAttribArray	glad.h	1307;"	kind:d	line:1307
+glDisablei	glad.h	1585;"	kind:d	line:1585
+glDrawArrays	glad.h	1086;"	kind:d	line:1086
+glDrawArraysInstanced	glad.h	1829;"	kind:d	line:1829
+glDrawBuffer	glad.h	977;"	kind:d	line:977
+glDrawBuffers	glad.h	1271;"	kind:d	line:1271
+glDrawElements	glad.h	1089;"	kind:d	line:1089
+glDrawElementsBaseVertex	glad.h	1869;"	kind:d	line:1869
+glDrawElementsInstanced	glad.h	1832;"	kind:d	line:1832
+glDrawElementsInstancedBaseVertex	glad.h	1875;"	kind:d	line:1875
+glDrawRangeElements	glad.h	1129;"	kind:d	line:1129
+glDrawRangeElementsBaseVertex	glad.h	1872;"	kind:d	line:1872
+glEnable	glad.h	1004;"	kind:d	line:1004
+glEnableVertexAttribArray	glad.h	1310;"	kind:d	line:1310
+glEnablei	glad.h	1582;"	kind:d	line:1582
+glEndConditionalRender	glad.h	1615;"	kind:d	line:1615
+glEndQuery	glad.h	1219;"	kind:d	line:1219
+glEndTransformFeedback	glad.h	1594;"	kind:d	line:1594
+glFenceSync	glad.h	1884;"	kind:d	line:1884
+glFinish	glad.h	1007;"	kind:d	line:1007
+glFlush	glad.h	1010;"	kind:d	line:1010
+glFlushMappedBufferRange	glad.h	1810;"	kind:d	line:1810
+glFramebufferRenderbuffer	glad.h	1789;"	kind:d	line:1789
+glFramebufferTexture	glad.h	1911;"	kind:d	line:1911
+glFramebufferTexture1D	glad.h	1780;"	kind:d	line:1780
+glFramebufferTexture2D	glad.h	1783;"	kind:d	line:1783
+glFramebufferTexture3D	glad.h	1786;"	kind:d	line:1786
+glFramebufferTextureLayer	glad.h	1804;"	kind:d	line:1804
+glFrontFace	glad.h	941;"	kind:d	line:941
+glGenBuffers	glad.h	1237;"	kind:d	line:1237
+glGenFramebuffers	glad.h	1774;"	kind:d	line:1774
+glGenQueries	glad.h	1207;"	kind:d	line:1207
+glGenRenderbuffers	glad.h	1756;"	kind:d	line:1756
+glGenTextures	glad.h	1119;"	kind:d	line:1119
+glGenVertexArrays	glad.h	1819;"	kind:d	line:1819
+glGenerateMipmap	glad.h	1795;"	kind:d	line:1795
+glGetActiveAttrib	glad.h	1313;"	kind:d	line:1313
+glGetActiveUniform	glad.h	1316;"	kind:d	line:1316
+glGetActiveUniformBlockName	glad.h	1859;"	kind:d	line:1859
+glGetActiveUniformBlockiv	glad.h	1856;"	kind:d	line:1856
+glGetActiveUniformName	glad.h	1850;"	kind:d	line:1850
+glGetActiveUniformsiv	glad.h	1847;"	kind:d	line:1847
+glGetAttachedShaders	glad.h	1319;"	kind:d	line:1319
+glGetAttribLocation	glad.h	1322;"	kind:d	line:1322
+glGetBooleani_v	glad.h	1576;"	kind:d	line:1576
+glGetBooleanv	glad.h	1040;"	kind:d	line:1040
+glGetBufferParameteri64v	glad.h	1908;"	kind:d	line:1908
+glGetBufferParameteriv	glad.h	1258;"	kind:d	line:1258
+glGetBufferPointerv	glad.h	1261;"	kind:d	line:1261
+glGetBufferSubData	glad.h	1249;"	kind:d	line:1249
+glGetCompressedTexImage	glad.h	1169;"	kind:d	line:1169
+glGetDoublev	glad.h	1043;"	kind:d	line:1043
+glGetError	glad.h	1046;"	kind:d	line:1046
+glGetFloatv	glad.h	1049;"	kind:d	line:1049
+glGetFragDataLocation	glad.h	1693;"	kind:d	line:1693
+glGetFramebufferAttachmentParameteriv	glad.h	1792;"	kind:d	line:1792
+glGetInteger64i_v	glad.h	1905;"	kind:d	line:1905
+glGetInteger64v	glad.h	1899;"	kind:d	line:1899
+glGetIntegeri_v	glad.h	1579;"	kind:d	line:1579
+glGetIntegerv	glad.h	1052;"	kind:d	line:1052
+glGetMultisamplefv	glad.h	1920;"	kind:d	line:1920
+glGetProgramInfoLog	glad.h	1328;"	kind:d	line:1328
+glGetProgramiv	glad.h	1325;"	kind:d	line:1325
+glGetQueryObjectiv	glad.h	1225;"	kind:d	line:1225
+glGetQueryObjectuiv	glad.h	1228;"	kind:d	line:1228
+glGetQueryiv	glad.h	1222;"	kind:d	line:1222
+glGetRenderbufferParameteriv	glad.h	1762;"	kind:d	line:1762
+glGetShaderInfoLog	glad.h	1334;"	kind:d	line:1334
+glGetShaderSource	glad.h	1337;"	kind:d	line:1337
+glGetShaderiv	glad.h	1331;"	kind:d	line:1331
+glGetString	glad.h	1055;"	kind:d	line:1055
+glGetStringi	glad.h	1744;"	kind:d	line:1744
+glGetSynciv	glad.h	1902;"	kind:d	line:1902
+glGetTexImage	glad.h	1058;"	kind:d	line:1058
+glGetTexLevelParameterfv	glad.h	1067;"	kind:d	line:1067
+glGetTexLevelParameteriv	glad.h	1070;"	kind:d	line:1070
+glGetTexParameterIiv	glad.h	1726;"	kind:d	line:1726
+glGetTexParameterIuiv	glad.h	1729;"	kind:d	line:1729
+glGetTexParameterfv	glad.h	1061;"	kind:d	line:1061
+glGetTexParameteriv	glad.h	1064;"	kind:d	line:1064
+glGetTransformFeedbackVarying	glad.h	1606;"	kind:d	line:1606
+glGetUniformBlockIndex	glad.h	1853;"	kind:d	line:1853
+glGetUniformIndices	glad.h	1844;"	kind:d	line:1844
+glGetUniformLocation	glad.h	1340;"	kind:d	line:1340
+glGetUniformfv	glad.h	1343;"	kind:d	line:1343
+glGetUniformiv	glad.h	1346;"	kind:d	line:1346
+glGetUniformuiv	glad.h	1687;"	kind:d	line:1687
+glGetVertexAttribIiv	glad.h	1621;"	kind:d	line:1621
+glGetVertexAttribIuiv	glad.h	1624;"	kind:d	line:1624
+glGetVertexAttribPointerv	glad.h	1358;"	kind:d	line:1358
+glGetVertexAttribdv	glad.h	1349;"	kind:d	line:1349
+glGetVertexAttribfv	glad.h	1352;"	kind:d	line:1352
+glGetVertexAttribiv	glad.h	1355;"	kind:d	line:1355
+glHint	glad.h	944;"	kind:d	line:944
+glIsBuffer	glad.h	1240;"	kind:d	line:1240
+glIsEnabled	glad.h	1073;"	kind:d	line:1073
+glIsEnabledi	glad.h	1588;"	kind:d	line:1588
+glIsFramebuffer	glad.h	1765;"	kind:d	line:1765
+glIsProgram	glad.h	1361;"	kind:d	line:1361
+glIsQuery	glad.h	1213;"	kind:d	line:1213
+glIsRenderbuffer	glad.h	1747;"	kind:d	line:1747
+glIsShader	glad.h	1364;"	kind:d	line:1364
+glIsSync	glad.h	1887;"	kind:d	line:1887
+glIsTexture	glad.h	1122;"	kind:d	line:1122
+glIsVertexArray	glad.h	1822;"	kind:d	line:1822
+glLineWidth	glad.h	947;"	kind:d	line:947
+glLinkProgram	glad.h	1367;"	kind:d	line:1367
+glLogicOp	glad.h	1016;"	kind:d	line:1016
+glMapBuffer	glad.h	1252;"	kind:d	line:1252
+glMapBufferRange	glad.h	1807;"	kind:d	line:1807
+glMultiDrawArrays	glad.h	1179;"	kind:d	line:1179
+glMultiDrawElements	glad.h	1182;"	kind:d	line:1182
+glMultiDrawElementsBaseVertex	glad.h	1878;"	kind:d	line:1878
+glPixelStoref	glad.h	1028;"	kind:d	line:1028
+glPixelStorei	glad.h	1031;"	kind:d	line:1031
+glPointParameterf	glad.h	1185;"	kind:d	line:1185
+glPointParameterfv	glad.h	1188;"	kind:d	line:1188
+glPointParameteri	glad.h	1191;"	kind:d	line:1191
+glPointParameteriv	glad.h	1194;"	kind:d	line:1194
+glPointSize	glad.h	950;"	kind:d	line:950
+glPolygonMode	glad.h	953;"	kind:d	line:953
+glPolygonOffset	glad.h	1092;"	kind:d	line:1092
+glPrimitiveRestartIndex	glad.h	1838;"	kind:d	line:1838
+glProvokingVertex	glad.h	1881;"	kind:d	line:1881
+glReadBuffer	glad.h	1034;"	kind:d	line:1034
+glReadPixels	glad.h	1037;"	kind:d	line:1037
+glRenderbufferStorage	glad.h	1759;"	kind:d	line:1759
+glRenderbufferStorageMultisample	glad.h	1801;"	kind:d	line:1801
+glSampleCoverage	glad.h	1148;"	kind:d	line:1148
+glSampleMaski	glad.h	1923;"	kind:d	line:1923
+glScissor	glad.h	956;"	kind:d	line:956
+glShaderSource	glad.h	1370;"	kind:d	line:1370
+glStencilFunc	glad.h	1019;"	kind:d	line:1019
+glStencilFuncSeparate	glad.h	1277;"	kind:d	line:1277
+glStencilMask	glad.h	992;"	kind:d	line:992
+glStencilMaskSeparate	glad.h	1280;"	kind:d	line:1280
+glStencilOp	glad.h	1022;"	kind:d	line:1022
+glStencilOpSeparate	glad.h	1274;"	kind:d	line:1274
+glTexBuffer	glad.h	1835;"	kind:d	line:1835
+glTexImage1D	glad.h	971;"	kind:d	line:971
+glTexImage2D	glad.h	974;"	kind:d	line:974
+glTexImage2DMultisample	glad.h	1914;"	kind:d	line:1914
+glTexImage3D	glad.h	1132;"	kind:d	line:1132
+glTexImage3DMultisample	glad.h	1917;"	kind:d	line:1917
+glTexParameterIiv	glad.h	1720;"	kind:d	line:1720
+glTexParameterIuiv	glad.h	1723;"	kind:d	line:1723
+glTexParameterf	glad.h	959;"	kind:d	line:959
+glTexParameterfv	glad.h	962;"	kind:d	line:962
+glTexParameteri	glad.h	965;"	kind:d	line:965
+glTexParameteriv	glad.h	968;"	kind:d	line:968
+glTexSubImage1D	glad.h	1107;"	kind:d	line:1107
+glTexSubImage2D	glad.h	1110;"	kind:d	line:1110
+glTexSubImage3D	glad.h	1135;"	kind:d	line:1135
+glTransformFeedbackVaryings	glad.h	1603;"	kind:d	line:1603
+glUniform1f	glad.h	1376;"	kind:d	line:1376
+glUniform1fv	glad.h	1400;"	kind:d	line:1400
+glUniform1i	glad.h	1388;"	kind:d	line:1388
+glUniform1iv	glad.h	1412;"	kind:d	line:1412
+glUniform1ui	glad.h	1696;"	kind:d	line:1696
+glUniform1uiv	glad.h	1708;"	kind:d	line:1708
+glUniform2f	glad.h	1379;"	kind:d	line:1379
+glUniform2fv	glad.h	1403;"	kind:d	line:1403
+glUniform2i	glad.h	1391;"	kind:d	line:1391
+glUniform2iv	glad.h	1415;"	kind:d	line:1415
+glUniform2ui	glad.h	1699;"	kind:d	line:1699
+glUniform2uiv	glad.h	1711;"	kind:d	line:1711
+glUniform3f	glad.h	1382;"	kind:d	line:1382
+glUniform3fv	glad.h	1406;"	kind:d	line:1406
+glUniform3i	glad.h	1394;"	kind:d	line:1394
+glUniform3iv	glad.h	1418;"	kind:d	line:1418
+glUniform3ui	glad.h	1702;"	kind:d	line:1702
+glUniform3uiv	glad.h	1714;"	kind:d	line:1714
+glUniform4f	glad.h	1385;"	kind:d	line:1385
+glUniform4fv	glad.h	1409;"	kind:d	line:1409
+glUniform4i	glad.h	1397;"	kind:d	line:1397
+glUniform4iv	glad.h	1421;"	kind:d	line:1421
+glUniform4ui	glad.h	1705;"	kind:d	line:1705
+glUniform4uiv	glad.h	1717;"	kind:d	line:1717
+glUniformBlockBinding	glad.h	1862;"	kind:d	line:1862
+glUniformMatrix2fv	glad.h	1424;"	kind:d	line:1424
+glUniformMatrix2x3fv	glad.h	1551;"	kind:d	line:1551
+glUniformMatrix2x4fv	glad.h	1557;"	kind:d	line:1557
+glUniformMatrix3fv	glad.h	1427;"	kind:d	line:1427
+glUniformMatrix3x2fv	glad.h	1554;"	kind:d	line:1554
+glUniformMatrix3x4fv	glad.h	1563;"	kind:d	line:1563
+glUniformMatrix4fv	glad.h	1430;"	kind:d	line:1430
+glUniformMatrix4x2fv	glad.h	1560;"	kind:d	line:1560
+glUniformMatrix4x3fv	glad.h	1566;"	kind:d	line:1566
+glUnmapBuffer	glad.h	1255;"	kind:d	line:1255
+glUseProgram	glad.h	1373;"	kind:d	line:1373
+glValidateProgram	glad.h	1433;"	kind:d	line:1433
+glVertexAttrib1d	glad.h	1436;"	kind:d	line:1436
+glVertexAttrib1dv	glad.h	1439;"	kind:d	line:1439
+glVertexAttrib1f	glad.h	1442;"	kind:d	line:1442
+glVertexAttrib1fv	glad.h	1445;"	kind:d	line:1445
+glVertexAttrib1s	glad.h	1448;"	kind:d	line:1448
+glVertexAttrib1sv	glad.h	1451;"	kind:d	line:1451
+glVertexAttrib2d	glad.h	1454;"	kind:d	line:1454
+glVertexAttrib2dv	glad.h	1457;"	kind:d	line:1457
+glVertexAttrib2f	glad.h	1460;"	kind:d	line:1460
+glVertexAttrib2fv	glad.h	1463;"	kind:d	line:1463
+glVertexAttrib2s	glad.h	1466;"	kind:d	line:1466
+glVertexAttrib2sv	glad.h	1469;"	kind:d	line:1469
+glVertexAttrib3d	glad.h	1472;"	kind:d	line:1472
+glVertexAttrib3dv	glad.h	1475;"	kind:d	line:1475
+glVertexAttrib3f	glad.h	1478;"	kind:d	line:1478
+glVertexAttrib3fv	glad.h	1481;"	kind:d	line:1481
+glVertexAttrib3s	glad.h	1484;"	kind:d	line:1484
+glVertexAttrib3sv	glad.h	1487;"	kind:d	line:1487
+glVertexAttrib4Nbv	glad.h	1490;"	kind:d	line:1490
+glVertexAttrib4Niv	glad.h	1493;"	kind:d	line:1493
+glVertexAttrib4Nsv	glad.h	1496;"	kind:d	line:1496
+glVertexAttrib4Nub	glad.h	1499;"	kind:d	line:1499
+glVertexAttrib4Nubv	glad.h	1502;"	kind:d	line:1502
+glVertexAttrib4Nuiv	glad.h	1505;"	kind:d	line:1505
+glVertexAttrib4Nusv	glad.h	1508;"	kind:d	line:1508
+glVertexAttrib4bv	glad.h	1511;"	kind:d	line:1511
+glVertexAttrib4d	glad.h	1514;"	kind:d	line:1514
+glVertexAttrib4dv	glad.h	1517;"	kind:d	line:1517
+glVertexAttrib4f	glad.h	1520;"	kind:d	line:1520
+glVertexAttrib4fv	glad.h	1523;"	kind:d	line:1523
+glVertexAttrib4iv	glad.h	1526;"	kind:d	line:1526
+glVertexAttrib4s	glad.h	1529;"	kind:d	line:1529
+glVertexAttrib4sv	glad.h	1532;"	kind:d	line:1532
+glVertexAttrib4ubv	glad.h	1535;"	kind:d	line:1535
+glVertexAttrib4uiv	glad.h	1538;"	kind:d	line:1538
+glVertexAttrib4usv	glad.h	1541;"	kind:d	line:1541
+glVertexAttribI1i	glad.h	1627;"	kind:d	line:1627
+glVertexAttribI1iv	glad.h	1651;"	kind:d	line:1651
+glVertexAttribI1ui	glad.h	1639;"	kind:d	line:1639
+glVertexAttribI1uiv	glad.h	1663;"	kind:d	line:1663
+glVertexAttribI2i	glad.h	1630;"	kind:d	line:1630
+glVertexAttribI2iv	glad.h	1654;"	kind:d	line:1654
+glVertexAttribI2ui	glad.h	1642;"	kind:d	line:1642
+glVertexAttribI2uiv	glad.h	1666;"	kind:d	line:1666
+glVertexAttribI3i	glad.h	1633;"	kind:d	line:1633
+glVertexAttribI3iv	glad.h	1657;"	kind:d	line:1657
+glVertexAttribI3ui	glad.h	1645;"	kind:d	line:1645
+glVertexAttribI3uiv	glad.h	1669;"	kind:d	line:1669
+glVertexAttribI4bv	glad.h	1675;"	kind:d	line:1675
+glVertexAttribI4i	glad.h	1636;"	kind:d	line:1636
+glVertexAttribI4iv	glad.h	1660;"	kind:d	line:1660
+glVertexAttribI4sv	glad.h	1678;"	kind:d	line:1678
+glVertexAttribI4ubv	glad.h	1681;"	kind:d	line:1681
+glVertexAttribI4ui	glad.h	1648;"	kind:d	line:1648
+glVertexAttribI4uiv	glad.h	1672;"	kind:d	line:1672
+glVertexAttribI4usv	glad.h	1684;"	kind:d	line:1684
+glVertexAttribIPointer	glad.h	1618;"	kind:d	line:1618
+glVertexAttribPointer	glad.h	1544;"	kind:d	line:1544
+glViewport	glad.h	1079;"	kind:d	line:1079
+glWaitSync	glad.h	1896;"	kind:d	line:1896
+glad.h	glad.h	1;"	kind:F	line:1
+gladGLversionStruct	glad.h	/^struct gladGLversionStruct {$/;"	kind:s	line:29
+gladGLversionStruct::major	glad.h	/^    int major;$/;"	kind:m	line:30	struct:gladGLversionStruct	access:public
+gladGLversionStruct::minor	glad.h	/^    int minor;$/;"	kind:m	line:31	struct:gladGLversionStruct	access:public
+glad_glActiveTexture	glad.h	/^GLAPI PFNGLACTIVETEXTUREPROC glad_glActiveTexture;$/;"	kind:v	line:1144
+glad_glAttachShader	glad.h	/^GLAPI PFNGLATTACHSHADERPROC glad_glAttachShader;$/;"	kind:v	line:1282
+glad_glBeginConditionalRender	glad.h	/^GLAPI PFNGLBEGINCONDITIONALRENDERPROC glad_glBeginConditionalRender;$/;"	kind:v	line:1611
+glad_glBeginQuery	glad.h	/^GLAPI PFNGLBEGINQUERYPROC glad_glBeginQuery;$/;"	kind:v	line:1215
+glad_glBeginTransformFeedback	glad.h	/^GLAPI PFNGLBEGINTRANSFORMFEEDBACKPROC glad_glBeginTransformFeedback;$/;"	kind:v	line:1590
+glad_glBindAttribLocation	glad.h	/^GLAPI PFNGLBINDATTRIBLOCATIONPROC glad_glBindAttribLocation;$/;"	kind:v	line:1285
+glad_glBindBuffer	glad.h	/^GLAPI PFNGLBINDBUFFERPROC glad_glBindBuffer;$/;"	kind:v	line:1230
+glad_glBindBufferBase	glad.h	/^GLAPI PFNGLBINDBUFFERBASEPROC glad_glBindBufferBase;$/;"	kind:v	line:1599
+glad_glBindBufferRange	glad.h	/^GLAPI PFNGLBINDBUFFERRANGEPROC glad_glBindBufferRange;$/;"	kind:v	line:1596
+glad_glBindFragDataLocation	glad.h	/^GLAPI PFNGLBINDFRAGDATALOCATIONPROC glad_glBindFragDataLocation;$/;"	kind:v	line:1689
+glad_glBindFramebuffer	glad.h	/^GLAPI PFNGLBINDFRAMEBUFFERPROC glad_glBindFramebuffer;$/;"	kind:v	line:1767
+glad_glBindRenderbuffer	glad.h	/^GLAPI PFNGLBINDRENDERBUFFERPROC glad_glBindRenderbuffer;$/;"	kind:v	line:1749
+glad_glBindTexture	glad.h	/^GLAPI PFNGLBINDTEXTUREPROC glad_glBindTexture;$/;"	kind:v	line:1112
+glad_glBindVertexArray	glad.h	/^GLAPI PFNGLBINDVERTEXARRAYPROC glad_glBindVertexArray;$/;"	kind:v	line:1812
+glad_glBlendColor	glad.h	/^GLAPI PFNGLBLENDCOLORPROC glad_glBlendColor;$/;"	kind:v	line:1196
+glad_glBlendEquation	glad.h	/^GLAPI PFNGLBLENDEQUATIONPROC glad_glBlendEquation;$/;"	kind:v	line:1199
+glad_glBlendEquationSeparate	glad.h	/^GLAPI PFNGLBLENDEQUATIONSEPARATEPROC glad_glBlendEquationSeparate;$/;"	kind:v	line:1267
+glad_glBlendFunc	glad.h	/^GLAPI PFNGLBLENDFUNCPROC glad_glBlendFunc;$/;"	kind:v	line:1012
+glad_glBlendFuncSeparate	glad.h	/^GLAPI PFNGLBLENDFUNCSEPARATEPROC glad_glBlendFuncSeparate;$/;"	kind:v	line:1175
+glad_glBlitFramebuffer	glad.h	/^GLAPI PFNGLBLITFRAMEBUFFERPROC glad_glBlitFramebuffer;$/;"	kind:v	line:1797
+glad_glBufferData	glad.h	/^GLAPI PFNGLBUFFERDATAPROC glad_glBufferData;$/;"	kind:v	line:1242
+glad_glBufferSubData	glad.h	/^GLAPI PFNGLBUFFERSUBDATAPROC glad_glBufferSubData;$/;"	kind:v	line:1245
+glad_glCheckFramebufferStatus	glad.h	/^GLAPI PFNGLCHECKFRAMEBUFFERSTATUSPROC glad_glCheckFramebufferStatus;$/;"	kind:v	line:1776
+glad_glClampColor	glad.h	/^GLAPI PFNGLCLAMPCOLORPROC glad_glClampColor;$/;"	kind:v	line:1608
+glad_glClear	glad.h	/^GLAPI PFNGLCLEARPROC glad_glClear;$/;"	kind:v	line:979
+glad_glClearBufferfi	glad.h	/^GLAPI PFNGLCLEARBUFFERFIPROC glad_glClearBufferfi;$/;"	kind:v	line:1740
+glad_glClearBufferfv	glad.h	/^GLAPI PFNGLCLEARBUFFERFVPROC glad_glClearBufferfv;$/;"	kind:v	line:1737
+glad_glClearBufferiv	glad.h	/^GLAPI PFNGLCLEARBUFFERIVPROC glad_glClearBufferiv;$/;"	kind:v	line:1731
+glad_glClearBufferuiv	glad.h	/^GLAPI PFNGLCLEARBUFFERUIVPROC glad_glClearBufferuiv;$/;"	kind:v	line:1734
+glad_glClearColor	glad.h	/^GLAPI PFNGLCLEARCOLORPROC glad_glClearColor;$/;"	kind:v	line:982
+glad_glClearDepth	glad.h	/^GLAPI PFNGLCLEARDEPTHPROC glad_glClearDepth;$/;"	kind:v	line:988
+glad_glClearStencil	glad.h	/^GLAPI PFNGLCLEARSTENCILPROC glad_glClearStencil;$/;"	kind:v	line:985
+glad_glClientWaitSync	glad.h	/^GLAPI PFNGLCLIENTWAITSYNCPROC glad_glClientWaitSync;$/;"	kind:v	line:1892
+glad_glColorMask	glad.h	/^GLAPI PFNGLCOLORMASKPROC glad_glColorMask;$/;"	kind:v	line:994
+glad_glColorMaski	glad.h	/^GLAPI PFNGLCOLORMASKIPROC glad_glColorMaski;$/;"	kind:v	line:1572
+glad_glCompileShader	glad.h	/^GLAPI PFNGLCOMPILESHADERPROC glad_glCompileShader;$/;"	kind:v	line:1288
+glad_glCompressedTexImage1D	glad.h	/^GLAPI PFNGLCOMPRESSEDTEXIMAGE1DPROC glad_glCompressedTexImage1D;$/;"	kind:v	line:1156
+glad_glCompressedTexImage2D	glad.h	/^GLAPI PFNGLCOMPRESSEDTEXIMAGE2DPROC glad_glCompressedTexImage2D;$/;"	kind:v	line:1153
+glad_glCompressedTexImage3D	glad.h	/^GLAPI PFNGLCOMPRESSEDTEXIMAGE3DPROC glad_glCompressedTexImage3D;$/;"	kind:v	line:1150
+glad_glCompressedTexSubImage1D	glad.h	/^GLAPI PFNGLCOMPRESSEDTEXSUBIMAGE1DPROC glad_glCompressedTexSubImage1D;$/;"	kind:v	line:1165
+glad_glCompressedTexSubImage2D	glad.h	/^GLAPI PFNGLCOMPRESSEDTEXSUBIMAGE2DPROC glad_glCompressedTexSubImage2D;$/;"	kind:v	line:1162
+glad_glCompressedTexSubImage3D	glad.h	/^GLAPI PFNGLCOMPRESSEDTEXSUBIMAGE3DPROC glad_glCompressedTexSubImage3D;$/;"	kind:v	line:1159
+glad_glCopyBufferSubData	glad.h	/^GLAPI PFNGLCOPYBUFFERSUBDATAPROC glad_glCopyBufferSubData;$/;"	kind:v	line:1840
+glad_glCopyTexImage1D	glad.h	/^GLAPI PFNGLCOPYTEXIMAGE1DPROC glad_glCopyTexImage1D;$/;"	kind:v	line:1094
+glad_glCopyTexImage2D	glad.h	/^GLAPI PFNGLCOPYTEXIMAGE2DPROC glad_glCopyTexImage2D;$/;"	kind:v	line:1097
+glad_glCopyTexSubImage1D	glad.h	/^GLAPI PFNGLCOPYTEXSUBIMAGE1DPROC glad_glCopyTexSubImage1D;$/;"	kind:v	line:1100
+glad_glCopyTexSubImage2D	glad.h	/^GLAPI PFNGLCOPYTEXSUBIMAGE2DPROC glad_glCopyTexSubImage2D;$/;"	kind:v	line:1103
+glad_glCopyTexSubImage3D	glad.h	/^GLAPI PFNGLCOPYTEXSUBIMAGE3DPROC glad_glCopyTexSubImage3D;$/;"	kind:v	line:1137
+glad_glCreateProgram	glad.h	/^GLAPI PFNGLCREATEPROGRAMPROC glad_glCreateProgram;$/;"	kind:v	line:1291
+glad_glCreateShader	glad.h	/^GLAPI PFNGLCREATESHADERPROC glad_glCreateShader;$/;"	kind:v	line:1294
+glad_glCullFace	glad.h	/^GLAPI PFNGLCULLFACEPROC glad_glCullFace;$/;"	kind:v	line:937
+glad_glDeleteBuffers	glad.h	/^GLAPI PFNGLDELETEBUFFERSPROC glad_glDeleteBuffers;$/;"	kind:v	line:1233
+glad_glDeleteFramebuffers	glad.h	/^GLAPI PFNGLDELETEFRAMEBUFFERSPROC glad_glDeleteFramebuffers;$/;"	kind:v	line:1770
+glad_glDeleteProgram	glad.h	/^GLAPI PFNGLDELETEPROGRAMPROC glad_glDeleteProgram;$/;"	kind:v	line:1297
+glad_glDeleteQueries	glad.h	/^GLAPI PFNGLDELETEQUERIESPROC glad_glDeleteQueries;$/;"	kind:v	line:1209
+glad_glDeleteRenderbuffers	glad.h	/^GLAPI PFNGLDELETERENDERBUFFERSPROC glad_glDeleteRenderbuffers;$/;"	kind:v	line:1752
+glad_glDeleteShader	glad.h	/^GLAPI PFNGLDELETESHADERPROC glad_glDeleteShader;$/;"	kind:v	line:1300
+glad_glDeleteSync	glad.h	/^GLAPI PFNGLDELETESYNCPROC glad_glDeleteSync;$/;"	kind:v	line:1889
+glad_glDeleteTextures	glad.h	/^GLAPI PFNGLDELETETEXTURESPROC glad_glDeleteTextures;$/;"	kind:v	line:1115
+glad_glDeleteVertexArrays	glad.h	/^GLAPI PFNGLDELETEVERTEXARRAYSPROC glad_glDeleteVertexArrays;$/;"	kind:v	line:1815
+glad_glDepthFunc	glad.h	/^GLAPI PFNGLDEPTHFUNCPROC glad_glDepthFunc;$/;"	kind:v	line:1024
+glad_glDepthMask	glad.h	/^GLAPI PFNGLDEPTHMASKPROC glad_glDepthMask;$/;"	kind:v	line:997
+glad_glDepthRange	glad.h	/^GLAPI PFNGLDEPTHRANGEPROC glad_glDepthRange;$/;"	kind:v	line:1075
+glad_glDetachShader	glad.h	/^GLAPI PFNGLDETACHSHADERPROC glad_glDetachShader;$/;"	kind:v	line:1303
+glad_glDisable	glad.h	/^GLAPI PFNGLDISABLEPROC glad_glDisable;$/;"	kind:v	line:1000
+glad_glDisableVertexAttribArray	glad.h	/^GLAPI PFNGLDISABLEVERTEXATTRIBARRAYPROC glad_glDisableVertexAttribArray;$/;"	kind:v	line:1306
+glad_glDisablei	glad.h	/^GLAPI PFNGLDISABLEIPROC glad_glDisablei;$/;"	kind:v	line:1584
+glad_glDrawArrays	glad.h	/^GLAPI PFNGLDRAWARRAYSPROC glad_glDrawArrays;$/;"	kind:v	line:1085
+glad_glDrawArraysInstanced	glad.h	/^GLAPI PFNGLDRAWARRAYSINSTANCEDPROC glad_glDrawArraysInstanced;$/;"	kind:v	line:1828
+glad_glDrawBuffer	glad.h	/^GLAPI PFNGLDRAWBUFFERPROC glad_glDrawBuffer;$/;"	kind:v	line:976
+glad_glDrawBuffers	glad.h	/^GLAPI PFNGLDRAWBUFFERSPROC glad_glDrawBuffers;$/;"	kind:v	line:1270
+glad_glDrawElements	glad.h	/^GLAPI PFNGLDRAWELEMENTSPROC glad_glDrawElements;$/;"	kind:v	line:1088
+glad_glDrawElementsBaseVertex	glad.h	/^GLAPI PFNGLDRAWELEMENTSBASEVERTEXPROC glad_glDrawElementsBaseVertex;$/;"	kind:v	line:1868
+glad_glDrawElementsInstanced	glad.h	/^GLAPI PFNGLDRAWELEMENTSINSTANCEDPROC glad_glDrawElementsInstanced;$/;"	kind:v	line:1831
+glad_glDrawElementsInstancedBaseVertex	glad.h	/^GLAPI PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXPROC glad_glDrawElementsInstancedBaseVertex;$/;"	kind:v	line:1874
+glad_glDrawRangeElements	glad.h	/^GLAPI PFNGLDRAWRANGEELEMENTSPROC glad_glDrawRangeElements;$/;"	kind:v	line:1128
+glad_glDrawRangeElementsBaseVertex	glad.h	/^GLAPI PFNGLDRAWRANGEELEMENTSBASEVERTEXPROC glad_glDrawRangeElementsBaseVertex;$/;"	kind:v	line:1871
+glad_glEnable	glad.h	/^GLAPI PFNGLENABLEPROC glad_glEnable;$/;"	kind:v	line:1003
+glad_glEnableVertexAttribArray	glad.h	/^GLAPI PFNGLENABLEVERTEXATTRIBARRAYPROC glad_glEnableVertexAttribArray;$/;"	kind:v	line:1309
+glad_glEnablei	glad.h	/^GLAPI PFNGLENABLEIPROC glad_glEnablei;$/;"	kind:v	line:1581
+glad_glEndConditionalRender	glad.h	/^GLAPI PFNGLENDCONDITIONALRENDERPROC glad_glEndConditionalRender;$/;"	kind:v	line:1614
+glad_glEndQuery	glad.h	/^GLAPI PFNGLENDQUERYPROC glad_glEndQuery;$/;"	kind:v	line:1218
+glad_glEndTransformFeedback	glad.h	/^GLAPI PFNGLENDTRANSFORMFEEDBACKPROC glad_glEndTransformFeedback;$/;"	kind:v	line:1593
+glad_glFenceSync	glad.h	/^GLAPI PFNGLFENCESYNCPROC glad_glFenceSync;$/;"	kind:v	line:1883
+glad_glFinish	glad.h	/^GLAPI PFNGLFINISHPROC glad_glFinish;$/;"	kind:v	line:1006
+glad_glFlush	glad.h	/^GLAPI PFNGLFLUSHPROC glad_glFlush;$/;"	kind:v	line:1009
+glad_glFlushMappedBufferRange	glad.h	/^GLAPI PFNGLFLUSHMAPPEDBUFFERRANGEPROC glad_glFlushMappedBufferRange;$/;"	kind:v	line:1809
+glad_glFramebufferRenderbuffer	glad.h	/^GLAPI PFNGLFRAMEBUFFERRENDERBUFFERPROC glad_glFramebufferRenderbuffer;$/;"	kind:v	line:1788
+glad_glFramebufferTexture	glad.h	/^GLAPI PFNGLFRAMEBUFFERTEXTUREPROC glad_glFramebufferTexture;$/;"	kind:v	line:1910
+glad_glFramebufferTexture1D	glad.h	/^GLAPI PFNGLFRAMEBUFFERTEXTURE1DPROC glad_glFramebufferTexture1D;$/;"	kind:v	line:1779
+glad_glFramebufferTexture2D	glad.h	/^GLAPI PFNGLFRAMEBUFFERTEXTURE2DPROC glad_glFramebufferTexture2D;$/;"	kind:v	line:1782
+glad_glFramebufferTexture3D	glad.h	/^GLAPI PFNGLFRAMEBUFFERTEXTURE3DPROC glad_glFramebufferTexture3D;$/;"	kind:v	line:1785
+glad_glFramebufferTextureLayer	glad.h	/^GLAPI PFNGLFRAMEBUFFERTEXTURELAYERPROC glad_glFramebufferTextureLayer;$/;"	kind:v	line:1803
+glad_glFrontFace	glad.h	/^GLAPI PFNGLFRONTFACEPROC glad_glFrontFace;$/;"	kind:v	line:940
+glad_glGenBuffers	glad.h	/^GLAPI PFNGLGENBUFFERSPROC glad_glGenBuffers;$/;"	kind:v	line:1236
+glad_glGenFramebuffers	glad.h	/^GLAPI PFNGLGENFRAMEBUFFERSPROC glad_glGenFramebuffers;$/;"	kind:v	line:1773
+glad_glGenQueries	glad.h	/^GLAPI PFNGLGENQUERIESPROC glad_glGenQueries;$/;"	kind:v	line:1206
+glad_glGenRenderbuffers	glad.h	/^GLAPI PFNGLGENRENDERBUFFERSPROC glad_glGenRenderbuffers;$/;"	kind:v	line:1755
+glad_glGenTextures	glad.h	/^GLAPI PFNGLGENTEXTURESPROC glad_glGenTextures;$/;"	kind:v	line:1118
+glad_glGenVertexArrays	glad.h	/^GLAPI PFNGLGENVERTEXARRAYSPROC glad_glGenVertexArrays;$/;"	kind:v	line:1818
+glad_glGenerateMipmap	glad.h	/^GLAPI PFNGLGENERATEMIPMAPPROC glad_glGenerateMipmap;$/;"	kind:v	line:1794
+glad_glGetActiveAttrib	glad.h	/^GLAPI PFNGLGETACTIVEATTRIBPROC glad_glGetActiveAttrib;$/;"	kind:v	line:1312
+glad_glGetActiveUniform	glad.h	/^GLAPI PFNGLGETACTIVEUNIFORMPROC glad_glGetActiveUniform;$/;"	kind:v	line:1315
+glad_glGetActiveUniformBlockName	glad.h	/^GLAPI PFNGLGETACTIVEUNIFORMBLOCKNAMEPROC glad_glGetActiveUniformBlockName;$/;"	kind:v	line:1858
+glad_glGetActiveUniformBlockiv	glad.h	/^GLAPI PFNGLGETACTIVEUNIFORMBLOCKIVPROC glad_glGetActiveUniformBlockiv;$/;"	kind:v	line:1855
+glad_glGetActiveUniformName	glad.h	/^GLAPI PFNGLGETACTIVEUNIFORMNAMEPROC glad_glGetActiveUniformName;$/;"	kind:v	line:1849
+glad_glGetActiveUniformsiv	glad.h	/^GLAPI PFNGLGETACTIVEUNIFORMSIVPROC glad_glGetActiveUniformsiv;$/;"	kind:v	line:1846
+glad_glGetAttachedShaders	glad.h	/^GLAPI PFNGLGETATTACHEDSHADERSPROC glad_glGetAttachedShaders;$/;"	kind:v	line:1318
+glad_glGetAttribLocation	glad.h	/^GLAPI PFNGLGETATTRIBLOCATIONPROC glad_glGetAttribLocation;$/;"	kind:v	line:1321
+glad_glGetBooleani_v	glad.h	/^GLAPI PFNGLGETBOOLEANI_VPROC glad_glGetBooleani_v;$/;"	kind:v	line:1575
+glad_glGetBooleanv	glad.h	/^GLAPI PFNGLGETBOOLEANVPROC glad_glGetBooleanv;$/;"	kind:v	line:1039
+glad_glGetBufferParameteri64v	glad.h	/^GLAPI PFNGLGETBUFFERPARAMETERI64VPROC glad_glGetBufferParameteri64v;$/;"	kind:v	line:1907
+glad_glGetBufferParameteriv	glad.h	/^GLAPI PFNGLGETBUFFERPARAMETERIVPROC glad_glGetBufferParameteriv;$/;"	kind:v	line:1257
+glad_glGetBufferPointerv	glad.h	/^GLAPI PFNGLGETBUFFERPOINTERVPROC glad_glGetBufferPointerv;$/;"	kind:v	line:1260
+glad_glGetBufferSubData	glad.h	/^GLAPI PFNGLGETBUFFERSUBDATAPROC glad_glGetBufferSubData;$/;"	kind:v	line:1248
+glad_glGetCompressedTexImage	glad.h	/^GLAPI PFNGLGETCOMPRESSEDTEXIMAGEPROC glad_glGetCompressedTexImage;$/;"	kind:v	line:1168
+glad_glGetDoublev	glad.h	/^GLAPI PFNGLGETDOUBLEVPROC glad_glGetDoublev;$/;"	kind:v	line:1042
+glad_glGetError	glad.h	/^GLAPI PFNGLGETERRORPROC glad_glGetError;$/;"	kind:v	line:1045
+glad_glGetFloatv	glad.h	/^GLAPI PFNGLGETFLOATVPROC glad_glGetFloatv;$/;"	kind:v	line:1048
+glad_glGetFragDataLocation	glad.h	/^GLAPI PFNGLGETFRAGDATALOCATIONPROC glad_glGetFragDataLocation;$/;"	kind:v	line:1692
+glad_glGetFramebufferAttachmentParameteriv	glad.h	/^GLAPI PFNGLGETFRAMEBUFFERATTACHMENTPARAMETERIVPROC glad_glGetFramebufferAttachmentParameteriv;$/;"	kind:v	line:1791
+glad_glGetInteger64i_v	glad.h	/^GLAPI PFNGLGETINTEGER64I_VPROC glad_glGetInteger64i_v;$/;"	kind:v	line:1904
+glad_glGetInteger64v	glad.h	/^GLAPI PFNGLGETINTEGER64VPROC glad_glGetInteger64v;$/;"	kind:v	line:1898
+glad_glGetIntegeri_v	glad.h	/^GLAPI PFNGLGETINTEGERI_VPROC glad_glGetIntegeri_v;$/;"	kind:v	line:1578
+glad_glGetIntegerv	glad.h	/^GLAPI PFNGLGETINTEGERVPROC glad_glGetIntegerv;$/;"	kind:v	line:1051
+glad_glGetMultisamplefv	glad.h	/^GLAPI PFNGLGETMULTISAMPLEFVPROC glad_glGetMultisamplefv;$/;"	kind:v	line:1919
+glad_glGetProgramInfoLog	glad.h	/^GLAPI PFNGLGETPROGRAMINFOLOGPROC glad_glGetProgramInfoLog;$/;"	kind:v	line:1327
+glad_glGetProgramiv	glad.h	/^GLAPI PFNGLGETPROGRAMIVPROC glad_glGetProgramiv;$/;"	kind:v	line:1324
+glad_glGetQueryObjectiv	glad.h	/^GLAPI PFNGLGETQUERYOBJECTIVPROC glad_glGetQueryObjectiv;$/;"	kind:v	line:1224
+glad_glGetQueryObjectuiv	glad.h	/^GLAPI PFNGLGETQUERYOBJECTUIVPROC glad_glGetQueryObjectuiv;$/;"	kind:v	line:1227
+glad_glGetQueryiv	glad.h	/^GLAPI PFNGLGETQUERYIVPROC glad_glGetQueryiv;$/;"	kind:v	line:1221
+glad_glGetRenderbufferParameteriv	glad.h	/^GLAPI PFNGLGETRENDERBUFFERPARAMETERIVPROC glad_glGetRenderbufferParameteriv;$/;"	kind:v	line:1761
+glad_glGetShaderInfoLog	glad.h	/^GLAPI PFNGLGETSHADERINFOLOGPROC glad_glGetShaderInfoLog;$/;"	kind:v	line:1333
+glad_glGetShaderSource	glad.h	/^GLAPI PFNGLGETSHADERSOURCEPROC glad_glGetShaderSource;$/;"	kind:v	line:1336
+glad_glGetShaderiv	glad.h	/^GLAPI PFNGLGETSHADERIVPROC glad_glGetShaderiv;$/;"	kind:v	line:1330
+glad_glGetString	glad.h	/^GLAPI PFNGLGETSTRINGPROC glad_glGetString;$/;"	kind:v	line:1054
+glad_glGetStringi	glad.h	/^GLAPI PFNGLGETSTRINGIPROC glad_glGetStringi;$/;"	kind:v	line:1743
+glad_glGetSynciv	glad.h	/^GLAPI PFNGLGETSYNCIVPROC glad_glGetSynciv;$/;"	kind:v	line:1901
+glad_glGetTexImage	glad.h	/^GLAPI PFNGLGETTEXIMAGEPROC glad_glGetTexImage;$/;"	kind:v	line:1057
+glad_glGetTexLevelParameterfv	glad.h	/^GLAPI PFNGLGETTEXLEVELPARAMETERFVPROC glad_glGetTexLevelParameterfv;$/;"	kind:v	line:1066
+glad_glGetTexLevelParameteriv	glad.h	/^GLAPI PFNGLGETTEXLEVELPARAMETERIVPROC glad_glGetTexLevelParameteriv;$/;"	kind:v	line:1069
+glad_glGetTexParameterIiv	glad.h	/^GLAPI PFNGLGETTEXPARAMETERIIVPROC glad_glGetTexParameterIiv;$/;"	kind:v	line:1725
+glad_glGetTexParameterIuiv	glad.h	/^GLAPI PFNGLGETTEXPARAMETERIUIVPROC glad_glGetTexParameterIuiv;$/;"	kind:v	line:1728
+glad_glGetTexParameterfv	glad.h	/^GLAPI PFNGLGETTEXPARAMETERFVPROC glad_glGetTexParameterfv;$/;"	kind:v	line:1060
+glad_glGetTexParameteriv	glad.h	/^GLAPI PFNGLGETTEXPARAMETERIVPROC glad_glGetTexParameteriv;$/;"	kind:v	line:1063
+glad_glGetTransformFeedbackVarying	glad.h	/^GLAPI PFNGLGETTRANSFORMFEEDBACKVARYINGPROC glad_glGetTransformFeedbackVarying;$/;"	kind:v	line:1605
+glad_glGetUniformBlockIndex	glad.h	/^GLAPI PFNGLGETUNIFORMBLOCKINDEXPROC glad_glGetUniformBlockIndex;$/;"	kind:v	line:1852
+glad_glGetUniformIndices	glad.h	/^GLAPI PFNGLGETUNIFORMINDICESPROC glad_glGetUniformIndices;$/;"	kind:v	line:1843
+glad_glGetUniformLocation	glad.h	/^GLAPI PFNGLGETUNIFORMLOCATIONPROC glad_glGetUniformLocation;$/;"	kind:v	line:1339
+glad_glGetUniformfv	glad.h	/^GLAPI PFNGLGETUNIFORMFVPROC glad_glGetUniformfv;$/;"	kind:v	line:1342
+glad_glGetUniformiv	glad.h	/^GLAPI PFNGLGETUNIFORMIVPROC glad_glGetUniformiv;$/;"	kind:v	line:1345
+glad_glGetUniformuiv	glad.h	/^GLAPI PFNGLGETUNIFORMUIVPROC glad_glGetUniformuiv;$/;"	kind:v	line:1686
+glad_glGetVertexAttribIiv	glad.h	/^GLAPI PFNGLGETVERTEXATTRIBIIVPROC glad_glGetVertexAttribIiv;$/;"	kind:v	line:1620
+glad_glGetVertexAttribIuiv	glad.h	/^GLAPI PFNGLGETVERTEXATTRIBIUIVPROC glad_glGetVertexAttribIuiv;$/;"	kind:v	line:1623
+glad_glGetVertexAttribPointerv	glad.h	/^GLAPI PFNGLGETVERTEXATTRIBPOINTERVPROC glad_glGetVertexAttribPointerv;$/;"	kind:v	line:1357
+glad_glGetVertexAttribdv	glad.h	/^GLAPI PFNGLGETVERTEXATTRIBDVPROC glad_glGetVertexAttribdv;$/;"	kind:v	line:1348
+glad_glGetVertexAttribfv	glad.h	/^GLAPI PFNGLGETVERTEXATTRIBFVPROC glad_glGetVertexAttribfv;$/;"	kind:v	line:1351
+glad_glGetVertexAttribiv	glad.h	/^GLAPI PFNGLGETVERTEXATTRIBIVPROC glad_glGetVertexAttribiv;$/;"	kind:v	line:1354
+glad_glHint	glad.h	/^GLAPI PFNGLHINTPROC glad_glHint;$/;"	kind:v	line:943
+glad_glIsBuffer	glad.h	/^GLAPI PFNGLISBUFFERPROC glad_glIsBuffer;$/;"	kind:v	line:1239
+glad_glIsEnabled	glad.h	/^GLAPI PFNGLISENABLEDPROC glad_glIsEnabled;$/;"	kind:v	line:1072
+glad_glIsEnabledi	glad.h	/^GLAPI PFNGLISENABLEDIPROC glad_glIsEnabledi;$/;"	kind:v	line:1587
+glad_glIsFramebuffer	glad.h	/^GLAPI PFNGLISFRAMEBUFFERPROC glad_glIsFramebuffer;$/;"	kind:v	line:1764
+glad_glIsProgram	glad.h	/^GLAPI PFNGLISPROGRAMPROC glad_glIsProgram;$/;"	kind:v	line:1360
+glad_glIsQuery	glad.h	/^GLAPI PFNGLISQUERYPROC glad_glIsQuery;$/;"	kind:v	line:1212
+glad_glIsRenderbuffer	glad.h	/^GLAPI PFNGLISRENDERBUFFERPROC glad_glIsRenderbuffer;$/;"	kind:v	line:1746
+glad_glIsShader	glad.h	/^GLAPI PFNGLISSHADERPROC glad_glIsShader;$/;"	kind:v	line:1363
+glad_glIsSync	glad.h	/^GLAPI PFNGLISSYNCPROC glad_glIsSync;$/;"	kind:v	line:1886
+glad_glIsTexture	glad.h	/^GLAPI PFNGLISTEXTUREPROC glad_glIsTexture;$/;"	kind:v	line:1121
+glad_glIsVertexArray	glad.h	/^GLAPI PFNGLISVERTEXARRAYPROC glad_glIsVertexArray;$/;"	kind:v	line:1821
+glad_glLineWidth	glad.h	/^GLAPI PFNGLLINEWIDTHPROC glad_glLineWidth;$/;"	kind:v	line:946
+glad_glLinkProgram	glad.h	/^GLAPI PFNGLLINKPROGRAMPROC glad_glLinkProgram;$/;"	kind:v	line:1366
+glad_glLogicOp	glad.h	/^GLAPI PFNGLLOGICOPPROC glad_glLogicOp;$/;"	kind:v	line:1015
+glad_glMapBuffer	glad.h	/^GLAPI PFNGLMAPBUFFERPROC glad_glMapBuffer;$/;"	kind:v	line:1251
+glad_glMapBufferRange	glad.h	/^GLAPI PFNGLMAPBUFFERRANGEPROC glad_glMapBufferRange;$/;"	kind:v	line:1806
+glad_glMultiDrawArrays	glad.h	/^GLAPI PFNGLMULTIDRAWARRAYSPROC glad_glMultiDrawArrays;$/;"	kind:v	line:1178
+glad_glMultiDrawElements	glad.h	/^GLAPI PFNGLMULTIDRAWELEMENTSPROC glad_glMultiDrawElements;$/;"	kind:v	line:1181
+glad_glMultiDrawElementsBaseVertex	glad.h	/^GLAPI PFNGLMULTIDRAWELEMENTSBASEVERTEXPROC glad_glMultiDrawElementsBaseVertex;$/;"	kind:v	line:1877
+glad_glPixelStoref	glad.h	/^GLAPI PFNGLPIXELSTOREFPROC glad_glPixelStoref;$/;"	kind:v	line:1027
+glad_glPixelStorei	glad.h	/^GLAPI PFNGLPIXELSTOREIPROC glad_glPixelStorei;$/;"	kind:v	line:1030
+glad_glPointParameterf	glad.h	/^GLAPI PFNGLPOINTPARAMETERFPROC glad_glPointParameterf;$/;"	kind:v	line:1184
+glad_glPointParameterfv	glad.h	/^GLAPI PFNGLPOINTPARAMETERFVPROC glad_glPointParameterfv;$/;"	kind:v	line:1187
+glad_glPointParameteri	glad.h	/^GLAPI PFNGLPOINTPARAMETERIPROC glad_glPointParameteri;$/;"	kind:v	line:1190
+glad_glPointParameteriv	glad.h	/^GLAPI PFNGLPOINTPARAMETERIVPROC glad_glPointParameteriv;$/;"	kind:v	line:1193
+glad_glPointSize	glad.h	/^GLAPI PFNGLPOINTSIZEPROC glad_glPointSize;$/;"	kind:v	line:949
+glad_glPolygonMode	glad.h	/^GLAPI PFNGLPOLYGONMODEPROC glad_glPolygonMode;$/;"	kind:v	line:952
+glad_glPolygonOffset	glad.h	/^GLAPI PFNGLPOLYGONOFFSETPROC glad_glPolygonOffset;$/;"	kind:v	line:1091
+glad_glPrimitiveRestartIndex	glad.h	/^GLAPI PFNGLPRIMITIVERESTARTINDEXPROC glad_glPrimitiveRestartIndex;$/;"	kind:v	line:1837
+glad_glProvokingVertex	glad.h	/^GLAPI PFNGLPROVOKINGVERTEXPROC glad_glProvokingVertex;$/;"	kind:v	line:1880
+glad_glReadBuffer	glad.h	/^GLAPI PFNGLREADBUFFERPROC glad_glReadBuffer;$/;"	kind:v	line:1033
+glad_glReadPixels	glad.h	/^GLAPI PFNGLREADPIXELSPROC glad_glReadPixels;$/;"	kind:v	line:1036
+glad_glRenderbufferStorage	glad.h	/^GLAPI PFNGLRENDERBUFFERSTORAGEPROC glad_glRenderbufferStorage;$/;"	kind:v	line:1758
+glad_glRenderbufferStorageMultisample	glad.h	/^GLAPI PFNGLRENDERBUFFERSTORAGEMULTISAMPLEPROC glad_glRenderbufferStorageMultisample;$/;"	kind:v	line:1800
+glad_glSampleCoverage	glad.h	/^GLAPI PFNGLSAMPLECOVERAGEPROC glad_glSampleCoverage;$/;"	kind:v	line:1147
+glad_glSampleMaski	glad.h	/^GLAPI PFNGLSAMPLEMASKIPROC glad_glSampleMaski;$/;"	kind:v	line:1922
+glad_glScissor	glad.h	/^GLAPI PFNGLSCISSORPROC glad_glScissor;$/;"	kind:v	line:955
+glad_glShaderSource	glad.h	/^GLAPI PFNGLSHADERSOURCEPROC glad_glShaderSource;$/;"	kind:v	line:1369
+glad_glStencilFunc	glad.h	/^GLAPI PFNGLSTENCILFUNCPROC glad_glStencilFunc;$/;"	kind:v	line:1018
+glad_glStencilFuncSeparate	glad.h	/^GLAPI PFNGLSTENCILFUNCSEPARATEPROC glad_glStencilFuncSeparate;$/;"	kind:v	line:1276
+glad_glStencilMask	glad.h	/^GLAPI PFNGLSTENCILMASKPROC glad_glStencilMask;$/;"	kind:v	line:991
+glad_glStencilMaskSeparate	glad.h	/^GLAPI PFNGLSTENCILMASKSEPARATEPROC glad_glStencilMaskSeparate;$/;"	kind:v	line:1279
+glad_glStencilOp	glad.h	/^GLAPI PFNGLSTENCILOPPROC glad_glStencilOp;$/;"	kind:v	line:1021
+glad_glStencilOpSeparate	glad.h	/^GLAPI PFNGLSTENCILOPSEPARATEPROC glad_glStencilOpSeparate;$/;"	kind:v	line:1273
+glad_glTexBuffer	glad.h	/^GLAPI PFNGLTEXBUFFERPROC glad_glTexBuffer;$/;"	kind:v	line:1834
+glad_glTexImage1D	glad.h	/^GLAPI PFNGLTEXIMAGE1DPROC glad_glTexImage1D;$/;"	kind:v	line:970
+glad_glTexImage2D	glad.h	/^GLAPI PFNGLTEXIMAGE2DPROC glad_glTexImage2D;$/;"	kind:v	line:973
+glad_glTexImage2DMultisample	glad.h	/^GLAPI PFNGLTEXIMAGE2DMULTISAMPLEPROC glad_glTexImage2DMultisample;$/;"	kind:v	line:1913
+glad_glTexImage3D	glad.h	/^GLAPI PFNGLTEXIMAGE3DPROC glad_glTexImage3D;$/;"	kind:v	line:1131
+glad_glTexImage3DMultisample	glad.h	/^GLAPI PFNGLTEXIMAGE3DMULTISAMPLEPROC glad_glTexImage3DMultisample;$/;"	kind:v	line:1916
+glad_glTexParameterIiv	glad.h	/^GLAPI PFNGLTEXPARAMETERIIVPROC glad_glTexParameterIiv;$/;"	kind:v	line:1719
+glad_glTexParameterIuiv	glad.h	/^GLAPI PFNGLTEXPARAMETERIUIVPROC glad_glTexParameterIuiv;$/;"	kind:v	line:1722
+glad_glTexParameterf	glad.h	/^GLAPI PFNGLTEXPARAMETERFPROC glad_glTexParameterf;$/;"	kind:v	line:958
+glad_glTexParameterfv	glad.h	/^GLAPI PFNGLTEXPARAMETERFVPROC glad_glTexParameterfv;$/;"	kind:v	line:961
+glad_glTexParameteri	glad.h	/^GLAPI PFNGLTEXPARAMETERIPROC glad_glTexParameteri;$/;"	kind:v	line:964
+glad_glTexParameteriv	glad.h	/^GLAPI PFNGLTEXPARAMETERIVPROC glad_glTexParameteriv;$/;"	kind:v	line:967
+glad_glTexSubImage1D	glad.h	/^GLAPI PFNGLTEXSUBIMAGE1DPROC glad_glTexSubImage1D;$/;"	kind:v	line:1106
+glad_glTexSubImage2D	glad.h	/^GLAPI PFNGLTEXSUBIMAGE2DPROC glad_glTexSubImage2D;$/;"	kind:v	line:1109
+glad_glTexSubImage3D	glad.h	/^GLAPI PFNGLTEXSUBIMAGE3DPROC glad_glTexSubImage3D;$/;"	kind:v	line:1134
+glad_glTransformFeedbackVaryings	glad.h	/^GLAPI PFNGLTRANSFORMFEEDBACKVARYINGSPROC glad_glTransformFeedbackVaryings;$/;"	kind:v	line:1602
+glad_glUniform1f	glad.h	/^GLAPI PFNGLUNIFORM1FPROC glad_glUniform1f;$/;"	kind:v	line:1375
+glad_glUniform1fv	glad.h	/^GLAPI PFNGLUNIFORM1FVPROC glad_glUniform1fv;$/;"	kind:v	line:1399
+glad_glUniform1i	glad.h	/^GLAPI PFNGLUNIFORM1IPROC glad_glUniform1i;$/;"	kind:v	line:1387
+glad_glUniform1iv	glad.h	/^GLAPI PFNGLUNIFORM1IVPROC glad_glUniform1iv;$/;"	kind:v	line:1411
+glad_glUniform1ui	glad.h	/^GLAPI PFNGLUNIFORM1UIPROC glad_glUniform1ui;$/;"	kind:v	line:1695
+glad_glUniform1uiv	glad.h	/^GLAPI PFNGLUNIFORM1UIVPROC glad_glUniform1uiv;$/;"	kind:v	line:1707
+glad_glUniform2f	glad.h	/^GLAPI PFNGLUNIFORM2FPROC glad_glUniform2f;$/;"	kind:v	line:1378
+glad_glUniform2fv	glad.h	/^GLAPI PFNGLUNIFORM2FVPROC glad_glUniform2fv;$/;"	kind:v	line:1402
+glad_glUniform2i	glad.h	/^GLAPI PFNGLUNIFORM2IPROC glad_glUniform2i;$/;"	kind:v	line:1390
+glad_glUniform2iv	glad.h	/^GLAPI PFNGLUNIFORM2IVPROC glad_glUniform2iv;$/;"	kind:v	line:1414
+glad_glUniform2ui	glad.h	/^GLAPI PFNGLUNIFORM2UIPROC glad_glUniform2ui;$/;"	kind:v	line:1698
+glad_glUniform2uiv	glad.h	/^GLAPI PFNGLUNIFORM2UIVPROC glad_glUniform2uiv;$/;"	kind:v	line:1710
+glad_glUniform3f	glad.h	/^GLAPI PFNGLUNIFORM3FPROC glad_glUniform3f;$/;"	kind:v	line:1381
+glad_glUniform3fv	glad.h	/^GLAPI PFNGLUNIFORM3FVPROC glad_glUniform3fv;$/;"	kind:v	line:1405
+glad_glUniform3i	glad.h	/^GLAPI PFNGLUNIFORM3IPROC glad_glUniform3i;$/;"	kind:v	line:1393
+glad_glUniform3iv	glad.h	/^GLAPI PFNGLUNIFORM3IVPROC glad_glUniform3iv;$/;"	kind:v	line:1417
+glad_glUniform3ui	glad.h	/^GLAPI PFNGLUNIFORM3UIPROC glad_glUniform3ui;$/;"	kind:v	line:1701
+glad_glUniform3uiv	glad.h	/^GLAPI PFNGLUNIFORM3UIVPROC glad_glUniform3uiv;$/;"	kind:v	line:1713
+glad_glUniform4f	glad.h	/^GLAPI PFNGLUNIFORM4FPROC glad_glUniform4f;$/;"	kind:v	line:1384
+glad_glUniform4fv	glad.h	/^GLAPI PFNGLUNIFORM4FVPROC glad_glUniform4fv;$/;"	kind:v	line:1408
+glad_glUniform4i	glad.h	/^GLAPI PFNGLUNIFORM4IPROC glad_glUniform4i;$/;"	kind:v	line:1396
+glad_glUniform4iv	glad.h	/^GLAPI PFNGLUNIFORM4IVPROC glad_glUniform4iv;$/;"	kind:v	line:1420
+glad_glUniform4ui	glad.h	/^GLAPI PFNGLUNIFORM4UIPROC glad_glUniform4ui;$/;"	kind:v	line:1704
+glad_glUniform4uiv	glad.h	/^GLAPI PFNGLUNIFORM4UIVPROC glad_glUniform4uiv;$/;"	kind:v	line:1716
+glad_glUniformBlockBinding	glad.h	/^GLAPI PFNGLUNIFORMBLOCKBINDINGPROC glad_glUniformBlockBinding;$/;"	kind:v	line:1861
+glad_glUniformMatrix2fv	glad.h	/^GLAPI PFNGLUNIFORMMATRIX2FVPROC glad_glUniformMatrix2fv;$/;"	kind:v	line:1423
+glad_glUniformMatrix2x3fv	glad.h	/^GLAPI PFNGLUNIFORMMATRIX2X3FVPROC glad_glUniformMatrix2x3fv;$/;"	kind:v	line:1550
+glad_glUniformMatrix2x4fv	glad.h	/^GLAPI PFNGLUNIFORMMATRIX2X4FVPROC glad_glUniformMatrix2x4fv;$/;"	kind:v	line:1556
+glad_glUniformMatrix3fv	glad.h	/^GLAPI PFNGLUNIFORMMATRIX3FVPROC glad_glUniformMatrix3fv;$/;"	kind:v	line:1426
+glad_glUniformMatrix3x2fv	glad.h	/^GLAPI PFNGLUNIFORMMATRIX3X2FVPROC glad_glUniformMatrix3x2fv;$/;"	kind:v	line:1553
+glad_glUniformMatrix3x4fv	glad.h	/^GLAPI PFNGLUNIFORMMATRIX3X4FVPROC glad_glUniformMatrix3x4fv;$/;"	kind:v	line:1562
+glad_glUniformMatrix4fv	glad.h	/^GLAPI PFNGLUNIFORMMATRIX4FVPROC glad_glUniformMatrix4fv;$/;"	kind:v	line:1429
+glad_glUniformMatrix4x2fv	glad.h	/^GLAPI PFNGLUNIFORMMATRIX4X2FVPROC glad_glUniformMatrix4x2fv;$/;"	kind:v	line:1559
+glad_glUniformMatrix4x3fv	glad.h	/^GLAPI PFNGLUNIFORMMATRIX4X3FVPROC glad_glUniformMatrix4x3fv;$/;"	kind:v	line:1565
+glad_glUnmapBuffer	glad.h	/^GLAPI PFNGLUNMAPBUFFERPROC glad_glUnmapBuffer;$/;"	kind:v	line:1254
+glad_glUseProgram	glad.h	/^GLAPI PFNGLUSEPROGRAMPROC glad_glUseProgram;$/;"	kind:v	line:1372
+glad_glValidateProgram	glad.h	/^GLAPI PFNGLVALIDATEPROGRAMPROC glad_glValidateProgram;$/;"	kind:v	line:1432
+glad_glVertexAttrib1d	glad.h	/^GLAPI PFNGLVERTEXATTRIB1DPROC glad_glVertexAttrib1d;$/;"	kind:v	line:1435
+glad_glVertexAttrib1dv	glad.h	/^GLAPI PFNGLVERTEXATTRIB1DVPROC glad_glVertexAttrib1dv;$/;"	kind:v	line:1438
+glad_glVertexAttrib1f	glad.h	/^GLAPI PFNGLVERTEXATTRIB1FPROC glad_glVertexAttrib1f;$/;"	kind:v	line:1441
+glad_glVertexAttrib1fv	glad.h	/^GLAPI PFNGLVERTEXATTRIB1FVPROC glad_glVertexAttrib1fv;$/;"	kind:v	line:1444
+glad_glVertexAttrib1s	glad.h	/^GLAPI PFNGLVERTEXATTRIB1SPROC glad_glVertexAttrib1s;$/;"	kind:v	line:1447
+glad_glVertexAttrib1sv	glad.h	/^GLAPI PFNGLVERTEXATTRIB1SVPROC glad_glVertexAttrib1sv;$/;"	kind:v	line:1450
+glad_glVertexAttrib2d	glad.h	/^GLAPI PFNGLVERTEXATTRIB2DPROC glad_glVertexAttrib2d;$/;"	kind:v	line:1453
+glad_glVertexAttrib2dv	glad.h	/^GLAPI PFNGLVERTEXATTRIB2DVPROC glad_glVertexAttrib2dv;$/;"	kind:v	line:1456
+glad_glVertexAttrib2f	glad.h	/^GLAPI PFNGLVERTEXATTRIB2FPROC glad_glVertexAttrib2f;$/;"	kind:v	line:1459
+glad_glVertexAttrib2fv	glad.h	/^GLAPI PFNGLVERTEXATTRIB2FVPROC glad_glVertexAttrib2fv;$/;"	kind:v	line:1462
+glad_glVertexAttrib2s	glad.h	/^GLAPI PFNGLVERTEXATTRIB2SPROC glad_glVertexAttrib2s;$/;"	kind:v	line:1465
+glad_glVertexAttrib2sv	glad.h	/^GLAPI PFNGLVERTEXATTRIB2SVPROC glad_glVertexAttrib2sv;$/;"	kind:v	line:1468
+glad_glVertexAttrib3d	glad.h	/^GLAPI PFNGLVERTEXATTRIB3DPROC glad_glVertexAttrib3d;$/;"	kind:v	line:1471
+glad_glVertexAttrib3dv	glad.h	/^GLAPI PFNGLVERTEXATTRIB3DVPROC glad_glVertexAttrib3dv;$/;"	kind:v	line:1474
+glad_glVertexAttrib3f	glad.h	/^GLAPI PFNGLVERTEXATTRIB3FPROC glad_glVertexAttrib3f;$/;"	kind:v	line:1477
+glad_glVertexAttrib3fv	glad.h	/^GLAPI PFNGLVERTEXATTRIB3FVPROC glad_glVertexAttrib3fv;$/;"	kind:v	line:1480
+glad_glVertexAttrib3s	glad.h	/^GLAPI PFNGLVERTEXATTRIB3SPROC glad_glVertexAttrib3s;$/;"	kind:v	line:1483
+glad_glVertexAttrib3sv	glad.h	/^GLAPI PFNGLVERTEXATTRIB3SVPROC glad_glVertexAttrib3sv;$/;"	kind:v	line:1486
+glad_glVertexAttrib4Nbv	glad.h	/^GLAPI PFNGLVERTEXATTRIB4NBVPROC glad_glVertexAttrib4Nbv;$/;"	kind:v	line:1489
+glad_glVertexAttrib4Niv	glad.h	/^GLAPI PFNGLVERTEXATTRIB4NIVPROC glad_glVertexAttrib4Niv;$/;"	kind:v	line:1492
+glad_glVertexAttrib4Nsv	glad.h	/^GLAPI PFNGLVERTEXATTRIB4NSVPROC glad_glVertexAttrib4Nsv;$/;"	kind:v	line:1495
+glad_glVertexAttrib4Nub	glad.h	/^GLAPI PFNGLVERTEXATTRIB4NUBPROC glad_glVertexAttrib4Nub;$/;"	kind:v	line:1498
+glad_glVertexAttrib4Nubv	glad.h	/^GLAPI PFNGLVERTEXATTRIB4NUBVPROC glad_glVertexAttrib4Nubv;$/;"	kind:v	line:1501
+glad_glVertexAttrib4Nuiv	glad.h	/^GLAPI PFNGLVERTEXATTRIB4NUIVPROC glad_glVertexAttrib4Nuiv;$/;"	kind:v	line:1504
+glad_glVertexAttrib4Nusv	glad.h	/^GLAPI PFNGLVERTEXATTRIB4NUSVPROC glad_glVertexAttrib4Nusv;$/;"	kind:v	line:1507
+glad_glVertexAttrib4bv	glad.h	/^GLAPI PFNGLVERTEXATTRIB4BVPROC glad_glVertexAttrib4bv;$/;"	kind:v	line:1510
+glad_glVertexAttrib4d	glad.h	/^GLAPI PFNGLVERTEXATTRIB4DPROC glad_glVertexAttrib4d;$/;"	kind:v	line:1513
+glad_glVertexAttrib4dv	glad.h	/^GLAPI PFNGLVERTEXATTRIB4DVPROC glad_glVertexAttrib4dv;$/;"	kind:v	line:1516
+glad_glVertexAttrib4f	glad.h	/^GLAPI PFNGLVERTEXATTRIB4FPROC glad_glVertexAttrib4f;$/;"	kind:v	line:1519
+glad_glVertexAttrib4fv	glad.h	/^GLAPI PFNGLVERTEXATTRIB4FVPROC glad_glVertexAttrib4fv;$/;"	kind:v	line:1522
+glad_glVertexAttrib4iv	glad.h	/^GLAPI PFNGLVERTEXATTRIB4IVPROC glad_glVertexAttrib4iv;$/;"	kind:v	line:1525
+glad_glVertexAttrib4s	glad.h	/^GLAPI PFNGLVERTEXATTRIB4SPROC glad_glVertexAttrib4s;$/;"	kind:v	line:1528
+glad_glVertexAttrib4sv	glad.h	/^GLAPI PFNGLVERTEXATTRIB4SVPROC glad_glVertexAttrib4sv;$/;"	kind:v	line:1531
+glad_glVertexAttrib4ubv	glad.h	/^GLAPI PFNGLVERTEXATTRIB4UBVPROC glad_glVertexAttrib4ubv;$/;"	kind:v	line:1534
+glad_glVertexAttrib4uiv	glad.h	/^GLAPI PFNGLVERTEXATTRIB4UIVPROC glad_glVertexAttrib4uiv;$/;"	kind:v	line:1537
+glad_glVertexAttrib4usv	glad.h	/^GLAPI PFNGLVERTEXATTRIB4USVPROC glad_glVertexAttrib4usv;$/;"	kind:v	line:1540
+glad_glVertexAttribI1i	glad.h	/^GLAPI PFNGLVERTEXATTRIBI1IPROC glad_glVertexAttribI1i;$/;"	kind:v	line:1626
+glad_glVertexAttribI1iv	glad.h	/^GLAPI PFNGLVERTEXATTRIBI1IVPROC glad_glVertexAttribI1iv;$/;"	kind:v	line:1650
+glad_glVertexAttribI1ui	glad.h	/^GLAPI PFNGLVERTEXATTRIBI1UIPROC glad_glVertexAttribI1ui;$/;"	kind:v	line:1638
+glad_glVertexAttribI1uiv	glad.h	/^GLAPI PFNGLVERTEXATTRIBI1UIVPROC glad_glVertexAttribI1uiv;$/;"	kind:v	line:1662
+glad_glVertexAttribI2i	glad.h	/^GLAPI PFNGLVERTEXATTRIBI2IPROC glad_glVertexAttribI2i;$/;"	kind:v	line:1629
+glad_glVertexAttribI2iv	glad.h	/^GLAPI PFNGLVERTEXATTRIBI2IVPROC glad_glVertexAttribI2iv;$/;"	kind:v	line:1653
+glad_glVertexAttribI2ui	glad.h	/^GLAPI PFNGLVERTEXATTRIBI2UIPROC glad_glVertexAttribI2ui;$/;"	kind:v	line:1641
+glad_glVertexAttribI2uiv	glad.h	/^GLAPI PFNGLVERTEXATTRIBI2UIVPROC glad_glVertexAttribI2uiv;$/;"	kind:v	line:1665
+glad_glVertexAttribI3i	glad.h	/^GLAPI PFNGLVERTEXATTRIBI3IPROC glad_glVertexAttribI3i;$/;"	kind:v	line:1632
+glad_glVertexAttribI3iv	glad.h	/^GLAPI PFNGLVERTEXATTRIBI3IVPROC glad_glVertexAttribI3iv;$/;"	kind:v	line:1656
+glad_glVertexAttribI3ui	glad.h	/^GLAPI PFNGLVERTEXATTRIBI3UIPROC glad_glVertexAttribI3ui;$/;"	kind:v	line:1644
+glad_glVertexAttribI3uiv	glad.h	/^GLAPI PFNGLVERTEXATTRIBI3UIVPROC glad_glVertexAttribI3uiv;$/;"	kind:v	line:1668
+glad_glVertexAttribI4bv	glad.h	/^GLAPI PFNGLVERTEXATTRIBI4BVPROC glad_glVertexAttribI4bv;$/;"	kind:v	line:1674
+glad_glVertexAttribI4i	glad.h	/^GLAPI PFNGLVERTEXATTRIBI4IPROC glad_glVertexAttribI4i;$/;"	kind:v	line:1635
+glad_glVertexAttribI4iv	glad.h	/^GLAPI PFNGLVERTEXATTRIBI4IVPROC glad_glVertexAttribI4iv;$/;"	kind:v	line:1659
+glad_glVertexAttribI4sv	glad.h	/^GLAPI PFNGLVERTEXATTRIBI4SVPROC glad_glVertexAttribI4sv;$/;"	kind:v	line:1677
+glad_glVertexAttribI4ubv	glad.h	/^GLAPI PFNGLVERTEXATTRIBI4UBVPROC glad_glVertexAttribI4ubv;$/;"	kind:v	line:1680
+glad_glVertexAttribI4ui	glad.h	/^GLAPI PFNGLVERTEXATTRIBI4UIPROC glad_glVertexAttribI4ui;$/;"	kind:v	line:1647
+glad_glVertexAttribI4uiv	glad.h	/^GLAPI PFNGLVERTEXATTRIBI4UIVPROC glad_glVertexAttribI4uiv;$/;"	kind:v	line:1671
+glad_glVertexAttribI4usv	glad.h	/^GLAPI PFNGLVERTEXATTRIBI4USVPROC glad_glVertexAttribI4usv;$/;"	kind:v	line:1683
+glad_glVertexAttribIPointer	glad.h	/^GLAPI PFNGLVERTEXATTRIBIPOINTERPROC glad_glVertexAttribIPointer;$/;"	kind:v	line:1617
+glad_glVertexAttribPointer	glad.h	/^GLAPI PFNGLVERTEXATTRIBPOINTERPROC glad_glVertexAttribPointer;$/;"	kind:v	line:1543
+glad_glViewport	glad.h	/^GLAPI PFNGLVIEWPORTPROC glad_glViewport;$/;"	kind:v	line:1078
+glad_glWaitSync	glad.h	/^GLAPI PFNGLWAITSYNCPROC glad_glWaitSync;$/;"	kind:v	line:1895
+int32_t	glad.h	/^typedef __int32 int32_t;$/;"	kind:t	line:96
+int32_t	glad.h	/^typedef long int int32_t;$/;"	kind:t	line:90
+int64_t	glad.h	/^typedef __int64 int64_t;$/;"	kind:t	line:97
+int64_t	glad.h	/^typedef long int int64_t;$/;"	kind:t	line:78
+int64_t	glad.h	/^typedef long long int int64_t;$/;"	kind:t	line:81
+int64_t	glad.h	/^typedef long long int int64_t;$/;"	kind:t	line:91
+major	glad.h	/^    int major;$/;"	kind:m	line:30	struct:gladGLversionStruct	access:public
+minor	glad.h	/^    int minor;$/;"	kind:m	line:31	struct:gladGLversionStruct	access:public
+uint64_t	glad.h	/^typedef unsigned __int64 uint64_t;$/;"	kind:t	line:98
+uint64_t	glad.h	/^typedef unsigned long int uint64_t;$/;"	kind:t	line:79
+uint64_t	glad.h	/^typedef unsigned long long int uint64_t;$/;"	kind:t	line:82
+uint64_t	glad.h	/^typedef unsigned long long int uint64_t;$/;"	kind:t	line:92
