@@ -1,20 +1,30 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <Eigen/Core>
+#include <Eigen/Geometry>
+#include <Eigen/LU>
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <fstream>
+#include <iostream>
+
 
 static void error_callback(int error, const char* description)
 {
     fputs(description, stderr);
 }
 
+static GLfloat z = 0.0f;
+static int width = 800;
+static int height = 600;
 static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
-    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS){
         glfwSetWindowShouldClose(window, GL_TRUE);
+	}else if(key == GLFW_KEY_UP && action == GLFW_PRESS){
+		z += 0.001f;
+	}
 }
 /* Creates a shader object of the specified type using the specified text
  */
@@ -23,7 +33,6 @@ static GLuint make_shader(GLenum type, const char* text)
     GLuint shader;
     GLint shader_ok;
     GLsizei log_length;
-    char info_log[8192];
 
     shader = glCreateShader(type);
     if (shader != 0)
@@ -33,6 +42,7 @@ static GLuint make_shader(GLenum type, const char* text)
         glGetShaderiv(shader, GL_COMPILE_STATUS, &shader_ok);
         if (shader_ok != GL_TRUE)
         {
+			char info_log[8192];
             fprintf(stderr, "ERROR: Failed to compile %s shader\n", (type == GL_FRAGMENT_SHADER) ? "fragment" : "vertex" );
             glGetShaderInfoLog(shader, 8192, &log_length,info_log);
             fprintf(stderr, "ERROR: \n%s\n\n", info_log);
@@ -52,7 +62,6 @@ static GLuint make_shader_program(const char* vs_text, const char* fs_text)
     GLuint vertex_shader = 0u;
     GLuint fragment_shader = 0u;
     GLsizei log_length;
-    char info_log[8192];
 
     vertex_shader = make_shader(GL_VERTEX_SHADER, vs_text);
     if (vertex_shader != 0u)
@@ -72,6 +81,7 @@ static GLuint make_shader_program(const char* vs_text, const char* fs_text)
 
                 if (program_ok != GL_TRUE)
                 {
+					char info_log[8192];
                     fprintf(stderr, "ERROR, failed to link shader program\n");
                     glGetProgramInfoLog(program, 8192, &log_length, info_log);
                     fprintf(stderr, "ERROR: \n%s\n\n", info_log);
@@ -105,7 +115,7 @@ static GLFWwindow* CreateWindow(){
     if (!glfwInit())
         exit(EXIT_FAILURE);
 
-    window = glfwCreateWindow(640, 480, "Simple example", NULL, NULL);
+    window = glfwCreateWindow(width, height, "Simple example", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -150,13 +160,14 @@ static char* readfile(const char* filePath){
 }
 
 /* Frustum configuration */
-static GLfloat view_angle = 45.0f;
+static GLfloat view_angle = 90.0f;
 static GLfloat aspect_ratio = 4.0f/3.0f;
 static GLfloat z_near = 1.0f;
 static GLfloat z_far = 100.f;
 
-static Eigen::Matrix<float, 4, 4, Eigen::RowMajor> projection_matrix;
-static Eigen::Matrix<float, 4, 4, Eigen::RowMajor> modelview_matrix;
+
+static Eigen::Matrix<float, 4, 4> projection_matrix;
+static Eigen::Matrix<float, 4, 4> modelview_matrix;
 
 int main(void)
 {
@@ -178,20 +189,67 @@ int main(void)
     glUniformMatrix4fv(uloc_project, 1, GL_FALSE, projection_matrix.data());
 
     /* Set the camera position  */
-    modelview_matrix(12)  = -5.0f;
-    modelview_matrix(13)  = -5.0f;
-    modelview_matrix(14)  = -20.0f;
+	modelview_matrix = modelview_matrix.setIdentity();
+	modelview_matrix(14) = -1;
+	std::cout << modelview_matrix << std::endl;
     glUniformMatrix4fv(uloc_modelview, 1, GL_FALSE, modelview_matrix.data());
+
+
+	GLuint vboID[2];
+	GLfloat vertices[] = {
+		-1.0f, -1.0f, 0.0f,
+		1.0f, -1.0f, 0.0f,
+		1.0f, 1.0f, 0.0f,
+		-1.0f, 1.0f, 0.0f,
+			};
+
+	GLuint indices[] = {
+		0, 1, 2,
+		2, 3, 0
+	};
+
+	glGenBuffers(2, &vboID[0]);
+	glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
+
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboID[1]);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+
+	GLuint vertShaderLocation = glGetAttribLocation(shader_program, "vert");
+
+	glViewport(0,0,width, height);
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+
 	
     while (!glfwWindowShouldClose(window))
     {
-        float ratio;
-        int width, height;
-
-        glfwGetFramebufferSize(window, &width, &height);
-        ratio = width / (float) height;
 
 
+		glClear(GL_COLOR_BUFFER_BIT);
+		glEnableVertexAttribArray(vertShaderLocation);
+		glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
+		glVertexAttribPointer(
+				vertShaderLocation,
+				3, //size of attribute
+				GL_FLOAT,
+				GL_FALSE,
+				0, //stride
+				(void*)0 //Pointer to the off of the first component of the first element
+				);
+
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboID[1]);
+		glDrawElements(
+				GL_TRIANGLES,
+				6, //Amount of vertices to draw
+				GL_UNSIGNED_INT,
+				(void*)0
+				);
+
+		glDisableVertexAttribArray(vertShaderLocation);
         glfwSwapBuffers(window);
         glfwPollEvents();
     }

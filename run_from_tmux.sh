@@ -1,2 +1,3 @@
 #!/bin/bash
-./Terrian
+./build_from_tmux.sh
+./Terrian.bin

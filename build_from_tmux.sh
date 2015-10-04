@@ -1,2 +1,2 @@
 #!/bin/bash
-scons
+scons debug=3
