@@ -1,30 +1,75 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include <Eigen/Core>
-#include <Eigen/Geometry>
-#include <Eigen/LU>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <fstream>
 #include <iostream>
 
+static int width = 800;
+static int height = 600;
+/* Frustum configuration */
+static GLfloat view_angle = 45.0f;
+static GLfloat aspect_ratio = 4.0f/3.0f;
+static GLfloat z_near = 0.1f;
+static GLfloat z_far = 100.f;
+
+
+static glm::mat4 projection_matrix;
+static glm::mat4 modelview_matrix;
+
+static glm::vec4 furthest_point;
 
 static void error_callback(int error, const char* description)
 {
     fputs(description, stderr);
 }
+static void check_error(){
+	GLenum err;
+	while ((err = glGetError()) != GL_NO_ERROR) {
+		const char* error;
 
-static GLfloat z = 0.0f;
-static int width = 800;
-static int height = 600;
+		switch(err) {
+			case GL_INVALID_OPERATION:      error="INVALID_OPERATION";      break;
+			case GL_INVALID_ENUM:           error="INVALID_ENUM";           break;
+			case GL_INVALID_VALUE:          error="INVALID_VALUE";          break;
+			case GL_OUT_OF_MEMORY:          error="OUT_OF_MEMORY";          break;
+			case GL_INVALID_FRAMEBUFFER_OPERATION:  error="INVALID_FRAMEBUFFER_OPERATION";  break;
+		}
+		std::cerr << "OpenGL error: " << error << std::endl;
+		}
+		//
+}
+
 static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS){
         glfwSetWindowShouldClose(window, GL_TRUE);
-	}else if(key == GLFW_KEY_UP && action == GLFW_PRESS){
-		z += 0.001f;
 	}
+	if(key == GLFW_KEY_LEFT && action == GLFW_PRESS && mods == 0){
+		modelview_matrix = glm::rotate(modelview_matrix, 0.1f, glm::vec3(0.0f, -1.0f, 0.0f));
+	}else if(key == GLFW_KEY_RIGHT && action == GLFW_PRESS && mods == 0){
+		modelview_matrix = glm::rotate(modelview_matrix, 0.1f, glm::vec3(0.0f, 1.0f, 0.0f));
+	}else if(key == GLFW_KEY_LEFT && action == GLFW_PRESS && mods == GLFW_MOD_SHIFT){
+		modelview_matrix = glm::translate(modelview_matrix, glm::vec3(-0.1f, 0.0f, 0.0f));
+	}else if(key == GLFW_KEY_RIGHT && action == GLFW_PRESS && mods == GLFW_MOD_SHIFT){
+		modelview_matrix = glm::translate(modelview_matrix, glm::vec3(0.1f, 0.0f, 0.0f));
+	}
+	if(key == GLFW_KEY_UP && action == GLFW_PRESS && mods == 0){
+		modelview_matrix = glm::scale(modelview_matrix, glm::vec3(0.9f,0.9f,0.9f));
+	}else if(key == GLFW_KEY_DOWN && action == GLFW_PRESS && mods == 0){
+		modelview_matrix = glm::scale(modelview_matrix, glm::vec3(1.1f,1.1f,1.1f));
+	}else if(key == GLFW_KEY_UP && action == GLFW_PRESS && mods == GLFW_MOD_SHIFT){
+		modelview_matrix = glm::translate(modelview_matrix, glm::vec3(0.0f, 0.0f, -0.1f));
+	}else if(key == GLFW_KEY_DOWN && action == GLFW_PRESS && mods == GLFW_MOD_SHIFT){
+		modelview_matrix = glm::translate(modelview_matrix, glm::vec3(0.0f, 0.0f, 0.1f));
+	}
+	glm::vec4 scaledPoint = modelview_matrix * furthest_point; 
+	printf("Scaled point: %f, %f, %f\n", scaledPoint[0], scaledPoint[1], scaledPoint[2]);
+
 }
 /* Creates a shader object of the specified type using the specified text
  */
@@ -115,6 +160,11 @@ static GLFWwindow* CreateWindow(){
     if (!glfwInit())
         exit(EXIT_FAILURE);
 
+    glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 4);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     window = glfwCreateWindow(width, height, "Simple example", NULL, NULL);
     if (!window)
     {
@@ -122,10 +172,10 @@ static GLFWwindow* CreateWindow(){
         exit(EXIT_FAILURE);
     }
 
+
     glfwMakeContextCurrent(window);
+	glfwSetInputMode(window, GLFW_STICKY_KEYS, 1);
 
-
-    glewExperimental=true;
 	GLenum err=glewInit(); 
 	if(err!=GLEW_OK) { //Problem: glewInit failed, something is seriously wrong. 
         fprintf(stderr, "ERROR: Unable to init glew\n");
@@ -159,15 +209,88 @@ static char* readfile(const char* filePath){
 	return memblock;
 }
 
-/* Frustum configuration */
-static GLfloat view_angle = 90.0f;
-static GLfloat aspect_ratio = 4.0f/3.0f;
-static GLfloat z_near = 1.0f;
-static GLfloat z_far = 100.f;
+struct heightmap {
+	int verticesSize;
+	int indicesSize;
+	float* vertices;
+	int* indices;
+	int width;
+	int height;
+	int vertexCount;
+	GLuint id[2];
+};
+
+static struct heightmap createHeightMap(int width, int height){
+	struct heightmap data;
+
+	data.width = width+1;
+	data.height = height+1;
+	float squareSize = 0.1f;
+
+	data.verticesSize = 3*data.width*data.height;
+	data.indicesSize = 6*width*height;
+	data.vertices = new float[data.verticesSize];
+	data.indices = new int[data.indicesSize];
+	data.vertexCount = 6 * width * height;
+
+	/**
+	 * * * *
+	 * * * *
+	 * * * *
+	 * * * *
+	 Each vertex has 3 numbers to specifiy its height. z is always zero.
+	 We are looking at a square going from the top of the screen to the bottom.
+	 x, and y specify the position.
+	 So the vertices array is filled with x, y, 0. Position is i*3
+	 x = i * squareSize
+	 y = j * squareSize
+	 */
+	int index = 0;
+	//Fills array with points of heightmap
+	for(int i = 0; i < data.width; i++){
+		for(int j = 0; j < data.height; j++){
+			index = (i * data.height) + j;
+			data.vertices[3*index] = i * squareSize;
+			data.vertices[(3*index)+1] = j * squareSize;
+			data.vertices[(3*index)+2] = 1;
+			//printf("Index:%d\tI,J: %d.%d:\t%d, %d, %d\n", index, i, j,data.vertices[(3*index)+0],data.vertices[(3*index)+1], data.vertices[(3*index)+2]);
+
+		}
+	}
+
+	//Loop over all the squares and fill indices
+	for(int i = 0; i < width; i++){
+		for(int j = 0; j < height; j++){
+			index = (i * data.height) + j;
+			int v0 = index;
+			int v1 = ((i)*data.height) + j+1;
+			int v2 = ((i+1)*data.height) + j;
+			int v3 = ((i+1) * data.height) + j +1;
+			//First triangle
+			data.indices[index+0] = v0;
+			data.indices[index+1] = v2;
+			data.indices[index+2] = v1;
+			//Second triangle
+			data.indices[index+3] = v1;
+			data.indices[index+4] = v3;
+			data.indices[index+5] = v2;
+
+		}
+	}
 
 
-static Eigen::Matrix<float, 4, 4> projection_matrix;
-static Eigen::Matrix<float, 4, 4> modelview_matrix;
+	glGenBuffers(2, &data.id[0]);
+
+	glBindBuffer(GL_ARRAY_BUFFER, data.id[0]);
+	glBufferData(GL_ARRAY_BUFFER, data.verticesSize, &data.vertices[0], GL_STATIC_DRAW);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, data.id[1]);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, data.indicesSize, &data.indices[0], GL_STATIC_DRAW);
+
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+	return data;
+}
 
 int main(void)
 {
@@ -179,34 +302,58 @@ int main(void)
     GLuint uloc_modelview = glGetUniformLocation(shader_program, "modelview");
 
     /* Compute the projection matrix */
-    float f = 1.0f / tanf(view_angle / 2.0f);
-    projection_matrix(0)  = f / aspect_ratio;
-    projection_matrix(5)  = f;
-    projection_matrix(10) = (z_far + z_near)/ (z_near - z_far);
-    projection_matrix(11) = -1.0f;
-    projection_matrix(14) = 2.0f * (z_far * z_near) / (z_near - z_far);
+	projection_matrix = glm::perspective(view_angle, aspect_ratio, z_near, z_far);
 	
-    glUniformMatrix4fv(uloc_project, 1, GL_FALSE, projection_matrix.data());
 
     /* Set the camera position  */
-	modelview_matrix = modelview_matrix.setIdentity();
-	modelview_matrix(14) = -1;
-	std::cout << modelview_matrix << std::endl;
-    glUniformMatrix4fv(uloc_modelview, 1, GL_FALSE, modelview_matrix.data());
+	modelview_matrix = glm::translate(modelview_matrix, glm::vec3(0.0f, 0.0f, -7.0f));
 
+	struct heightmap heightMap = createHeightMap(1,1);
+	int heightMapSize = 3 * heightMap.width * heightMap.height;
+	printf("Height map size: %d\n", heightMapSize);
+	printf("Furthest point: %f,%f,%f\n", heightMap.vertices[heightMapSize-3], heightMap.vertices[heightMapSize-2], heightMap.vertices[heightMapSize-1]);
+	furthest_point = glm::vec4(heightMap.vertices[heightMapSize-3], heightMap.vertices[heightMapSize-2], heightMap.vertices[heightMapSize-1], 1.0f);
 
+	/*
 	GLuint vboID[2];
 	GLfloat vertices[] = {
-		-1.0f, -1.0f, 0.0f,
-		1.0f, -1.0f, 0.0f,
-		1.0f, 1.0f, 0.0f,
-		-1.0f, 1.0f, 0.0f,
+		-6.0f, -6.0f, 6.0f,
+		6.0f, -6.0f, 6.0f,
+		6.0f, 6.0f, 6.0f,
+		-6.0f, 6.0f, 6.0f,
+		-6.0f, 6.0f, -6.0f,
+		-6.0f, -6.0f, -6.0f,
+		6.0f, -6.0f, -6.0f,
 			};
 
+
 	GLuint indices[] = {
+		//Front face
 		0, 1, 2,
-		2, 3, 0
+		2, 3, 0,
+		//Bottom Face
+		0, 1, 6,
+		6, 5, 0,
+		//Back face
+
+	};*/
+	GLuint vboID[2];
+	GLfloat vertices[] = {
+		0.0f, 0.0f, 1.0f,
+		0.0f, 0.1f, 1.0f,
+		0.1f, 0.0f, 1.0f,
+		0.1f, 0.1f, 1.0f
+			};
+
+
+	GLuint indices[] = {
+		//Front face
+		0, 2, 1,
+		1, 3, 2,
+
 	};
+
+	int vertexCount = sizeof(indices) / sizeof(GLuint);
 
 	glGenBuffers(2, &vboID[0]);
 	glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
@@ -220,6 +367,7 @@ int main(void)
 
 
 	GLuint vertShaderLocation = glGetAttribLocation(shader_program, "vert");
+	check_error();
 
 	glViewport(0,0,width, height);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
@@ -228,10 +376,18 @@ int main(void)
     while (!glfwWindowShouldClose(window))
     {
 
+		glUniformMatrix4fv(uloc_project, 1, GL_FALSE, glm::value_ptr(projection_matrix));
+		glUniformMatrix4fv(uloc_modelview, 1, GL_FALSE, glm::value_ptr(modelview_matrix));
 
 		glClear(GL_COLOR_BUFFER_BIT);
-		glEnableVertexAttribArray(vertShaderLocation);
+		//glPolygonMode(GL_FRONT, GL_FILL);
+
+		/* */
+		//Triangle test
 		glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboID[1]);
+		glEnableVertexAttribArray(vertShaderLocation);
+
 		glVertexAttribPointer(
 				vertShaderLocation,
 				3, //size of attribute
@@ -240,19 +396,39 @@ int main(void)
 				0, //stride
 				(void*)0 //Pointer to the off of the first component of the first element
 				);
-
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboID[1]);
 		glDrawElements(
 				GL_TRIANGLES,
 				6, //Amount of vertices to draw
 				GL_UNSIGNED_INT,
 				(void*)0
 				);
-
+		/*Heightmap
+		glBindBuffer(GL_ARRAY_BUFFER, heightMap.id[0]);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, heightMap.id[1]);
+		glEnableVertexAttribArray(vertShaderLocation);
+		glVertexAttribPointer(
+				vertShaderLocation,
+				3, //size of attribute
+				GL_FLOAT,
+				GL_FALSE,
+				0, //stride
+				(void*)0 //Pointer to the off of the first component of the first element
+				);
+		glDrawElements(
+				GL_TRIANGLES,
+				heightMap.vertexCount, //Amount of vertices to draw
+				GL_UNSIGNED_INT,
+				(void*)0
+				);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+		glBindBuffer(GL_ARRAY_BUFFER, 0);
+		*/
+		// check OpenGL error
 		glDisableVertexAttribArray(vertShaderLocation);
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
+	glDeleteBuffers(2, &vboID[0]);
 
     glfwDestroyWindow(window);
 

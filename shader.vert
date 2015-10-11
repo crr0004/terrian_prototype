@@ -1,4 +1,6 @@
-#version 300 es
+#version 440
+
+
 uniform mat4 project;
 uniform mat4 modelview;
 in vec3 vert;
