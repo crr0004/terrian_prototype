@@ -3,6 +3,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include "gldebug.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -160,7 +161,9 @@ static GLFWwindow* CreateWindow(){
     if (!glfwInit())
         exit(EXIT_FAILURE);
 
-    window = glfwCreateWindow(width, height, "Simple example", NULL, NULL);
+
+	window = glfwCreateWindow(width, height, "Simple example", NULL, NULL);
+
     if (!window)
     {
         glfwTerminate();
@@ -168,6 +171,7 @@ static GLFWwindow* CreateWindow(){
     }
 
 
+	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
     glfwMakeContextCurrent(window);
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, 1);
 
@@ -175,8 +179,30 @@ static GLFWwindow* CreateWindow(){
 	if(err!=GLEW_OK) { //Problem: glewInit failed, something is seriously wrong. 
         fprintf(stderr, "ERROR: Unable to init glew\n");
 	}
-	glfwSwapInterval(1);
 
+	glEnable(GL_DEBUG_OUTPUT);
+	// Enable depth test
+	glEnable(GL_DEPTH_TEST);
+	// Accept fragment if it closer to the camera than the former one
+	glDepthFunc(GL_LESS); 
+
+	// Cull triangles which normal is not towards the camera
+	glEnable(GL_CULL_FACE);
+	glCullFace(GL_BACK);
+
+
+	GLint v;
+	glGetIntegerv(GL_CONTEXT_FLAGS, &v);
+	if(v & GL_CONTEXT_FLAG_DEBUG_BIT){
+		printf("%s %d\n", "OpenGL debugging enabled", v);
+		glDebugMessageCallback(glDebug::myCallback, (GLvoid*)0);
+		glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, NULL, GL_TRUE);
+	}else{
+		printf("%s %d\n", "OpenGL debugging disabled", v);
+	}
+	printf("OpenGL %s, GLSL %s\n", glGetString(GL_VERSION), glGetString(GL_SHADING_LANGUAGE_VERSION));
+
+	glfwSwapInterval(1);
     glfwSetKeyCallback(window, key_callback);
 	return window;
 }
