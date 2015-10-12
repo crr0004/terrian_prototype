@@ -160,11 +160,6 @@ static GLFWwindow* CreateWindow(){
     if (!glfwInit())
         exit(EXIT_FAILURE);
 
-    glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 4);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     window = glfwCreateWindow(width, height, "Simple example", NULL, NULL);
     if (!window)
     {
@@ -367,7 +362,6 @@ int main(void)
 
 
 	GLuint vertShaderLocation = glGetAttribLocation(shader_program, "vert");
-	check_error();
 
 	glViewport(0,0,width, height);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
@@ -382,7 +376,7 @@ int main(void)
 		glClear(GL_COLOR_BUFFER_BIT);
 		//glPolygonMode(GL_FRONT, GL_FILL);
 
-		/* */
+		/*
 		//Triangle test
 		glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboID[1]);
@@ -402,7 +396,9 @@ int main(void)
 				GL_UNSIGNED_INT,
 				(void*)0
 				);
-		/*Heightmap
+				 */
+		/*Heightmap		*/
+
 		glBindBuffer(GL_ARRAY_BUFFER, heightMap.id[0]);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, heightMap.id[1]);
 		glEnableVertexAttribArray(vertShaderLocation);
@@ -422,13 +418,10 @@ int main(void)
 				);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
-		*/
-		// check OpenGL error
 		glDisableVertexAttribArray(vertShaderLocation);
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
-	glDeleteBuffers(2, &vboID[0]);
 
     glfwDestroyWindow(window);
 
