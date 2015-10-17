@@ -4,6 +4,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include "gldebug.h"
+#include "matrixstacksingleton.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -50,25 +51,25 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS){
         glfwSetWindowShouldClose(window, GL_TRUE);
 	}
-	if(key == GLFW_KEY_LEFT && action == GLFW_PRESS && mods == 0){
+	if(key == GLFW_KEY_LEFT && action == GLFW_REPEAT && mods == 0){
 		modelview_matrix = glm::rotate(modelview_matrix, 0.1f, glm::vec3(0.0f, -1.0f, 0.0f));
-	}else if(key == GLFW_KEY_RIGHT && action == GLFW_PRESS && mods == 0){
+	}else if(key == GLFW_KEY_RIGHT && action == GLFW_REPEAT && mods == 0){
 		modelview_matrix = glm::rotate(modelview_matrix, 0.1f, glm::vec3(0.0f, 1.0f, 0.0f));
-	}else if(key == GLFW_KEY_LEFT && action == GLFW_PRESS && mods == GLFW_MOD_SHIFT){
+	}else if(key == GLFW_KEY_LEFT && action == GLFW_REPEAT && mods == GLFW_MOD_SHIFT){
 		modelview_matrix = glm::translate(modelview_matrix, glm::vec3(-0.1f, 0.0f, 0.0f));
-	}else if(key == GLFW_KEY_RIGHT && action == GLFW_PRESS && mods == GLFW_MOD_SHIFT){
+	}else if(key == GLFW_KEY_RIGHT && action == GLFW_REPEAT && mods == GLFW_MOD_SHIFT){
 		modelview_matrix = glm::translate(modelview_matrix, glm::vec3(0.1f, 0.0f, 0.0f));
 	}
-	if(key == GLFW_KEY_UP && action == GLFW_PRESS && mods == 0){
+	if(key == GLFW_KEY_UP && action == GLFW_REPEAT && mods == 0){
 		modelview_matrix = glm::scale(modelview_matrix, glm::vec3(0.9f,0.9f,0.9f));
-	}else if(key == GLFW_KEY_DOWN && action == GLFW_PRESS && mods == 0){
+	}else if(key == GLFW_KEY_DOWN && action == GLFW_REPEAT && mods == 0){
 		modelview_matrix = glm::scale(modelview_matrix, glm::vec3(1.1f,1.1f,1.1f));
-	}else if(key == GLFW_KEY_UP && action == GLFW_PRESS && mods == GLFW_MOD_SHIFT){
+	}else if(key == GLFW_KEY_UP && action == GLFW_REPEAT && mods == GLFW_MOD_SHIFT){
 		modelview_matrix = glm::translate(modelview_matrix, glm::vec3(0.0f, 0.0f, -0.1f));
-	}else if(key == GLFW_KEY_DOWN && action == GLFW_PRESS && mods == GLFW_MOD_SHIFT){
+	}else if(key == GLFW_KEY_DOWN && action == GLFW_REPEAT && mods == GLFW_MOD_SHIFT){
 		modelview_matrix = glm::translate(modelview_matrix, glm::vec3(0.0f, 0.0f, 0.1f));
 	}
-	glm::vec4 scaledPoint = modelview_matrix * furthest_point; 
+	glm::vec4 scaledPoint = projection_matrix * modelview_matrix * furthest_point; 
 	printf("Scaled point: %f, %f, %f\n", scaledPoint[0], scaledPoint[1], scaledPoint[2]);
 
 }
@@ -162,6 +163,7 @@ static GLFWwindow* CreateWindow(){
         exit(EXIT_FAILURE);
 
 
+	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
 	window = glfwCreateWindow(width, height, "Simple example", NULL, NULL);
 
     if (!window)
@@ -171,7 +173,6 @@ static GLFWwindow* CreateWindow(){
     }
 
 
-	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
     glfwMakeContextCurrent(window);
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, 1);
 
@@ -246,7 +247,7 @@ static struct heightmap createHeightMap(int width, int height){
 
 	data.width = width+1;
 	data.height = height+1;
-	float squareSize = 0.1f;
+	float squareSize = -0.1f;
 
 	data.verticesSize = 3*data.width*data.height;
 	data.indicesSize = 6*width*height;
@@ -317,7 +318,7 @@ int main(void)
 {
 
 	GLFWwindow *window = CreateWindow();
-	GLuint shader_program = make_shader_program(readfile("shader.vert"), readfile("shader.frag"));
+	GLuint shader_program = make_shader_program(readfile("shaders/shader.vert"), readfile("shaders/shader.frag"));
     glUseProgram(shader_program);
     GLuint uloc_project   = glGetUniformLocation(shader_program, "project");
     GLuint uloc_modelview = glGetUniformLocation(shader_program, "modelview");
@@ -334,30 +335,8 @@ int main(void)
 	printf("Height map size: %d\n", heightMapSize);
 	printf("Furthest point: %f,%f,%f\n", heightMap.vertices[heightMapSize-3], heightMap.vertices[heightMapSize-2], heightMap.vertices[heightMapSize-1]);
 	furthest_point = glm::vec4(heightMap.vertices[heightMapSize-3], heightMap.vertices[heightMapSize-2], heightMap.vertices[heightMapSize-1], 1.0f);
+	furthest_point = glm::vec4(0.0f, 0.0f, 1.0f, 1.0f);
 
-	/*
-	GLuint vboID[2];
-	GLfloat vertices[] = {
-		-6.0f, -6.0f, 6.0f,
-		6.0f, -6.0f, 6.0f,
-		6.0f, 6.0f, 6.0f,
-		-6.0f, 6.0f, 6.0f,
-		-6.0f, 6.0f, -6.0f,
-		-6.0f, -6.0f, -6.0f,
-		6.0f, -6.0f, -6.0f,
-			};
-
-
-	GLuint indices[] = {
-		//Front face
-		0, 1, 2,
-		2, 3, 0,
-		//Bottom Face
-		0, 1, 6,
-		6, 5, 0,
-		//Back face
-
-	};*/
 	GLuint vboID[2];
 	GLfloat vertices[] = {
 		0.0f, 0.0f, 1.0f,
@@ -374,6 +353,7 @@ int main(void)
 
 	};
 
+	/*
 	int vertexCount = sizeof(indices) / sizeof(GLuint);
 
 	glGenBuffers(2, &vboID[0]);
@@ -385,6 +365,7 @@ int main(void)
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	*/
 
 
 	GLuint vertShaderLocation = glGetAttribLocation(shader_program, "vert");
@@ -399,7 +380,7 @@ int main(void)
 		glUniformMatrix4fv(uloc_project, 1, GL_FALSE, glm::value_ptr(projection_matrix));
 		glUniformMatrix4fv(uloc_modelview, 1, GL_FALSE, glm::value_ptr(modelview_matrix));
 
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		//glPolygonMode(GL_FRONT, GL_FILL);
 
 		/*

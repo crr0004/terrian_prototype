@@ -4,22 +4,185 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-CreateWindow	main.cpp	/^static GLFWwindow* CreateWindow(){$/;"	kind:f	line:100	file:	signature:()
-Window	window.cpp	/^Window::Window(){$/;"	kind:f	line:3	class:Window	signature:()
-Window::Window	window.cpp	/^Window::Window(){$/;"	kind:f	line:3	class:Window	signature:()
-Window::~Window	window.cpp	/^Window::~Window(){$/;"	kind:f	line:6	class:Window	signature:()
-aspect_ratio	main.cpp	/^static GLfloat aspect_ratio = 4.0f\/3.0f;$/;"	kind:v	line:154	file:
-error_callback	main.cpp	/^static void error_callback(int error, const char* description)$/;"	kind:f	line:9	file:	signature:(int error, const char* description)
-key_callback	main.cpp	/^static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)$/;"	kind:f	line:14	file:	signature:(GLFWwindow* window, int key, int scancode, int action, int mods)
-main	main.cpp	/^int main(void)$/;"	kind:f	line:161	signature:(void)
-main.cpp	main.cpp	1;"	kind:F	line:1
-make_shader	main.cpp	/^static GLuint make_shader(GLenum type, const char* text)$/;"	kind:f	line:21	file:	signature:(GLenum type, const char* text)
-make_shader_program	main.cpp	/^static GLuint make_shader_program(const char* vs_text, const char* fs_text)$/;"	kind:f	line:48	file:	signature:(const char* vs_text, const char* fs_text)
-modelview_matrix	main.cpp	/^static Eigen::Matrix<float, 4, 4, Eigen::RowMajor> modelview_matrix;$/;"	kind:v	line:159	file:
-projection_matrix	main.cpp	/^static Eigen::Matrix<float, 4, 4, Eigen::RowMajor> projection_matrix;$/;"	kind:v	line:158	file:
-readfile	main.cpp	/^static char* readfile(const char* filePath){$/;"	kind:f	line:129	file:	signature:(const char* filePath)
-view_angle	main.cpp	/^static GLfloat view_angle = 45.0f;$/;"	kind:v	line:153	file:
-window.cpp	window.cpp	1;"	kind:F	line:1
-z_far	main.cpp	/^static GLfloat z_far = 100.f;$/;"	kind:v	line:156	file:
-z_near	main.cpp	/^static GLfloat z_near = 1.0f;$/;"	kind:v	line:155	file:
-~Window	window.cpp	/^Window::~Window(){$/;"	kind:f	line:6	class:Window	signature:()
+$	headers/.tags	/^VisualServer	VisualServer.h	\/^class VisualServer{$\/;"	c	language:C++$/;"	m	class:__anon1	file:	access:private
+$	headers/.tags	/^VisualServer::Instance	VisualServer.h	\/^		static VisualServer* Instance();$\/;"	p	language:C++	class:VisualServer	access:public	signature:()$/;"	m	class:__anon1	file:	access:private
+$	headers/.tags	/^Window	window.h	\/^class Window{$\/;"	c	language:C++$/;"	m	class:__anon1::__anon2	file:	access:private
+$	headers/.tags	/^glDebug	gldebug.h	\/^class glDebug{$\/;"	c	language:C++$/;"	m	class:__anon1::__anon2::__anon3	file:	access:private
+$	headers/.tags	/^glDebug::glDebug	gldebug.h	\/^    glDebug(){};$\/;"	f	language:C++	class:glDebug	access:public	signature:()$/;"	m	class:__anon1::__anon2::__anon3	file:	access:private
+$	headers/.tags	/^glDebug::~glDebug	gldebug.h	\/^   ~glDebug(){};$\/;"	f	language:C++	class:glDebug	access:public	signature:()$/;"	m	class:__anon1::__anon2::__anon3	file:	access:private
+$	headers/.tags	/^height	GridGeometry.cpp	\/^		int height;$\/;"	m	language:C++	class:GridGeomtry	file:	access:private$/;"	m	class:__anon1::__anon2::__anon3	file:	access:private
+$	headers/.tags	/^~glDebug	gldebug.h	\/^   ~glDebug(){};$\/;"	f	language:C++	class:glDebug	access:public	signature:()$/;"	m	class:__anon1::__anon2::__anon3	file:	access:private
+.main.cpp.swp	.main.cpp.swp	1;"	F
+.matrixstacksingleton.cpp.swp	.matrixstacksingleton.cpp.swp	1;"	F
+.matrixstacksingleton.h.swp	headers/.matrixstacksingleton.h.swp	1;"	F
+.tags	.tags	1;"	F
+.tags	headers/.tags	1;"	F
+CreateWindow	main.cpp	/^static GLFWwindow* CreateWindow(){$/;"	f	file:	signature:()
+GLDEBUG_H	headers/gldebug.h	2;"	d
+GRIDGEOMETRY_H	headers/GridGeometry.cpp	18;"	d	file:
+GridGeometry.cpp	headers/GridGeometry.cpp	1;"	F
+GridGeomtry	headers/.tags	/^GridGeomtry	GridGeometry.cpp	\/^		GridGeomtry(int width, int height, int rows, int columns);$\/;"	p	language:C++	class:GridGeomtry	file:	access:public	signature:(int width, int height, int rows, int columns)$/;"	p	file:	signature:(int width, int height, int rows, int columns)
+GridGeomtry	headers/.tags	/^GridGeomtry::GridGeomtry	GridGeometry.cpp	\/^		GridGeomtry(int width, int height, int rows, int columns);$\/;"	p	language:C++	class:GridGeomtry	file:	access:public	signature:(int width, int height, int rows, int columns)$/;"	p	file:	signature:(int width, int height, int rows, int columns)
+GridGeomtry	headers/GridGeometry.cpp	/^		GridGeomtry(int width, int height, int rows, int columns);$/;"	p	class:GridGeomtry	file:	access:public	signature:(int width, int height, int rows, int columns)
+GridGeomtry	headers/GridGeometry.cpp	/^class GridGeomtry{$/;"	c	file:
+GridGeomtry::GridGeomtry	headers/GridGeometry.cpp	/^		GridGeomtry(int width, int height, int rows, int columns);$/;"	p	class:GridGeomtry	file:	access:public	signature:(int width, int height, int rows, int columns)
+GridGeomtry::columns	headers/GridGeometry.cpp	/^		int columns;$/;"	m	class:GridGeomtry	file:	access:private
+GridGeomtry::generate	headers/GridGeometry.cpp	/^		int* generate();$/;"	p	class:GridGeomtry	file:	access:public	signature:()
+GridGeomtry::height	headers/GridGeometry.cpp	/^		int height;$/;"	m	class:GridGeomtry	file:	access:private
+GridGeomtry::points	headers/GridGeometry.cpp	/^		int* points;$/;"	m	class:GridGeomtry	file:	access:private
+GridGeomtry::rows	headers/GridGeometry.cpp	/^		int rows;$/;"	m	class:GridGeomtry	file:	access:private
+GridGeomtry::width	headers/GridGeometry.cpp	/^		int width;$/;"	m	class:GridGeomtry	file:	access:private
+GridGeomtry::~GridGeomtry	headers/GridGeometry.cpp	/^		~GridGeomtry();$/;"	p	class:GridGeomtry	file:	access:public	signature:()
+Instance	headers/.tags	/^VisualServer::Instance	VisualServer.h	\/^		static VisualServer* Instance();$\/;"	p	language:C++	class:VisualServer	access:public	signature:()$/;"	p	class:__anon1	file:	access:private	signature:()
+Instance	headers/VisualServer.h	/^		static VisualServer* Instance();$/;"	p	class:VisualServer	access:public	signature:()
+LinkedMatrix	matrixstacksingleton.cpp	/^struct LinkedMatrix{$/;"	s	file:
+LinkedMatrix::me	matrixstacksingleton.cpp	/^	glm::mat4 *me;$/;"	m	struct:LinkedMatrix	file:	access:public
+LinkedMatrix::next	matrixstacksingleton.cpp	/^	struct LinkedMatrix* next;$/;"	m	struct:LinkedMatrix	typeref:struct:LinkedMatrix::LinkedMatrix	file:	access:public
+LinkedMatrix::prev	matrixstacksingleton.cpp	/^	struct LinkedMatrix* prev;$/;"	m	struct:LinkedMatrix	typeref:struct:LinkedMatrix::LinkedMatrix	file:	access:public
+MATRIXSTACKSINGLETON_H	headers/matrixstacksingleton.h	2;"	d
+MatrixStackSingleton	headers/matrixstacksingleton.h	/^		MatrixStackSingleton();$/;"	p	class:MatrixStackSingleton	access:protected	signature:()
+MatrixStackSingleton	headers/matrixstacksingleton.h	/^class MatrixStackSingleton{$/;"	c
+MatrixStackSingleton	matrixstacksingleton.cpp	/^MatrixStackSingleton::MatrixStackSingleton(){$/;"	f	class:MatrixStackSingleton	signature:()
+MatrixStackSingleton::MatrixStackSingleton	headers/matrixstacksingleton.h	/^		MatrixStackSingleton();$/;"	p	class:MatrixStackSingleton	access:protected	signature:()
+MatrixStackSingleton::MatrixStackSingleton	matrixstacksingleton.cpp	/^MatrixStackSingleton::MatrixStackSingleton(){$/;"	f	class:MatrixStackSingleton	signature:()
+MatrixStackSingleton::_instance	headers/matrixstacksingleton.h	/^		static MatrixStackSingleton* _instance;$/;"	m	class:MatrixStackSingleton	access:private
+MatrixStackSingleton::_instance	matrixstacksingleton.cpp	/^MatrixStackSingleton* MatrixStackSingleton::_instance = 0;$/;"	m	class:MatrixStackSingleton	file:
+MatrixStackSingleton::instance	headers/matrixstacksingleton.h	/^		static MatrixStackSingleton* instance();$/;"	p	class:MatrixStackSingleton	access:public	signature:()
+MatrixStackSingleton::instance	matrixstacksingleton.cpp	/^MatrixStackSingleton* MatrixStackSingleton::instance(){$/;"	f	class:MatrixStackSingleton	signature:()
+MatrixStackSingleton::pop	headers/matrixstacksingleton.h	/^		glm::mat4* pop();$/;"	p	class:MatrixStackSingleton	access:public	signature:()
+MatrixStackSingleton::pop	matrixstacksingleton.cpp	/^glm::mat4* MatrixStackSingleton::pop(){$/;"	f	class:MatrixStackSingleton	signature:()
+MatrixStackSingleton::push	headers/matrixstacksingleton.h	/^		void push(glm::mat4 *&m);$/;"	p	class:MatrixStackSingleton	access:public	signature:(glm::mat4 *&m)
+MatrixStackSingleton::push	matrixstacksingleton.cpp	/^void MatrixStackSingleton::push(glm::mat4 *&m){$/;"	f	class:MatrixStackSingleton	signature:(glm::mat4 *&m)
+MatrixStackSingleton::~MatrixStackSingleton	headers/matrixstacksingleton.h	/^		~MatrixStackSingleton();$/;"	p	class:MatrixStackSingleton	access:protected	signature:()
+MatrixStackSingleton::~MatrixStackSingleton	matrixstacksingleton.cpp	/^MatrixStackSingleton::~MatrixStackSingleton(){$/;"	f	class:MatrixStackSingleton	signature:()
+VISUALGRID	headers/GridGeometry.cpp	2;"	d	file:
+VISUALSERVER_H	headers/VisualServer.h	2;"	d
+VISUALSURFACE_H	headers/VisualServer.h	17;"	d
+VisualGrid	headers/GridGeometry.cpp	/^class VisualGrid{$/;"	c	file:
+VisualGrid::WeldPoints	headers/GridGeometry.cpp	/^		int* WeldPoints(int* points);$/;"	p	class:VisualGrid	file:	access:public	signature:(int* points)
+VisualGrid::indexCount	headers/GridGeometry.cpp	/^		int indexCount;$/;"	m	class:VisualGrid	file:	access:private
+VisualGrid::indices	headers/GridGeometry.cpp	/^		int* indices;$/;"	m	class:VisualGrid	file:	access:private
+VisualGrid::prepRender	headers/GridGeometry.cpp	/^		int* prepRender();$/;"	p	class:VisualGrid	file:	access:public	signature:()
+VisualGrid::render	headers/GridGeometry.cpp	/^		void render(int vertexAttributeIndex);$/;"	p	class:VisualGrid	file:	access:public	signature:(int vertexAttributeIndex)
+VisualServer	headers/VisualServer.h	/^		VisualServer();$/;"	p	class:VisualServer	access:protected	signature:()
+VisualServer	headers/VisualServer.h	/^class VisualServer{$/;"	c
+VisualServer.h	headers/VisualServer.h	1;"	F
+VisualServer::Instance	headers/VisualServer.h	/^		static VisualServer* Instance();$/;"	p	class:VisualServer	access:public	signature:()
+VisualServer::VisualServer	headers/VisualServer.h	/^		VisualServer();$/;"	p	class:VisualServer	access:protected	signature:()
+VisualServer::_instance	headers/VisualServer.h	/^		static VisualServer* _instance;$/;"	m	class:VisualServer	access:private
+WINDOW_H	headers/window.h	2;"	d
+WeldPoints	headers/GridGeometry.cpp	/^		int* WeldPoints(int* points);$/;"	p	class:VisualGrid	file:	access:public	signature:(int* points)
+Window	headers/window.h	/^	Window();$/;"	p	class:Window	access:public	signature:()
+Window	headers/window.h	/^class Window{$/;"	c
+Window	window.cpp	/^Window::Window(){$/;"	f	class:Window	signature:()
+Window::Window	headers/window.h	/^	Window();$/;"	p	class:Window	access:public	signature:()
+Window::Window	window.cpp	/^Window::Window(){$/;"	f	class:Window	signature:()
+Window::create	headers/window.h	/^	bool create();$/;"	p	class:Window	access:public	signature:()
+Window::height	headers/window.h	/^	int height;$/;"	m	class:Window	access:public
+Window::shouldClose	headers/window.h	/^	bool shouldClose();$/;"	p	class:Window	access:public	signature:()
+Window::title	headers/window.h	/^	char *title;$/;"	m	class:Window	access:public
+Window::width	headers/window.h	/^	int width;$/;"	m	class:Window	access:public
+Window::window	headers/window.h	/^		GLFWwindow *window;$/;"	m	class:Window	access:private
+Window::~Window	headers/window.h	/^	virtual ~Window();$/;"	p	class:Window	access:public	signature:()
+Window::~Window	window.cpp	/^Window::~Window(){$/;"	f	class:Window	signature:()
+__anon1::$	headers/.tags	/^VisualServer	VisualServer.h	\/^class VisualServer{$\/;"	c	language:C++$/;"	m	class:__anon1	file:	access:private
+__anon1::$	headers/.tags	/^VisualServer::Instance	VisualServer.h	\/^		static VisualServer* Instance();$\/;"	p	language:C++	class:VisualServer	access:public	signature:()$/;"	m	class:__anon1	file:	access:private
+__anon1::Instance	headers/.tags	/^VisualServer::Instance	VisualServer.h	\/^		static VisualServer* Instance();$\/;"	p	language:C++	class:VisualServer	access:public	signature:()$/;"	p	class:__anon1	file:	access:private	signature:()
+__anon1::__anon2::$	headers/.tags	/^Window	window.h	\/^class Window{$\/;"	c	language:C++$/;"	m	class:__anon1::__anon2	file:	access:private
+__anon1::__anon2::__anon3::$	headers/.tags	/^glDebug	gldebug.h	\/^class glDebug{$\/;"	c	language:C++$/;"	m	class:__anon1::__anon2::__anon3	file:	access:private
+__anon1::__anon2::__anon3::$	headers/.tags	/^glDebug::glDebug	gldebug.h	\/^    glDebug(){};$\/;"	f	language:C++	class:glDebug	access:public	signature:()$/;"	m	class:__anon1::__anon2::__anon3	file:	access:private
+__anon1::__anon2::__anon3::$	headers/.tags	/^glDebug::~glDebug	gldebug.h	\/^   ~glDebug(){};$\/;"	f	language:C++	class:glDebug	access:public	signature:()$/;"	m	class:__anon1::__anon2::__anon3	file:	access:private
+__anon1::__anon2::__anon3::$	headers/.tags	/^height	GridGeometry.cpp	\/^		int height;$\/;"	m	language:C++	class:GridGeomtry	file:	access:private$/;"	m	class:__anon1::__anon2::__anon3	file:	access:private
+__anon1::__anon2::__anon3::$	headers/.tags	/^~glDebug	gldebug.h	\/^   ~glDebug(){};$\/;"	f	language:C++	class:glDebug	access:public	signature:()$/;"	m	class:__anon1::__anon2::__anon3	file:	access:private
+_head	matrixstacksingleton.cpp	/^struct LinkedMatrix *_head;$/;"	v	typeref:struct:LinkedMatrix
+_instance	headers/VisualServer.h	/^		static VisualServer* _instance;$/;"	m	class:VisualServer	access:private
+_instance	headers/matrixstacksingleton.h	/^		static MatrixStackSingleton* _instance;$/;"	m	class:MatrixStackSingleton	access:private
+_instance	matrixstacksingleton.cpp	/^MatrixStackSingleton* MatrixStackSingleton::_instance = 0;$/;"	m	class:MatrixStackSingleton	file:
+aspect_ratio	main.cpp	/^static GLfloat aspect_ratio = 4.0f\/3.0f;$/;"	v	file:
+check_error	main.cpp	/^static void check_error(){$/;"	f	file:	signature:()
+columns	headers/GridGeometry.cpp	/^		int columns;$/;"	m	class:GridGeomtry	file:	access:private
+create	headers/window.h	/^	bool create();$/;"	p	class:Window	access:public	signature:()
+createHeightMap	main.cpp	/^static struct heightmap createHeightMap(int width, int height){$/;"	f	file:	signature:(int width, int height)
+error_callback	main.cpp	/^static void error_callback(int error, const char* description)$/;"	f	file:	signature:(int error, const char* description)
+f	.main.cpp.swp	/^/;"	v
+format	headers/.tags	/^!_TAG_FILE_FORMAT	2	\/extended format; --format=1 will not append ;" to lines\/$/;"	v
+furthest_point	main.cpp	/^static glm::vec4 furthest_point;$/;"	v	file:
+generate	headers/GridGeometry.cpp	/^		int* generate();$/;"	p	class:GridGeomtry	file:	access:public	signature:()
+getStringForSeverity	headers/gldebug.h	/^   static std::string getStringForSeverity(GLenum severity)$/;"	f	class:glDebug	access:private	signature:(GLenum severity)
+getStringForSource	headers/gldebug.h	/^   static std::string getStringForSource(GLenum source)$/;"	f	class:glDebug	access:private	signature:(GLenum source)
+getStringForType	headers/gldebug.h	/^   static std::string getStringForType(GLenum type)$/;"	f	class:glDebug	access:private	signature:(GLenum type)
+glDebug	headers/gldebug.h	/^    glDebug(){};$/;"	f	class:glDebug	access:public	signature:()
+glDebug	headers/gldebug.h	/^class glDebug{$/;"	c
+glDebug::getStringForSeverity	headers/gldebug.h	/^   static std::string getStringForSeverity(GLenum severity)$/;"	f	class:glDebug	access:private	signature:(GLenum severity)
+glDebug::getStringForSource	headers/gldebug.h	/^   static std::string getStringForSource(GLenum source)$/;"	f	class:glDebug	access:private	signature:(GLenum source)
+glDebug::getStringForType	headers/gldebug.h	/^   static std::string getStringForType(GLenum type)$/;"	f	class:glDebug	access:private	signature:(GLenum type)
+glDebug::glDebug	headers/gldebug.h	/^    glDebug(){};$/;"	f	class:glDebug	access:public	signature:()
+glDebug::myCallback	headers/gldebug.h	/^   static void APIENTRY myCallback(GLenum source,$/;"	f	class:glDebug	access:public	signature:(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar *msg, GLvoid *data)
+glDebug::~glDebug	headers/gldebug.h	/^   ~glDebug(){};$/;"	f	class:glDebug	access:public	signature:()
+gldebug.h	headers/gldebug.h	1;"	F
+height	headers/GridGeometry.cpp	/^		int height;$/;"	m	class:GridGeomtry	file:	access:private
+height	headers/window.h	/^	int height;$/;"	m	class:Window	access:public
+height	main.cpp	/^	int height;$/;"	m	struct:heightmap	file:	access:public
+height	main.cpp	/^static int height = 600;$/;"	v	file:
+heightmap	main.cpp	/^struct heightmap {$/;"	s	file:
+heightmap::height	main.cpp	/^	int height;$/;"	m	struct:heightmap	file:	access:public
+heightmap::id	main.cpp	/^	GLuint id[2];$/;"	m	struct:heightmap	file:	access:public
+heightmap::indices	main.cpp	/^	int* indices;$/;"	m	struct:heightmap	file:	access:public
+heightmap::indicesSize	main.cpp	/^	int indicesSize;$/;"	m	struct:heightmap	file:	access:public
+heightmap::vertexCount	main.cpp	/^	int vertexCount;$/;"	m	struct:heightmap	file:	access:public
+heightmap::vertices	main.cpp	/^	float* vertices;$/;"	m	struct:heightmap	file:	access:public
+heightmap::verticesSize	main.cpp	/^	int verticesSize;$/;"	m	struct:heightmap	file:	access:public
+heightmap::width	main.cpp	/^	int width;$/;"	m	struct:heightmap	file:	access:public
+id	main.cpp	/^	GLuint id[2];$/;"	m	struct:heightmap	file:	access:public
+indexCount	headers/GridGeometry.cpp	/^		int indexCount;$/;"	m	class:VisualGrid	file:	access:private
+indices	headers/GridGeometry.cpp	/^		int* indices;$/;"	m	class:VisualGrid	file:	access:private
+indices	main.cpp	/^	int* indices;$/;"	m	struct:heightmap	file:	access:public
+indicesSize	main.cpp	/^	int indicesSize;$/;"	m	struct:heightmap	file:	access:public
+instance	headers/matrixstacksingleton.h	/^		static MatrixStackSingleton* instance();$/;"	p	class:MatrixStackSingleton	access:public	signature:()
+instance	matrixstacksingleton.cpp	/^MatrixStackSingleton* MatrixStackSingleton::instance(){$/;"	f	class:MatrixStackSingleton	signature:()
+key_callback	main.cpp	/^static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)$/;"	f	file:	signature:(GLFWwindow* window, int key, int scancode, int action, int mods)
+main	main.cpp	/^int main(void)$/;"	f	signature:(void)
+main.cpp	main.cpp	1;"	F
+main.o	main.o	1;"	F
+make_shader	main.cpp	/^static GLuint make_shader(GLenum type, const char* text)$/;"	f	file:	signature:(GLenum type, const char* text)
+make_shader_program	main.cpp	/^static GLuint make_shader_program(const char* vs_text, const char* fs_text)$/;"	f	file:	signature:(const char* vs_text, const char* fs_text)
+matrixstacksingleton.cpp	matrixstacksingleton.cpp	1;"	F
+matrixstacksingleton.h	headers/matrixstacksingleton.h	1;"	F
+matrixstacksingleton.o	matrixstacksingleton.o	1;"	F
+me	matrixstacksingleton.cpp	/^	glm::mat4 *me;$/;"	m	struct:LinkedMatrix	file:	access:public
+modelview_matrix	main.cpp	/^static glm::mat4 modelview_matrix;$/;"	v	file:
+myCallback	headers/gldebug.h	/^   static void APIENTRY myCallback(GLenum source,$/;"	f	class:glDebug	access:public	signature:(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar *msg, GLvoid *data)
+next	matrixstacksingleton.cpp	/^	struct LinkedMatrix* next;$/;"	m	struct:LinkedMatrix	typeref:struct:LinkedMatrix::LinkedMatrix	file:	access:public
+points	headers/GridGeometry.cpp	/^		int* points;$/;"	m	class:GridGeomtry	file:	access:private
+pop	headers/matrixstacksingleton.h	/^		glm::mat4* pop();$/;"	p	class:MatrixStackSingleton	access:public	signature:()
+pop	matrixstacksingleton.cpp	/^glm::mat4* MatrixStackSingleton::pop(){$/;"	f	class:MatrixStackSingleton	signature:()
+prepRender	headers/GridGeometry.cpp	/^		int* prepRender();$/;"	p	class:VisualGrid	file:	access:public	signature:()
+prev	matrixstacksingleton.cpp	/^	struct LinkedMatrix* prev;$/;"	m	struct:LinkedMatrix	typeref:struct:LinkedMatrix::LinkedMatrix	file:	access:public
+projection_matrix	main.cpp	/^static glm::mat4 projection_matrix;$/;"	v	file:
+push	headers/matrixstacksingleton.h	/^		void push(glm::mat4 *&m);$/;"	p	class:MatrixStackSingleton	access:public	signature:(glm::mat4 *&m)
+push	matrixstacksingleton.cpp	/^void MatrixStackSingleton::push(glm::mat4 *&m){$/;"	f	class:MatrixStackSingleton	signature:(glm::mat4 *&m)
+readfile	main.cpp	/^static char* readfile(const char* filePath){$/;"	f	file:	signature:(const char* filePath)
+render	headers/GridGeometry.cpp	/^		void render(int vertexAttributeIndex);$/;"	p	class:VisualGrid	file:	access:public	signature:(int vertexAttributeIndex)
+rows	headers/GridGeometry.cpp	/^		int rows;$/;"	m	class:GridGeomtry	file:	access:private
+shouldClose	headers/window.h	/^	bool shouldClose();$/;"	p	class:Window	access:public	signature:()
+title	headers/window.h	/^	char *title;$/;"	m	class:Window	access:public
+vertexCount	main.cpp	/^	int vertexCount;$/;"	m	struct:heightmap	file:	access:public
+vertices	main.cpp	/^	float* vertices;$/;"	m	struct:heightmap	file:	access:public
+verticesSize	main.cpp	/^	int verticesSize;$/;"	m	struct:heightmap	file:	access:public
+view_angle	main.cpp	/^static GLfloat view_angle = 45.0f;$/;"	v	file:
+width	headers/GridGeometry.cpp	/^		int width;$/;"	m	class:GridGeomtry	file:	access:private
+width	headers/window.h	/^	int width;$/;"	m	class:Window	access:public
+width	main.cpp	/^	int width;$/;"	m	struct:heightmap	file:	access:public
+width	main.cpp	/^static int width = 800;$/;"	v	file:
+window	headers/window.h	/^		GLFWwindow *window;$/;"	m	class:Window	access:private
+window.cpp	window.cpp	1;"	F
+window.h	headers/window.h	1;"	F
+window.o	window.o	1;"	F
+z_far	main.cpp	/^static GLfloat z_far = 100.f;$/;"	v	file:
+z_near	main.cpp	/^static GLfloat z_near = 0.1f;$/;"	v	file:
+~GridGeomtry	headers/GridGeometry.cpp	/^		~GridGeomtry();$/;"	p	class:GridGeomtry	file:	access:public	signature:()
+~MatrixStackSingleton	headers/matrixstacksingleton.h	/^		~MatrixStackSingleton();$/;"	p	class:MatrixStackSingleton	access:protected	signature:()
+~MatrixStackSingleton	matrixstacksingleton.cpp	/^MatrixStackSingleton::~MatrixStackSingleton(){$/;"	f	class:MatrixStackSingleton	signature:()
+~Window	headers/window.h	/^	virtual ~Window();$/;"	p	class:Window	access:public	signature:()
+~Window	window.cpp	/^Window::~Window(){$/;"	f	class:Window	signature:()
+~glDebug	headers/gldebug.h	/^   ~glDebug(){};$/;"	f	class:glDebug	access:public	signature:()

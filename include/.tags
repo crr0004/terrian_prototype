@@ -4,3 +4,884 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+AND_THEN	catch.hpp	9397;"	d	language:C++
+AND_WHEN	catch.hpp	9395;"	d	language:C++
+AssertionInfo	catch.hpp	/^        AssertionInfo(  std::string const& _macroName,$/;"	p	language:C++	struct:Catch::AssertionInfo	access:public	signature:( std::string const& _macroName, SourceLineInfo const& _lineInfo, std::string const& _capturedExpression, ResultDisposition::Flags _resultDisposition )
+AssertionInfo	catch.hpp	/^        AssertionInfo() {}$/;"	f	language:C++	struct:Catch::AssertionInfo	access:public	signature:()
+AssertionInfo	catch.hpp	/^    struct AssertionInfo$/;"	s	language:C++	namespace:Catch
+AssertionResult	catch.hpp	/^         AssertionResult( AssertionResult && )                  = default;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:( AssertionResult && )
+AssertionResult	catch.hpp	/^         AssertionResult( AssertionResult const& )              = default;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:( AssertionResult const& )
+AssertionResult	catch.hpp	/^        AssertionResult( AssertionInfo const& info, AssertionResultData const& data );$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:( AssertionInfo const& info, AssertionResultData const& data )
+AssertionResult	catch.hpp	/^        AssertionResult();$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:()
+AssertionResult	catch.hpp	/^    class AssertionResult {$/;"	c	language:C++	namespace:Catch
+AssertionResultData	catch.hpp	/^        AssertionResultData() : resultType( ResultWas::Unknown ) {}$/;"	f	language:C++	struct:Catch::AssertionResultData	access:public	signature:()
+AssertionResultData	catch.hpp	/^    struct AssertionResultData$/;"	s	language:C++	namespace:Catch
+AutoReg	catch.hpp	/^    AutoReg(    TestFunction function,$/;"	p	language:C++	struct:Catch::AutoReg	access:public	signature:( TestFunction function, SourceLineInfo const& lineInfo, NameAndDesc const& nameAndDesc )
+AutoReg	catch.hpp	/^    AutoReg(    void (C::*method)(),$/;"	f	language:C++	struct:Catch::AutoReg	access:public	signature:( void (C::*method)(), char const* className, NameAndDesc const& nameAndDesc, SourceLineInfo const& lineInfo )
+AutoReg	catch.hpp	/^    AutoReg( AutoReg const& );$/;"	p	language:C++	struct:Catch::AutoReg	access:private	signature:( AutoReg const& )
+AutoReg	catch.hpp	/^struct AutoReg {$/;"	s	language:C++	namespace:Catch
+BorgType	catch.hpp	/^        template<typename T> BorgType( T const& );$/;"	p	language:C++	struct:Catch::Detail::BorgType	access:public	signature:( T const& )
+BorgType	catch.hpp	/^    struct BorgType {$/;"	s	language:C++	namespace:Catch::Detail
+CATCH_AND_THEN	catch.hpp	9328;"	d	language:C++
+CATCH_AND_WHEN	catch.hpp	9326;"	d	language:C++
+CATCH_ANON_TEST_CASE	catch.hpp	9309;"	d	language:C++
+CATCH_ARC_ENABLED	catch.hpp	1027;"	d	language:C++
+CATCH_ARC_STRONG	catch.hpp	1045;"	d	language:C++
+CATCH_ARC_STRONG	catch.hpp	1061;"	d	language:C++
+CATCH_BREAK_INTO_DEBUGGER	catch.hpp	1527;"	d	language:C++
+CATCH_BREAK_INTO_DEBUGGER	catch.hpp	1545;"	d	language:C++
+CATCH_CAPTURE	catch.hpp	9291;"	d	language:C++
+CATCH_CHECK	catch.hpp	9275;"	d	language:C++
+CATCH_CHECKED_ELSE	catch.hpp	9278;"	d	language:C++
+CATCH_CHECKED_IF	catch.hpp	9277;"	d	language:C++
+CATCH_CHECK_FALSE	catch.hpp	9276;"	d	language:C++
+CATCH_CHECK_NOFAIL	catch.hpp	9279;"	d	language:C++
+CATCH_CHECK_NOTHROW	catch.hpp	9283;"	d	language:C++
+CATCH_CHECK_THROWS	catch.hpp	9281;"	d	language:C++
+CATCH_CHECK_THROWS_AS	catch.hpp	9282;"	d	language:C++
+CATCH_CONFIG_COLOUR_WINDOWS	catch.hpp	6262;"	d	language:C++
+CATCH_CONFIG_CONSOLE_WIDTH	catch.hpp	3117;"	d	language:C++
+CATCH_CONFIG_CPP11_GENERATED_METHODS	catch.hpp	206;"	d	language:C++
+CATCH_CONFIG_CPP11_IS_ENUM	catch.hpp	209;"	d	language:C++
+CATCH_CONFIG_CPP11_NOEXCEPT	catch.hpp	203;"	d	language:C++
+CATCH_CONFIG_CPP11_NULLPTR	catch.hpp	200;"	d	language:C++
+CATCH_CONFIG_CPP11_TUPLE	catch.hpp	212;"	d	language:C++
+CATCH_CONFIG_VARIADIC_MACROS	catch.hpp	215;"	d	language:C++
+CATCH_CPP11_OR_GREATER	catch.hpp	170;"	d	language:C++
+CATCH_FAIL	catch.hpp	9299;"	d	language:C++
+CATCH_GENERATE	catch.hpp	9314;"	d	language:C++
+CATCH_GIVEN	catch.hpp	9324;"	d	language:C++
+CATCH_IMPL	catch.hpp	49;"	d	language:C++
+CATCH_INFO	catch.hpp	9288;"	d	language:C++
+CATCH_INTERNAL_CONFIG_CPP11_GENERATED_METHODS	catch.hpp	149;"	d	language:C++
+CATCH_INTERNAL_CONFIG_CPP11_GENERATED_METHODS	catch.hpp	181;"	d	language:C++
+CATCH_INTERNAL_CONFIG_CPP11_IS_ENUM	catch.hpp	185;"	d	language:C++
+CATCH_INTERNAL_CONFIG_CPP11_NOEXCEPT	catch.hpp	106;"	d	language:C++
+CATCH_INTERNAL_CONFIG_CPP11_NOEXCEPT	catch.hpp	148;"	d	language:C++
+CATCH_INTERNAL_CONFIG_CPP11_NOEXCEPT	catch.hpp	177;"	d	language:C++
+CATCH_INTERNAL_CONFIG_CPP11_NULLPTR	catch.hpp	102;"	d	language:C++
+CATCH_INTERNAL_CONFIG_CPP11_NULLPTR	catch.hpp	134;"	d	language:C++
+CATCH_INTERNAL_CONFIG_CPP11_NULLPTR	catch.hpp	144;"	d	language:C++
+CATCH_INTERNAL_CONFIG_CPP11_NULLPTR	catch.hpp	173;"	d	language:C++
+CATCH_INTERNAL_CONFIG_CPP11_TUPLE	catch.hpp	189;"	d	language:C++
+CATCH_INTERNAL_CONFIG_VARIADIC_MACROS	catch.hpp	160;"	d	language:C++
+CATCH_INTERNAL_CONFIG_VARIADIC_MACROS	catch.hpp	193;"	d	language:C++
+CATCH_INTERNAL_ERROR	catch.hpp	331;"	d	language:C++
+CATCH_INTERNAL_LINEINFO	catch.hpp	330;"	d	language:C++
+CATCH_METHOD_AS_TEST_CASE	catch.hpp	9297;"	d	language:C++
+CATCH_NOEXCEPT	catch.hpp	/^        virtual const char* what() const CATCH_NOEXCEPT;$/;"	m	language:C++	class:Catch::NotImplementedException	access:public
+CATCH_NOEXCEPT	catch.hpp	220;"	d	language:C++
+CATCH_NOEXCEPT	catch.hpp	223;"	d	language:C++
+CATCH_NOEXCEPT_IS	catch.hpp	221;"	d	language:C++
+CATCH_NOEXCEPT_IS	catch.hpp	224;"	d	language:C++
+CATCH_NOT_IMPLEMENTED	catch.hpp	355;"	d	language:C++
+CATCH_PLATFORM_MAC	catch.hpp	1506;"	d	language:C++
+CATCH_REGISTER_LEGACY_REPORTER	catch.hpp	9312;"	d	language:C++
+CATCH_REGISTER_REPORTER	catch.hpp	9311;"	d	language:C++
+CATCH_REGISTER_TAG_ALIAS	catch.hpp	2433;"	d	language:C++
+CATCH_REQUIRE	catch.hpp	9268;"	d	language:C++
+CATCH_REQUIRE_FALSE	catch.hpp	9269;"	d	language:C++
+CATCH_REQUIRE_NOTHROW	catch.hpp	9273;"	d	language:C++
+CATCH_REQUIRE_THAT	catch.hpp	9286;"	d	language:C++
+CATCH_REQUIRE_THROWS	catch.hpp	9271;"	d	language:C++
+CATCH_REQUIRE_THROWS_AS	catch.hpp	9272;"	d	language:C++
+CATCH_SCENARIO	catch.hpp	9318;"	d	language:C++
+CATCH_SCENARIO_METHOD	catch.hpp	9319;"	d	language:C++
+CATCH_SCOPED_CAPTURE	catch.hpp	9292;"	d	language:C++
+CATCH_SCOPED_INFO	catch.hpp	9290;"	d	language:C++
+CATCH_SECTION	catch.hpp	9298;"	d	language:C++
+CATCH_SUCCEED	catch.hpp	9300;"	d	language:C++
+CATCH_TEMP_CLARA_CONFIG_CONSOLE_WIDTH	catch.hpp	3262;"	d	language:C++
+CATCH_TEMP_CLARA_CONFIG_CONSOLE_WIDTH	catch.hpp	4122;"	d	language:C++
+CATCH_TEST_CASE	catch.hpp	9295;"	d	language:C++
+CATCH_TEST_CASE_METHOD	catch.hpp	9296;"	d	language:C++
+CATCH_THEN	catch.hpp	9327;"	d	language:C++
+CATCH_TRANSLATE_EXCEPTION	catch.hpp	9383;"	d	language:C++
+CATCH_UNSAFE_UNRETAINED	catch.hpp	1044;"	d	language:C++
+CATCH_UNSAFE_UNRETAINED	catch.hpp	1060;"	d	language:C++
+CATCH_WARN	catch.hpp	9289;"	d	language:C++
+CATCH_WHEN	catch.hpp	9325;"	d	language:C++
+CHECK_THAT	catch.hpp	9285;"	d	language:C++
+CLARA_CONFIG_CONSOLE_WIDTH	catch.hpp	3263;"	d	language:C++
+CLARA_CONFIG_CONSOLE_WIDTH	catch.hpp	3265;"	d	language:C++
+CLARA_CONFIG_CONSOLE_WIDTH	catch.hpp	4121;"	d	language:C++
+CLARA_CONFIG_MAIN	catch.hpp	55;"	d	language:C++
+CLARA_CONFIG_MAIN	catch.hpp	9260;"	d	language:C++
+CLARA_CONFIG_MAIN_NOT_DEFINED	catch.hpp	54;"	d	language:C++
+CLICHE_TBC_TEXT_FORMAT_OUTER_NAMESPACE	catch.hpp	4300;"	d	language:C++
+CLICHE_TBC_TEXT_FORMAT_OUTER_NAMESPACE	catch.hpp	4448;"	d	language:C++
+Catch	catch.hpp	/^namespace Catch {$/;"	n	language:C++
+Catch::AssertionInfo	catch.hpp	/^    struct AssertionInfo$/;"	s	language:C++	namespace:Catch
+Catch::AssertionInfo::AssertionInfo	catch.hpp	/^        AssertionInfo(  std::string const& _macroName,$/;"	p	language:C++	struct:Catch::AssertionInfo	access:public	signature:( std::string const& _macroName, SourceLineInfo const& _lineInfo, std::string const& _capturedExpression, ResultDisposition::Flags _resultDisposition )
+Catch::AssertionInfo::AssertionInfo	catch.hpp	/^        AssertionInfo() {}$/;"	f	language:C++	struct:Catch::AssertionInfo	access:public	signature:()
+Catch::AssertionInfo::capturedExpression	catch.hpp	/^        std::string capturedExpression;$/;"	m	language:C++	struct:Catch::AssertionInfo	access:public
+Catch::AssertionInfo::lineInfo	catch.hpp	/^        SourceLineInfo lineInfo;$/;"	m	language:C++	struct:Catch::AssertionInfo	access:public
+Catch::AssertionInfo::macroName	catch.hpp	/^        std::string macroName;$/;"	m	language:C++	struct:Catch::AssertionInfo	access:public
+Catch::AssertionInfo::resultDisposition	catch.hpp	/^        ResultDisposition::Flags resultDisposition;$/;"	m	language:C++	struct:Catch::AssertionInfo	access:public
+Catch::AssertionResult	catch.hpp	/^    class AssertionResult {$/;"	c	language:C++	namespace:Catch
+Catch::AssertionResult::AssertionResult	catch.hpp	/^         AssertionResult( AssertionResult && )                  = default;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:( AssertionResult && )
+Catch::AssertionResult::AssertionResult	catch.hpp	/^         AssertionResult( AssertionResult const& )              = default;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:( AssertionResult const& )
+Catch::AssertionResult::AssertionResult	catch.hpp	/^        AssertionResult( AssertionInfo const& info, AssertionResultData const& data );$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:( AssertionInfo const& info, AssertionResultData const& data )
+Catch::AssertionResult::AssertionResult	catch.hpp	/^        AssertionResult();$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:()
+Catch::AssertionResult::getExpandedExpression	catch.hpp	/^        std::string getExpandedExpression() const;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:() const
+Catch::AssertionResult::getExpression	catch.hpp	/^        std::string getExpression() const;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:() const
+Catch::AssertionResult::getExpressionInMacro	catch.hpp	/^        std::string getExpressionInMacro() const;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:() const
+Catch::AssertionResult::getMessage	catch.hpp	/^        std::string getMessage() const;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:() const
+Catch::AssertionResult::getResultType	catch.hpp	/^        ResultWas::OfType getResultType() const;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:() const
+Catch::AssertionResult::getSourceInfo	catch.hpp	/^        SourceLineInfo getSourceInfo() const;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:() const
+Catch::AssertionResult::getTestMacroName	catch.hpp	/^        std::string getTestMacroName() const;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:() const
+Catch::AssertionResult::hasExpandedExpression	catch.hpp	/^        bool hasExpandedExpression() const;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:() const
+Catch::AssertionResult::hasExpression	catch.hpp	/^        bool hasExpression() const;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:() const
+Catch::AssertionResult::hasMessage	catch.hpp	/^        bool hasMessage() const;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:() const
+Catch::AssertionResult::isOk	catch.hpp	/^        bool isOk() const;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:() const
+Catch::AssertionResult::m_info	catch.hpp	/^        AssertionInfo m_info;$/;"	m	language:C++	class:Catch::AssertionResult	access:protected
+Catch::AssertionResult::m_resultData	catch.hpp	/^        AssertionResultData m_resultData;$/;"	m	language:C++	class:Catch::AssertionResult	access:protected
+Catch::AssertionResult::operator =	catch.hpp	/^         AssertionResult& operator = ( AssertionResult && )     = default;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:( AssertionResult && )
+Catch::AssertionResult::operator =	catch.hpp	/^         AssertionResult& operator = ( AssertionResult const& ) = default;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:( AssertionResult const& )
+Catch::AssertionResult::succeeded	catch.hpp	/^        bool succeeded() const;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:() const
+Catch::AssertionResult::~AssertionResult	catch.hpp	/^        ~AssertionResult();$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:()
+Catch::AssertionResultData	catch.hpp	/^    struct AssertionResultData$/;"	s	language:C++	namespace:Catch
+Catch::AssertionResultData::AssertionResultData	catch.hpp	/^        AssertionResultData() : resultType( ResultWas::Unknown ) {}$/;"	f	language:C++	struct:Catch::AssertionResultData	access:public	signature:()
+Catch::AssertionResultData::message	catch.hpp	/^        std::string message;$/;"	m	language:C++	struct:Catch::AssertionResultData	access:public
+Catch::AssertionResultData::reconstructedExpression	catch.hpp	/^        std::string reconstructedExpression;$/;"	m	language:C++	struct:Catch::AssertionResultData	access:public
+Catch::AssertionResultData::resultType	catch.hpp	/^        ResultWas::OfType resultType;$/;"	m	language:C++	struct:Catch::AssertionResultData	access:public
+Catch::AutoReg	catch.hpp	/^struct AutoReg {$/;"	s	language:C++	namespace:Catch
+Catch::AutoReg::AutoReg	catch.hpp	/^    AutoReg(    TestFunction function,$/;"	p	language:C++	struct:Catch::AutoReg	access:public	signature:( TestFunction function, SourceLineInfo const& lineInfo, NameAndDesc const& nameAndDesc )
+Catch::AutoReg::AutoReg	catch.hpp	/^    AutoReg(    void (C::*method)(),$/;"	f	language:C++	struct:Catch::AutoReg	access:public	signature:( void (C::*method)(), char const* className, NameAndDesc const& nameAndDesc, SourceLineInfo const& lineInfo )
+Catch::AutoReg::AutoReg	catch.hpp	/^    AutoReg( AutoReg const& );$/;"	p	language:C++	struct:Catch::AutoReg	access:private	signature:( AutoReg const& )
+Catch::AutoReg::operator =	catch.hpp	/^    void operator= ( AutoReg const& );$/;"	p	language:C++	struct:Catch::AutoReg	access:private	signature:( AutoReg const& )
+Catch::AutoReg::registerTestCase	catch.hpp	/^    void registerTestCase(  ITestCase* testCase,$/;"	p	language:C++	struct:Catch::AutoReg	access:public	signature:( ITestCase* testCase, char const* className, NameAndDesc const& nameAndDesc, SourceLineInfo const& lineInfo )
+Catch::AutoReg::~AutoReg	catch.hpp	/^    ~AutoReg();$/;"	p	language:C++	struct:Catch::AutoReg	access:public	signature:()
+Catch::CopyableStream	catch.hpp	/^    struct CopyableStream {$/;"	s	language:C++	namespace:Catch
+Catch::CopyableStream::CopyableStream	catch.hpp	/^        CopyableStream( CopyableStream const& other ) {$/;"	f	language:C++	struct:Catch::CopyableStream	access:public	signature:( CopyableStream const& other )
+Catch::CopyableStream::CopyableStream	catch.hpp	/^        CopyableStream() {}$/;"	f	language:C++	struct:Catch::CopyableStream	access:public	signature:()
+Catch::CopyableStream::operator =	catch.hpp	/^        CopyableStream& operator=( CopyableStream const& other ) {$/;"	f	language:C++	struct:Catch::CopyableStream	access:public	signature:( CopyableStream const& other )
+Catch::CopyableStream::oss	catch.hpp	/^        std::ostringstream oss;$/;"	m	language:C++	struct:Catch::CopyableStream	access:public
+Catch::Detail	catch.hpp	/^namespace Detail {$/;"	n	language:C++	namespace:Catch
+Catch::Detail::BorgType	catch.hpp	/^    struct BorgType {$/;"	s	language:C++	namespace:Catch::Detail
+Catch::Detail::BorgType::BorgType	catch.hpp	/^        template<typename T> BorgType( T const& );$/;"	p	language:C++	struct:Catch::Detail::BorgType	access:public	signature:( T const& )
+Catch::Detail::EnumStringMaker	catch.hpp	/^    struct EnumStringMaker$/;"	s	language:C++	namespace:Catch::Detail
+Catch::Detail::EnumStringMaker	catch.hpp	/^    struct EnumStringMaker<T,true>$/;"	s	language:C++	namespace:Catch::Detail
+Catch::Detail::EnumStringMaker::convert	catch.hpp	/^        static std::string convert( T const& ) { return unprintableString; }$/;"	f	language:C++	struct:Catch::Detail::EnumStringMaker	access:public	signature:( T const& )
+Catch::Detail::EnumStringMaker::convert	catch.hpp	/^        static std::string convert( T const& v )$/;"	f	language:C++	struct:Catch::Detail::EnumStringMaker	access:public	signature:( T const& v )
+Catch::Detail::FalseType	catch.hpp	/^    struct FalseType { char sizer[2]; };$/;"	s	language:C++	namespace:Catch::Detail
+Catch::Detail::FalseType::sizer	catch.hpp	/^    struct FalseType { char sizer[2]; };$/;"	m	language:C++	struct:Catch::Detail::FalseType	access:public
+Catch::Detail::IsStreamInsertable	catch.hpp	/^    struct IsStreamInsertable {$/;"	s	language:C++	namespace:Catch::Detail
+Catch::Detail::IsStreamInsertable::s	catch.hpp	/^        static std::ostream &s;$/;"	m	language:C++	struct:Catch::Detail::IsStreamInsertable	access:public
+Catch::Detail::IsStreamInsertable::t	catch.hpp	/^        static T  const&t;$/;"	m	language:C++	struct:Catch::Detail::IsStreamInsertable	access:public
+Catch::Detail::IsStreamInsertable::value	catch.hpp	/^        enum { value = sizeof( testStreamable(s << t) ) == sizeof( TrueType ) };$/;"	e	language:C++	enum:Catch::Detail::IsStreamInsertable::__anon1
+Catch::Detail::StringMakerBase	catch.hpp	/^    struct StringMakerBase {$/;"	s	language:C++	namespace:Catch::Detail
+Catch::Detail::StringMakerBase	catch.hpp	/^    struct StringMakerBase<true> {$/;"	s	language:C++	namespace:Catch::Detail
+Catch::Detail::StringMakerBase::convert	catch.hpp	/^        static std::string convert( T const& _value ) {$/;"	f	language:C++	struct:Catch::Detail::StringMakerBase	access:public	signature:( T const& _value )
+Catch::Detail::StringMakerBase::convert	catch.hpp	/^        static std::string convert( T const& v )$/;"	f	language:C++	struct:Catch::Detail::StringMakerBase	access:public	signature:( T const& v )
+Catch::Detail::TrueType	catch.hpp	/^    struct TrueType { char sizer[1]; };$/;"	s	language:C++	namespace:Catch::Detail
+Catch::Detail::TrueType::sizer	catch.hpp	/^    struct TrueType { char sizer[1]; };$/;"	m	language:C++	struct:Catch::Detail::TrueType	access:public
+Catch::Detail::operator <<	catch.hpp	/^    FalseType operator<<( std::ostream const&, BorgType const& );$/;"	p	language:C++	namespace:Catch::Detail	signature:( std::ostream const&, BorgType const& )
+Catch::Detail::rangeToString	catch.hpp	/^    std::string rangeToString( InputIterator first, InputIterator last );$/;"	p	language:C++	namespace:Catch::Detail	signature:( InputIterator first, InputIterator last )
+Catch::Detail::rawMemoryToString	catch.hpp	/^    inline std::string rawMemoryToString( const T& object ) {$/;"	f	language:C++	namespace:Catch::Detail	signature:( const T& object )
+Catch::Detail::rawMemoryToString	catch.hpp	/^    std::string rawMemoryToString( const void *object, std::size_t size );$/;"	p	language:C++	namespace:Catch::Detail	signature:( const void *object, std::size_t size )
+Catch::Detail::testStreamable	catch.hpp	/^    FalseType testStreamable( FalseType );$/;"	p	language:C++	namespace:Catch::Detail	signature:( FalseType )
+Catch::Detail::testStreamable	catch.hpp	/^    TrueType& testStreamable( std::ostream& );$/;"	p	language:C++	namespace:Catch::Detail	signature:( std::ostream& )
+Catch::IContext	catch.hpp	/^    struct IContext$/;"	s	language:C++	namespace:Catch
+Catch::IContext::advanceGeneratorsForCurrentTest	catch.hpp	/^        virtual bool advanceGeneratorsForCurrentTest() = 0;$/;"	p	language:C++	struct:Catch::IContext	access:public	signature:()
+Catch::IContext::getConfig	catch.hpp	/^        virtual Ptr<IConfig const> getConfig() const = 0;$/;"	p	language:C++	struct:Catch::IContext	access:public	signature:() const
+Catch::IContext::getGeneratorIndex	catch.hpp	/^        virtual size_t getGeneratorIndex( std::string const& fileInfo, size_t totalSize ) = 0;$/;"	p	language:C++	struct:Catch::IContext	access:public	signature:( std::string const& fileInfo, size_t totalSize )
+Catch::IContext::getResultCapture	catch.hpp	/^        virtual IResultCapture* getResultCapture() = 0;$/;"	p	language:C++	struct:Catch::IContext	access:public	signature:()
+Catch::IContext::getRunner	catch.hpp	/^        virtual IRunner* getRunner() = 0;$/;"	p	language:C++	struct:Catch::IContext	access:public	signature:()
+Catch::IContext::~IContext	catch.hpp	/^        virtual ~IContext();$/;"	p	language:C++	struct:Catch::IContext	access:public	signature:()
+Catch::IGeneratorInfo	catch.hpp	/^    struct IGeneratorInfo {$/;"	s	language:C++	namespace:Catch
+Catch::IGeneratorInfo::getCurrentIndex	catch.hpp	/^        virtual std::size_t getCurrentIndex() const = 0;$/;"	p	language:C++	struct:Catch::IGeneratorInfo	access:public	signature:() const
+Catch::IGeneratorInfo::moveNext	catch.hpp	/^        virtual bool moveNext() = 0;$/;"	p	language:C++	struct:Catch::IGeneratorInfo	access:public	signature:()
+Catch::IGeneratorInfo::~IGeneratorInfo	catch.hpp	/^        virtual ~IGeneratorInfo();$/;"	p	language:C++	struct:Catch::IGeneratorInfo	access:public	signature:()
+Catch::IGeneratorsForTest	catch.hpp	/^    struct IGeneratorsForTest {$/;"	s	language:C++	namespace:Catch
+Catch::IGeneratorsForTest::getGeneratorInfo	catch.hpp	/^        virtual IGeneratorInfo& getGeneratorInfo( std::string const& fileInfo, std::size_t size ) = 0;$/;"	p	language:C++	struct:Catch::IGeneratorsForTest	access:public	signature:( std::string const& fileInfo, std::size_t size )
+Catch::IGeneratorsForTest::moveNext	catch.hpp	/^        virtual bool moveNext() = 0;$/;"	p	language:C++	struct:Catch::IGeneratorsForTest	access:public	signature:()
+Catch::IGeneratorsForTest::~IGeneratorsForTest	catch.hpp	/^        virtual ~IGeneratorsForTest();$/;"	p	language:C++	struct:Catch::IGeneratorsForTest	access:public	signature:()
+Catch::IMutableContext	catch.hpp	/^    struct IMutableContext : IContext$/;"	s	language:C++	namespace:Catch	inherits:IContext
+Catch::IMutableContext::setConfig	catch.hpp	/^        virtual void setConfig( Ptr<IConfig const> const& config ) = 0;$/;"	p	language:C++	struct:Catch::IMutableContext	access:public	signature:( Ptr<IConfig const> const& config )
+Catch::IMutableContext::setResultCapture	catch.hpp	/^        virtual void setResultCapture( IResultCapture* resultCapture ) = 0;$/;"	p	language:C++	struct:Catch::IMutableContext	access:public	signature:( IResultCapture* resultCapture )
+Catch::IMutableContext::setRunner	catch.hpp	/^        virtual void setRunner( IRunner* runner ) = 0;$/;"	p	language:C++	struct:Catch::IMutableContext	access:public	signature:( IRunner* runner )
+Catch::IMutableContext::~IMutableContext	catch.hpp	/^        virtual ~IMutableContext();$/;"	p	language:C++	struct:Catch::IMutableContext	access:public	signature:()
+Catch::IShared	catch.hpp	/^    struct IShared : NonCopyable {$/;"	s	language:C++	namespace:Catch	inherits:NonCopyable
+Catch::IShared::addRef	catch.hpp	/^        virtual void addRef() const = 0;$/;"	p	language:C++	struct:Catch::IShared	access:public	signature:() const
+Catch::IShared::release	catch.hpp	/^        virtual void release() const = 0;$/;"	p	language:C++	struct:Catch::IShared	access:public	signature:() const
+Catch::IShared::~IShared	catch.hpp	/^        virtual ~IShared();$/;"	p	language:C++	struct:Catch::IShared	access:public	signature:()
+Catch::ITestCase	catch.hpp	/^    struct ITestCase : IShared {$/;"	s	language:C++	namespace:Catch	inherits:IShared
+Catch::ITestCase::invoke	catch.hpp	/^        virtual void invoke () const = 0;$/;"	p	language:C++	struct:Catch::ITestCase	access:public	signature:() const
+Catch::ITestCase::~ITestCase	catch.hpp	/^        virtual ~ITestCase();$/;"	p	language:C++	struct:Catch::ITestCase	access:protected	signature:()
+Catch::ITestCaseRegistry	catch.hpp	/^    struct ITestCaseRegistry {$/;"	s	language:C++	namespace:Catch
+Catch::ITestCaseRegistry::getFilteredTests	catch.hpp	/^        virtual void getFilteredTests( TestSpec const& testSpec, IConfig const& config, std::vector<TestCase>& matchingTestCases, bool negated = false ) const = 0;$/;"	p	language:C++	struct:Catch::ITestCaseRegistry	access:public	signature:( TestSpec const& testSpec, IConfig const& config, std::vector<TestCase>& matchingTestCases, bool negated = false ) const
+Catch::ITestCaseRegistry::std::getAllTests	catch.hpp	/^        virtual std::vector<TestCase> const& getAllTests() const = 0;$/;"	p	language:C++	class:Catch::ITestCaseRegistry::std	access:public	signature:() const
+Catch::ITestCaseRegistry::~ITestCaseRegistry	catch.hpp	/^        virtual ~ITestCaseRegistry();$/;"	p	language:C++	struct:Catch::ITestCaseRegistry	access:public	signature:()
+Catch::Internal	catch.hpp	/^namespace Internal {$/;"	n	language:C++	namespace:Catch
+Catch::Internal::Evaluator	catch.hpp	/^    class Evaluator{};$/;"	c	language:C++	namespace:Catch::Internal
+Catch::Internal::Evaluator	catch.hpp	/^    struct Evaluator<T1, T2, IsEqualTo> {$/;"	s	language:C++	namespace:Catch::Internal
+Catch::Internal::Evaluator	catch.hpp	/^    struct Evaluator<T1, T2, IsGreaterThan> {$/;"	s	language:C++	namespace:Catch::Internal
+Catch::Internal::Evaluator	catch.hpp	/^    struct Evaluator<T1, T2, IsGreaterThanOrEqualTo> {$/;"	s	language:C++	namespace:Catch::Internal
+Catch::Internal::Evaluator	catch.hpp	/^    struct Evaluator<T1, T2, IsLessThan> {$/;"	s	language:C++	namespace:Catch::Internal
+Catch::Internal::Evaluator	catch.hpp	/^    struct Evaluator<T1, T2, IsLessThanOrEqualTo> {$/;"	s	language:C++	namespace:Catch::Internal
+Catch::Internal::Evaluator	catch.hpp	/^    struct Evaluator<T1, T2, IsNotEqualTo> {$/;"	s	language:C++	namespace:Catch::Internal
+Catch::Internal::Evaluator::evaluate	catch.hpp	/^        static bool evaluate( T1 const& lhs, T2 const& rhs ) {$/;"	f	language:C++	struct:Catch::Internal::Evaluator	access:public	signature:( T1 const& lhs, T2 const& rhs )
+Catch::Internal::Evaluator::evaluate	catch.hpp	/^        static bool evaluate( T1 const& lhs, T2 const& rhs) {$/;"	f	language:C++	struct:Catch::Internal::Evaluator	access:public	signature:( T1 const& lhs, T2 const& rhs)
+Catch::Internal::IsEqualTo	catch.hpp	/^        IsEqualTo,$/;"	e	language:C++	enum:Catch::Internal::Operator
+Catch::Internal::IsGreaterThan	catch.hpp	/^        IsGreaterThan,$/;"	e	language:C++	enum:Catch::Internal::Operator
+Catch::Internal::IsGreaterThanOrEqualTo	catch.hpp	/^        IsGreaterThanOrEqualTo$/;"	e	language:C++	enum:Catch::Internal::Operator
+Catch::Internal::IsLessThan	catch.hpp	/^        IsLessThan,$/;"	e	language:C++	enum:Catch::Internal::Operator
+Catch::Internal::IsLessThanOrEqualTo	catch.hpp	/^        IsLessThanOrEqualTo,$/;"	e	language:C++	enum:Catch::Internal::Operator
+Catch::Internal::IsNotEqualTo	catch.hpp	/^        IsNotEqualTo,$/;"	e	language:C++	enum:Catch::Internal::Operator
+Catch::Internal::Operator	catch.hpp	/^    enum Operator {$/;"	g	language:C++	namespace:Catch::Internal
+Catch::Internal::OperatorTraits	catch.hpp	/^    template<> struct OperatorTraits<IsEqualTo>             { static const char* getName(){ return "=="; } };$/;"	s	language:C++	namespace:Catch::Internal
+Catch::Internal::OperatorTraits	catch.hpp	/^    template<> struct OperatorTraits<IsGreaterThan>         { static const char* getName(){ return ">"; } };$/;"	s	language:C++	namespace:Catch::Internal
+Catch::Internal::OperatorTraits	catch.hpp	/^    template<> struct OperatorTraits<IsGreaterThanOrEqualTo>{ static const char* getName(){ return ">="; } };$/;"	s	language:C++	namespace:Catch::Internal
+Catch::Internal::OperatorTraits	catch.hpp	/^    template<> struct OperatorTraits<IsLessThan>            { static const char* getName(){ return "<"; } };$/;"	s	language:C++	namespace:Catch::Internal
+Catch::Internal::OperatorTraits	catch.hpp	/^    template<> struct OperatorTraits<IsLessThanOrEqualTo>   { static const char* getName(){ return "<="; } };$/;"	s	language:C++	namespace:Catch::Internal
+Catch::Internal::OperatorTraits	catch.hpp	/^    template<> struct OperatorTraits<IsNotEqualTo>          { static const char* getName(){ return "!="; } };$/;"	s	language:C++	namespace:Catch::Internal
+Catch::Internal::OperatorTraits	catch.hpp	/^    template<Operator Op> struct OperatorTraits             { static const char* getName(){ return "*error*"; } };$/;"	s	language:C++	namespace:Catch::Internal
+Catch::Internal::OperatorTraits::getName	catch.hpp	/^    template<> struct OperatorTraits<IsEqualTo>             { static const char* getName(){ return "=="; } };$/;"	f	language:C++	struct:Catch::Internal::OperatorTraits	access:public	signature:()
+Catch::Internal::OperatorTraits::getName	catch.hpp	/^    template<> struct OperatorTraits<IsGreaterThan>         { static const char* getName(){ return ">"; } };$/;"	f	language:C++	struct:Catch::Internal::OperatorTraits	access:public	signature:()
+Catch::Internal::OperatorTraits::getName	catch.hpp	/^    template<> struct OperatorTraits<IsGreaterThanOrEqualTo>{ static const char* getName(){ return ">="; } };$/;"	f	language:C++	struct:Catch::Internal::OperatorTraits	access:public	signature:()
+Catch::Internal::OperatorTraits::getName	catch.hpp	/^    template<> struct OperatorTraits<IsLessThan>            { static const char* getName(){ return "<"; } };$/;"	f	language:C++	struct:Catch::Internal::OperatorTraits	access:public	signature:()
+Catch::Internal::OperatorTraits::getName	catch.hpp	/^    template<> struct OperatorTraits<IsLessThanOrEqualTo>   { static const char* getName(){ return "<="; } };$/;"	f	language:C++	struct:Catch::Internal::OperatorTraits	access:public	signature:()
+Catch::Internal::OperatorTraits::getName	catch.hpp	/^    template<> struct OperatorTraits<IsNotEqualTo>          { static const char* getName(){ return "!="; } };$/;"	f	language:C++	struct:Catch::Internal::OperatorTraits	access:public	signature:()
+Catch::Internal::OperatorTraits::getName	catch.hpp	/^    template<Operator Op> struct OperatorTraits             { static const char* getName(){ return "*error*"; } };$/;"	f	language:C++	struct:Catch::Internal::OperatorTraits	access:public	signature:()
+Catch::Internal::applyEvaluator	catch.hpp	/^    bool applyEvaluator( T1 const& lhs, T2 const& rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( T1 const& lhs, T2 const& rhs )
+Catch::Internal::compare	catch.hpp	/^    bool compare( T1 const& lhs, T2 const& rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( T1 const& lhs, T2 const& rhs )
+Catch::Internal::compare	catch.hpp	/^    template<Operator Op, typename T> bool compare( T* lhs, int rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( T* lhs, int rhs )
+Catch::Internal::compare	catch.hpp	/^    template<Operator Op, typename T> bool compare( T* lhs, long rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( T* lhs, long rhs )
+Catch::Internal::compare	catch.hpp	/^    template<Operator Op, typename T> bool compare( T* lhs, std::nullptr_t ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( T* lhs, std::nullptr_t )
+Catch::Internal::compare	catch.hpp	/^    template<Operator Op, typename T> bool compare( int lhs, T* rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( int lhs, T* rhs )
+Catch::Internal::compare	catch.hpp	/^    template<Operator Op, typename T> bool compare( long lhs, T* rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( long lhs, T* rhs )
+Catch::Internal::compare	catch.hpp	/^    template<Operator Op, typename T> bool compare( std::nullptr_t, T* rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( std::nullptr_t, T* rhs )
+Catch::Internal::compare	catch.hpp	/^    template<Operator Op> bool compare( int lhs, unsigned char rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( int lhs, unsigned char rhs )
+Catch::Internal::compare	catch.hpp	/^    template<Operator Op> bool compare( int lhs, unsigned int rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( int lhs, unsigned int rhs )
+Catch::Internal::compare	catch.hpp	/^    template<Operator Op> bool compare( int lhs, unsigned long rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( int lhs, unsigned long rhs )
+Catch::Internal::compare	catch.hpp	/^    template<Operator Op> bool compare( long lhs, unsigned char rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( long lhs, unsigned char rhs )
+Catch::Internal::compare	catch.hpp	/^    template<Operator Op> bool compare( long lhs, unsigned int rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( long lhs, unsigned int rhs )
+Catch::Internal::compare	catch.hpp	/^    template<Operator Op> bool compare( long lhs, unsigned long rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( long lhs, unsigned long rhs )
+Catch::Internal::compare	catch.hpp	/^    template<Operator Op> bool compare( unsigned char lhs, int rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( unsigned char lhs, int rhs )
+Catch::Internal::compare	catch.hpp	/^    template<Operator Op> bool compare( unsigned char lhs, long rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( unsigned char lhs, long rhs )
+Catch::Internal::compare	catch.hpp	/^    template<Operator Op> bool compare( unsigned int lhs, int rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( unsigned int lhs, int rhs )
+Catch::Internal::compare	catch.hpp	/^    template<Operator Op> bool compare( unsigned int lhs, long rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( unsigned int lhs, long rhs )
+Catch::Internal::compare	catch.hpp	/^    template<Operator Op> bool compare( unsigned long lhs, int rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( unsigned long lhs, int rhs )
+Catch::Internal::compare	catch.hpp	/^    template<Operator Op> bool compare( unsigned long lhs, long rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( unsigned long lhs, long rhs )
+Catch::Internal::opCast	catch.hpp	/^    inline T& opCast(T const& t) { return const_cast<T&>(t); }$/;"	f	language:C++	namespace:Catch::Internal	signature:(T const& t)
+Catch::Internal::opCast	catch.hpp	/^    inline std::nullptr_t opCast(std::nullptr_t) { return nullptr; }$/;"	f	language:C++	namespace:Catch::Internal	signature:(std::nullptr_t)
+Catch::MethodTestCase	catch.hpp	/^class MethodTestCase : public SharedImpl<ITestCase> {$/;"	c	language:C++	namespace:Catch	inherits:SharedImpl
+Catch::MethodTestCase::MethodTestCase	catch.hpp	/^    MethodTestCase( void (C::*method)() ) : m_method( method ) {}$/;"	f	language:C++	class:Catch::MethodTestCase	access:public	signature:( void (C::*method)() )
+Catch::MethodTestCase::invoke	catch.hpp	/^    virtual void invoke() const {$/;"	f	language:C++	class:Catch::MethodTestCase	access:public	signature:() const
+Catch::MethodTestCase::m_method	catch.hpp	/^    void (C::*m_method)();$/;"	m	language:C++	class:Catch::MethodTestCase	access:private
+Catch::MethodTestCase::~MethodTestCase	catch.hpp	/^    virtual ~MethodTestCase() {}$/;"	f	language:C++	class:Catch::MethodTestCase	access:private	signature:()
+Catch::NameAndDesc	catch.hpp	/^struct NameAndDesc {$/;"	s	language:C++	namespace:Catch
+Catch::NameAndDesc::NameAndDesc	catch.hpp	/^    NameAndDesc( const char* _name = "", const char* _description= "" )$/;"	f	language:C++	struct:Catch::NameAndDesc	access:public	signature:( const char* _name = Ó, const char* _description= Ó )
+Catch::NameAndDesc::description	catch.hpp	/^    const char* description;$/;"	m	language:C++	struct:Catch::NameAndDesc	access:public
+Catch::NameAndDesc::name	catch.hpp	/^    const char* name;$/;"	m	language:C++	struct:Catch::NameAndDesc	access:public
+Catch::NonCopyable	catch.hpp	/^    class NonCopyable {$/;"	c	language:C++	namespace:Catch
+Catch::NonCopyable::NonCopyable	catch.hpp	/^        NonCopyable( NonCopyable && )                  = delete;$/;"	p	language:C++	class:Catch::NonCopyable	access:private	signature:( NonCopyable && )
+Catch::NonCopyable::NonCopyable	catch.hpp	/^        NonCopyable( NonCopyable const& )              = delete;$/;"	p	language:C++	class:Catch::NonCopyable	access:private	signature:( NonCopyable const& )
+Catch::NonCopyable::NonCopyable	catch.hpp	/^        NonCopyable() {}$/;"	f	language:C++	class:Catch::NonCopyable	access:protected	signature:()
+Catch::NonCopyable::operator =	catch.hpp	/^        NonCopyable& operator = ( NonCopyable && )     = delete;$/;"	p	language:C++	class:Catch::NonCopyable	access:private	signature:( NonCopyable && )
+Catch::NonCopyable::operator =	catch.hpp	/^        NonCopyable& operator = ( NonCopyable const& ) = delete;$/;"	p	language:C++	class:Catch::NonCopyable	access:private	signature:( NonCopyable const& )
+Catch::NonCopyable::~NonCopyable	catch.hpp	/^        virtual ~NonCopyable();$/;"	p	language:C++	class:Catch::NonCopyable	access:protected	signature:()
+Catch::NotImplementedException	catch.hpp	/^    class NotImplementedException : public std::exception$/;"	c	language:C++	namespace:Catch	inherits:std::exception
+Catch::NotImplementedException::CATCH_NOEXCEPT	catch.hpp	/^        virtual const char* what() const CATCH_NOEXCEPT;$/;"	m	language:C++	class:Catch::NotImplementedException	access:public
+Catch::NotImplementedException::NotImplementedException	catch.hpp	/^        NotImplementedException( NotImplementedException const& ) {}$/;"	f	language:C++	class:Catch::NotImplementedException	access:public	signature:( NotImplementedException const& )
+Catch::NotImplementedException::NotImplementedException	catch.hpp	/^        NotImplementedException( SourceLineInfo const& lineInfo );$/;"	p	language:C++	class:Catch::NotImplementedException	access:public	signature:( SourceLineInfo const& lineInfo )
+Catch::NotImplementedException::m_lineInfo	catch.hpp	/^        SourceLineInfo m_lineInfo;$/;"	m	language:C++	class:Catch::NotImplementedException	access:private
+Catch::NotImplementedException::m_what	catch.hpp	/^        std::string m_what;$/;"	m	language:C++	class:Catch::NotImplementedException	access:private
+Catch::Ptr	catch.hpp	/^    class Ptr {$/;"	c	language:C++	namespace:Catch
+Catch::Ptr::Ptr	catch.hpp	/^        Ptr( Ptr const& other ) : m_p( other.m_p ){$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:( Ptr const& other )
+Catch::Ptr::Ptr	catch.hpp	/^        Ptr( T* p ) : m_p( p ){$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:( T* p )
+Catch::Ptr::Ptr	catch.hpp	/^        Ptr() : m_p( NULL ){}$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:()
+Catch::Ptr::get	catch.hpp	/^        T* get() { return m_p; }$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:()
+Catch::Ptr::get	catch.hpp	/^        const T* get() const{ return m_p; }$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:() const
+Catch::Ptr::m_p	catch.hpp	/^        T* m_p;$/;"	m	language:C++	class:Catch::Ptr	access:private
+Catch::Ptr::operator !	catch.hpp	/^        bool operator !() const { return m_p == NULL; }$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:() const
+Catch::Ptr::operator *	catch.hpp	/^        T& operator*() const { return *m_p; }$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:() const
+Catch::Ptr::operator ->	catch.hpp	/^        T* operator->() const { return m_p; }$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:() const
+Catch::Ptr::operator =	catch.hpp	/^        Ptr& operator = ( Ptr const& other ){$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:( Ptr const& other )
+Catch::Ptr::operator =	catch.hpp	/^        Ptr& operator = ( T* p ){$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:( T* p )
+Catch::Ptr::operator SafeBool::type	catch.hpp	/^        operator SafeBool::type() const { return SafeBool::makeSafe( m_p != NULL ); }$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:() const
+Catch::Ptr::reset	catch.hpp	/^        void reset() {$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:()
+Catch::Ptr::swap	catch.hpp	/^        void swap( Ptr& other ) { std::swap( m_p, other.m_p ); }$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:( Ptr& other )
+Catch::Ptr::~Ptr	catch.hpp	/^        ~Ptr(){$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:()
+Catch::ResultBuilder	catch.hpp	/^    class ResultBuilder {$/;"	c	language:C++	namespace:Catch
+Catch::ResultBuilder::ExprComponents	catch.hpp	/^        struct ExprComponents {$/;"	s	language:C++	class:Catch::ResultBuilder	access:private
+Catch::ResultBuilder::ExprComponents::ExprComponents	catch.hpp	/^            ExprComponents() : testFalse( false ) {}$/;"	f	language:C++	struct:Catch::ResultBuilder::ExprComponents	access:public	signature:()
+Catch::ResultBuilder::ExprComponents::lhs	catch.hpp	/^            std::string lhs, rhs, op;$/;"	m	language:C++	struct:Catch::ResultBuilder::ExprComponents	access:public
+Catch::ResultBuilder::ExprComponents::op	catch.hpp	/^            std::string lhs, rhs, op;$/;"	m	language:C++	struct:Catch::ResultBuilder::ExprComponents	access:public
+Catch::ResultBuilder::ExprComponents::rhs	catch.hpp	/^            std::string lhs, rhs, op;$/;"	m	language:C++	struct:Catch::ResultBuilder::ExprComponents	access:public
+Catch::ResultBuilder::ExprComponents::testFalse	catch.hpp	/^            bool testFalse;$/;"	m	language:C++	struct:Catch::ResultBuilder::ExprComponents	access:public
+Catch::ResultBuilder::ResultBuilder	catch.hpp	/^        ResultBuilder(  char const* macroName,$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:( char const* macroName, SourceLineInfo const& lineInfo, char const* capturedExpression, ResultDisposition::Flags resultDisposition )
+Catch::ResultBuilder::allowThrows	catch.hpp	/^        bool allowThrows() const;$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:() const
+Catch::ResultBuilder::build	catch.hpp	/^        AssertionResult build() const;$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:() const
+Catch::ResultBuilder::captureExpression	catch.hpp	/^        void captureExpression();$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:()
+Catch::ResultBuilder::captureResult	catch.hpp	/^        void captureResult( ResultWas::OfType resultType );$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:( ResultWas::OfType resultType )
+Catch::ResultBuilder::endExpression	catch.hpp	/^        void endExpression();$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:()
+Catch::ResultBuilder::m_assertionInfo	catch.hpp	/^        AssertionInfo m_assertionInfo;$/;"	m	language:C++	class:Catch::ResultBuilder	access:private
+Catch::ResultBuilder::m_data	catch.hpp	/^        AssertionResultData m_data;$/;"	m	language:C++	class:Catch::ResultBuilder	access:private
+Catch::ResultBuilder::m_exprComponents	catch.hpp	/^        } m_exprComponents;$/;"	m	language:C++	class:Catch::ResultBuilder	typeref:struct:Catch::ResultBuilder::ExprComponents	access:private
+Catch::ResultBuilder::m_shouldDebugBreak	catch.hpp	/^        bool m_shouldDebugBreak;$/;"	m	language:C++	class:Catch::ResultBuilder	access:private
+Catch::ResultBuilder::m_shouldThrow	catch.hpp	/^        bool m_shouldThrow;$/;"	m	language:C++	class:Catch::ResultBuilder	access:private
+Catch::ResultBuilder::m_stream	catch.hpp	/^        CopyableStream m_stream;$/;"	m	language:C++	class:Catch::ResultBuilder	access:private
+Catch::ResultBuilder::operator &&	catch.hpp	/^        template<typename RhsT> STATIC_ASSERT_Expression_Too_Complex_Please_Rewrite_As_Binary_Comparison& operator && ( RhsT const& );$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:( RhsT const& )
+Catch::ResultBuilder::operator <<	catch.hpp	/^        ResultBuilder& operator << ( T const& value ) {$/;"	f	language:C++	class:Catch::ResultBuilder	access:public	signature:( T const& value )
+Catch::ResultBuilder::operator <=	catch.hpp	/^        ExpressionLhs<T const&> operator <= ( T const& operand );$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:( T const& operand )
+Catch::ResultBuilder::operator <=	catch.hpp	/^        ExpressionLhs<bool> operator <= ( bool value );$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:( bool value )
+Catch::ResultBuilder::operator ||	catch.hpp	/^        template<typename RhsT> STATIC_ASSERT_Expression_Too_Complex_Please_Rewrite_As_Binary_Comparison& operator || ( RhsT const& );$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:( RhsT const& )
+Catch::ResultBuilder::react	catch.hpp	/^        void react();$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:()
+Catch::ResultBuilder::reconstructExpression	catch.hpp	/^        std::string reconstructExpression() const;$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:() const
+Catch::ResultBuilder::setLhs	catch.hpp	/^        ResultBuilder& setLhs( std::string const& lhs );$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:( std::string const& lhs )
+Catch::ResultBuilder::setOp	catch.hpp	/^        ResultBuilder& setOp( std::string const& op );$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:( std::string const& op )
+Catch::ResultBuilder::setResultType	catch.hpp	/^        ResultBuilder& setResultType( ResultWas::OfType result );$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:( ResultWas::OfType result )
+Catch::ResultBuilder::setResultType	catch.hpp	/^        ResultBuilder& setResultType( bool result );$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:( bool result )
+Catch::ResultBuilder::setRhs	catch.hpp	/^        ResultBuilder& setRhs( std::string const& rhs );$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:( std::string const& rhs )
+Catch::ResultBuilder::shouldDebugBreak	catch.hpp	/^        bool shouldDebugBreak() const;$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:() const
+Catch::ResultBuilder::useActiveException	catch.hpp	/^        void useActiveException( ResultDisposition::Flags resultDisposition = ResultDisposition::Normal );$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:( ResultDisposition::Flags resultDisposition = ResultDisposition::Normal )
+Catch::ResultDisposition	catch.hpp	/^    struct ResultDisposition { enum Flags {$/;"	s	language:C++	namespace:Catch
+Catch::ResultDisposition::ContinueOnFailure	catch.hpp	/^        ContinueOnFailure = 0x02,   \/\/ Failures fail test, but execution continues$/;"	e	language:C++	enum:Catch::ResultDisposition::Flags
+Catch::ResultDisposition::FalseTest	catch.hpp	/^        FalseTest = 0x04,           \/\/ Prefix expression with !$/;"	e	language:C++	enum:Catch::ResultDisposition::Flags
+Catch::ResultDisposition::Flags	catch.hpp	/^    struct ResultDisposition { enum Flags {$/;"	g	language:C++	struct:Catch::ResultDisposition	access:public
+Catch::ResultDisposition::Normal	catch.hpp	/^        Normal = 0x01,$/;"	e	language:C++	enum:Catch::ResultDisposition::Flags
+Catch::ResultDisposition::SuppressFail	catch.hpp	/^        SuppressFail = 0x08         \/\/ Failures are reported but do not fail the test$/;"	e	language:C++	enum:Catch::ResultDisposition::Flags
+Catch::ResultWas	catch.hpp	/^    struct ResultWas { enum OfType {$/;"	s	language:C++	namespace:Catch
+Catch::ResultWas::DidntThrowException	catch.hpp	/^        DidntThrowException = Exception | 2,$/;"	e	language:C++	enum:Catch::ResultWas::OfType
+Catch::ResultWas::Exception	catch.hpp	/^        Exception = 0x100 | FailureBit,$/;"	e	language:C++	enum:Catch::ResultWas::OfType
+Catch::ResultWas::ExplicitFailure	catch.hpp	/^        ExplicitFailure = FailureBit | 2,$/;"	e	language:C++	enum:Catch::ResultWas::OfType
+Catch::ResultWas::ExpressionFailed	catch.hpp	/^        ExpressionFailed = FailureBit | 1,$/;"	e	language:C++	enum:Catch::ResultWas::OfType
+Catch::ResultWas::FailureBit	catch.hpp	/^        FailureBit = 0x10,$/;"	e	language:C++	enum:Catch::ResultWas::OfType
+Catch::ResultWas::FatalErrorCondition	catch.hpp	/^        FatalErrorCondition = 0x200 | FailureBit$/;"	e	language:C++	enum:Catch::ResultWas::OfType
+Catch::ResultWas::Info	catch.hpp	/^        Info = 1,$/;"	e	language:C++	enum:Catch::ResultWas::OfType
+Catch::ResultWas::OfType	catch.hpp	/^    struct ResultWas { enum OfType {$/;"	g	language:C++	struct:Catch::ResultWas	access:public
+Catch::ResultWas::Ok	catch.hpp	/^        Ok = 0,$/;"	e	language:C++	enum:Catch::ResultWas::OfType
+Catch::ResultWas::ThrewException	catch.hpp	/^        ThrewException = Exception | 1,$/;"	e	language:C++	enum:Catch::ResultWas::OfType
+Catch::ResultWas::Unknown	catch.hpp	/^        Unknown = -1,$/;"	e	language:C++	enum:Catch::ResultWas::OfType
+Catch::ResultWas::Warning	catch.hpp	/^        Warning = 2,$/;"	e	language:C++	enum:Catch::ResultWas::OfType
+Catch::SafeBool	catch.hpp	/^    class SafeBool {$/;"	c	language:C++	namespace:Catch
+Catch::SafeBool::makeSafe	catch.hpp	/^        static type makeSafe( bool value ) {$/;"	f	language:C++	class:Catch::SafeBool	access:public	signature:( bool value )
+Catch::SafeBool::trueValue	catch.hpp	/^        void trueValue() const {}$/;"	f	language:C++	class:Catch::SafeBool	access:private	signature:() const
+Catch::SharedImpl	catch.hpp	/^    struct SharedImpl : T {$/;"	s	language:C++	namespace:Catch	inherits:T
+Catch::SharedImpl::SharedImpl	catch.hpp	/^        SharedImpl() : m_rc( 0 ){}$/;"	f	language:C++	struct:Catch::SharedImpl	access:public	signature:()
+Catch::SharedImpl::addRef	catch.hpp	/^        virtual void addRef() const {$/;"	f	language:C++	struct:Catch::SharedImpl	access:public	signature:() const
+Catch::SharedImpl::m_rc	catch.hpp	/^        mutable unsigned int m_rc;$/;"	m	language:C++	struct:Catch::SharedImpl	access:public
+Catch::SharedImpl::release	catch.hpp	/^        virtual void release() const {$/;"	f	language:C++	struct:Catch::SharedImpl	access:public	signature:() const
+Catch::SourceLineInfo	catch.hpp	/^    struct SourceLineInfo {$/;"	s	language:C++	namespace:Catch
+Catch::SourceLineInfo::SourceLineInfo	catch.hpp	/^        SourceLineInfo( SourceLineInfo && )                  = default;$/;"	p	language:C++	struct:Catch::SourceLineInfo	access:public	signature:( SourceLineInfo && )
+Catch::SourceLineInfo::SourceLineInfo	catch.hpp	/^        SourceLineInfo( SourceLineInfo const& other );$/;"	p	language:C++	struct:Catch::SourceLineInfo	access:public	signature:( SourceLineInfo const& other )
+Catch::SourceLineInfo::SourceLineInfo	catch.hpp	/^        SourceLineInfo( char const* _file, std::size_t _line );$/;"	p	language:C++	struct:Catch::SourceLineInfo	access:public	signature:( char const* _file, std::size_t _line )
+Catch::SourceLineInfo::SourceLineInfo	catch.hpp	/^        SourceLineInfo();$/;"	p	language:C++	struct:Catch::SourceLineInfo	access:public	signature:()
+Catch::SourceLineInfo::empty	catch.hpp	/^        bool empty() const;$/;"	p	language:C++	struct:Catch::SourceLineInfo	access:public	signature:() const
+Catch::SourceLineInfo::file	catch.hpp	/^        std::string file;$/;"	m	language:C++	struct:Catch::SourceLineInfo	access:public
+Catch::SourceLineInfo::line	catch.hpp	/^        std::size_t line;$/;"	m	language:C++	struct:Catch::SourceLineInfo	access:public
+Catch::SourceLineInfo::operator <	catch.hpp	/^        bool operator < ( SourceLineInfo const& other ) const;$/;"	p	language:C++	struct:Catch::SourceLineInfo	access:public	signature:( SourceLineInfo const& other ) const
+Catch::SourceLineInfo::operator =	catch.hpp	/^        SourceLineInfo& operator = ( SourceLineInfo && )     = default;$/;"	p	language:C++	struct:Catch::SourceLineInfo	access:public	signature:( SourceLineInfo && )
+Catch::SourceLineInfo::operator =	catch.hpp	/^        SourceLineInfo& operator = ( SourceLineInfo const& ) = default;$/;"	p	language:C++	struct:Catch::SourceLineInfo	access:public	signature:( SourceLineInfo const& )
+Catch::SourceLineInfo::operator ==	catch.hpp	/^        bool operator == ( SourceLineInfo const& other ) const;$/;"	p	language:C++	struct:Catch::SourceLineInfo	access:public	signature:( SourceLineInfo const& other ) const
+Catch::StreamEndStop	catch.hpp	/^    struct StreamEndStop {$/;"	s	language:C++	namespace:Catch
+Catch::StreamEndStop::operator +	catch.hpp	/^        std::string operator+() {$/;"	f	language:C++	struct:Catch::StreamEndStop	access:public	signature:()
+Catch::StringMaker	catch.hpp	/^struct StringMaker :$/;"	s	language:C++	namespace:Catch	inherits:Detail::StringMakerBase
+Catch::StringMaker	catch.hpp	/^struct StringMaker<R C::*> {$/;"	s	language:C++	namespace:Catch
+Catch::StringMaker	catch.hpp	/^struct StringMaker<T*> {$/;"	s	language:C++	namespace:Catch
+Catch::StringMaker::convert	catch.hpp	/^    static std::string convert( R C::* p ) {$/;"	f	language:C++	struct:Catch::StringMaker	access:public	signature:( R C::* p )
+Catch::StringMaker::convert	catch.hpp	/^    static std::string convert( U* p ) {$/;"	f	language:C++	struct:Catch::StringMaker	access:public	signature:( U* p )
+Catch::TestFailureException	catch.hpp	/^    struct TestFailureException{};$/;"	s	language:C++	namespace:Catch
+Catch::TestFunction	catch.hpp	/^typedef void(*TestFunction)();$/;"	t	language:C++	namespace:Catch
+Catch::TupleDetail	catch.hpp	/^namespace TupleDetail {$/;"	n	language:C++	namespace:Catch
+Catch::alwaysFalse	catch.hpp	/^    inline bool alwaysFalse() { return false; }$/;"	f	language:C++	namespace:Catch	signature:()
+Catch::alwaysTrue	catch.hpp	/^    inline bool alwaysTrue() { return true; }$/;"	f	language:C++	namespace:Catch	signature:()
+Catch::cleanUpContext	catch.hpp	/^    void cleanUpContext();$/;"	p	language:C++	namespace:Catch	signature:()
+Catch::contains	catch.hpp	/^    bool contains( std::string const& s, std::string const& infix );$/;"	p	language:C++	namespace:Catch	signature:( std::string const& s, std::string const& infix )
+Catch::createGeneratorsForTest	catch.hpp	/^    IGeneratorsForTest* createGeneratorsForTest();$/;"	p	language:C++	namespace:Catch	signature:()
+Catch::createStream	catch.hpp	/^    Stream createStream( std::string const& streamName );$/;"	p	language:C++	namespace:Catch	signature:( std::string const& streamName )
+Catch::deleteAll	catch.hpp	/^    inline void deleteAll( ContainerT& container ) {$/;"	f	language:C++	namespace:Catch	signature:( ContainerT& container )
+Catch::deleteAllValues	catch.hpp	/^    inline void deleteAllValues( AssociativeContainerT& container ) {$/;"	f	language:C++	namespace:Catch	signature:( AssociativeContainerT& container )
+Catch::endsWith	catch.hpp	/^    bool endsWith( std::string const& s, std::string const& suffix );$/;"	p	language:C++	namespace:Catch	signature:( std::string const& s, std::string const& suffix )
+Catch::getCurrentContext	catch.hpp	/^    IContext& getCurrentContext();$/;"	p	language:C++	namespace:Catch	signature:()
+Catch::getCurrentMutableContext	catch.hpp	/^    IMutableContext& getCurrentMutableContext();$/;"	p	language:C++	namespace:Catch	signature:()
+Catch::isFalseTest	catch.hpp	/^    inline bool isFalseTest( int flags )                { return ( flags & ResultDisposition::FalseTest ) != 0; }$/;"	f	language:C++	namespace:Catch	signature:( int flags )
+Catch::isJustInfo	catch.hpp	/^    inline bool isJustInfo( int flags ) {$/;"	f	language:C++	namespace:Catch	signature:( int flags )
+Catch::isOk	catch.hpp	/^    inline bool isOk( ResultWas::OfType resultType ) {$/;"	f	language:C++	namespace:Catch	signature:( ResultWas::OfType resultType )
+Catch::isTrue	catch.hpp	/^    inline bool isTrue( bool value ){ return value; }$/;"	f	language:C++	namespace:Catch	signature:( bool value )
+Catch::operator +	catch.hpp	/^    T const& operator + ( T const& value, StreamEndStop ) {$/;"	f	language:C++	namespace:Catch	signature:( T const& value, StreamEndStop )
+Catch::operator <<	catch.hpp	/^    std::ostream& operator << ( std::ostream& os, SourceLineInfo const& info );$/;"	p	language:C++	namespace:Catch	signature:( std::ostream& os, SourceLineInfo const& info )
+Catch::operator |	catch.hpp	/^    inline ResultDisposition::Flags operator | ( ResultDisposition::Flags lhs, ResultDisposition::Flags rhs ) {$/;"	f	language:C++	namespace:Catch	signature:( ResultDisposition::Flags lhs, ResultDisposition::Flags rhs )
+Catch::pluralise	catch.hpp	/^    struct pluralise {$/;"	s	language:C++	namespace:Catch
+Catch::pluralise::m_count	catch.hpp	/^        std::size_t m_count;$/;"	m	language:C++	struct:Catch::pluralise	access:public
+Catch::pluralise::m_label	catch.hpp	/^        std::string m_label;$/;"	m	language:C++	struct:Catch::pluralise	access:public
+Catch::pluralise::operator <<	catch.hpp	/^        friend std::ostream& operator << ( std::ostream& os, pluralise const& pluraliser );$/;"	p	language:C++	struct:Catch::pluralise	access:friend	signature:( std::ostream& os, pluralise const& pluraliser )
+Catch::pluralise::pluralise	catch.hpp	/^        pluralise( std::size_t count, std::string const& label );$/;"	p	language:C++	struct:Catch::pluralise	access:public	signature:( std::size_t count, std::string const& label )
+Catch::replaceInPlace	catch.hpp	/^    bool replaceInPlace( std::string& str, std::string const& replaceThis, std::string const& withThis );$/;"	p	language:C++	namespace:Catch	signature:( std::string& str, std::string const& replaceThis, std::string const& withThis )
+Catch::shouldContinueOnFailure	catch.hpp	/^    inline bool shouldContinueOnFailure( int flags )    { return ( flags & ResultDisposition::ContinueOnFailure ) != 0; }$/;"	f	language:C++	namespace:Catch	signature:( int flags )
+Catch::shouldSuppressFailure	catch.hpp	/^    inline bool shouldSuppressFailure( int flags )      { return ( flags & ResultDisposition::SuppressFail ) != 0; }$/;"	f	language:C++	namespace:Catch	signature:( int flags )
+Catch::startsWith	catch.hpp	/^    bool startsWith( std::string const& s, std::string const& prefix );$/;"	p	language:C++	namespace:Catch	signature:( std::string const& s, std::string const& prefix )
+Catch::throwLogicError	catch.hpp	/^    void throwLogicError( std::string const& message, SourceLineInfo const& locationInfo );$/;"	p	language:C++	namespace:Catch	signature:( std::string const& message, SourceLineInfo const& locationInfo )
+Catch::toLower	catch.hpp	/^    std::string toLower( std::string const& s );$/;"	p	language:C++	namespace:Catch	signature:( std::string const& s )
+Catch::toLowerInPlace	catch.hpp	/^    void toLowerInPlace( std::string& s );$/;"	p	language:C++	namespace:Catch	signature:( std::string& s )
+Catch::toString	catch.hpp	/^    std::string toString( NSObject* const& nsObject );$/;"	p	language:C++	namespace:Catch	signature:( NSObject* const& nsObject )
+Catch::toString	catch.hpp	/^    std::string toString( NSString * CATCH_ARC_STRONG const& nsstring );$/;"	p	language:C++	namespace:Catch	signature:( NSString * CATCH_ARC_STRONG const& nsstring )
+Catch::toString	catch.hpp	/^    std::string toString( NSString const * const& nsstring );$/;"	p	language:C++	namespace:Catch	signature:( NSString const * const& nsstring )
+Catch::toString	catch.hpp	/^std::string toString( T const& value );$/;"	p	language:C++	namespace:Catch	signature:( T const& value )
+Catch::toString	catch.hpp	/^std::string toString( bool value );$/;"	p	language:C++	namespace:Catch	signature:( bool value )
+Catch::toString	catch.hpp	/^std::string toString( char value );$/;"	p	language:C++	namespace:Catch	signature:( char value )
+Catch::toString	catch.hpp	/^std::string toString( char* const value );$/;"	p	language:C++	namespace:Catch	signature:( char* const value )
+Catch::toString	catch.hpp	/^std::string toString( const char* const value );$/;"	p	language:C++	namespace:Catch	signature:( const char* const value )
+Catch::toString	catch.hpp	/^std::string toString( const double value );$/;"	p	language:C++	namespace:Catch	signature:( const double value )
+Catch::toString	catch.hpp	/^std::string toString( const float value );$/;"	p	language:C++	namespace:Catch	signature:( const float value )
+Catch::toString	catch.hpp	/^std::string toString( const wchar_t* const value );$/;"	p	language:C++	namespace:Catch	signature:( const wchar_t* const value )
+Catch::toString	catch.hpp	/^std::string toString( int value );$/;"	p	language:C++	namespace:Catch	signature:( int value )
+Catch::toString	catch.hpp	/^std::string toString( signed char value );$/;"	p	language:C++	namespace:Catch	signature:( signed char value )
+Catch::toString	catch.hpp	/^std::string toString( std::nullptr_t );$/;"	p	language:C++	namespace:Catch	signature:( std::nullptr_t )
+Catch::toString	catch.hpp	/^std::string toString( std::string const& value );$/;"	p	language:C++	namespace:Catch	signature:( std::string const& value )
+Catch::toString	catch.hpp	/^std::string toString( std::vector<T,Allocator> const& v ) {$/;"	f	language:C++	namespace:Catch	signature:( std::vector<T,Allocator> const& v )
+Catch::toString	catch.hpp	/^std::string toString( std::wstring const& value );$/;"	p	language:C++	namespace:Catch	signature:( std::wstring const& value )
+Catch::toString	catch.hpp	/^std::string toString( unsigned char value );$/;"	p	language:C++	namespace:Catch	signature:( unsigned char value )
+Catch::toString	catch.hpp	/^std::string toString( unsigned int value );$/;"	p	language:C++	namespace:Catch	signature:( unsigned int value )
+Catch::toString	catch.hpp	/^std::string toString( unsigned long value );$/;"	p	language:C++	namespace:Catch	signature:( unsigned long value )
+Catch::toString	catch.hpp	/^std::string toString( wchar_t* const value );$/;"	p	language:C++	namespace:Catch	signature:( wchar_t* const value )
+Catch::trim	catch.hpp	/^    std::string trim( std::string const& str );$/;"	p	language:C++	namespace:Catch	signature:( std::string const& str )
+ContinueOnFailure	catch.hpp	/^        ContinueOnFailure = 0x02,   \/\/ Failures fail test, but execution continues$/;"	e	language:C++	enum:Catch::ResultDisposition::Flags
+CopyableStream	catch.hpp	/^        CopyableStream( CopyableStream const& other ) {$/;"	f	language:C++	struct:Catch::CopyableStream	access:public	signature:( CopyableStream const& other )
+CopyableStream	catch.hpp	/^        CopyableStream() {}$/;"	f	language:C++	struct:Catch::CopyableStream	access:public	signature:()
+CopyableStream	catch.hpp	/^    struct CopyableStream {$/;"	s	language:C++	namespace:Catch
+Detail	catch.hpp	/^namespace Detail {$/;"	n	language:C++	namespace:Catch
+DidntThrowException	catch.hpp	/^        DidntThrowException = Exception | 2,$/;"	e	language:C++	enum:Catch::ResultWas::OfType
+EnumStringMaker	catch.hpp	/^    struct EnumStringMaker$/;"	s	language:C++	namespace:Catch::Detail
+EnumStringMaker	catch.hpp	/^    struct EnumStringMaker<T,true>$/;"	s	language:C++	namespace:Catch::Detail
+Evaluator	catch.hpp	/^    class Evaluator{};$/;"	c	language:C++	namespace:Catch::Internal
+Evaluator	catch.hpp	/^    struct Evaluator<T1, T2, IsEqualTo> {$/;"	s	language:C++	namespace:Catch::Internal
+Evaluator	catch.hpp	/^    struct Evaluator<T1, T2, IsGreaterThan> {$/;"	s	language:C++	namespace:Catch::Internal
+Evaluator	catch.hpp	/^    struct Evaluator<T1, T2, IsGreaterThanOrEqualTo> {$/;"	s	language:C++	namespace:Catch::Internal
+Evaluator	catch.hpp	/^    struct Evaluator<T1, T2, IsLessThan> {$/;"	s	language:C++	namespace:Catch::Internal
+Evaluator	catch.hpp	/^    struct Evaluator<T1, T2, IsLessThanOrEqualTo> {$/;"	s	language:C++	namespace:Catch::Internal
+Evaluator	catch.hpp	/^    struct Evaluator<T1, T2, IsNotEqualTo> {$/;"	s	language:C++	namespace:Catch::Internal
+Exception	catch.hpp	/^        Exception = 0x100 | FailureBit,$/;"	e	language:C++	enum:Catch::ResultWas::OfType
+ExplicitFailure	catch.hpp	/^        ExplicitFailure = FailureBit | 2,$/;"	e	language:C++	enum:Catch::ResultWas::OfType
+ExprComponents	catch.hpp	/^            ExprComponents() : testFalse( false ) {}$/;"	f	language:C++	struct:Catch::ResultBuilder::ExprComponents	access:public	signature:()
+ExprComponents	catch.hpp	/^        struct ExprComponents {$/;"	s	language:C++	class:Catch::ResultBuilder	access:private
+ExpressionFailed	catch.hpp	/^        ExpressionFailed = FailureBit | 1,$/;"	e	language:C++	enum:Catch::ResultWas::OfType
+FailureBit	catch.hpp	/^        FailureBit = 0x10,$/;"	e	language:C++	enum:Catch::ResultWas::OfType
+FalseTest	catch.hpp	/^        FalseTest = 0x04,           \/\/ Prefix expression with !$/;"	e	language:C++	enum:Catch::ResultDisposition::Flags
+FalseType	catch.hpp	/^    struct FalseType { char sizer[2]; };$/;"	s	language:C++	namespace:Catch::Detail
+FatalErrorCondition	catch.hpp	/^        FatalErrorCondition = 0x200 | FailureBit$/;"	e	language:C++	enum:Catch::ResultWas::OfType
+Flags	catch.hpp	/^    struct ResultDisposition { enum Flags {$/;"	g	language:C++	struct:Catch::ResultDisposition	access:public
+GIVEN	catch.hpp	9393;"	d	language:C++
+IContext	catch.hpp	/^    struct IContext$/;"	s	language:C++	namespace:Catch
+IGeneratorInfo	catch.hpp	/^    struct IGeneratorInfo {$/;"	s	language:C++	namespace:Catch
+IGeneratorsForTest	catch.hpp	/^    struct IGeneratorsForTest {$/;"	s	language:C++	namespace:Catch
+IMutableContext	catch.hpp	/^    struct IMutableContext : IContext$/;"	s	language:C++	namespace:Catch	inherits:IContext
+INTERNAL_CATCH_ELSE	catch.hpp	1588;"	d	language:C++
+INTERNAL_CATCH_GENERATE	catch.hpp	2009;"	d	language:C++
+INTERNAL_CATCH_IF	catch.hpp	1583;"	d	language:C++
+INTERNAL_CATCH_INFO	catch.hpp	1663;"	d	language:C++
+INTERNAL_CATCH_LINESTR	catch.hpp	2007;"	d	language:C++
+INTERNAL_CATCH_LINESTR2	catch.hpp	2006;"	d	language:C++
+INTERNAL_CATCH_METHOD_AS_TEST_CASE	catch.hpp	605;"	d	language:C++
+INTERNAL_CATCH_MSG	catch.hpp	1645;"	d	language:C++
+INTERNAL_CATCH_NO_THROW	catch.hpp	1593;"	d	language:C++
+INTERNAL_CATCH_REACT	catch.hpp	1565;"	d	language:C++
+INTERNAL_CATCH_REGISTER_LEGACY_REPORTER	catch.hpp	7850;"	d	language:C++
+INTERNAL_CATCH_REGISTER_REPORTER	catch.hpp	7852;"	d	language:C++
+INTERNAL_CATCH_SECTION	catch.hpp	1824;"	d	language:C++
+INTERNAL_CATCH_STRINGIFY	catch.hpp	70;"	d	language:C++
+INTERNAL_CATCH_STRINGIFY2	catch.hpp	69;"	d	language:C++
+INTERNAL_CATCH_TEST	catch.hpp	1570;"	d	language:C++
+INTERNAL_CATCH_TESTCASE	catch.hpp	599;"	d	language:C++
+INTERNAL_CATCH_TEST_CASE_METHOD	catch.hpp	609;"	d	language:C++
+INTERNAL_CATCH_THROWS	catch.hpp	1607;"	d	language:C++
+INTERNAL_CATCH_THROWS_AS	catch.hpp	1624;"	d	language:C++
+INTERNAL_CATCH_TRANSLATE_EXCEPTION	catch.hpp	2099;"	d	language:C++
+INTERNAL_CATCH_UNIQUE_NAME	catch.hpp	67;"	d	language:C++
+INTERNAL_CATCH_UNIQUE_NAME_LINE	catch.hpp	66;"	d	language:C++
+INTERNAL_CATCH_UNIQUE_NAME_LINE2	catch.hpp	65;"	d	language:C++
+INTERNAL_CHECK_THAT	catch.hpp	1667;"	d	language:C++
+IShared	catch.hpp	/^    struct IShared : NonCopyable {$/;"	s	language:C++	namespace:Catch	inherits:NonCopyable
+ITestCase	catch.hpp	/^    struct ITestCase : IShared {$/;"	s	language:C++	namespace:Catch	inherits:IShared
+ITestCaseRegistry	catch.hpp	/^    struct ITestCaseRegistry {$/;"	s	language:C++	namespace:Catch
+Info	catch.hpp	/^        Info = 1,$/;"	e	language:C++	enum:Catch::ResultWas::OfType
+Internal	catch.hpp	/^namespace Internal {$/;"	n	language:C++	namespace:Catch
+IsEqualTo	catch.hpp	/^        IsEqualTo,$/;"	e	language:C++	enum:Catch::Internal::Operator
+IsGreaterThan	catch.hpp	/^        IsGreaterThan,$/;"	e	language:C++	enum:Catch::Internal::Operator
+IsGreaterThanOrEqualTo	catch.hpp	/^        IsGreaterThanOrEqualTo$/;"	e	language:C++	enum:Catch::Internal::Operator
+IsLessThan	catch.hpp	/^        IsLessThan,$/;"	e	language:C++	enum:Catch::Internal::Operator
+IsLessThanOrEqualTo	catch.hpp	/^        IsLessThanOrEqualTo,$/;"	e	language:C++	enum:Catch::Internal::Operator
+IsNotEqualTo	catch.hpp	/^        IsNotEqualTo,$/;"	e	language:C++	enum:Catch::Internal::Operator
+IsStreamInsertable	catch.hpp	/^    struct IsStreamInsertable {$/;"	s	language:C++	namespace:Catch::Detail
+MethodTestCase	catch.hpp	/^    MethodTestCase( void (C::*method)() ) : m_method( method ) {}$/;"	f	language:C++	class:Catch::MethodTestCase	access:public	signature:( void (C::*method)() )
+MethodTestCase	catch.hpp	/^class MethodTestCase : public SharedImpl<ITestCase> {$/;"	c	language:C++	namespace:Catch	inherits:SharedImpl
+NOMINMAX	catch.hpp	6271;"	d	language:C++
+NameAndDesc	catch.hpp	/^    NameAndDesc( const char* _name = "", const char* _description= "" )$/;"	f	language:C++	struct:Catch::NameAndDesc	access:public	signature:( const char* _name = Ó, const char* _description= Ó )
+NameAndDesc	catch.hpp	/^struct NameAndDesc {$/;"	s	language:C++	namespace:Catch
+NonCopyable	catch.hpp	/^        NonCopyable( NonCopyable && )                  = delete;$/;"	p	language:C++	class:Catch::NonCopyable	access:private	signature:( NonCopyable && )
+NonCopyable	catch.hpp	/^        NonCopyable( NonCopyable const& )              = delete;$/;"	p	language:C++	class:Catch::NonCopyable	access:private	signature:( NonCopyable const& )
+NonCopyable	catch.hpp	/^        NonCopyable() {}$/;"	f	language:C++	class:Catch::NonCopyable	access:protected	signature:()
+NonCopyable	catch.hpp	/^    class NonCopyable {$/;"	c	language:C++	namespace:Catch
+Normal	catch.hpp	/^        Normal = 0x01,$/;"	e	language:C++	enum:Catch::ResultDisposition::Flags
+NotImplementedException	catch.hpp	/^        NotImplementedException( NotImplementedException const& ) {}$/;"	f	language:C++	class:Catch::NotImplementedException	access:public	signature:( NotImplementedException const& )
+NotImplementedException	catch.hpp	/^        NotImplementedException( SourceLineInfo const& lineInfo );$/;"	p	language:C++	class:Catch::NotImplementedException	access:public	signature:( SourceLineInfo const& lineInfo )
+NotImplementedException	catch.hpp	/^    class NotImplementedException : public std::exception$/;"	c	language:C++	namespace:Catch	inherits:std::exception
+OC_TEST_CASE	catch.hpp	2774;"	d	language:C++
+OfType	catch.hpp	/^    struct ResultWas { enum OfType {$/;"	g	language:C++	struct:Catch::ResultWas	access:public
+Ok	catch.hpp	/^        Ok = 0,$/;"	e	language:C++	enum:Catch::ResultWas::OfType
+Operator	catch.hpp	/^    enum Operator {$/;"	g	language:C++	namespace:Catch::Internal
+OperatorTraits	catch.hpp	/^    template<> struct OperatorTraits<IsEqualTo>             { static const char* getName(){ return "=="; } };$/;"	s	language:C++	namespace:Catch::Internal
+OperatorTraits	catch.hpp	/^    template<> struct OperatorTraits<IsGreaterThan>         { static const char* getName(){ return ">"; } };$/;"	s	language:C++	namespace:Catch::Internal
+OperatorTraits	catch.hpp	/^    template<> struct OperatorTraits<IsGreaterThanOrEqualTo>{ static const char* getName(){ return ">="; } };$/;"	s	language:C++	namespace:Catch::Internal
+OperatorTraits	catch.hpp	/^    template<> struct OperatorTraits<IsLessThan>            { static const char* getName(){ return "<"; } };$/;"	s	language:C++	namespace:Catch::Internal
+OperatorTraits	catch.hpp	/^    template<> struct OperatorTraits<IsLessThanOrEqualTo>   { static const char* getName(){ return "<="; } };$/;"	s	language:C++	namespace:Catch::Internal
+OperatorTraits	catch.hpp	/^    template<> struct OperatorTraits<IsNotEqualTo>          { static const char* getName(){ return "!="; } };$/;"	s	language:C++	namespace:Catch::Internal
+OperatorTraits	catch.hpp	/^    template<Operator Op> struct OperatorTraits             { static const char* getName(){ return "*error*"; } };$/;"	s	language:C++	namespace:Catch::Internal
+Ptr	catch.hpp	/^        Ptr( Ptr const& other ) : m_p( other.m_p ){$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:( Ptr const& other )
+Ptr	catch.hpp	/^        Ptr( T* p ) : m_p( p ){$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:( T* p )
+Ptr	catch.hpp	/^        Ptr() : m_p( NULL ){}$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:()
+Ptr	catch.hpp	/^    class Ptr {$/;"	c	language:C++	namespace:Catch
+ResultBuilder	catch.hpp	/^        ResultBuilder(  char const* macroName,$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:( char const* macroName, SourceLineInfo const& lineInfo, char const* capturedExpression, ResultDisposition::Flags resultDisposition )
+ResultBuilder	catch.hpp	/^    class ResultBuilder {$/;"	c	language:C++	namespace:Catch
+ResultDisposition	catch.hpp	/^    struct ResultDisposition { enum Flags {$/;"	s	language:C++	namespace:Catch
+ResultWas	catch.hpp	/^    struct ResultWas { enum OfType {$/;"	s	language:C++	namespace:Catch
+SCENARIO	catch.hpp	9387;"	d	language:C++
+SCENARIO_METHOD	catch.hpp	9388;"	d	language:C++
+STITCH_CLARA_CLOSE_NAMESPACE	catch.hpp	3277;"	d	language:C++
+STITCH_CLARA_CLOSE_NAMESPACE	catch.hpp	4114;"	d	language:C++
+STITCH_CLARA_OPEN_NAMESPACE	catch.hpp	3268;"	d	language:C++
+STITCH_CLARA_OPEN_NAMESPACE	catch.hpp	3276;"	d	language:C++
+STITCH_CLARA_OPEN_NAMESPACE	catch.hpp	4113;"	d	language:C++
+STITCH_CLARA_OPEN_NAMESPACE	catch.hpp	4117;"	d	language:C++
+STITCH_TBC_TEXT_FORMAT_OPEN_NAMESPACE	catch.hpp	3282;"	d	language:C++
+STITCH_TBC_TEXT_FORMAT_OPEN_NAMESPACE	catch.hpp	3431;"	d	language:C++
+SafeBool	catch.hpp	/^    class SafeBool {$/;"	c	language:C++	namespace:Catch
+SharedImpl	catch.hpp	/^        SharedImpl() : m_rc( 0 ){}$/;"	f	language:C++	struct:Catch::SharedImpl	access:public	signature:()
+SharedImpl	catch.hpp	/^    struct SharedImpl : T {$/;"	s	language:C++	namespace:Catch	inherits:T
+SourceLineInfo	catch.hpp	/^        SourceLineInfo( SourceLineInfo && )                  = default;$/;"	p	language:C++	struct:Catch::SourceLineInfo	access:public	signature:( SourceLineInfo && )
+SourceLineInfo	catch.hpp	/^        SourceLineInfo( SourceLineInfo const& other );$/;"	p	language:C++	struct:Catch::SourceLineInfo	access:public	signature:( SourceLineInfo const& other )
+SourceLineInfo	catch.hpp	/^        SourceLineInfo( char const* _file, std::size_t _line );$/;"	p	language:C++	struct:Catch::SourceLineInfo	access:public	signature:( char const* _file, std::size_t _line )
+SourceLineInfo	catch.hpp	/^        SourceLineInfo();$/;"	p	language:C++	struct:Catch::SourceLineInfo	access:public	signature:()
+SourceLineInfo	catch.hpp	/^    struct SourceLineInfo {$/;"	s	language:C++	namespace:Catch
+StreamEndStop	catch.hpp	/^    struct StreamEndStop {$/;"	s	language:C++	namespace:Catch
+StringMaker	catch.hpp	/^struct StringMaker :$/;"	s	language:C++	namespace:Catch	inherits:Detail::StringMakerBase
+StringMaker	catch.hpp	/^struct StringMaker<R C::*> {$/;"	s	language:C++	namespace:Catch
+StringMaker	catch.hpp	/^struct StringMaker<T*> {$/;"	s	language:C++	namespace:Catch
+StringMakerBase	catch.hpp	/^    struct StringMakerBase {$/;"	s	language:C++	namespace:Catch::Detail
+StringMakerBase	catch.hpp	/^    struct StringMakerBase<true> {$/;"	s	language:C++	namespace:Catch::Detail
+SuppressFail	catch.hpp	/^        SuppressFail = 0x08         \/\/ Failures are reported but do not fail the test$/;"	e	language:C++	enum:Catch::ResultDisposition::Flags
+TBC_TEXT_FORMAT_CONSOLE_WIDTH	catch.hpp	4298;"	d	language:C++
+TBC_TEXT_FORMAT_H_INCLUDED	catch.hpp	3289;"	d	language:C++
+THEN	catch.hpp	9396;"	d	language:C++
+TWOBLUECUBES_CATCH_APPROX_HPP_INCLUDED	catch.hpp	2105;"	d	language:C++
+TWOBLUECUBES_CATCH_ASSERTIONRESULT_HPP_INCLUDED	catch.hpp	6481;"	d	language:C++
+TWOBLUECUBES_CATCH_ASSERTIONRESULT_H_INCLUDED	catch.hpp	700;"	d	language:C++
+TWOBLUECUBES_CATCH_CAPTURE_HPP_INCLUDED	catch.hpp	642;"	d	language:C++
+TWOBLUECUBES_CATCH_CLARA_H_INCLUDED	catch.hpp	3258;"	d	language:C++
+TWOBLUECUBES_CATCH_COMMANDLINE_HPP_INCLUDED	catch.hpp	2803;"	d	language:C++
+TWOBLUECUBES_CATCH_COMMON_HPP_INCLUDED	catch.hpp	6988;"	d	language:C++
+TWOBLUECUBES_CATCH_COMMON_H_INCLUDED	catch.hpp	63;"	d	language:C++
+TWOBLUECUBES_CATCH_COMPILER_CAPABILITIES_HPP_INCLUDED	catch.hpp	77;"	d	language:C++
+TWOBLUECUBES_CATCH_CONFIG_HPP_INCLUDED	catch.hpp	2806;"	d	language:C++
+TWOBLUECUBES_CATCH_CONSOLE_COLOUR_HPP_INCLUDED	catch.hpp	4456;"	d	language:C++
+TWOBLUECUBES_CATCH_CONSOLE_COLOUR_IMPL_HPP_INCLUDED	catch.hpp	6238;"	d	language:C++
+TWOBLUECUBES_CATCH_CONTEXT_H_INCLUDED	catch.hpp	358;"	d	language:C++
+TWOBLUECUBES_CATCH_CONTEXT_IMPL_HPP_INCLUDED	catch.hpp	6046;"	d	language:C++
+TWOBLUECUBES_CATCH_DEBUGGER_HPP_INCLUDED	catch.hpp	7113;"	d	language:C++
+TWOBLUECUBES_CATCH_DEBUGGER_H_INCLUDED	catch.hpp	1500;"	d	language:C++
+TWOBLUECUBES_CATCH_DEFAULT_MAIN_HPP_INCLUDED	catch.hpp	9228;"	d	language:C++
+TWOBLUECUBES_CATCH_EVALUATE_HPP_INCLUDED	catch.hpp	841;"	d	language:C++
+TWOBLUECUBES_CATCH_EXCEPTION_TRANSLATOR_REGISTRY_HPP_INCLUDED	catch.hpp	5893;"	d	language:C++
+TWOBLUECUBES_CATCH_EXPRESSION_LHS_HPP_INCLUDED	catch.hpp	838;"	d	language:C++
+TWOBLUECUBES_CATCH_FATAL_CONDITION_H_INCLUDED	catch.hpp	5066;"	d	language:C++
+TWOBLUECUBES_CATCH_GENERATORS_HPP_INCLUDED	catch.hpp	1832;"	d	language:C++
+TWOBLUECUBES_CATCH_GENERATORS_IMPL_HPP_INCLUDED	catch.hpp	6407;"	d	language:C++
+TWOBLUECUBES_CATCH_HPP_INCLUDED	catch.hpp	14;"	d	language:C++
+TWOBLUECUBES_CATCH_IMPL_HPP_INCLUDED	catch.hpp	2789;"	d	language:C++
+TWOBLUECUBES_CATCH_INTERFACES_CAPTURE_H_INCLUDED	catch.hpp	1465;"	d	language:C++
+TWOBLUECUBES_CATCH_INTERFACES_CONFIG_H_INCLUDED	catch.hpp	3031;"	d	language:C++
+TWOBLUECUBES_CATCH_INTERFACES_EXCEPTION_H_INCLUDED	catch.hpp	2012;"	d	language:C++
+TWOBLUECUBES_CATCH_INTERFACES_GENERATORS_H_INCLUDED	catch.hpp	361;"	d	language:C++
+TWOBLUECUBES_CATCH_INTERFACES_REGISTRY_HUB_H_INCLUDED	catch.hpp	2016;"	d	language:C++
+TWOBLUECUBES_CATCH_INTERFACES_REPORTER_H_INCLUDED	catch.hpp	4513;"	d	language:C++
+TWOBLUECUBES_CATCH_INTERFACES_RUNNER_H_INCLUDED	catch.hpp	1549;"	d	language:C++
+TWOBLUECUBES_CATCH_INTERFACES_TAG_ALIAS_REGISTRY_H_INCLUDED	catch.hpp	2411;"	d	language:C++
+TWOBLUECUBES_CATCH_INTERFACES_TESTCASE_H_INCLUDED	catch.hpp	511;"	d	language:C++
+TWOBLUECUBES_CATCH_LEGACY_REPORTER_ADAPTER_HPP_INCLUDED	catch.hpp	6810;"	d	language:C++
+TWOBLUECUBES_CATCH_LEGACY_REPORTER_ADAPTER_H_INCLUDED	catch.hpp	6813;"	d	language:C++
+TWOBLUECUBES_CATCH_LIST_HPP_INCLUDED	catch.hpp	4293;"	d	language:C++
+TWOBLUECUBES_CATCH_MATCHERS_HPP_INCLUDED	catch.hpp	2186;"	d	language:C++
+TWOBLUECUBES_CATCH_MESSAGE_HPP_INCLUDED	catch.hpp	6775;"	d	language:C++
+TWOBLUECUBES_CATCH_MESSAGE_H_INCLUDED	catch.hpp	1409;"	d	language:C++
+TWOBLUECUBES_CATCH_NOTIMPLEMENTED_EXCEPTION_HPP_INCLUDED	catch.hpp	6025;"	d	language:C++
+TWOBLUECUBES_CATCH_NOTIMPLEMENTED_EXCEPTION_H_INCLUDED	catch.hpp	60;"	d	language:C++
+TWOBLUECUBES_CATCH_OBJC_ARC_HPP_INCLUDED	catch.hpp	1022;"	d	language:C++
+TWOBLUECUBES_CATCH_OBJC_HPP_INCLUDED	catch.hpp	2595;"	d	language:C++
+TWOBLUECUBES_CATCH_OPTION_HPP_INCLUDED	catch.hpp	2435;"	d	language:C++
+TWOBLUECUBES_CATCH_PLATFORM_H_INCLUDED	catch.hpp	1503;"	d	language:C++
+TWOBLUECUBES_CATCH_PTR_HPP_INCLUDED	catch.hpp	385;"	d	language:C++
+TWOBLUECUBES_CATCH_REENABLE_WARNINGS_H_INCLUDED	catch.hpp	9403;"	d	language:C++
+TWOBLUECUBES_CATCH_REGISTRY_HUB_HPP_INCLUDED	catch.hpp	5705;"	d	language:C++
+TWOBLUECUBES_CATCH_REPORTER_BASES_HPP_INCLUDED	catch.hpp	7583;"	d	language:C++
+TWOBLUECUBES_CATCH_REPORTER_COMPACT_HPP_INCLUDED	catch.hpp	8884;"	d	language:C++
+TWOBLUECUBES_CATCH_REPORTER_CONSOLE_HPP_INCLUDED	catch.hpp	8447;"	d	language:C++
+TWOBLUECUBES_CATCH_REPORTER_JUNIT_HPP_INCLUDED	catch.hpp	8234;"	d	language:C++
+TWOBLUECUBES_CATCH_REPORTER_REGISTRARS_HPP_INCLUDED	catch.hpp	7793;"	d	language:C++
+TWOBLUECUBES_CATCH_REPORTER_REGISTRY_HPP_INCLUDED	catch.hpp	5858;"	d	language:C++
+TWOBLUECUBES_CATCH_REPORTER_XML_HPP_INCLUDED	catch.hpp	7580;"	d	language:C++
+TWOBLUECUBES_CATCH_RESULT_BUILDER_HPP_INCLUDED	catch.hpp	7375;"	d	language:C++
+TWOBLUECUBES_CATCH_RESULT_BUILDER_H_INCLUDED	catch.hpp	645;"	d	language:C++
+TWOBLUECUBES_CATCH_RESULT_TYPE_H_INCLUDED	catch.hpp	648;"	d	language:C++
+TWOBLUECUBES_CATCH_RUNNER_HPP_INCLUDED	catch.hpp	2800;"	d	language:C++
+TWOBLUECUBES_CATCH_RUNNER_IMPL_HPP_INCLUDED	catch.hpp	4923;"	d	language:C++
+TWOBLUECUBES_CATCH_SECTION_HPP_INCLUDED	catch.hpp	7080;"	d	language:C++
+TWOBLUECUBES_CATCH_SECTION_H_INCLUDED	catch.hpp	1685;"	d	language:C++
+TWOBLUECUBES_CATCH_SECTION_INFO_H_INCLUDED	catch.hpp	1688;"	d	language:C++
+TWOBLUECUBES_CATCH_STREAMBUF_H_INCLUDED	catch.hpp	6052;"	d	language:C++
+TWOBLUECUBES_CATCH_STREAM_HPP_INCLUDED	catch.hpp	6049;"	d	language:C++
+TWOBLUECUBES_CATCH_STREAM_H_INCLUDED	catch.hpp	3084;"	d	language:C++
+TWOBLUECUBES_CATCH_SUPPRESS_WARNINGS_H_INCLUDED	catch.hpp	24;"	d	language:C++
+TWOBLUECUBES_CATCH_TAG_ALIAS_H_INCLUDED	catch.hpp	2414;"	d	language:C++
+TWOBLUECUBES_CATCH_TAG_ALIAS_REGISTRY_HPP_INCLUDED	catch.hpp	7488;"	d	language:C++
+TWOBLUECUBES_CATCH_TAG_ALIAS_REGISTRY_H_INCLUDED	catch.hpp	7491;"	d	language:C++
+TWOBLUECUBES_CATCH_TEST_CASE_INFO_HPP_INCLUDED	catch.hpp	6561;"	d	language:C++
+TWOBLUECUBES_CATCH_TEST_CASE_INFO_H_INCLUDED	catch.hpp	2514;"	d	language:C++
+TWOBLUECUBES_CATCH_TEST_CASE_REGISTRY_IMPL_HPP_INCLUDED	catch.hpp	5708;"	d	language:C++
+TWOBLUECUBES_CATCH_TEST_CASE_TRACKER_HPP_INCLUDED	catch.hpp	4926;"	d	language:C++
+TWOBLUECUBES_CATCH_TEST_REGISTRY_HPP_INCLUDED	catch.hpp	508;"	d	language:C++
+TWOBLUECUBES_CATCH_TEST_SPEC_HPP_INCLUDED	catch.hpp	2817;"	d	language:C++
+TWOBLUECUBES_CATCH_TEST_SPEC_PARSER_HPP_INCLUDED	catch.hpp	2809;"	d	language:C++
+TWOBLUECUBES_CATCH_TEXT_H_INCLUDED	catch.hpp	4296;"	d	language:C++
+TWOBLUECUBES_CATCH_TIMER_H_INCLUDED	catch.hpp	1776;"	d	language:C++
+TWOBLUECUBES_CATCH_TOSTRING_HPP_INCLUDED	catch.hpp	7202;"	d	language:C++
+TWOBLUECUBES_CATCH_TOSTRING_H_INCLUDED	catch.hpp	1012;"	d	language:C++
+TWOBLUECUBES_CATCH_TOTALS_HPP_INCLUDED	catch.hpp	1706;"	d	language:C++
+TWOBLUECUBES_CATCH_VERSION_HPP_INCLUDED	catch.hpp	6741;"	d	language:C++
+TWOBLUECUBES_CATCH_VERSION_H_INCLUDED	catch.hpp	5473;"	d	language:C++
+TWOBLUECUBES_CATCH_XMLWRITER_HPP_INCLUDED	catch.hpp	7856;"	d	language:C++
+TWOBLUECUBES_CLARA_H_INCLUDED	catch.hpp	3275;"	d	language:C++
+TWOBLUECUBES_SINGLE_INCLUDE_CATCH_HPP_INCLUDED	catch.hpp	12;"	d	language:C++
+TWOBLUECUBES_TEXT_FORMAT_H_ALREADY_INCLUDED	catch.hpp	4306;"	d	language:C++
+TestFailureException	catch.hpp	/^    struct TestFailureException{};$/;"	s	language:C++	namespace:Catch
+TestFunction	catch.hpp	/^typedef void(*TestFunction)();$/;"	t	language:C++	namespace:Catch
+ThrewException	catch.hpp	/^        ThrewException = Exception | 1,$/;"	e	language:C++	enum:Catch::ResultWas::OfType
+TrueType	catch.hpp	/^    struct TrueType { char sizer[1]; };$/;"	s	language:C++	namespace:Catch::Detail
+TupleDetail	catch.hpp	/^namespace TupleDetail {$/;"	n	language:C++	namespace:Catch
+Unknown	catch.hpp	/^        Unknown = -1,$/;"	e	language:C++	enum:Catch::ResultWas::OfType
+WHEN	catch.hpp	9394;"	d	language:C++
+Warning	catch.hpp	/^        Warning = 2,$/;"	e	language:C++	enum:Catch::ResultWas::OfType
+addRef	catch.hpp	/^        virtual void addRef() const = 0;$/;"	p	language:C++	struct:Catch::IShared	access:public	signature:() const
+addRef	catch.hpp	/^        virtual void addRef() const {$/;"	f	language:C++	struct:Catch::SharedImpl	access:public	signature:() const
+advanceGeneratorsForCurrentTest	catch.hpp	/^        virtual bool advanceGeneratorsForCurrentTest() = 0;$/;"	p	language:C++	struct:Catch::IContext	access:public	signature:()
+allowThrows	catch.hpp	/^        bool allowThrows() const;$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:() const
+alwaysFalse	catch.hpp	/^    inline bool alwaysFalse() { return false; }$/;"	f	language:C++	namespace:Catch	signature:()
+alwaysTrue	catch.hpp	/^    inline bool alwaysTrue() { return true; }$/;"	f	language:C++	namespace:Catch	signature:()
+applyEvaluator	catch.hpp	/^    bool applyEvaluator( T1 const& lhs, T2 const& rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( T1 const& lhs, T2 const& rhs )
+arcSafeRelease	catch.hpp	/^inline void arcSafeRelease( NSObject* ){}$/;"	f	language:C++	signature:( NSObject* )
+arcSafeRelease	catch.hpp	/^inline void arcSafeRelease( NSObject* obj ) {$/;"	f	language:C++	signature:( NSObject* obj )
+arcSafeRelease	catch.hpp	/^void arcSafeRelease( NSObject* obj );$/;"	p	language:C++	signature:( NSObject* obj )
+build	catch.hpp	/^        AssertionResult build() const;$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:() const
+captureExpression	catch.hpp	/^        void captureExpression();$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:()
+captureResult	catch.hpp	/^        void captureResult( ResultWas::OfType resultType );$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:( ResultWas::OfType resultType )
+capturedExpression	catch.hpp	/^        std::string capturedExpression;$/;"	m	language:C++	struct:Catch::AssertionInfo	access:public
+catch.hpp	catch.hpp	1;"	F	language:C++
+cleanUpContext	catch.hpp	/^    void cleanUpContext();$/;"	p	language:C++	namespace:Catch	signature:()
+compare	catch.hpp	/^    bool compare( T1 const& lhs, T2 const& rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( T1 const& lhs, T2 const& rhs )
+compare	catch.hpp	/^    template<Operator Op, typename T> bool compare( T* lhs, int rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( T* lhs, int rhs )
+compare	catch.hpp	/^    template<Operator Op, typename T> bool compare( T* lhs, long rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( T* lhs, long rhs )
+compare	catch.hpp	/^    template<Operator Op, typename T> bool compare( T* lhs, std::nullptr_t ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( T* lhs, std::nullptr_t )
+compare	catch.hpp	/^    template<Operator Op, typename T> bool compare( int lhs, T* rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( int lhs, T* rhs )
+compare	catch.hpp	/^    template<Operator Op, typename T> bool compare( long lhs, T* rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( long lhs, T* rhs )
+compare	catch.hpp	/^    template<Operator Op, typename T> bool compare( std::nullptr_t, T* rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( std::nullptr_t, T* rhs )
+compare	catch.hpp	/^    template<Operator Op> bool compare( int lhs, unsigned char rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( int lhs, unsigned char rhs )
+compare	catch.hpp	/^    template<Operator Op> bool compare( int lhs, unsigned int rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( int lhs, unsigned int rhs )
+compare	catch.hpp	/^    template<Operator Op> bool compare( int lhs, unsigned long rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( int lhs, unsigned long rhs )
+compare	catch.hpp	/^    template<Operator Op> bool compare( long lhs, unsigned char rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( long lhs, unsigned char rhs )
+compare	catch.hpp	/^    template<Operator Op> bool compare( long lhs, unsigned int rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( long lhs, unsigned int rhs )
+compare	catch.hpp	/^    template<Operator Op> bool compare( long lhs, unsigned long rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( long lhs, unsigned long rhs )
+compare	catch.hpp	/^    template<Operator Op> bool compare( unsigned char lhs, int rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( unsigned char lhs, int rhs )
+compare	catch.hpp	/^    template<Operator Op> bool compare( unsigned char lhs, long rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( unsigned char lhs, long rhs )
+compare	catch.hpp	/^    template<Operator Op> bool compare( unsigned int lhs, int rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( unsigned int lhs, int rhs )
+compare	catch.hpp	/^    template<Operator Op> bool compare( unsigned int lhs, long rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( unsigned int lhs, long rhs )
+compare	catch.hpp	/^    template<Operator Op> bool compare( unsigned long lhs, int rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( unsigned long lhs, int rhs )
+compare	catch.hpp	/^    template<Operator Op> bool compare( unsigned long lhs, long rhs ) {$/;"	f	language:C++	namespace:Catch::Internal	signature:( unsigned long lhs, long rhs )
+contains	catch.hpp	/^    bool contains( std::string const& s, std::string const& infix );$/;"	p	language:C++	namespace:Catch	signature:( std::string const& s, std::string const& infix )
+convert	catch.hpp	/^        static std::string convert( T const& ) { return unprintableString; }$/;"	f	language:C++	struct:Catch::Detail::EnumStringMaker	access:public	signature:( T const& )
+convert	catch.hpp	/^        static std::string convert( T const& _value ) {$/;"	f	language:C++	struct:Catch::Detail::StringMakerBase	access:public	signature:( T const& _value )
+convert	catch.hpp	/^        static std::string convert( T const& v )$/;"	f	language:C++	struct:Catch::Detail::EnumStringMaker	access:public	signature:( T const& v )
+convert	catch.hpp	/^        static std::string convert( T const& v )$/;"	f	language:C++	struct:Catch::Detail::StringMakerBase	access:public	signature:( T const& v )
+convert	catch.hpp	/^    static std::string convert( R C::* p ) {$/;"	f	language:C++	struct:Catch::StringMaker	access:public	signature:( R C::* p )
+convert	catch.hpp	/^    static std::string convert( U* p ) {$/;"	f	language:C++	struct:Catch::StringMaker	access:public	signature:( U* p )
+createGeneratorsForTest	catch.hpp	/^    IGeneratorsForTest* createGeneratorsForTest();$/;"	p	language:C++	namespace:Catch	signature:()
+createStream	catch.hpp	/^    Stream createStream( std::string const& streamName );$/;"	p	language:C++	namespace:Catch	signature:( std::string const& streamName )
+deleteAll	catch.hpp	/^    inline void deleteAll( ContainerT& container ) {$/;"	f	language:C++	namespace:Catch	signature:( ContainerT& container )
+deleteAllValues	catch.hpp	/^    inline void deleteAllValues( AssociativeContainerT& container ) {$/;"	f	language:C++	namespace:Catch	signature:( AssociativeContainerT& container )
+description	catch.hpp	/^    const char* description;$/;"	m	language:C++	struct:Catch::NameAndDesc	access:public
+empty	catch.hpp	/^        bool empty() const;$/;"	p	language:C++	struct:Catch::SourceLineInfo	access:public	signature:() const
+endExpression	catch.hpp	/^        void endExpression();$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:()
+endsWith	catch.hpp	/^    bool endsWith( std::string const& s, std::string const& suffix );$/;"	p	language:C++	namespace:Catch	signature:( std::string const& s, std::string const& suffix )
+evaluate	catch.hpp	/^        static bool evaluate( T1 const& lhs, T2 const& rhs ) {$/;"	f	language:C++	struct:Catch::Internal::Evaluator	access:public	signature:( T1 const& lhs, T2 const& rhs )
+evaluate	catch.hpp	/^        static bool evaluate( T1 const& lhs, T2 const& rhs) {$/;"	f	language:C++	struct:Catch::Internal::Evaluator	access:public	signature:( T1 const& lhs, T2 const& rhs)
+file	catch.hpp	/^        std::string file;$/;"	m	language:C++	struct:Catch::SourceLineInfo	access:public
+get	catch.hpp	/^        T* get() { return m_p; }$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:()
+get	catch.hpp	/^        const T* get() const{ return m_p; }$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:() const
+getAllTests	catch.hpp	/^        virtual std::vector<TestCase> const& getAllTests() const = 0;$/;"	p	language:C++	class:Catch::ITestCaseRegistry::std	access:public	signature:() const
+getConfig	catch.hpp	/^        virtual Ptr<IConfig const> getConfig() const = 0;$/;"	p	language:C++	struct:Catch::IContext	access:public	signature:() const
+getCurrentContext	catch.hpp	/^    IContext& getCurrentContext();$/;"	p	language:C++	namespace:Catch	signature:()
+getCurrentIndex	catch.hpp	/^        virtual std::size_t getCurrentIndex() const = 0;$/;"	p	language:C++	struct:Catch::IGeneratorInfo	access:public	signature:() const
+getCurrentMutableContext	catch.hpp	/^    IMutableContext& getCurrentMutableContext();$/;"	p	language:C++	namespace:Catch	signature:()
+getExpandedExpression	catch.hpp	/^        std::string getExpandedExpression() const;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:() const
+getExpression	catch.hpp	/^        std::string getExpression() const;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:() const
+getExpressionInMacro	catch.hpp	/^        std::string getExpressionInMacro() const;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:() const
+getFilteredTests	catch.hpp	/^        virtual void getFilteredTests( TestSpec const& testSpec, IConfig const& config, std::vector<TestCase>& matchingTestCases, bool negated = false ) const = 0;$/;"	p	language:C++	struct:Catch::ITestCaseRegistry	access:public	signature:( TestSpec const& testSpec, IConfig const& config, std::vector<TestCase>& matchingTestCases, bool negated = false ) const
+getGeneratorIndex	catch.hpp	/^        virtual size_t getGeneratorIndex( std::string const& fileInfo, size_t totalSize ) = 0;$/;"	p	language:C++	struct:Catch::IContext	access:public	signature:( std::string const& fileInfo, size_t totalSize )
+getGeneratorInfo	catch.hpp	/^        virtual IGeneratorInfo& getGeneratorInfo( std::string const& fileInfo, std::size_t size ) = 0;$/;"	p	language:C++	struct:Catch::IGeneratorsForTest	access:public	signature:( std::string const& fileInfo, std::size_t size )
+getMessage	catch.hpp	/^        std::string getMessage() const;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:() const
+getName	catch.hpp	/^    template<> struct OperatorTraits<IsEqualTo>             { static const char* getName(){ return "=="; } };$/;"	f	language:C++	struct:Catch::Internal::OperatorTraits	access:public	signature:()
+getName	catch.hpp	/^    template<> struct OperatorTraits<IsGreaterThan>         { static const char* getName(){ return ">"; } };$/;"	f	language:C++	struct:Catch::Internal::OperatorTraits	access:public	signature:()
+getName	catch.hpp	/^    template<> struct OperatorTraits<IsGreaterThanOrEqualTo>{ static const char* getName(){ return ">="; } };$/;"	f	language:C++	struct:Catch::Internal::OperatorTraits	access:public	signature:()
+getName	catch.hpp	/^    template<> struct OperatorTraits<IsLessThan>            { static const char* getName(){ return "<"; } };$/;"	f	language:C++	struct:Catch::Internal::OperatorTraits	access:public	signature:()
+getName	catch.hpp	/^    template<> struct OperatorTraits<IsLessThanOrEqualTo>   { static const char* getName(){ return "<="; } };$/;"	f	language:C++	struct:Catch::Internal::OperatorTraits	access:public	signature:()
+getName	catch.hpp	/^    template<> struct OperatorTraits<IsNotEqualTo>          { static const char* getName(){ return "!="; } };$/;"	f	language:C++	struct:Catch::Internal::OperatorTraits	access:public	signature:()
+getName	catch.hpp	/^    template<Operator Op> struct OperatorTraits             { static const char* getName(){ return "*error*"; } };$/;"	f	language:C++	struct:Catch::Internal::OperatorTraits	access:public	signature:()
+getResultCapture	catch.hpp	/^        virtual IResultCapture* getResultCapture() = 0;$/;"	p	language:C++	struct:Catch::IContext	access:public	signature:()
+getResultType	catch.hpp	/^        ResultWas::OfType getResultType() const;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:() const
+getRunner	catch.hpp	/^        virtual IRunner* getRunner() = 0;$/;"	p	language:C++	struct:Catch::IContext	access:public	signature:()
+getSourceInfo	catch.hpp	/^        SourceLineInfo getSourceInfo() const;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:() const
+getTestMacroName	catch.hpp	/^        std::string getTestMacroName() const;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:() const
+hasExpandedExpression	catch.hpp	/^        bool hasExpandedExpression() const;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:() const
+hasExpression	catch.hpp	/^        bool hasExpression() const;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:() const
+hasMessage	catch.hpp	/^        bool hasMessage() const;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:() const
+invoke	catch.hpp	/^        virtual void invoke () const = 0;$/;"	p	language:C++	struct:Catch::ITestCase	access:public	signature:() const
+invoke	catch.hpp	/^    virtual void invoke() const {$/;"	f	language:C++	class:Catch::MethodTestCase	access:public	signature:() const
+isFalseTest	catch.hpp	/^    inline bool isFalseTest( int flags )                { return ( flags & ResultDisposition::FalseTest ) != 0; }$/;"	f	language:C++	namespace:Catch	signature:( int flags )
+isJustInfo	catch.hpp	/^    inline bool isJustInfo( int flags ) {$/;"	f	language:C++	namespace:Catch	signature:( int flags )
+isOk	catch.hpp	/^        bool isOk() const;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:() const
+isOk	catch.hpp	/^    inline bool isOk( ResultWas::OfType resultType ) {$/;"	f	language:C++	namespace:Catch	signature:( ResultWas::OfType resultType )
+isTrue	catch.hpp	/^    inline bool isTrue( bool value ){ return value; }$/;"	f	language:C++	namespace:Catch	signature:( bool value )
+lhs	catch.hpp	/^            std::string lhs, rhs, op;$/;"	m	language:C++	struct:Catch::ResultBuilder::ExprComponents	access:public
+line	catch.hpp	/^        std::size_t line;$/;"	m	language:C++	struct:Catch::SourceLineInfo	access:public
+lineInfo	catch.hpp	/^        SourceLineInfo lineInfo;$/;"	m	language:C++	struct:Catch::AssertionInfo	access:public
+m_assertionInfo	catch.hpp	/^        AssertionInfo m_assertionInfo;$/;"	m	language:C++	class:Catch::ResultBuilder	access:private
+m_count	catch.hpp	/^        std::size_t m_count;$/;"	m	language:C++	struct:Catch::pluralise	access:public
+m_data	catch.hpp	/^        AssertionResultData m_data;$/;"	m	language:C++	class:Catch::ResultBuilder	access:private
+m_exprComponents	catch.hpp	/^        } m_exprComponents;$/;"	m	language:C++	class:Catch::ResultBuilder	typeref:struct:Catch::ResultBuilder::ExprComponents	access:private
+m_info	catch.hpp	/^        AssertionInfo m_info;$/;"	m	language:C++	class:Catch::AssertionResult	access:protected
+m_label	catch.hpp	/^        std::string m_label;$/;"	m	language:C++	struct:Catch::pluralise	access:public
+m_lineInfo	catch.hpp	/^        SourceLineInfo m_lineInfo;$/;"	m	language:C++	class:Catch::NotImplementedException	access:private
+m_method	catch.hpp	/^    void (C::*m_method)();$/;"	m	language:C++	class:Catch::MethodTestCase	access:private
+m_p	catch.hpp	/^        T* m_p;$/;"	m	language:C++	class:Catch::Ptr	access:private
+m_rc	catch.hpp	/^        mutable unsigned int m_rc;$/;"	m	language:C++	struct:Catch::SharedImpl	access:public
+m_resultData	catch.hpp	/^        AssertionResultData m_resultData;$/;"	m	language:C++	class:Catch::AssertionResult	access:protected
+m_shouldDebugBreak	catch.hpp	/^        bool m_shouldDebugBreak;$/;"	m	language:C++	class:Catch::ResultBuilder	access:private
+m_shouldThrow	catch.hpp	/^        bool m_shouldThrow;$/;"	m	language:C++	class:Catch::ResultBuilder	access:private
+m_stream	catch.hpp	/^        CopyableStream m_stream;$/;"	m	language:C++	class:Catch::ResultBuilder	access:private
+m_what	catch.hpp	/^        std::string m_what;$/;"	m	language:C++	class:Catch::NotImplementedException	access:private
+macroName	catch.hpp	/^        std::string macroName;$/;"	m	language:C++	struct:Catch::AssertionInfo	access:public
+makeSafe	catch.hpp	/^        static type makeSafe( bool value ) {$/;"	f	language:C++	class:Catch::SafeBool	access:public	signature:( bool value )
+message	catch.hpp	/^        std::string message;$/;"	m	language:C++	struct:Catch::AssertionResultData	access:public
+moveNext	catch.hpp	/^        virtual bool moveNext() = 0;$/;"	p	language:C++	struct:Catch::IGeneratorInfo	access:public	signature:()
+moveNext	catch.hpp	/^        virtual bool moveNext() = 0;$/;"	p	language:C++	struct:Catch::IGeneratorsForTest	access:public	signature:()
+name	catch.hpp	/^    const char* name;$/;"	m	language:C++	struct:Catch::NameAndDesc	access:public
+op	catch.hpp	/^            std::string lhs, rhs, op;$/;"	m	language:C++	struct:Catch::ResultBuilder::ExprComponents	access:public
+opCast	catch.hpp	/^    inline T& opCast(T const& t) { return const_cast<T&>(t); }$/;"	f	language:C++	namespace:Catch::Internal	signature:(T const& t)
+opCast	catch.hpp	/^    inline std::nullptr_t opCast(std::nullptr_t) { return nullptr; }$/;"	f	language:C++	namespace:Catch::Internal	signature:(std::nullptr_t)
+operator !	catch.hpp	/^        bool operator !() const { return m_p == NULL; }$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:() const
+operator &&	catch.hpp	/^        template<typename RhsT> STATIC_ASSERT_Expression_Too_Complex_Please_Rewrite_As_Binary_Comparison& operator && ( RhsT const& );$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:( RhsT const& )
+operator *	catch.hpp	/^        T& operator*() const { return *m_p; }$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:() const
+operator +	catch.hpp	/^        std::string operator+() {$/;"	f	language:C++	struct:Catch::StreamEndStop	access:public	signature:()
+operator +	catch.hpp	/^    T const& operator + ( T const& value, StreamEndStop ) {$/;"	f	language:C++	namespace:Catch	signature:( T const& value, StreamEndStop )
+operator ->	catch.hpp	/^        T* operator->() const { return m_p; }$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:() const
+operator <	catch.hpp	/^        bool operator < ( SourceLineInfo const& other ) const;$/;"	p	language:C++	struct:Catch::SourceLineInfo	access:public	signature:( SourceLineInfo const& other ) const
+operator <<	catch.hpp	/^        ResultBuilder& operator << ( T const& value ) {$/;"	f	language:C++	class:Catch::ResultBuilder	access:public	signature:( T const& value )
+operator <<	catch.hpp	/^        friend std::ostream& operator << ( std::ostream& os, pluralise const& pluraliser );$/;"	p	language:C++	struct:Catch::pluralise	access:friend	signature:( std::ostream& os, pluralise const& pluraliser )
+operator <<	catch.hpp	/^    FalseType operator<<( std::ostream const&, BorgType const& );$/;"	p	language:C++	namespace:Catch::Detail	signature:( std::ostream const&, BorgType const& )
+operator <<	catch.hpp	/^    std::ostream& operator << ( std::ostream& os, SourceLineInfo const& info );$/;"	p	language:C++	namespace:Catch	signature:( std::ostream& os, SourceLineInfo const& info )
+operator <=	catch.hpp	/^        ExpressionLhs<T const&> operator <= ( T const& operand );$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:( T const& operand )
+operator <=	catch.hpp	/^        ExpressionLhs<bool> operator <= ( bool value );$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:( bool value )
+operator =	catch.hpp	/^         AssertionResult& operator = ( AssertionResult && )     = default;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:( AssertionResult && )
+operator =	catch.hpp	/^         AssertionResult& operator = ( AssertionResult const& ) = default;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:( AssertionResult const& )
+operator =	catch.hpp	/^        CopyableStream& operator=( CopyableStream const& other ) {$/;"	f	language:C++	struct:Catch::CopyableStream	access:public	signature:( CopyableStream const& other )
+operator =	catch.hpp	/^        NonCopyable& operator = ( NonCopyable && )     = delete;$/;"	p	language:C++	class:Catch::NonCopyable	access:private	signature:( NonCopyable && )
+operator =	catch.hpp	/^        NonCopyable& operator = ( NonCopyable const& ) = delete;$/;"	p	language:C++	class:Catch::NonCopyable	access:private	signature:( NonCopyable const& )
+operator =	catch.hpp	/^        Ptr& operator = ( Ptr const& other ){$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:( Ptr const& other )
+operator =	catch.hpp	/^        Ptr& operator = ( T* p ){$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:( T* p )
+operator =	catch.hpp	/^        SourceLineInfo& operator = ( SourceLineInfo && )     = default;$/;"	p	language:C++	struct:Catch::SourceLineInfo	access:public	signature:( SourceLineInfo && )
+operator =	catch.hpp	/^        SourceLineInfo& operator = ( SourceLineInfo const& ) = default;$/;"	p	language:C++	struct:Catch::SourceLineInfo	access:public	signature:( SourceLineInfo const& )
+operator =	catch.hpp	/^    void operator= ( AutoReg const& );$/;"	p	language:C++	struct:Catch::AutoReg	access:private	signature:( AutoReg const& )
+operator ==	catch.hpp	/^        bool operator == ( SourceLineInfo const& other ) const;$/;"	p	language:C++	struct:Catch::SourceLineInfo	access:public	signature:( SourceLineInfo const& other ) const
+operator SafeBool::type	catch.hpp	/^        operator SafeBool::type() const { return SafeBool::makeSafe( m_p != NULL ); }$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:() const
+operator |	catch.hpp	/^    inline ResultDisposition::Flags operator | ( ResultDisposition::Flags lhs, ResultDisposition::Flags rhs ) {$/;"	f	language:C++	namespace:Catch	signature:( ResultDisposition::Flags lhs, ResultDisposition::Flags rhs )
+operator ||	catch.hpp	/^        template<typename RhsT> STATIC_ASSERT_Expression_Too_Complex_Please_Rewrite_As_Binary_Comparison& operator || ( RhsT const& );$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:( RhsT const& )
+oss	catch.hpp	/^        std::ostringstream oss;$/;"	m	language:C++	struct:Catch::CopyableStream	access:public
+performOptionalSelector	catch.hpp	/^id performOptionalSelector( id obj, SEL sel );$/;"	p	language:C++	signature:( id obj, SEL sel )
+performOptionalSelector	catch.hpp	/^inline id performOptionalSelector( id obj, SEL sel ) {$/;"	f	language:C++	signature:( id obj, SEL sel )
+pluralise	catch.hpp	/^        pluralise( std::size_t count, std::string const& label );$/;"	p	language:C++	struct:Catch::pluralise	access:public	signature:( std::size_t count, std::string const& label )
+pluralise	catch.hpp	/^    struct pluralise {$/;"	s	language:C++	namespace:Catch
+rangeToString	catch.hpp	/^    std::string rangeToString( InputIterator first, InputIterator last );$/;"	p	language:C++	namespace:Catch::Detail	signature:( InputIterator first, InputIterator last )
+rawMemoryToString	catch.hpp	/^    inline std::string rawMemoryToString( const T& object ) {$/;"	f	language:C++	namespace:Catch::Detail	signature:( const T& object )
+rawMemoryToString	catch.hpp	/^    std::string rawMemoryToString( const void *object, std::size_t size );$/;"	p	language:C++	namespace:Catch::Detail	signature:( const void *object, std::size_t size )
+react	catch.hpp	/^        void react();$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:()
+reconstructExpression	catch.hpp	/^        std::string reconstructExpression() const;$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:() const
+reconstructedExpression	catch.hpp	/^        std::string reconstructedExpression;$/;"	m	language:C++	struct:Catch::AssertionResultData	access:public
+registerTestCase	catch.hpp	/^    void registerTestCase(  ITestCase* testCase,$/;"	p	language:C++	struct:Catch::AutoReg	access:public	signature:( ITestCase* testCase, char const* className, NameAndDesc const& nameAndDesc, SourceLineInfo const& lineInfo )
+release	catch.hpp	/^        virtual void release() const = 0;$/;"	p	language:C++	struct:Catch::IShared	access:public	signature:() const
+release	catch.hpp	/^        virtual void release() const {$/;"	f	language:C++	struct:Catch::SharedImpl	access:public	signature:() const
+replaceInPlace	catch.hpp	/^    bool replaceInPlace( std::string& str, std::string const& replaceThis, std::string const& withThis );$/;"	p	language:C++	namespace:Catch	signature:( std::string& str, std::string const& replaceThis, std::string const& withThis )
+reset	catch.hpp	/^        void reset() {$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:()
+resultDisposition	catch.hpp	/^        ResultDisposition::Flags resultDisposition;$/;"	m	language:C++	struct:Catch::AssertionInfo	access:public
+resultType	catch.hpp	/^        ResultWas::OfType resultType;$/;"	m	language:C++	struct:Catch::AssertionResultData	access:public
+rhs	catch.hpp	/^            std::string lhs, rhs, op;$/;"	m	language:C++	struct:Catch::ResultBuilder::ExprComponents	access:public
+s	catch.hpp	/^        static std::ostream &s;$/;"	m	language:C++	struct:Catch::Detail::IsStreamInsertable	access:public
+setConfig	catch.hpp	/^        virtual void setConfig( Ptr<IConfig const> const& config ) = 0;$/;"	p	language:C++	struct:Catch::IMutableContext	access:public	signature:( Ptr<IConfig const> const& config )
+setLhs	catch.hpp	/^        ResultBuilder& setLhs( std::string const& lhs );$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:( std::string const& lhs )
+setOp	catch.hpp	/^        ResultBuilder& setOp( std::string const& op );$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:( std::string const& op )
+setResultCapture	catch.hpp	/^        virtual void setResultCapture( IResultCapture* resultCapture ) = 0;$/;"	p	language:C++	struct:Catch::IMutableContext	access:public	signature:( IResultCapture* resultCapture )
+setResultType	catch.hpp	/^        ResultBuilder& setResultType( ResultWas::OfType result );$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:( ResultWas::OfType result )
+setResultType	catch.hpp	/^        ResultBuilder& setResultType( bool result );$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:( bool result )
+setRhs	catch.hpp	/^        ResultBuilder& setRhs( std::string const& rhs );$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:( std::string const& rhs )
+setRunner	catch.hpp	/^        virtual void setRunner( IRunner* runner ) = 0;$/;"	p	language:C++	struct:Catch::IMutableContext	access:public	signature:( IRunner* runner )
+shouldContinueOnFailure	catch.hpp	/^    inline bool shouldContinueOnFailure( int flags )    { return ( flags & ResultDisposition::ContinueOnFailure ) != 0; }$/;"	f	language:C++	namespace:Catch	signature:( int flags )
+shouldDebugBreak	catch.hpp	/^        bool shouldDebugBreak() const;$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:() const
+shouldSuppressFailure	catch.hpp	/^    inline bool shouldSuppressFailure( int flags )      { return ( flags & ResultDisposition::SuppressFail ) != 0; }$/;"	f	language:C++	namespace:Catch	signature:( int flags )
+sizer	catch.hpp	/^    struct FalseType { char sizer[2]; };$/;"	m	language:C++	struct:Catch::Detail::FalseType	access:public
+sizer	catch.hpp	/^    struct TrueType { char sizer[1]; };$/;"	m	language:C++	struct:Catch::Detail::TrueType	access:public
+startsWith	catch.hpp	/^    bool startsWith( std::string const& s, std::string const& prefix );$/;"	p	language:C++	namespace:Catch	signature:( std::string const& s, std::string const& prefix )
+succeeded	catch.hpp	/^        bool succeeded() const;$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:() const
+swap	catch.hpp	/^        void swap( Ptr& other ) { std::swap( m_p, other.m_p ); }$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:( Ptr& other )
+t	catch.hpp	/^        static T  const&t;$/;"	m	language:C++	struct:Catch::Detail::IsStreamInsertable	access:public
+testFalse	catch.hpp	/^            bool testFalse;$/;"	m	language:C++	struct:Catch::ResultBuilder::ExprComponents	access:public
+testStreamable	catch.hpp	/^    FalseType testStreamable( FalseType );$/;"	p	language:C++	namespace:Catch::Detail	signature:( FalseType )
+testStreamable	catch.hpp	/^    TrueType& testStreamable( std::ostream& );$/;"	p	language:C++	namespace:Catch::Detail	signature:( std::ostream& )
+throwLogicError	catch.hpp	/^    void throwLogicError( std::string const& message, SourceLineInfo const& locationInfo );$/;"	p	language:C++	namespace:Catch	signature:( std::string const& message, SourceLineInfo const& locationInfo )
+toLower	catch.hpp	/^    std::string toLower( std::string const& s );$/;"	p	language:C++	namespace:Catch	signature:( std::string const& s )
+toLowerInPlace	catch.hpp	/^    void toLowerInPlace( std::string& s );$/;"	p	language:C++	namespace:Catch	signature:( std::string& s )
+toString	catch.hpp	/^    std::string toString( NSObject* const& nsObject );$/;"	p	language:C++	namespace:Catch	signature:( NSObject* const& nsObject )
+toString	catch.hpp	/^    std::string toString( NSString * CATCH_ARC_STRONG const& nsstring );$/;"	p	language:C++	namespace:Catch	signature:( NSString * CATCH_ARC_STRONG const& nsstring )
+toString	catch.hpp	/^    std::string toString( NSString const * const& nsstring );$/;"	p	language:C++	namespace:Catch	signature:( NSString const * const& nsstring )
+toString	catch.hpp	/^std::string toString( T const& value );$/;"	p	language:C++	namespace:Catch	signature:( T const& value )
+toString	catch.hpp	/^std::string toString( bool value );$/;"	p	language:C++	namespace:Catch	signature:( bool value )
+toString	catch.hpp	/^std::string toString( char value );$/;"	p	language:C++	namespace:Catch	signature:( char value )
+toString	catch.hpp	/^std::string toString( char* const value );$/;"	p	language:C++	namespace:Catch	signature:( char* const value )
+toString	catch.hpp	/^std::string toString( const char* const value );$/;"	p	language:C++	namespace:Catch	signature:( const char* const value )
+toString	catch.hpp	/^std::string toString( const double value );$/;"	p	language:C++	namespace:Catch	signature:( const double value )
+toString	catch.hpp	/^std::string toString( const float value );$/;"	p	language:C++	namespace:Catch	signature:( const float value )
+toString	catch.hpp	/^std::string toString( const wchar_t* const value );$/;"	p	language:C++	namespace:Catch	signature:( const wchar_t* const value )
+toString	catch.hpp	/^std::string toString( int value );$/;"	p	language:C++	namespace:Catch	signature:( int value )
+toString	catch.hpp	/^std::string toString( signed char value );$/;"	p	language:C++	namespace:Catch	signature:( signed char value )
+toString	catch.hpp	/^std::string toString( std::nullptr_t );$/;"	p	language:C++	namespace:Catch	signature:( std::nullptr_t )
+toString	catch.hpp	/^std::string toString( std::string const& value );$/;"	p	language:C++	namespace:Catch	signature:( std::string const& value )
+toString	catch.hpp	/^std::string toString( std::vector<T,Allocator> const& v ) {$/;"	f	language:C++	namespace:Catch	signature:( std::vector<T,Allocator> const& v )
+toString	catch.hpp	/^std::string toString( std::wstring const& value );$/;"	p	language:C++	namespace:Catch	signature:( std::wstring const& value )
+toString	catch.hpp	/^std::string toString( unsigned char value );$/;"	p	language:C++	namespace:Catch	signature:( unsigned char value )
+toString	catch.hpp	/^std::string toString( unsigned int value );$/;"	p	language:C++	namespace:Catch	signature:( unsigned int value )
+toString	catch.hpp	/^std::string toString( unsigned long value );$/;"	p	language:C++	namespace:Catch	signature:( unsigned long value )
+toString	catch.hpp	/^std::string toString( wchar_t* const value );$/;"	p	language:C++	namespace:Catch	signature:( wchar_t* const value )
+trim	catch.hpp	/^    std::string trim( std::string const& str );$/;"	p	language:C++	namespace:Catch	signature:( std::string const& str )
+trueValue	catch.hpp	/^        void trueValue() const {}$/;"	f	language:C++	class:Catch::SafeBool	access:private	signature:() const
+useActiveException	catch.hpp	/^        void useActiveException( ResultDisposition::Flags resultDisposition = ResultDisposition::Normal );$/;"	p	language:C++	class:Catch::ResultBuilder	access:public	signature:( ResultDisposition::Flags resultDisposition = ResultDisposition::Normal )
+value	catch.hpp	/^        enum { value = sizeof( testStreamable(s << t) ) == sizeof( TrueType ) };$/;"	e	language:C++	enum:Catch::Detail::IsStreamInsertable::__anon1
+~AssertionResult	catch.hpp	/^        ~AssertionResult();$/;"	p	language:C++	class:Catch::AssertionResult	access:public	signature:()
+~AutoReg	catch.hpp	/^    ~AutoReg();$/;"	p	language:C++	struct:Catch::AutoReg	access:public	signature:()
+~IContext	catch.hpp	/^        virtual ~IContext();$/;"	p	language:C++	struct:Catch::IContext	access:public	signature:()
+~IGeneratorInfo	catch.hpp	/^        virtual ~IGeneratorInfo();$/;"	p	language:C++	struct:Catch::IGeneratorInfo	access:public	signature:()
+~IGeneratorsForTest	catch.hpp	/^        virtual ~IGeneratorsForTest();$/;"	p	language:C++	struct:Catch::IGeneratorsForTest	access:public	signature:()
+~IMutableContext	catch.hpp	/^        virtual ~IMutableContext();$/;"	p	language:C++	struct:Catch::IMutableContext	access:public	signature:()
+~IShared	catch.hpp	/^        virtual ~IShared();$/;"	p	language:C++	struct:Catch::IShared	access:public	signature:()
+~ITestCase	catch.hpp	/^        virtual ~ITestCase();$/;"	p	language:C++	struct:Catch::ITestCase	access:protected	signature:()
+~ITestCaseRegistry	catch.hpp	/^        virtual ~ITestCaseRegistry();$/;"	p	language:C++	struct:Catch::ITestCaseRegistry	access:public	signature:()
+~MethodTestCase	catch.hpp	/^    virtual ~MethodTestCase() {}$/;"	f	language:C++	class:Catch::MethodTestCase	access:private	signature:()
+~NonCopyable	catch.hpp	/^        virtual ~NonCopyable();$/;"	p	language:C++	class:Catch::NonCopyable	access:protected	signature:()
+~Ptr	catch.hpp	/^        ~Ptr(){$/;"	f	language:C++	class:Catch::Ptr	access:public	signature:()

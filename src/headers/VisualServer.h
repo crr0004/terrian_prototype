@@ -12,9 +12,3 @@ class VisualServer{
 
 };
 #endif
-
-#ifndef VISUALSERVER_H
-#define VISUALSURFACE_H
-//struct VisualSurface
-
-#endif
