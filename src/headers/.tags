@@ -4,8 +4,16 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+GAMEFACADE_H	gamefacade.h	2;"	d	language:C++
 GLDEBUG_H	gldebug.h	2;"	d	language:C++
 GRIDGEOMETRY_H	GridGeometry.cpp	18;"	d	language:C++	file:
+GameFacade	gamefacade.h	/^		GameFacade();$/;"	p	language:C++	class:GameFacade	access:protected	signature:()
+GameFacade	gamefacade.h	/^class GameFacade {$/;"	c	language:C++
+GameFacade::GameFacade	gamefacade.h	/^		GameFacade();$/;"	p	language:C++	class:GameFacade	access:protected	signature:()
+GameFacade::_instance	gamefacade.h	/^		static GameFacade* _instance;$/;"	m	language:C++	class:GameFacade	access:private
+GameFacade::createLine	gamefacade.h	/^		Facade::Line* createLine(Geometry::Line line);$/;"	p	language:C++	class:GameFacade	access:public	signature:(Geometry::Line line)
+GameFacade::instance	gamefacade.h	/^		static GameFacade* instance();$/;"	p	language:C++	class:GameFacade	access:public	signature:()
+GameFacade::~GameFacade	gamefacade.h	/^		~GameFacade();$/;"	p	language:C++	class:GameFacade	access:protected	signature:()
 GridGeometry.cpp	GridGeometry.cpp	1;"	F	language:C++
 GridGeomtry	GridGeometry.cpp	/^		GridGeomtry(int width, int height, int rows, int columns);$/;"	p	language:C++	class:GridGeomtry	file:	access:public	signature:(int width, int height, int rows, int columns)
 GridGeomtry	GridGeometry.cpp	/^class GridGeomtry{$/;"	c	language:C++	file:
@@ -24,12 +32,11 @@ MatrixStackSingleton	matrixstacksingleton.h	/^class MatrixStackSingleton{$/;"	c	
 MatrixStackSingleton::MatrixStackSingleton	matrixstacksingleton.h	/^		MatrixStackSingleton();$/;"	p	language:C++	class:MatrixStackSingleton	access:protected	signature:()
 MatrixStackSingleton::_instance	matrixstacksingleton.h	/^		static MatrixStackSingleton* _instance;$/;"	m	language:C++	class:MatrixStackSingleton	access:private
 MatrixStackSingleton::instance	matrixstacksingleton.h	/^		static MatrixStackSingleton* instance();$/;"	p	language:C++	class:MatrixStackSingleton	access:public	signature:()
-MatrixStackSingleton::pop	matrixstacksingleton.h	/^		glm::mat4* pop();$/;"	p	language:C++	class:MatrixStackSingleton	access:public	signature:()
-MatrixStackSingleton::push	matrixstacksingleton.h	/^		void push(glm::mat4 *&m);$/;"	p	language:C++	class:MatrixStackSingleton	access:public	signature:(glm::mat4 *&m)
+MatrixStackSingleton::pop	matrixstacksingleton.h	/^		glm::mat4 pop();$/;"	p	language:C++	class:MatrixStackSingleton	access:public	signature:()
+MatrixStackSingleton::push	matrixstacksingleton.h	/^		glm::mat4 push(glm::mat4 m);$/;"	p	language:C++	class:MatrixStackSingleton	access:public	signature:(glm::mat4 m)
 MatrixStackSingleton::~MatrixStackSingleton	matrixstacksingleton.h	/^		~MatrixStackSingleton();$/;"	p	language:C++	class:MatrixStackSingleton	access:protected	signature:()
 VISUALGRID	GridGeometry.cpp	2;"	d	language:C++	file:
 VISUALSERVER_H	VisualServer.h	2;"	d	language:C++
-VISUALSURFACE_H	VisualServer.h	17;"	d	language:C++
 VisualGrid	GridGeometry.cpp	/^class VisualGrid{$/;"	c	language:C++	file:
 VisualGrid::WeldPoints	GridGeometry.cpp	/^		int* WeldPoints(int* points);$/;"	p	language:C++	class:VisualGrid	file:	access:public	signature:(int* points)
 VisualGrid::indexCount	GridGeometry.cpp	/^		int indexCount;$/;"	m	language:C++	class:VisualGrid	file:	access:private
@@ -55,9 +62,12 @@ Window::width	window.h	/^	int width;$/;"	m	language:C++	class:Window	access:publ
 Window::window	window.h	/^		GLFWwindow *window;$/;"	m	language:C++	class:Window	access:private
 Window::~Window	window.h	/^	virtual ~Window();$/;"	p	language:C++	class:Window	access:public	signature:()
 _instance	VisualServer.h	/^		static VisualServer* _instance;$/;"	m	language:C++	class:VisualServer	access:private
+_instance	gamefacade.h	/^		static GameFacade* _instance;$/;"	m	language:C++	class:GameFacade	access:private
 _instance	matrixstacksingleton.h	/^		static MatrixStackSingleton* _instance;$/;"	m	language:C++	class:MatrixStackSingleton	access:private
 columns	GridGeometry.cpp	/^		int columns;$/;"	m	language:C++	class:GridGeomtry	file:	access:private
 create	window.h	/^	bool create();$/;"	p	language:C++	class:Window	access:public	signature:()
+createLine	gamefacade.h	/^		Facade::Line* createLine(Geometry::Line line);$/;"	p	language:C++	class:GameFacade	access:public	signature:(Geometry::Line line)
+gamefacade.h	gamefacade.h	1;"	F	language:C++
 generate	GridGeometry.cpp	/^		int* generate();$/;"	p	language:C++	class:GridGeomtry	file:	access:public	signature:()
 getStringForSeverity	gldebug.h	/^   static std::string getStringForSeverity(GLenum severity)$/;"	f	language:C++	class:glDebug	access:private	signature:(GLenum severity)
 getStringForSource	gldebug.h	/^   static std::string getStringForSource(GLenum source)$/;"	f	language:C++	class:glDebug	access:private	signature:(GLenum source)
@@ -75,13 +85,14 @@ height	GridGeometry.cpp	/^		int height;$/;"	m	language:C++	class:GridGeomtry	fil
 height	window.h	/^	int height;$/;"	m	language:C++	class:Window	access:public
 indexCount	GridGeometry.cpp	/^		int indexCount;$/;"	m	language:C++	class:VisualGrid	file:	access:private
 indices	GridGeometry.cpp	/^		int* indices;$/;"	m	language:C++	class:VisualGrid	file:	access:private
+instance	gamefacade.h	/^		static GameFacade* instance();$/;"	p	language:C++	class:GameFacade	access:public	signature:()
 instance	matrixstacksingleton.h	/^		static MatrixStackSingleton* instance();$/;"	p	language:C++	class:MatrixStackSingleton	access:public	signature:()
 matrixstacksingleton.h	matrixstacksingleton.h	1;"	F	language:C++
 myCallback	gldebug.h	/^   static void APIENTRY myCallback(GLenum source,$/;"	f	language:C++	class:glDebug	access:public	signature:(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar *msg, GLvoid *data)
 points	GridGeometry.cpp	/^		int* points;$/;"	m	language:C++	class:GridGeomtry	file:	access:private
-pop	matrixstacksingleton.h	/^		glm::mat4* pop();$/;"	p	language:C++	class:MatrixStackSingleton	access:public	signature:()
+pop	matrixstacksingleton.h	/^		glm::mat4 pop();$/;"	p	language:C++	class:MatrixStackSingleton	access:public	signature:()
 prepRender	GridGeometry.cpp	/^		int* prepRender();$/;"	p	language:C++	class:VisualGrid	file:	access:public	signature:()
-push	matrixstacksingleton.h	/^		void push(glm::mat4 *&m);$/;"	p	language:C++	class:MatrixStackSingleton	access:public	signature:(glm::mat4 *&m)
+push	matrixstacksingleton.h	/^		glm::mat4 push(glm::mat4 m);$/;"	p	language:C++	class:MatrixStackSingleton	access:public	signature:(glm::mat4 m)
 render	GridGeometry.cpp	/^		void render(int vertexAttributeIndex);$/;"	p	language:C++	class:VisualGrid	file:	access:public	signature:(int vertexAttributeIndex)
 rows	GridGeometry.cpp	/^		int rows;$/;"	m	language:C++	class:GridGeomtry	file:	access:private
 shouldClose	window.h	/^	bool shouldClose();$/;"	p	language:C++	class:Window	access:public	signature:()
@@ -90,6 +101,7 @@ width	GridGeometry.cpp	/^		int width;$/;"	m	language:C++	class:GridGeomtry	file:
 width	window.h	/^	int width;$/;"	m	language:C++	class:Window	access:public
 window	window.h	/^		GLFWwindow *window;$/;"	m	language:C++	class:Window	access:private
 window.h	window.h	1;"	F	language:C++
+~GameFacade	gamefacade.h	/^		~GameFacade();$/;"	p	language:C++	class:GameFacade	access:protected	signature:()
 ~GridGeomtry	GridGeometry.cpp	/^		~GridGeomtry();$/;"	p	language:C++	class:GridGeomtry	file:	access:public	signature:()
 ~MatrixStackSingleton	matrixstacksingleton.h	/^		~MatrixStackSingleton();$/;"	p	language:C++	class:MatrixStackSingleton	access:protected	signature:()
 ~Window	window.h	/^	virtual ~Window();$/;"	p	language:C++	class:Window	access:public	signature:()

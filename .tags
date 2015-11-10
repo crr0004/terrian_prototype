@@ -460,14 +460,36 @@ ExplicitFailure	include/catch.hpp	/^        ExplicitFailure = FailureBit | 2,$/;
 ExprComponents	include/catch.hpp	/^            ExprComponents() : testFalse( false ) {}$/;"	f	struct:Catch::ResultBuilder::ExprComponents	access:public	signature:()
 ExprComponents	include/catch.hpp	/^        struct ExprComponents {$/;"	s	class:Catch::ResultBuilder	access:private
 ExpressionFailed	include/catch.hpp	/^        ExpressionFailed = FailureBit | 1,$/;"	e	enum:Catch::ResultWas::OfType
+FACADELINE_H	src/headers/facade/line.h	2;"	d
+Facade	src/headers/facade/line.h	/^namespace Facade{$/;"	n
+Facade::Line	src/headers/facade/line.h	/^	class Line{$/;"	c	namespace:Facade
 FailureBit	include/catch.hpp	/^        FailureBit = 0x10,$/;"	e	enum:Catch::ResultWas::OfType
 FalseTest	include/catch.hpp	/^        FalseTest = 0x04,           \/\/ Prefix expression with !$/;"	e	enum:Catch::ResultDisposition::Flags
 FalseType	include/catch.hpp	/^    struct FalseType { char sizer[2]; };$/;"	s	namespace:Catch::Detail
 FatalErrorCondition	include/catch.hpp	/^        FatalErrorCondition = 0x200 | FailureBit$/;"	e	enum:Catch::ResultWas::OfType
 Flags	include/catch.hpp	/^    struct ResultDisposition { enum Flags {$/;"	g	struct:Catch::ResultDisposition	access:public
+GAMEFACADE_H	src/headers/gamefacade.h	2;"	d
+GEOMETRYLINE_H	src/headers/geometry/line.h	2;"	d
+GEOMETRYPOINT_H	src/headers/geometry/point.h	2;"	d
 GIVEN	include/catch.hpp	9393;"	d
 GLDEBUG_H	src/headers/gldebug.h	2;"	d
 GRIDGEOMETRY_H	src/headers/GridGeometry.cpp	18;"	d	file:
+GameFacade	src/headers/gamefacade.h	/^		GameFacade();$/;"	p	class:GameFacade	access:protected	signature:()
+GameFacade	src/headers/gamefacade.h	/^class GameFacade {$/;"	c
+GameFacade::GameFacade	src/headers/gamefacade.h	/^		GameFacade();$/;"	p	class:GameFacade	access:protected	signature:()
+GameFacade::_instance	src/headers/gamefacade.h	/^		static GameFacade* _instance;$/;"	m	class:GameFacade	access:private
+GameFacade::createLine	src/headers/gamefacade.h	/^		Facade::Line* createLine(Geometry::Line line);$/;"	p	class:GameFacade	access:public	signature:(Geometry::Line line)
+GameFacade::instance	src/headers/gamefacade.h	/^		static GameFacade* instance();$/;"	p	class:GameFacade	access:public	signature:()
+GameFacade::~GameFacade	src/headers/gamefacade.h	/^		~GameFacade();$/;"	p	class:GameFacade	access:protected	signature:()
+Geometry	src/headers/geometry/line.h	/^namespace Geometry{$/;"	n
+Geometry	src/headers/geometry/point.h	/^namespace Geometry{$/;"	n
+Geometry::Line	src/headers/geometry/line.h	/^	class Line{$/;"	c	namespace:Geometry
+Geometry::Line::Line	src/headers/geometry/line.h	/^			Line();$/;"	p	class:Geometry::Line	access:public	signature:()
+Geometry::Line::Line	src/headers/geometry/line.h	/^			Line(Point a, Point b);$/;"	p	class:Geometry::Line	access:public	signature:(Point a, Point b)
+Geometry::Line::~Line	src/headers/geometry/line.h	/^			~Line();$/;"	p	class:Geometry::Line	access:public	signature:()
+Geometry::Point	src/headers/geometry/point.h	/^class Point{$/;"	c	namespace:Geometry
+Geometry::Point::Point	src/headers/geometry/point.h	/^		Point(float x, float y, float z);$/;"	p	class:Geometry::Point	access:public	signature:(float x, float y, float z)
+Geometry::Point::~Point	src/headers/geometry/point.h	/^		~Point();$/;"	p	class:Geometry::Point	access:public	signature:()
 GridGeometry.cpp	src/headers/GridGeometry.cpp	1;"	F
 GridGeomtry	src/headers/GridGeometry.cpp	/^		GridGeomtry(int width, int height, int rows, int columns);$/;"	p	class:GridGeomtry	file:	access:public	signature:(int width, int height, int rows, int columns)
 GridGeomtry	src/headers/GridGeometry.cpp	/^class GridGeomtry{$/;"	c	file:
@@ -521,9 +543,12 @@ IsLessThan	include/catch.hpp	/^        IsLessThan,$/;"	e	enum:Catch::Internal::O
 IsLessThanOrEqualTo	include/catch.hpp	/^        IsLessThanOrEqualTo,$/;"	e	enum:Catch::Internal::Operator
 IsNotEqualTo	include/catch.hpp	/^        IsNotEqualTo,$/;"	e	enum:Catch::Internal::Operator
 IsStreamInsertable	include/catch.hpp	/^    struct IsStreamInsertable {$/;"	s	namespace:Catch::Detail
+Line	src/headers/facade/line.h	/^	class Line{$/;"	c	namespace:Facade
+Line	src/headers/geometry/line.h	/^			Line();$/;"	p	class:Geometry::Line	access:public	signature:()
+Line	src/headers/geometry/line.h	/^			Line(Point a, Point b);$/;"	p	class:Geometry::Line	access:public	signature:(Point a, Point b)
+Line	src/headers/geometry/line.h	/^	class Line{$/;"	c	namespace:Geometry
 LinkedMatrix	src/matrixstacksingleton.cpp	/^struct LinkedMatrix{$/;"	s	file:
-LinkedMatrix::me	src/matrixstacksingleton.cpp	/^	glm::mat4 *me;$/;"	m	struct:LinkedMatrix	file:	access:public
-LinkedMatrix::next	src/matrixstacksingleton.cpp	/^	struct LinkedMatrix* next;$/;"	m	struct:LinkedMatrix	typeref:struct:LinkedMatrix::LinkedMatrix	file:	access:public
+LinkedMatrix::me	src/matrixstacksingleton.cpp	/^	glm::mat4 me;$/;"	m	struct:LinkedMatrix	file:	access:public
 LinkedMatrix::prev	src/matrixstacksingleton.cpp	/^	struct LinkedMatrix* prev;$/;"	m	struct:LinkedMatrix	typeref:struct:LinkedMatrix::LinkedMatrix	file:	access:public
 MATRIXSTACKSINGLETON_H	src/headers/matrixstacksingleton.h	2;"	d
 MatrixStackSingleton	src/headers/matrixstacksingleton.h	/^		MatrixStackSingleton();$/;"	p	class:MatrixStackSingleton	access:protected	signature:()
@@ -535,10 +560,10 @@ MatrixStackSingleton::_instance	src/headers/matrixstacksingleton.h	/^		static Ma
 MatrixStackSingleton::_instance	src/matrixstacksingleton.cpp	/^MatrixStackSingleton* MatrixStackSingleton::_instance = 0;$/;"	m	class:MatrixStackSingleton	file:
 MatrixStackSingleton::instance	src/headers/matrixstacksingleton.h	/^		static MatrixStackSingleton* instance();$/;"	p	class:MatrixStackSingleton	access:public	signature:()
 MatrixStackSingleton::instance	src/matrixstacksingleton.cpp	/^MatrixStackSingleton* MatrixStackSingleton::instance(){$/;"	f	class:MatrixStackSingleton	signature:()
-MatrixStackSingleton::pop	src/headers/matrixstacksingleton.h	/^		glm::mat4* pop();$/;"	p	class:MatrixStackSingleton	access:public	signature:()
-MatrixStackSingleton::pop	src/matrixstacksingleton.cpp	/^glm::mat4* MatrixStackSingleton::pop(){$/;"	f	class:MatrixStackSingleton	signature:()
-MatrixStackSingleton::push	src/headers/matrixstacksingleton.h	/^		void push(glm::mat4 *&m);$/;"	p	class:MatrixStackSingleton	access:public	signature:(glm::mat4 *&m)
-MatrixStackSingleton::push	src/matrixstacksingleton.cpp	/^void MatrixStackSingleton::push(glm::mat4 *&m){$/;"	f	class:MatrixStackSingleton	signature:(glm::mat4 *&m)
+MatrixStackSingleton::pop	src/headers/matrixstacksingleton.h	/^		glm::mat4 pop();$/;"	p	class:MatrixStackSingleton	access:public	signature:()
+MatrixStackSingleton::pop	src/matrixstacksingleton.cpp	/^glm::mat4 MatrixStackSingleton::pop(){$/;"	f	class:MatrixStackSingleton	signature:()
+MatrixStackSingleton::push	src/headers/matrixstacksingleton.h	/^		glm::mat4 push(glm::mat4 m);$/;"	p	class:MatrixStackSingleton	access:public	signature:(glm::mat4 m)
+MatrixStackSingleton::push	src/matrixstacksingleton.cpp	/^glm::mat4 MatrixStackSingleton::push(glm::mat4 m){$/;"	f	class:MatrixStackSingleton	signature:(glm::mat4 m)
 MatrixStackSingleton::~MatrixStackSingleton	src/headers/matrixstacksingleton.h	/^		~MatrixStackSingleton();$/;"	p	class:MatrixStackSingleton	access:protected	signature:()
 MatrixStackSingleton::~MatrixStackSingleton	src/matrixstacksingleton.cpp	/^MatrixStackSingleton::~MatrixStackSingleton(){$/;"	f	class:MatrixStackSingleton	signature:()
 MethodTestCase	include/catch.hpp	/^    MethodTestCase( void (C::*method)() ) : m_method( method ) {}$/;"	f	class:Catch::MethodTestCase	access:public	signature:( void (C::*method)() )
@@ -565,6 +590,8 @@ OperatorTraits	include/catch.hpp	/^    template<> struct OperatorTraits<IsLessTh
 OperatorTraits	include/catch.hpp	/^    template<> struct OperatorTraits<IsLessThanOrEqualTo>   { static const char* getName(){ return "<="; } };$/;"	s	namespace:Catch::Internal
 OperatorTraits	include/catch.hpp	/^    template<> struct OperatorTraits<IsNotEqualTo>          { static const char* getName(){ return "!="; } };$/;"	s	namespace:Catch::Internal
 OperatorTraits	include/catch.hpp	/^    template<Operator Op> struct OperatorTraits             { static const char* getName(){ return "*error*"; } };$/;"	s	namespace:Catch::Internal
+Point	src/headers/geometry/point.h	/^		Point(float x, float y, float z);$/;"	p	class:Geometry::Point	access:public	signature:(float x, float y, float z)
+Point	src/headers/geometry/point.h	/^class Point{$/;"	c	namespace:Geometry
 Ptr	include/catch.hpp	/^        Ptr( Ptr const& other ) : m_p( other.m_p ){$/;"	f	class:Catch::Ptr	access:public	signature:( Ptr const& other )
 Ptr	include/catch.hpp	/^        Ptr( T* p ) : m_p( p ){$/;"	f	class:Catch::Ptr	access:public	signature:( T* p )
 Ptr	include/catch.hpp	/^        Ptr() : m_p( NULL ){}$/;"	f	class:Catch::Ptr	access:public	signature:()
@@ -698,7 +725,6 @@ TupleDetail	include/catch.hpp	/^namespace TupleDetail {$/;"	n	namespace:Catch
 Unknown	include/catch.hpp	/^        Unknown = -1,$/;"	e	enum:Catch::ResultWas::OfType
 VISUALGRID	src/headers/GridGeometry.cpp	2;"	d	file:
 VISUALSERVER_H	src/headers/VisualServer.h	2;"	d
-VISUALSURFACE_H	src/headers/VisualServer.h	17;"	d
 VisualGrid	src/headers/GridGeometry.cpp	/^class VisualGrid{$/;"	c	file:
 VisualGrid::WeldPoints	src/headers/GridGeometry.cpp	/^		int* WeldPoints(int* points);$/;"	p	class:VisualGrid	file:	access:public	signature:(int* points)
 VisualGrid::indexCount	src/headers/GridGeometry.cpp	/^		int indexCount;$/;"	m	class:VisualGrid	file:	access:private
@@ -728,14 +754,14 @@ Window::width	src/headers/window.h	/^	int width;$/;"	m	class:Window	access:publi
 Window::window	src/headers/window.h	/^		GLFWwindow *window;$/;"	m	class:Window	access:private
 Window::~Window	src/headers/window.h	/^	virtual ~Window();$/;"	p	class:Window	access:public	signature:()
 Window::~Window	src/window.cpp	/^Window::~Window(){$/;"	f	class:Window	signature:()
-_head	src/matrixstacksingleton.cpp	/^struct LinkedMatrix *_head;$/;"	v	typeref:struct:LinkedMatrix
+_head	src/matrixstacksingleton.cpp	/^struct LinkedMatrix* _head;$/;"	v	typeref:struct:LinkedMatrix
 _instance	src/headers/VisualServer.h	/^		static VisualServer* _instance;$/;"	m	class:VisualServer	access:private
+_instance	src/headers/gamefacade.h	/^		static GameFacade* _instance;$/;"	m	class:GameFacade	access:private
 _instance	src/headers/matrixstacksingleton.h	/^		static MatrixStackSingleton* _instance;$/;"	m	class:MatrixStackSingleton	access:private
 _instance	src/matrixstacksingleton.cpp	/^MatrixStackSingleton* MatrixStackSingleton::_instance = 0;$/;"	m	class:MatrixStackSingleton	file:
 addRef	include/catch.hpp	/^        virtual void addRef() const = 0;$/;"	p	struct:Catch::IShared	access:public	signature:() const
 addRef	include/catch.hpp	/^        virtual void addRef() const {$/;"	f	struct:Catch::SharedImpl	access:public	signature:() const
 advanceGeneratorsForCurrentTest	include/catch.hpp	/^        virtual bool advanceGeneratorsForCurrentTest() = 0;$/;"	p	struct:Catch::IContext	access:public	signature:()
-all.cpp	tests/all.cpp	1;"	F
 allowThrows	include/catch.hpp	/^        bool allowThrows() const;$/;"	p	class:Catch::ResultBuilder	access:public	signature:() const
 alwaysFalse	include/catch.hpp	/^    inline bool alwaysFalse() { return false; }$/;"	f	namespace:Catch	signature:()
 alwaysTrue	include/catch.hpp	/^    inline bool alwaysTrue() { return true; }$/;"	f	namespace:Catch	signature:()
@@ -750,7 +776,6 @@ captureExpression	include/catch.hpp	/^        void captureExpression();$/;"	p	cl
 captureResult	include/catch.hpp	/^        void captureResult( ResultWas::OfType resultType );$/;"	p	class:Catch::ResultBuilder	access:public	signature:( ResultWas::OfType resultType )
 capturedExpression	include/catch.hpp	/^        std::string capturedExpression;$/;"	m	struct:Catch::AssertionInfo	access:public
 catch.hpp	include/catch.hpp	1;"	F
-changeMe	tests/all.cpp	/^static void changeMe(void*& p){$/;"	f	file:	signature:(void*& p)
 check_error	src/main.cpp	/^static void check_error(){$/;"	f	file:	signature:()
 cleanUpContext	include/catch.hpp	/^    void cleanUpContext();$/;"	p	namespace:Catch	signature:()
 columns	src/headers/GridGeometry.cpp	/^		int columns;$/;"	m	class:GridGeomtry	file:	access:private
@@ -783,6 +808,7 @@ convert	include/catch.hpp	/^    static std::string convert( U* p ) {$/;"	f	struc
 create	src/headers/window.h	/^	bool create();$/;"	p	class:Window	access:public	signature:()
 createGeneratorsForTest	include/catch.hpp	/^    IGeneratorsForTest* createGeneratorsForTest();$/;"	p	namespace:Catch	signature:()
 createHeightMap	src/main.cpp	/^static struct heightmap createHeightMap(int width, int height){$/;"	f	file:	signature:(int width, int height)
+createLine	src/headers/gamefacade.h	/^		Facade::Line* createLine(Geometry::Line line);$/;"	p	class:GameFacade	access:public	signature:(Geometry::Line line)
 createStream	include/catch.hpp	/^    Stream createStream( std::string const& streamName );$/;"	p	namespace:Catch	signature:( std::string const& streamName )
 deleteAll	include/catch.hpp	/^    inline void deleteAll( ContainerT& container ) {$/;"	f	namespace:Catch	signature:( ContainerT& container )
 deleteAllValues	include/catch.hpp	/^    inline void deleteAllValues( AssociativeContainerT& container ) {$/;"	f	namespace:Catch	signature:( AssociativeContainerT& container )
@@ -795,6 +821,7 @@ evaluate	include/catch.hpp	/^        static bool evaluate( T1 const& lhs, T2 con
 evaluate	include/catch.hpp	/^        static bool evaluate( T1 const& lhs, T2 const& rhs) {$/;"	f	struct:Catch::Internal::Evaluator	access:public	signature:( T1 const& lhs, T2 const& rhs)
 file	include/catch.hpp	/^        std::string file;$/;"	m	struct:Catch::SourceLineInfo	access:public
 furthest_point	src/main.cpp	/^static glm::vec4 furthest_point;$/;"	v	file:
+gamefacade.h	src/headers/gamefacade.h	1;"	F
 generate	src/headers/GridGeometry.cpp	/^		int* generate();$/;"	p	class:GridGeomtry	file:	access:public	signature:()
 get	include/catch.hpp	/^        T* get() { return m_p; }$/;"	f	class:Catch::Ptr	access:public	signature:()
 get	include/catch.hpp	/^        const T* get() const{ return m_p; }$/;"	f	class:Catch::Ptr	access:public	signature:() const
@@ -855,6 +882,7 @@ indexCount	src/headers/GridGeometry.cpp	/^		int indexCount;$/;"	m	class:VisualGr
 indices	src/headers/GridGeometry.cpp	/^		int* indices;$/;"	m	class:VisualGrid	file:	access:private
 indices	src/main.cpp	/^	int* indices;$/;"	m	struct:heightmap	file:	access:public
 indicesSize	src/main.cpp	/^	int indicesSize;$/;"	m	struct:heightmap	file:	access:public
+instance	src/headers/gamefacade.h	/^		static GameFacade* instance();$/;"	p	class:GameFacade	access:public	signature:()
 instance	src/headers/matrixstacksingleton.h	/^		static MatrixStackSingleton* instance();$/;"	p	class:MatrixStackSingleton	access:public	signature:()
 instance	src/matrixstacksingleton.cpp	/^MatrixStackSingleton* MatrixStackSingleton::instance(){$/;"	f	class:MatrixStackSingleton	signature:()
 invoke	include/catch.hpp	/^        virtual void invoke () const = 0;$/;"	p	struct:Catch::ITestCase	access:public	signature:() const
@@ -867,6 +895,9 @@ isTrue	include/catch.hpp	/^    inline bool isTrue( bool value ){ return value; }
 key_callback	src/main.cpp	/^static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)$/;"	f	file:	signature:(GLFWwindow* window, int key, int scancode, int action, int mods)
 lhs	include/catch.hpp	/^            std::string lhs, rhs, op;$/;"	m	struct:Catch::ResultBuilder::ExprComponents	access:public
 line	include/catch.hpp	/^        std::size_t line;$/;"	m	struct:Catch::SourceLineInfo	access:public
+line.h	src/headers/facade/line.h	1;"	F
+line.h	src/headers/geometry/line.h	1;"	F
+line.h	src/headers/visual/line.h	1;"	F
 lineInfo	include/catch.hpp	/^        SourceLineInfo lineInfo;$/;"	m	struct:Catch::AssertionInfo	access:public
 m_assertionInfo	include/catch.hpp	/^        AssertionInfo m_assertionInfo;$/;"	m	class:Catch::ResultBuilder	access:private
 m_count	include/catch.hpp	/^        std::size_t m_count;$/;"	m	struct:Catch::pluralise	access:public
@@ -892,14 +923,14 @@ make_shader	src/main.cpp	/^static GLuint make_shader(GLenum type, const char* te
 make_shader_program	src/main.cpp	/^static GLuint make_shader_program(const char* vs_text, const char* fs_text)$/;"	f	file:	signature:(const char* vs_text, const char* fs_text)
 matrixstacksingleton.cpp	src/matrixstacksingleton.cpp	1;"	F
 matrixstacksingleton.h	src/headers/matrixstacksingleton.h	1;"	F
-me	src/matrixstacksingleton.cpp	/^	glm::mat4 *me;$/;"	m	struct:LinkedMatrix	file:	access:public
+matrixstacksingletontests.cpp	tests/matrixstacksingletontests.cpp	1;"	F
+me	src/matrixstacksingleton.cpp	/^	glm::mat4 me;$/;"	m	struct:LinkedMatrix	file:	access:public
 message	include/catch.hpp	/^        std::string message;$/;"	m	struct:Catch::AssertionResultData	access:public
 modelview_matrix	src/main.cpp	/^static glm::mat4 modelview_matrix;$/;"	v	file:
 moveNext	include/catch.hpp	/^        virtual bool moveNext() = 0;$/;"	p	struct:Catch::IGeneratorInfo	access:public	signature:()
 moveNext	include/catch.hpp	/^        virtual bool moveNext() = 0;$/;"	p	struct:Catch::IGeneratorsForTest	access:public	signature:()
 myCallback	src/headers/gldebug.h	/^   static void APIENTRY myCallback(GLenum source,$/;"	f	class:glDebug	access:public	signature:(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar *msg, GLvoid *data)
 name	include/catch.hpp	/^    const char* name;$/;"	m	struct:Catch::NameAndDesc	access:public
-next	src/matrixstacksingleton.cpp	/^	struct LinkedMatrix* next;$/;"	m	struct:LinkedMatrix	typeref:struct:LinkedMatrix::LinkedMatrix	file:	access:public
 op	include/catch.hpp	/^            std::string lhs, rhs, op;$/;"	m	struct:Catch::ResultBuilder::ExprComponents	access:public
 opCast	include/catch.hpp	/^    inline T& opCast(T const& t) { return const_cast<T&>(t); }$/;"	f	namespace:Catch::Internal	signature:(T const& t)
 opCast	include/catch.hpp	/^    inline std::nullptr_t opCast(std::nullptr_t) { return nullptr; }$/;"	f	namespace:Catch::Internal	signature:(std::nullptr_t)
@@ -935,14 +966,15 @@ performOptionalSelector	include/catch.hpp	/^id performOptionalSelector( id obj, 
 performOptionalSelector	include/catch.hpp	/^inline id performOptionalSelector( id obj, SEL sel ) {$/;"	f	signature:( id obj, SEL sel )
 pluralise	include/catch.hpp	/^        pluralise( std::size_t count, std::string const& label );$/;"	p	struct:Catch::pluralise	access:public	signature:( std::size_t count, std::string const& label )
 pluralise	include/catch.hpp	/^    struct pluralise {$/;"	s	namespace:Catch
+point.h	src/headers/geometry/point.h	1;"	F
 points	src/headers/GridGeometry.cpp	/^		int* points;$/;"	m	class:GridGeomtry	file:	access:private
-pop	src/headers/matrixstacksingleton.h	/^		glm::mat4* pop();$/;"	p	class:MatrixStackSingleton	access:public	signature:()
-pop	src/matrixstacksingleton.cpp	/^glm::mat4* MatrixStackSingleton::pop(){$/;"	f	class:MatrixStackSingleton	signature:()
+pop	src/headers/matrixstacksingleton.h	/^		glm::mat4 pop();$/;"	p	class:MatrixStackSingleton	access:public	signature:()
+pop	src/matrixstacksingleton.cpp	/^glm::mat4 MatrixStackSingleton::pop(){$/;"	f	class:MatrixStackSingleton	signature:()
 prepRender	src/headers/GridGeometry.cpp	/^		int* prepRender();$/;"	p	class:VisualGrid	file:	access:public	signature:()
 prev	src/matrixstacksingleton.cpp	/^	struct LinkedMatrix* prev;$/;"	m	struct:LinkedMatrix	typeref:struct:LinkedMatrix::LinkedMatrix	file:	access:public
 projection_matrix	src/main.cpp	/^static glm::mat4 projection_matrix;$/;"	v	file:
-push	src/headers/matrixstacksingleton.h	/^		void push(glm::mat4 *&m);$/;"	p	class:MatrixStackSingleton	access:public	signature:(glm::mat4 *&m)
-push	src/matrixstacksingleton.cpp	/^void MatrixStackSingleton::push(glm::mat4 *&m){$/;"	f	class:MatrixStackSingleton	signature:(glm::mat4 *&m)
+push	src/headers/matrixstacksingleton.h	/^		glm::mat4 push(glm::mat4 m);$/;"	p	class:MatrixStackSingleton	access:public	signature:(glm::mat4 m)
+push	src/matrixstacksingleton.cpp	/^glm::mat4 MatrixStackSingleton::push(glm::mat4 m){$/;"	f	class:MatrixStackSingleton	signature:(glm::mat4 m)
 rangeToString	include/catch.hpp	/^    std::string rangeToString( InputIterator first, InputIterator last );$/;"	p	namespace:Catch::Detail	signature:( InputIterator first, InputIterator last )
 rawMemoryToString	include/catch.hpp	/^    inline std::string rawMemoryToString( const T& object ) {$/;"	f	namespace:Catch::Detail	signature:( const T& object )
 rawMemoryToString	include/catch.hpp	/^    std::string rawMemoryToString( const void *object, std::size_t size );$/;"	p	namespace:Catch::Detail	signature:( const void *object, std::size_t size )
@@ -1028,6 +1060,7 @@ z_far	src/main.cpp	/^static GLfloat z_far = 100.f;$/;"	v	file:
 z_near	src/main.cpp	/^static GLfloat z_near = 0.1f;$/;"	v	file:
 ~AssertionResult	include/catch.hpp	/^        ~AssertionResult();$/;"	p	class:Catch::AssertionResult	access:public	signature:()
 ~AutoReg	include/catch.hpp	/^    ~AutoReg();$/;"	p	struct:Catch::AutoReg	access:public	signature:()
+~GameFacade	src/headers/gamefacade.h	/^		~GameFacade();$/;"	p	class:GameFacade	access:protected	signature:()
 ~GridGeomtry	src/headers/GridGeometry.cpp	/^		~GridGeomtry();$/;"	p	class:GridGeomtry	file:	access:public	signature:()
 ~IContext	include/catch.hpp	/^        virtual ~IContext();$/;"	p	struct:Catch::IContext	access:public	signature:()
 ~IGeneratorInfo	include/catch.hpp	/^        virtual ~IGeneratorInfo();$/;"	p	struct:Catch::IGeneratorInfo	access:public	signature:()
@@ -1036,10 +1069,12 @@ z_near	src/main.cpp	/^static GLfloat z_near = 0.1f;$/;"	v	file:
 ~IShared	include/catch.hpp	/^        virtual ~IShared();$/;"	p	struct:Catch::IShared	access:public	signature:()
 ~ITestCase	include/catch.hpp	/^        virtual ~ITestCase();$/;"	p	struct:Catch::ITestCase	access:protected	signature:()
 ~ITestCaseRegistry	include/catch.hpp	/^        virtual ~ITestCaseRegistry();$/;"	p	struct:Catch::ITestCaseRegistry	access:public	signature:()
+~Line	src/headers/geometry/line.h	/^			~Line();$/;"	p	class:Geometry::Line	access:public	signature:()
 ~MatrixStackSingleton	src/headers/matrixstacksingleton.h	/^		~MatrixStackSingleton();$/;"	p	class:MatrixStackSingleton	access:protected	signature:()
 ~MatrixStackSingleton	src/matrixstacksingleton.cpp	/^MatrixStackSingleton::~MatrixStackSingleton(){$/;"	f	class:MatrixStackSingleton	signature:()
 ~MethodTestCase	include/catch.hpp	/^    virtual ~MethodTestCase() {}$/;"	f	class:Catch::MethodTestCase	access:private	signature:()
 ~NonCopyable	include/catch.hpp	/^        virtual ~NonCopyable();$/;"	p	class:Catch::NonCopyable	access:protected	signature:()
+~Point	src/headers/geometry/point.h	/^		~Point();$/;"	p	class:Geometry::Point	access:public	signature:()
 ~Ptr	include/catch.hpp	/^        ~Ptr(){$/;"	f	class:Catch::Ptr	access:public	signature:()
 ~Window	src/headers/window.h	/^	virtual ~Window();$/;"	p	class:Window	access:public	signature:()
 ~Window	src/window.cpp	/^Window::~Window(){$/;"	f	class:Window	signature:()
