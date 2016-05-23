@@ -4,9 +4,7 @@ A prototype for creating a terrian &amp; heightmap algorithms.
 #Building
 Requires scons. It is just a lot easier of a build system than others.
 
-Requires GLFW3 to be installed.
+Requires GLFW3, glm, glew to be installed.
 
-Depends on glew
-
-Remember to either run the clone of this as with `--recursive` or run `git submodule update --init`
-
+#Fedora 23
+dnf -y install glew-devel glfw3-devel glm-devel
