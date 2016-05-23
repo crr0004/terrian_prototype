@@ -353,7 +353,7 @@ int main(void)
 
 	};
 
-	/*
+	
 	int vertexCount = sizeof(indices) / sizeof(GLuint);
 
 	glGenBuffers(2, &vboID[0]);
@@ -365,7 +365,7 @@ int main(void)
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	*/
+
 
 
 	GLuint vertShaderLocation = glGetAttribLocation(shader_program, "vert");
@@ -381,9 +381,11 @@ int main(void)
 		glUniformMatrix4fv(uloc_modelview, 1, GL_FALSE, glm::value_ptr(modelview_matrix));
 
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		//glPolygonMode(GL_FRONT, GL_FILL);
+		glPolygonMode(GL_FRONT, GL_FILL);
 
-		/*
+		bool triangleTest = true;
+
+		if(triangleTest){	
 		//Triangle test
 		glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboID[1]);
@@ -403,7 +405,8 @@ int main(void)
 				GL_UNSIGNED_INT,
 				(void*)0
 				);
-				 */
+				 
+		}else{
 		/*Heightmap		*/
 
 		glBindBuffer(GL_ARRAY_BUFFER, heightMap.id[0]);
@@ -423,8 +426,11 @@ int main(void)
 				GL_UNSIGNED_INT,
 				(void*)0
 				);
+
+		}
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
+
 		glDisableVertexAttribArray(vertShaderLocation);
         glfwSwapBuffers(window);
         glfwPollEvents();

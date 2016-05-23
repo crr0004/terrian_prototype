@@ -1,4 +1,4 @@
-#version 440
+#version 300 es
 
 
 uniform mat4 project;

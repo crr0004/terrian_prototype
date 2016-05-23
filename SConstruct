@@ -32,15 +32,16 @@ if int(debug):
 	    env.Append(CCFLAGS = '-g' + debug)
 
 tests = GetOption('tests')
-if(tests):
-	print src_files[0].get_abspath()
+if(tests == True):
+        print "building tests"
+#	print src_files[0].get_abspath()
 	src_files.remove(Glob(srcPath + "main.cpp")[0])
-	print src_files[0].get_abspath()
-	env.Append(CXXFLAGS = '-std=c++11')
-	env.Program("Tests_Terrian.bin", Glob(testPath + "*.cpp") + src_files)
+#	print src_files[0].get_abspath()
+	#env.Append(CXXFLAGS = '-std=c++11')
+	#env.Program("Tests_Terrian.bin", Glob(testPath + "*.cpp") + src_files)
 else:
 	env.VariantDir(buildPath, srcPath)
-	env.Program("Terrian.bin", src_files + Glob(srcPath + "main.cpp"))
+	env.Program("Terrian.bin", src_files)
 
 	
 
