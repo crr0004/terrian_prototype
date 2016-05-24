@@ -5,6 +5,7 @@
 #include <glm/gtc/type_ptr.hpp>
 #include "gldebug.h"
 #include "matrixstacksingleton.h"
+#include "polygon.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -332,11 +333,13 @@ int main(void)
 
 	struct heightmap heightMap = createHeightMap(1,1);
 	int heightMapSize = 3 * heightMap.width * heightMap.height;
+
 	printf("Height map size: %d\n", heightMapSize);
 	printf("Furthest point: %f,%f,%f\n", heightMap.vertices[heightMapSize-3], heightMap.vertices[heightMapSize-2], heightMap.vertices[heightMapSize-1]);
-	furthest_point = glm::vec4(heightMap.vertices[heightMapSize-3], heightMap.vertices[heightMapSize-2], heightMap.vertices[heightMapSize-1], 1.0f);
-	furthest_point = glm::vec4(0.0f, 0.0f, 1.0f, 1.0f);
 
+	furthest_point = glm::vec4(heightMap.vertices[heightMapSize-3], heightMap.vertices[heightMapSize-2], heightMap.vertices[heightMapSize-1], 1.0f);
+
+//Triangle test vertices
 	GLuint vboID[2];
 	GLfloat vertices[] = {
 		0.0f, 0.0f, 1.0f,
@@ -407,7 +410,7 @@ int main(void)
 				);
 				 
 		}else{
-		/*Heightmap		*/
+		/*Heightmap*/
 
 		glBindBuffer(GL_ARRAY_BUFFER, heightMap.id[0]);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, heightMap.id[1]);
