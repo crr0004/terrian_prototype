@@ -37,8 +37,8 @@ if(tests == True):
 #	print src_files[0].get_abspath()
 	src_files.remove(Glob(srcPath + "main.cpp")[0])
 #	print src_files[0].get_abspath()
-	#env.Append(CXXFLAGS = '-std=c++11')
-	#env.Program("Tests_Terrian.bin", Glob(testPath + "*.cpp") + src_files)
+	env.Append(CXXFLAGS = '-std=c++11')
+	env.Program("Tests_Terrian.bin", Glob(testPath + "*.cpp") + src_files)
 else:
 	env.VariantDir(buildPath, srcPath)
 	env.Program("Terrian.bin", src_files)
