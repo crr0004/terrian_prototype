@@ -339,8 +339,8 @@ int main(void)
 
 	furthest_point = glm::vec4(heightMap.vertices[heightMapSize-3], heightMap.vertices[heightMapSize-2], heightMap.vertices[heightMapSize-1], 1.0f);
 
+	Polygon triangle;
 //Triangle test vertices
-	GLuint vboID[2];
 	GLfloat vertices[] = {
 		0.0f, 0.0f, 1.0f,
 		0.0f, 0.1f, 1.0f,
@@ -355,23 +355,13 @@ int main(void)
 		1, 3, 2,
 
 	};
-
+	triangle.setVertices(vertices, sizeof(vertices) / sizeof(GLfloat));
+	triangle.setIndices(indices, sizeof(indices) / sizeof(GLuint));
+	triangle.buildStatic();
 	
-	int vertexCount = sizeof(indices) / sizeof(GLuint);
-
-	glGenBuffers(2, &vboID[0]);
-	glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
-
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboID[1]);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-
-
 	GLuint vertShaderLocation = glGetAttribLocation(shader_program, "vert");
+
+	triangle.setShaderLocations(vertShaderLocation);
 
 	glViewport(0,0,width, height);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
@@ -390,45 +380,28 @@ int main(void)
 
 		if(triangleTest){	
 		//Triangle test
-		glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboID[1]);
-		glEnableVertexAttribArray(vertShaderLocation);
-
-		glVertexAttribPointer(
-				vertShaderLocation,
-				3, //size of attribute
-				GL_FLOAT,
-				GL_FALSE,
-				0, //stride
-				(void*)0 //Pointer to the off of the first component of the first element
-				);
-		glDrawElements(
-				GL_TRIANGLES,
-				6, //Amount of vertices to draw
-				GL_UNSIGNED_INT,
-				(void*)0
-				);
+		triangle.draw();
 				 
 		}else{
-		/*Heightmap*/
+			/*Heightmap*/
 
-		glBindBuffer(GL_ARRAY_BUFFER, heightMap.id[0]);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, heightMap.id[1]);
-		glEnableVertexAttribArray(vertShaderLocation);
-		glVertexAttribPointer(
-				vertShaderLocation,
-				3, //size of attribute
-				GL_FLOAT,
-				GL_FALSE,
-				0, //stride
-				(void*)0 //Pointer to the off of the first component of the first element
-				);
-		glDrawElements(
-				GL_TRIANGLES,
-				heightMap.vertexCount, //Amount of vertices to draw
-				GL_UNSIGNED_INT,
-				(void*)0
-				);
+			glBindBuffer(GL_ARRAY_BUFFER, heightMap.id[0]);
+			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, heightMap.id[1]);
+			glEnableVertexAttribArray(vertShaderLocation);
+			glVertexAttribPointer(
+					vertShaderLocation,
+					3, //size of attribute
+					GL_FLOAT,
+					GL_FALSE,
+					0, //stride
+					(void*)0 //Pointer to the off of the first component of the first element
+					);
+			glDrawElements(
+					GL_TRIANGLES,
+					heightMap.vertexCount, //Amount of vertices to draw
+					GL_UNSIGNED_INT,
+					(void*)0
+					);
 
 		}
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);

@@ -1,4 +1,5 @@
 #include "polygon.h"
+#include <stdio.h>
 
 Polygon::Polygon(){
 
@@ -16,12 +17,13 @@ void Polygon::setIndices(GLuint indices[], unsigned int size){
 
 void Polygon::buildStatic(){
 	glGenBuffers(2, &vboID[0]);
+	printf("Array ids: %d %d\n", vboID[0], vboID[1]);
 	glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
 
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, vertexSize * sizeof(GLfloat), vertices, GL_STATIC_DRAW);
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboID[1]);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indicesSize * sizeof(GLuint), indices, GL_STATIC_DRAW);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
@@ -51,8 +53,9 @@ void Polygon::draw(){
 				GL_UNSIGNED_INT,
 				(void*)0
 				);
-
-
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+		glBindBuffer(GL_ARRAY_BUFFER, 0);
+		glDisableVertexAttribArray(vertShaderLocation);
 }
 
 Polygon::~Polygon(){
