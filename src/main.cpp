@@ -17,14 +17,12 @@ static int height = 600;
 /* Frustum configuration */
 static GLfloat view_angle = 45.0f;
 static GLfloat aspect_ratio = 4.0f/3.0f;
-static GLfloat z_near = 0.1f;
+static GLfloat z_near = 0.00001f;
 static GLfloat z_far = 100.f;
 
 
 static glm::mat4 projection_matrix;
 static glm::mat4 modelview_matrix;
-
-static glm::vec4 furthest_point;
 
 static void error_callback(int error, const char* description)
 {
@@ -70,9 +68,6 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 	}else if(key == GLFW_KEY_DOWN && action == GLFW_REPEAT && mods == GLFW_MOD_SHIFT){
 		modelview_matrix = glm::translate(modelview_matrix, glm::vec3(0.0f, 0.0f, 0.1f));
 	}
-	glm::vec4 scaledPoint = projection_matrix * modelview_matrix * furthest_point; 
-	printf("Scaled point: %f, %f, %f\n", scaledPoint[0], scaledPoint[1], scaledPoint[2]);
-
 }
 /* Creates a shader object of the specified type using the specified text
  */
@@ -232,89 +227,6 @@ static char* readfile(const char* filePath){
 	return memblock;
 }
 
-struct heightmap {
-	int verticesSize;
-	int indicesSize;
-	float* vertices;
-	int* indices;
-	int width;
-	int height;
-	int vertexCount;
-	GLuint id[2];
-};
-
-static struct heightmap createHeightMap(int width, int height){
-	struct heightmap data;
-
-	data.width = width+1;
-	data.height = height+1;
-	float squareSize = -0.1f;
-
-	data.verticesSize = 3*data.width*data.height;
-	data.indicesSize = 6*width*height;
-	data.vertices = new float[data.verticesSize];
-	data.indices = new int[data.indicesSize];
-	data.vertexCount = 6 * width * height;
-
-	/**
-	 * * * *
-	 * * * *
-	 * * * *
-	 * * * *
-	 Each vertex has 3 numbers to specifiy its height. z is always zero.
-	 We are looking at a square going from the top of the screen to the bottom.
-	 x, and y specify the position.
-	 So the vertices array is filled with x, y, 0. Position is i*3
-	 x = i * squareSize
-	 y = j * squareSize
-	 */
-	int index = 0;
-	//Fills array with points of heightmap
-	for(int i = 0; i < data.width; i++){
-		for(int j = 0; j < data.height; j++){
-			index = (i * data.height) + j;
-			data.vertices[3*index] = i * squareSize;
-			data.vertices[(3*index)+1] = j * squareSize;
-			data.vertices[(3*index)+2] = 1;
-			//printf("Index:%d\tI,J: %d.%d:\t%d, %d, %d\n", index, i, j,data.vertices[(3*index)+0],data.vertices[(3*index)+1], data.vertices[(3*index)+2]);
-
-		}
-	}
-
-	//Loop over all the squares and fill indices
-	for(int i = 0; i < width; i++){
-		for(int j = 0; j < height; j++){
-			index = (i * data.height) + j;
-			int v0 = index;
-			int v1 = ((i)*data.height) + j+1;
-			int v2 = ((i+1)*data.height) + j;
-			int v3 = ((i+1) * data.height) + j +1;
-			//First triangle
-			data.indices[index+0] = v0;
-			data.indices[index+1] = v2;
-			data.indices[index+2] = v1;
-			//Second triangle
-			data.indices[index+3] = v1;
-			data.indices[index+4] = v3;
-			data.indices[index+5] = v2;
-
-		}
-	}
-
-
-	glGenBuffers(2, &data.id[0]);
-
-	glBindBuffer(GL_ARRAY_BUFFER, data.id[0]);
-	glBufferData(GL_ARRAY_BUFFER, data.verticesSize, &data.vertices[0], GL_STATIC_DRAW);
-
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, data.id[1]);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, data.indicesSize, &data.indices[0], GL_STATIC_DRAW);
-
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-	return data;
-}
-
 int main(void)
 {
 
@@ -326,18 +238,10 @@ int main(void)
 
     /* Compute the projection matrix */
 	projection_matrix = glm::perspective(view_angle, aspect_ratio, z_near, z_far);
-	
 
     /* Set the camera position  */
 	modelview_matrix = glm::translate(modelview_matrix, glm::vec3(0.0f, 0.0f, -7.0f));
-
-	struct heightmap heightMap = createHeightMap(1,1);
-	int heightMapSize = 3 * heightMap.width * heightMap.height;
-
-	printf("Height map size: %d\n", heightMapSize);
-	printf("Furthest point: %f,%f,%f\n", heightMap.vertices[heightMapSize-3], heightMap.vertices[heightMapSize-2], heightMap.vertices[heightMapSize-1]);
-
-	furthest_point = glm::vec4(heightMap.vertices[heightMapSize-3], heightMap.vertices[heightMapSize-2], heightMap.vertices[heightMapSize-1], 1.0f);
+	modelview_matrix = glm::rotate(modelview_matrix, 0.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 
 	Polygon triangle;
 //Triangle test vertices
@@ -351,8 +255,8 @@ int main(void)
 
 	GLuint indices[] = {
 		//Front face
-		0, 2, 1,
-		1, 3, 2,
+		0, 2, 1
+		,1, 2, 3,
 
 	};
 	triangle.setVertices(vertices, sizeof(vertices) / sizeof(GLfloat));
@@ -376,38 +280,8 @@ int main(void)
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glPolygonMode(GL_FRONT, GL_FILL);
 
-		bool triangleTest = true;
-
-		if(triangleTest){	
-		//Triangle test
 		triangle.draw();
 				 
-		}else{
-			/*Heightmap*/
-
-			glBindBuffer(GL_ARRAY_BUFFER, heightMap.id[0]);
-			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, heightMap.id[1]);
-			glEnableVertexAttribArray(vertShaderLocation);
-			glVertexAttribPointer(
-					vertShaderLocation,
-					3, //size of attribute
-					GL_FLOAT,
-					GL_FALSE,
-					0, //stride
-					(void*)0 //Pointer to the off of the first component of the first element
-					);
-			glDrawElements(
-					GL_TRIANGLES,
-					heightMap.vertexCount, //Amount of vertices to draw
-					GL_UNSIGNED_INT,
-					(void*)0
-					);
-
-		}
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-		glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-		glDisableVertexAttribArray(vertShaderLocation);
         glfwSwapBuffers(window);
         glfwPollEvents();
     }

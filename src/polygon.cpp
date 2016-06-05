@@ -49,7 +49,7 @@ void Polygon::draw(){
 				);
 		glDrawElements(
 				GL_TRIANGLES,
-				6, //Amount of vertices to draw
+				indicesSize, //Amount of vertices to draw
 				GL_UNSIGNED_INT,
 				(void*)0
 				);
