@@ -3,14 +3,17 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-#include "gldebug.h"
-#include "matrixstacksingleton.h"
-#include "polygon.h"
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <fstream>
 #include <iostream>
+
+#include "gldebug.h"
+#include "matrixstacksingleton.h"
+#include "polygon.h"
+#include "logicstate.h"
+
+static struct LogicState logicState;
 
 static int width = 800;
 static int height = 600;
@@ -19,7 +22,6 @@ static GLfloat view_angle = 45.0f;
 static GLfloat aspect_ratio = 4.0f/3.0f;
 static GLfloat z_near = 0.00001f;
 static GLfloat z_far = 100.f;
-
 
 static glm::mat4 projection_matrix;
 static glm::mat4 modelview_matrix;
@@ -162,8 +164,7 @@ static GLFWwindow* CreateWindow(){
 	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
 	window = glfwCreateWindow(width, height, "Simple example", NULL, NULL);
 
-    if (!window)
-    {
+    if (!window) {
         glfwTerminate();
         exit(EXIT_FAILURE);
     }
@@ -239,33 +240,51 @@ int main(void)
     /* Compute the projection matrix */
 	projection_matrix = glm::perspective(view_angle, aspect_ratio, z_near, z_far);
 
+	logicState.modelview = modelview_matrix;
+
     /* Set the camera position  */
-	modelview_matrix = glm::translate(modelview_matrix, glm::vec3(0.0f, 0.0f, -7.0f));
-	modelview_matrix = glm::rotate(modelview_matrix, 0.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+	logicState.modelview = glm::translate(logicState.modelview, glm::vec3(0.0f, 0.0f, -7.0f));
+	logicState.modelview = glm::rotate(logicState.modelview, 0.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 
 	Polygon triangle;
+	Polygon triangle_two;
 //Triangle test vertices
-	GLfloat vertices[] = {
+	GLfloat triangle_one_vertices[] = {
 		0.0f, 0.0f, 1.0f,
 		0.0f, 0.1f, 1.0f,
 		0.1f, 0.0f, 1.0f,
-		0.1f, 0.1f, 1.0f
 			};
 
 
-	GLuint indices[] = {
+	GLuint triangle_one_indices[] = {
 		//Front face
 		0, 2, 1
-		,1, 2, 3,
-
 	};
-	triangle.setVertices(vertices, sizeof(vertices) / sizeof(GLfloat));
-	triangle.setIndices(indices, sizeof(indices) / sizeof(GLuint));
+
+	GLfloat triangle_two_vertices[] = {
+		0.0f, 0.2f, 1.0f,
+		0.2f, 0.0f, 1.0f,
+		0.2f, 0.2f, 1.0f
+	};
+
+	GLuint triangle_two_indices[] = {
+		0,1,2
+	};
+
+	triangle.setVertices(triangle_one_vertices, sizeof(triangle_one_vertices) / sizeof(GLfloat));
+	triangle.setIndices(triangle_one_indices, sizeof(triangle_one_indices) / sizeof(GLuint));
 	triangle.buildStatic();
+
+	triangle_two.setVertices(triangle_two_vertices, sizeof(triangle_two_vertices) / sizeof(GLfloat));
+	triangle_two.setIndices(triangle_two_indices, sizeof(triangle_two_indices) / sizeof(GLuint));
+	triangle_two.buildStatic();
 	
 	GLuint vertShaderLocation = glGetAttribLocation(shader_program, "vert");
 
 	triangle.setShaderLocations(vertShaderLocation);
+	triangle_two.setShaderLocations(vertShaderLocation);
+
+	triangle.translate(glm::vec3(0.0f, 0.0f, -7.0f));
 
 	glViewport(0,0,width, height);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
@@ -273,14 +292,17 @@ int main(void)
 	
     while (!glfwWindowShouldClose(window))
     {
-
-		glUniformMatrix4fv(uloc_project, 1, GL_FALSE, glm::value_ptr(projection_matrix));
-		glUniformMatrix4fv(uloc_modelview, 1, GL_FALSE, glm::value_ptr(modelview_matrix));
-
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glPolygonMode(GL_FRONT, GL_FILL);
 
+		triangle.update(&logicState);
+		triangle_two.update(&logicState);
+
+		glUniformMatrix4fv(uloc_project, 1, GL_FALSE, glm::value_ptr(projection_matrix));
+		glUniformMatrix4fv(uloc_modelview, 1, GL_FALSE, glm::value_ptr(logicState.modelview));
+
 		triangle.draw();
+		triangle_two.draw();
 				 
         glfwSwapBuffers(window);
         glfwPollEvents();

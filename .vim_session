@@ -2,12 +2,12 @@ let SessionLoad = 1
 if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
-inoremap <silent> <Plug>(neocomplete_auto_refresh) =neocomplete#mappings#refresh()
-inoremap <silent> <Plug>(neocomplete_start_manual_complete) =neocomplete#mappings#manual_complete()
-inoremap <silent> <Plug>(neocomplete_start_auto_complete) =neocomplete#mappings#auto_complete()
-inoremap <silent> <Plug>(neocomplete_start_omni_complete) 
-inoremap <silent> <expr> <Plug>(neocomplete_start_unite_quick_match) unite#sources#neocomplete#start_quick_match()
 inoremap <silent> <expr> <Plug>(neocomplete_start_unite_complete) unite#sources#neocomplete#start_complete()
+inoremap <silent> <expr> <Plug>(neocomplete_start_unite_quick_match) unite#sources#neocomplete#start_quick_match()
+inoremap <silent> <Plug>(neocomplete_start_omni_complete) 
+inoremap <silent> <Plug>(neocomplete_start_auto_complete) =neocomplete#mappings#auto_complete()
+inoremap <silent> <Plug>(neocomplete_start_manual_complete) =neocomplete#mappings#manual_complete()
+inoremap <silent> <Plug>(neocomplete_auto_refresh) =neocomplete#mappings#refresh()
 inoremap <silent> <C-Tab> =UltiSnips#ListSnippets()
 inoremap <silent> <F9> =UltiSnips#ExpandSnippet()
 nnoremap  :call ScrollUpPercent(33)
@@ -52,7 +52,6 @@ nmap    za
 xmap gx <Plug>NetrwBrowseXVis
 nnoremap <silent> gB :BuffergatorMruCycleNext
 nnoremap <silent> gb :BuffergatorMruCyclePrev
-smap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
 nmap zuz <Plug>(FastFoldUpdate)
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
@@ -97,14 +96,19 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +441 src/main.cpp
+badd +296 src/main.cpp
 badd +1 ~/.vimrc
-badd +6 src/headers/polygon.h
+badd +27 src/headers/polygon.h
 badd +4 src/headers/matrixstacksingleton.h
 badd +1 src/polygon.cpp
 badd +1 src/matrixstacksingleton.cpp
 badd +2 build_from_tmux.sh
-badd +0 run_from_tmux.sh
+badd +3 run_from_tmux.sh
+badd +8 ~/.gitignore
+badd +31 .gitignore
+badd +1 tests/matrixstacksingletontests.cpp
+badd +5 src/headers/logicstate.h
+badd +12 notes.txt
 argglobal
 silent! argdel *
 set stal=2
@@ -113,6 +117,10 @@ set splitbelow splitright
 wincmd _ | wincmd |
 split
 1wincmd k
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
 wincmd w
 wincmd _ | wincmd |
 vsplit
@@ -123,10 +131,13 @@ set nosplitright
 wincmd t
 set winheight=1 winwidth=1
 exe '1resize ' . ((&lines * 16 + 18) / 36)
+exe 'vert 1resize ' . ((&columns * 66 + 53) / 106)
 exe '2resize ' . ((&lines * 16 + 18) / 36)
-exe 'vert 2resize ' . ((&columns * 54 + 54) / 109)
+exe 'vert 2resize ' . ((&columns * 39 + 53) / 106)
 exe '3resize ' . ((&lines * 16 + 18) / 36)
-exe 'vert 3resize ' . ((&columns * 54 + 54) / 109)
+exe 'vert 3resize ' . ((&columns * 43 + 53) / 106)
+exe '4resize ' . ((&lines * 16 + 18) / 36)
+exe 'vert 4resize ' . ((&columns * 62 + 53) / 106)
 argglobal
 setlocal keymap=
 setlocal noarabic
@@ -246,35 +257,29 @@ silent! normal! zE
 52,54fold
 55,63fold
 64,72fold
-51,76fold
-77,78fold
-92,99fold
-87,100fold
-80,102fold
-104,105fold
-119,142fold
-144,147fold
-116,148fold
-150,152fold
-107,156fold
-171,174fold
-181,183fold
-198,204fold
-158,210fold
-220,230fold
-212,233fold
-235,244fold
-259,270fold
-274,281fold
-273,282fold
-286,301fold
-285,302fold
-246,316fold
-345,350fold
-353,358fold
-397,440fold
-387,447fold
-319,453fold
+51,73fold
+74,75fold
+89,96fold
+84,97fold
+77,99fold
+101,102fold
+116,139fold
+141,144fold
+113,145fold
+147,149fold
+104,153fold
+167,170fold
+177,179fold
+194,200fold
+155,206fold
+216,226fold
+208,229fold
+252,256fold
+259,262fold
+264,268fold
+270,272fold
+294,309fold
+232,315fold
 33
 normal! zo
 35
@@ -287,59 +292,177 @@ normal! zc
 normal! zo
 51
 normal! zc
-80
+77
 normal! zo
-87
+84
 normal! zo
-87
+84
 normal! zc
-80
+77
 normal! zc
-107
+104
 normal! zo
-116
+113
 normal! zo
-116
+113
 normal! zc
-107
+104
 normal! zc
-158
+155
 normal! zo
-212
-normal! zo
-212
+155
 normal! zc
-246
+208
 normal! zo
-273
-normal! zo
-273
+208
 normal! zc
-285
+232
 normal! zo
-285
-normal! zc
-246
-normal! zc
-319
+252
 normal! zo
-345
+259
 normal! zo
-353
+264
 normal! zo
-387
+270
 normal! zo
-397
+294
 normal! zo
-let s:l = 246 - ((51 * winheight(0) + 8) / 16)
+let s:l = 301 - ((9 * winheight(0) + 8) / 16)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-246
-normal! 01|
+301
+normal! 0
+lcd ~/dev/projects/terrian_prototype
 wincmd w
 argglobal
-edit src/headers/polygon.h
+edit ~/dev/projects/terrian_prototype/notes.txt
+setlocal keymap=
+setlocal noarabic
+setlocal noautoindent
+setlocal backupcopy=
+setlocal balloonexpr=
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=fb:-,fb:*
+setlocal commentstring=
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal noexpandtab
+if &filetype != 'text'
+setlocal filetype=text
+endif
+setlocal fixendofline
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+set foldmethod=syntax
+setlocal foldmethod=manual
+setlocal foldminlines=1
+set foldnestmax=3
+setlocal foldnestmax=3
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=tcq
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal lispwords=
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=bin,octal,hex
+set number
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=syntaxcomplete#Complete
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'text'
+setlocal syntax=text
+endif
+setlocal tabstop=4
+setlocal tagcase=
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal noundofile
+setlocal undolevels=-123456
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 12 - ((8 * winheight(0) + 8) / 16)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+12
+normal! 020|
+lcd ~/dev/projects/terrian_prototype
+wincmd w
+argglobal
+edit ~/dev/projects/terrian_prototype/src/headers/logicstate.h
+snoremap <buffer> <silent>  :call UltiSnips#JumpForwards()
+snoremap <buffer> <silent>  :call UltiSnips#JumpBackwards()
+inoremap <buffer> <silent>  =UltiSnips#JumpForwards()
+inoremap <buffer> <silent>  =UltiSnips#JumpBackwards()
 setlocal keymap=
 setlocal noarabic
 setlocal noautoindent
@@ -451,18 +574,19 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-5,22fold
+4,6fold
+4
+normal! zo
+let s:l = 5 - ((4 * winheight(0) + 8) / 16)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
 5
-normal! zo
-let s:l = 23 - ((13 * winheight(0) + 8) / 16)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-23
-normal! 0
+normal! 05|
+lcd ~/dev/projects/terrian_prototype
 wincmd w
 argglobal
-edit src/polygon.cpp
+edit ~/dev/projects/terrian_prototype/src/polygon.cpp
 setlocal keymap=
 setlocal noarabic
 setlocal noautoindent
@@ -501,7 +625,7 @@ setlocal filetype=cpp
 endif
 setlocal fixendofline
 setlocal foldcolumn=0
-setlocal nofoldenable
+setlocal foldenable
 setlocal foldexpr=0
 setlocal foldignore=#
 setlocal foldlevel=0
@@ -574,279 +698,30 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-3,5fold
-7,10fold
-12,15fold
-17,28fold
-30,33fold
-35,56fold
-58,60fold
-let s:l = 61 - ((14 * winheight(0) + 8) / 16)
+7,9fold
+11,14fold
+16,19fold
+21,23fold
+25,37fold
+39,42fold
+51,73fold
+75,77fold
+let s:l = 45 - ((21 * winheight(0) + 8) / 16)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-61
-normal! 0
+45
+normal! 032|
 wincmd w
 exe '1resize ' . ((&lines * 16 + 18) / 36)
+exe 'vert 1resize ' . ((&columns * 66 + 53) / 106)
 exe '2resize ' . ((&lines * 16 + 18) / 36)
-exe 'vert 2resize ' . ((&columns * 54 + 54) / 109)
+exe 'vert 2resize ' . ((&columns * 39 + 53) / 106)
 exe '3resize ' . ((&lines * 16 + 18) / 36)
-exe 'vert 3resize ' . ((&columns * 54 + 54) / 109)
-tabedit build_from_tmux.sh
-set splitbelow splitright
-wincmd _ | wincmd |
-split
-1wincmd k
-wincmd w
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-exe '1resize ' . ((&lines * 16 + 18) / 36)
-exe '2resize ' . ((&lines * 16 + 18) / 36)
-argglobal
-setlocal keymap=
-setlocal noarabic
-setlocal noautoindent
-setlocal backupcopy=
-setlocal balloonexpr=
-setlocal nobinary
-setlocal nobreakindent
-setlocal breakindentopt=
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal nocindent
-setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-setlocal colorcolumn=
-setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
-setlocal commentstring=#%s
-setlocal complete=.,w,b,u,t,i
-setlocal concealcursor=
-setlocal conceallevel=0
-setlocal completefunc=
-setlocal nocopyindent
-setlocal cryptmethod=
-setlocal nocursorbind
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal define=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=
-setlocal noexpandtab
-if &filetype != 'sh'
-setlocal filetype=sh
-endif
-setlocal fixendofline
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=0
-setlocal foldmarker={{{,}}}
-set foldmethod=syntax
-setlocal foldmethod=manual
-setlocal foldminlines=1
-set foldnestmax=3
-setlocal foldnestmax=3
-setlocal foldtext=foldtext()
-setlocal formatexpr=
-setlocal formatoptions=tcq
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal grepprg=
-setlocal iminsert=2
-setlocal imsearch=2
-setlocal include=
-setlocal includeexpr=
-setlocal indentexpr=GetShIndent()
-setlocal indentkeys=0{,0},!^F,o,O,e,0=then,0=do,0=else,0=elif,0=fi,0=esac,0=done,0=end,),0=;;,0=;&,0=fin,0=fil,0=fip,0=fir,0=fix
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
-setlocal nolinebreak
-setlocal nolisp
-setlocal lispwords=
-setlocal nolist
-setlocal makeprg=
-setlocal matchpairs=(:),{:},[:]
-setlocal modeline
-setlocal modifiable
-setlocal nrformats=bin,octal,hex
-set number
-setlocal number
-setlocal numberwidth=4
-setlocal omnifunc=syntaxcomplete#Complete
-setlocal path=
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norelativenumber
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal shiftwidth=4
-setlocal noshortname
-setlocal nosmartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal statusline=
-setlocal suffixesadd=
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != 'sh'
-setlocal syntax=sh
-endif
-setlocal tabstop=4
-setlocal tagcase=
-setlocal tags=
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal noundofile
-setlocal undolevels=-123456
-setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
-setlocal wrapmargin=0
-silent! normal! zE
-let s:l = 2 - ((1 * winheight(0) + 8) / 16)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-2
-normal! 0
-wincmd w
-argglobal
-edit run_from_tmux.sh
-setlocal keymap=
-setlocal noarabic
-setlocal noautoindent
-setlocal backupcopy=
-setlocal balloonexpr=
-setlocal nobinary
-setlocal nobreakindent
-setlocal breakindentopt=
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal nocindent
-setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-setlocal colorcolumn=
-setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
-setlocal commentstring=#%s
-setlocal complete=.,w,b,u,t,i
-setlocal concealcursor=
-setlocal conceallevel=0
-setlocal completefunc=
-setlocal nocopyindent
-setlocal cryptmethod=
-setlocal nocursorbind
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal define=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=
-setlocal noexpandtab
-if &filetype != 'sh'
-setlocal filetype=sh
-endif
-setlocal fixendofline
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=0
-setlocal foldmarker={{{,}}}
-set foldmethod=syntax
-setlocal foldmethod=manual
-setlocal foldminlines=1
-set foldnestmax=3
-setlocal foldnestmax=3
-setlocal foldtext=foldtext()
-setlocal formatexpr=
-setlocal formatoptions=tcq
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal grepprg=
-setlocal iminsert=2
-setlocal imsearch=2
-setlocal include=
-setlocal includeexpr=
-setlocal indentexpr=GetShIndent()
-setlocal indentkeys=0{,0},!^F,o,O,e,0=then,0=do,0=else,0=elif,0=fi,0=esac,0=done,0=end,),0=;;,0=;&,0=fin,0=fil,0=fip,0=fir,0=fix
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
-setlocal nolinebreak
-setlocal nolisp
-setlocal lispwords=
-setlocal nolist
-setlocal makeprg=
-setlocal matchpairs=(:),{:},[:]
-setlocal modeline
-setlocal modifiable
-setlocal nrformats=bin,octal,hex
-set number
-setlocal number
-setlocal numberwidth=4
-setlocal omnifunc=syntaxcomplete#Complete
-setlocal path=
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norelativenumber
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal shiftwidth=4
-setlocal noshortname
-setlocal nosmartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal statusline=
-setlocal suffixesadd=
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != 'sh'
-setlocal syntax=sh
-endif
-setlocal tabstop=4
-setlocal tagcase=
-setlocal tags=
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal noundofile
-setlocal undolevels=-123456
-setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
-setlocal wrapmargin=0
-silent! normal! zE
-let s:l = 3 - ((2 * winheight(0) + 8) / 16)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-3
-normal! 0
-wincmd w
-exe '1resize ' . ((&lines * 16 + 18) / 36)
-exe '2resize ' . ((&lines * 16 + 18) / 36)
-tabedit src/matrixstacksingleton.cpp
+exe 'vert 3resize ' . ((&columns * 43 + 53) / 106)
+exe '4resize ' . ((&lines * 16 + 18) / 36)
+exe 'vert 4resize ' . ((&columns * 62 + 53) / 106)
+tabedit ~/dev/projects/terrian_prototype/tests/matrixstacksingletontests.cpp
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -856,8 +731,8 @@ set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 54 + 54) / 109)
-exe 'vert 2resize ' . ((&columns * 54 + 54) / 109)
+exe 'vert 1resize ' . ((&columns * 51 + 53) / 106)
+exe 'vert 2resize ' . ((&columns * 54 + 53) / 106)
 argglobal
 setlocal keymap=
 setlocal noarabic
@@ -970,26 +845,29 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-5,9fold
-16,18fold
-15,20fold
-22,23fold
-24,27fold
-29,36fold
-38,47fold
-15
+9,11fold
+14,27fold
+28,38fold
+39,59fold
+7,61fold
+7
 normal! zo
-15
-normal! zc
-let s:l = 1 - ((0 * winheight(0) + 16) / 33)
+14
+normal! zo
+28
+normal! zo
+39
+normal! zo
+let s:l = 8 - ((3 * winheight(0) + 16) / 33)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+8
 normal! 0
+lcd ~/dev/projects/terrian_prototype
 wincmd w
 argglobal
-edit src/headers/matrixstacksingleton.h
+edit ~/dev/projects/terrian_prototype/src/headers/matrixstacksingleton.h
 setlocal keymap=
 setlocal noarabic
 setlocal noautoindent
@@ -1108,9 +986,10 @@ exe s:l
 normal! zt
 4
 normal! 0
+lcd ~/dev/projects/terrian_prototype
 wincmd w
-exe 'vert 1resize ' . ((&columns * 54 + 54) / 109)
-exe 'vert 2resize ' . ((&columns * 54 + 54) / 109)
+exe 'vert 1resize ' . ((&columns * 51 + 53) / 106)
+exe 'vert 2resize ' . ((&columns * 54 + 53) / 106)
 tabedit ~/.vimrc
 set splitbelow splitright
 set nosplitbelow

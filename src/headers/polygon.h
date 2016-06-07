@@ -1,6 +1,8 @@
 #ifndef POLYGON_H
 #define POLYGON_H
 #include <GL/glew.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 class Polygon{
 	public:
@@ -10,6 +12,9 @@ class Polygon{
 		void buildStatic();
 		void setShaderLocations(GLuint vertShaderLocation);
 		void draw();
+
+		void update(struct LogicState* state);
+		void translate(glm::vec3 moveBy);
 		~Polygon();
 
 	private:
@@ -19,6 +24,7 @@ class Polygon{
 		GLuint *indices;
 		GLuint vboID[2];
 		GLuint vertShaderLocation;
+		glm::mat4 model_matrix;
 };
 
 #endif

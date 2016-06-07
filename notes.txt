@@ -1,0 +1,19 @@
+Update & Draw cycle for polygons:
+
+Invariants:
+- The draw call needs a modelview matrix to be the combined the polygon and the camera
+- The update call must set modelview matrix and the polygon to be combined
+- The update call has to happen before the draw call
+
+Two ways:
+1.
+Call updates on all objects
+Call draw on all objects
+2. - Do this for now
+Call update on objects
+Call draw on objects
+
+Implications:
+1.
+Must have stack size for all copies of the modelview matrix
+Draws must happen in reverse order

@@ -1,8 +1,11 @@
 #include "polygon.h"
+#include "matrixstacksingleton.h"
+#include "logicstate.h"
+
 #include <stdio.h>
 
 Polygon::Polygon(){
-
+	model_matrix = glm::mat4(0.0f);
 }
 
 void Polygon::setVertices(GLfloat vertices[], unsigned int size){
@@ -13,6 +16,10 @@ void Polygon::setVertices(GLfloat vertices[], unsigned int size){
 void Polygon::setIndices(GLuint indices[], unsigned int size){
 	indicesSize = size;
 	this->indices = indices;
+}
+
+void Polygon::translate(glm::vec3 moveBy){
+	model_matrix = glm::translate(model_matrix, moveBy);
 }
 
 void Polygon::buildStatic(){
@@ -31,6 +38,13 @@ void Polygon::buildStatic(){
 
 void Polygon::setShaderLocations(GLuint vertShaderLocation){
 	this->vertShaderLocation = vertShaderLocation;
+
+}
+
+void Polygon::update(struct LogicState* state){
+	MatrixStackSingleton* instance = MatrixStackSingleton::instance();
+
+	instance->push(model_matrix);
 
 }
 
