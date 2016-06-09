@@ -11,10 +11,11 @@ class Polygon{
 		void setIndices(GLuint indices[], unsigned int size);
 		void buildStatic();
 		void setShaderLocations(GLuint vertShaderLocation);
-		void draw();
+		void draw(struct LogicState* state);
 
 		void update(struct LogicState* state);
 		void translate(glm::vec3 moveBy);
+		glm::mat4* getModelMatrix();
 		~Polygon();
 
 	private:

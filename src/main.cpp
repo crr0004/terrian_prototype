@@ -3,6 +3,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <glm/gtx/string_cast.hpp>
 #include <stdlib.h>
 #include <stdio.h>
 #include <fstream>
@@ -21,13 +22,14 @@ static int height = 600;
 static GLfloat view_angle = 45.0f;
 static GLfloat aspect_ratio = 4.0f/3.0f;
 static GLfloat z_near = 0.00001f;
-static GLfloat z_far = 100.f;
+static GLfloat z_far = 10000.f;
 
 static glm::mat4 projection_matrix;
-static glm::mat4 modelview_matrix;
 
-static void error_callback(int error, const char* description)
-{
+static Polygon triangle;
+static Polygon triangle_two;
+
+static void error_callback(int error, const char* description) {
     fputs(description, stderr);
 }
 static void check_error(){
@@ -47,34 +49,35 @@ static void check_error(){
 		//
 }
 
-static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
-{
+static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS){
         glfwSetWindowShouldClose(window, GL_TRUE);
 	}
+    if (key == GLFW_KEY_SPACE && action == GLFW_PRESS){
+		printf("Triangle 1 Model Matrix: %s\n", glm::to_string(logicState.modelview * *triangle.getModelMatrix()).c_str());
+	}
 	if(key == GLFW_KEY_LEFT && action == GLFW_REPEAT && mods == 0){
-		modelview_matrix = glm::rotate(modelview_matrix, 0.1f, glm::vec3(0.0f, -1.0f, 0.0f));
+		logicState.modelview = glm::rotate(logicState.modelview, 0.1f, glm::vec3(0.0f, -1.0f, 0.0f));
 	}else if(key == GLFW_KEY_RIGHT && action == GLFW_REPEAT && mods == 0){
-		modelview_matrix = glm::rotate(modelview_matrix, 0.1f, glm::vec3(0.0f, 1.0f, 0.0f));
+		logicState.modelview = glm::rotate(logicState.modelview, 0.1f, glm::vec3(0.0f, 1.0f, 0.0f));
 	}else if(key == GLFW_KEY_LEFT && action == GLFW_REPEAT && mods == GLFW_MOD_SHIFT){
-		modelview_matrix = glm::translate(modelview_matrix, glm::vec3(-0.1f, 0.0f, 0.0f));
+		logicState.modelview = glm::translate(logicState.modelview, glm::vec3(-0.1f, 0.0f, 0.0f));
 	}else if(key == GLFW_KEY_RIGHT && action == GLFW_REPEAT && mods == GLFW_MOD_SHIFT){
-		modelview_matrix = glm::translate(modelview_matrix, glm::vec3(0.1f, 0.0f, 0.0f));
+		logicState.modelview = glm::translate(logicState.modelview, glm::vec3(0.1f, 0.0f, 0.0f));
 	}
 	if(key == GLFW_KEY_UP && action == GLFW_REPEAT && mods == 0){
-		modelview_matrix = glm::scale(modelview_matrix, glm::vec3(0.9f,0.9f,0.9f));
+		logicState.modelview = glm::scale(logicState.modelview, glm::vec3(0.9f,0.9f,0.9f));
 	}else if(key == GLFW_KEY_DOWN && action == GLFW_REPEAT && mods == 0){
-		modelview_matrix = glm::scale(modelview_matrix, glm::vec3(1.1f,1.1f,1.1f));
+		logicState.modelview = glm::scale(logicState.modelview, glm::vec3(1.1f,1.1f,1.1f));
 	}else if(key == GLFW_KEY_UP && action == GLFW_REPEAT && mods == GLFW_MOD_SHIFT){
-		modelview_matrix = glm::translate(modelview_matrix, glm::vec3(0.0f, 0.0f, -0.1f));
+		logicState.modelview = glm::translate(logicState.modelview, glm::vec3(0.0f, 0.0f, -1.0f));
 	}else if(key == GLFW_KEY_DOWN && action == GLFW_REPEAT && mods == GLFW_MOD_SHIFT){
-		modelview_matrix = glm::translate(modelview_matrix, glm::vec3(0.0f, 0.0f, 0.1f));
+		logicState.modelview = glm::translate(logicState.modelview, glm::vec3(0.0f, 0.0f, 1.0f));
 	}
 }
 /* Creates a shader object of the specified type using the specified text
  */
-static GLuint make_shader(GLenum type, const char* text)
-{
+static GLuint make_shader(GLenum type, const char* text) {
     GLuint shader;
     GLint shader_ok;
     GLsizei log_length;
@@ -100,8 +103,7 @@ static GLuint make_shader(GLenum type, const char* text)
 
 /* Creates a program object using the specified vertex and fragment text
  */
-static GLuint make_shader_program(const char* vs_text, const char* fs_text)
-{
+static GLuint make_shader_program(const char* vs_text, const char* fs_text) {
     GLuint program = 0u;
     GLint program_ok;
     GLuint vertex_shader = 0u;
@@ -228,8 +230,7 @@ static char* readfile(const char* filePath){
 	return memblock;
 }
 
-int main(void)
-{
+int main(void) {
 
 	GLFWwindow *window = CreateWindow();
 	GLuint shader_program = make_shader_program(readfile("shaders/shader.vert"), readfile("shaders/shader.frag"));
@@ -240,19 +241,17 @@ int main(void)
     /* Compute the projection matrix */
 	projection_matrix = glm::perspective(view_angle, aspect_ratio, z_near, z_far);
 
-	logicState.modelview = modelview_matrix;
+	logicState.uloc_modelview = uloc_modelview;
 
     /* Set the camera position  */
 	logicState.modelview = glm::translate(logicState.modelview, glm::vec3(0.0f, 0.0f, -7.0f));
 	logicState.modelview = glm::rotate(logicState.modelview, 0.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 
-	Polygon triangle;
-	Polygon triangle_two;
 //Triangle test vertices
 	GLfloat triangle_one_vertices[] = {
 		0.0f, 0.0f, 1.0f,
-		0.0f, 0.1f, 1.0f,
-		0.1f, 0.0f, 1.0f,
+		0.0f, 100.0f, 1.0f,
+		100.0f, 0.0f, 1.0f,
 			};
 
 
@@ -284,25 +283,21 @@ int main(void)
 	triangle.setShaderLocations(vertShaderLocation);
 	triangle_two.setShaderLocations(vertShaderLocation);
 
-	triangle.translate(glm::vec3(0.0f, 0.0f, -7.0f));
+	triangle.translate(glm::vec3(-1.0f, 0.0f, 0.0f));
 
 	glViewport(0,0,width, height);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
 	
-    while (!glfwWindowShouldClose(window))
-    {
+    while (!glfwWindowShouldClose(window)) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glPolygonMode(GL_FRONT, GL_FILL);
+		glUniformMatrix4fv(uloc_project, 1, GL_FALSE, glm::value_ptr(projection_matrix));
 
 		triangle.update(&logicState);
+		triangle.draw(&logicState);
 		triangle_two.update(&logicState);
-
-		glUniformMatrix4fv(uloc_project, 1, GL_FALSE, glm::value_ptr(projection_matrix));
-		glUniformMatrix4fv(uloc_modelview, 1, GL_FALSE, glm::value_ptr(logicState.modelview));
-
-		triangle.draw();
-		triangle_two.draw();
+		triangle_two.draw(&logicState);
 				 
         glfwSwapBuffers(window);
         glfwPollEvents();
