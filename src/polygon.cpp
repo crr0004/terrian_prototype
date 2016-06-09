@@ -29,7 +29,6 @@ void Polygon::translate(glm::vec3 moveBy){
 
 void Polygon::buildStatic(){
 	glGenBuffers(2, &vboID[0]);
-	printf("Array ids: %d %d\n", vboID[0], vboID[1]);
 	glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
 
 	glBufferData(GL_ARRAY_BUFFER, vertexSize * sizeof(GLfloat), vertices, GL_STATIC_DRAW);
@@ -46,7 +45,7 @@ void Polygon::setShaderLocations(GLuint vertShaderLocation){
 
 }
 
-void Polygon::update(struct LogicState* state){
+void Polygon::update(struct LogicContext* state){
 	MatrixStackSingleton* instance = MatrixStackSingleton::instance();
 
 	instance->push(model_matrix);
@@ -54,7 +53,7 @@ void Polygon::update(struct LogicState* state){
 
 }
 
-void Polygon::draw(struct LogicState* state){
+void Polygon::draw(struct LogicContext* state){
 		glUniformMatrix4fv(state->uloc_modelview, 1, GL_FALSE, glm::value_ptr(model_matrix));
 		glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboID[1]);

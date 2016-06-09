@@ -2,7 +2,6 @@
 #define POLYGON_H
 #include <GL/glew.h>
 #include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
 
 class Polygon{
 	public:
@@ -11,9 +10,9 @@ class Polygon{
 		void setIndices(GLuint indices[], unsigned int size);
 		void buildStatic();
 		void setShaderLocations(GLuint vertShaderLocation);
-		void draw(struct LogicState* state);
+		void draw(struct LogicContext* state);
 
-		void update(struct LogicState* state);
+		void update(struct LogicContext* state);
 		void translate(glm::vec3 moveBy);
 		glm::mat4* getModelMatrix();
 		~Polygon();
