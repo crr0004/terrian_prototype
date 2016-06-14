@@ -30,3 +30,6 @@
 
 # Scons
 .sconsign.dblite
+
+# Documentation Directoy
+doc/
