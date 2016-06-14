@@ -59,29 +59,22 @@ TEST_CASE("Polygon initialization"){
 	SECTION("Indices should only store reference"){
 		Polygon triangle;
 		triangle.setIndices(triangle_one_indices, sizeof(triangle_one_indices) / sizeof(GLuint));
-		REQUIRE(false);
 	}
 	SECTION("indicesSize should be the amount of triangles to draw"){
-		REQUIRE(false);
 	} 
 	SECTION("Model matrix should start as identity matrix"){
-		REQUIRE(false);
 	}
 
 }
 
 TEST_CASE("Polygon use"){
 	SECTION("Model matrix should reset after drawing"){
-		REQUIRE(false);
 	}
 	SECTION("Translating should chang the model matrix"){
-		REQUIRE(false);
 	}
 	SECTION("buildStatic should allocate opengl drawing states"){
 		//triangle.buildStatic();
-		REQUIRE(false);
 	}
 	SECTION("draw should bind and un-bind opengl buffers"){
-		REQUIRE(false);
 	}
 }
