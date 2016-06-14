@@ -88,6 +88,14 @@ void Polygon::buildStatic(){
 
 }
 
+/* -------------------------------*/
+/** 
+ * @brief Sets the location vec3 in the bound shader.
+ * @TODO This really shouldn't need to exist and a shader context should exist
+ * 
+ * @Param vertShaderLocation
+ */
+/* ---------------------------------*/
 void Polygon::setShaderLocations(GLuint vertShaderLocation){
 	this->vertShaderLocation = vertShaderLocation;
 
@@ -117,7 +125,8 @@ void Polygon::update(struct LogicContext* state){
  *
  * @warning Must be directly called after update because it restores the modelview.
  * 
- * @param state @see Polygon::draw()
+ * @param state @see Polygon::draw(struct LogicContext)
+ * @TODO Should be usin a shader context rather than the logicContext
  */
 /* ---------------------------------*/
 void Polygon::draw(struct LogicContext* state){

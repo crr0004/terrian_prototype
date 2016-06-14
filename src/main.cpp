@@ -100,6 +100,24 @@ int main(void) {
 
 	triangle.translate(glm::vec3(-1.0f, 0.0f, 0.0f));
 
+//Generate a polygon made up triangles
+	struct HeightMapSettings heightMapSettings;
+	//Size of map in coordinate system
+	heightMapSettings.width = 500;
+	heightMapSettings.depth = 500;
+
+	//How many squares (really triangles*2) between map extents.
+	//500,500 means a density of 1
+	heightMapSettings.widthDensity = 500;
+	heightMapSettings.depthDensity = 500;
+
+	//Where to place the center of the map in the local coordinate system
+	heightMapSettings.origin = glm::vec3(0.0f,0.0f,0.0f);
+
+	HeightMap heightMap;
+	heightMap.build(heightMapSettings);
+	heightMap.setShaderLocations(vertShaderLocation);
+
 	glViewport(0,0,VisualContext::width, VisualContext::height);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
@@ -108,6 +126,9 @@ int main(void) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glPolygonMode(GL_FRONT, GL_FILL);
 		glUniformMatrix4fv(uloc_project, 1, GL_FALSE, glm::value_ptr(VisualContext::projection_matrix));
+
+		heightMap.update(&logicContext);
+		heightMap.draw(&logicContext);
 
 		triangle.update(&logicContext);
 		triangle.draw(&logicContext);
