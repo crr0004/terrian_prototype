@@ -19,6 +19,12 @@ void Polygon::setIndices(GLuint indices[], unsigned int size){
 	indicesSize = size;
 	this->indices = indices;
 }
+GLfloat* Polygon::getVertices(){
+	return vertices;
+}
+GLuint* Polygon::getIndices(){
+	return indices;
+}
 glm::mat4* Polygon::getModelMatrix(){
 	return &model_matrix;
 }

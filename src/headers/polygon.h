@@ -8,6 +8,8 @@ class Polygon{
 		Polygon();
 		void setVertices(GLfloat vertices[], unsigned int size);
 		void setIndices(GLuint indices[], unsigned int size);
+		GLfloat* getVertices();
+		GLuint* getIndices();
 		void buildStatic();
 		void setShaderLocations(GLuint vertShaderLocation);
 		void draw(struct LogicContext* state);
