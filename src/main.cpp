@@ -63,6 +63,28 @@ int main(void) {
 	logicContext.modelview = glm::rotate(logicContext.modelview, 0.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 
 //Triangle test vertices
+/*
+ * 	Our heightmap test will compose of the triangles: 
+ * 	Each dot is a vertex
+ * 	Arrows represent direction of edge, ? is down
+ * 	. <	.. < .
+ *  ?   ^?   ^
+ * 	. >	.. > .
+ * 	.	.
+ *
+ * 	.	.
+ *
+ */
+	GLfloat heightMapTestVertices[] = {
+		-1.0f, 1.0f,0.0f,
+		-1.0f, 0.0f,0.0f,
+		0.0f,0.0f,0.0f,
+		1.0f, 0.0f,0.0f,
+		0.0f, 1.0f,0.0f,
+		1.0f, 1.0f,0.0f,
+		0.0f, -1.0f,0.0f,
+		-1.0f, -1.0f,0.0f
+	};
 	GLfloat triangle_one_vertices[] = {
 		0.0f, 0.0f, 1.0f,
 		0.0f, 100.0f, 1.0f,
@@ -99,7 +121,7 @@ int main(void) {
 	triangle_two.setShaderLocations(vertShaderLocation);
 
 	triangle.translate(glm::vec3(-1.0f, 0.0f, 0.0f));
-
+/*
 //Generate a polygon made up triangles
 	struct HeightMapSettings heightMapSettings;
 	//Size of map in coordinate system
@@ -117,6 +139,7 @@ int main(void) {
 	HeightMap heightMap;
 	heightMap.build(heightMapSettings);
 	heightMap.setShaderLocations(vertShaderLocation);
+	*/
 
 	glViewport(0,0,VisualContext::width, VisualContext::height);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
@@ -127,13 +150,13 @@ int main(void) {
 		glPolygonMode(GL_FRONT, GL_FILL);
 		glUniformMatrix4fv(uloc_project, 1, GL_FALSE, glm::value_ptr(VisualContext::projection_matrix));
 
-		heightMap.update(&logicContext);
-		heightMap.draw(&logicContext);
+	//	heightMap.update(&logicContext);
+	//	heightMap.draw(&logicContext);
 
 		triangle.update(&logicContext);
 		triangle.draw(&logicContext);
-		triangle_two.update(&logicContext);
-		triangle_two.draw(&logicContext);
+		//triangle_two.update(&logicContext);
+		//triangle_two.draw(&logicContext);
 				 
         glfwSwapBuffers(window);
         glfwPollEvents();

@@ -2,12 +2,12 @@ let SessionLoad = 1
 if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
-inoremap <silent> <Plug>(neocomplete_auto_refresh) =neocomplete#mappings#refresh()
-inoremap <silent> <Plug>(neocomplete_start_manual_complete) =neocomplete#mappings#manual_complete()
-inoremap <silent> <Plug>(neocomplete_start_auto_complete) =neocomplete#mappings#auto_complete()
-inoremap <silent> <Plug>(neocomplete_start_omni_complete) 
-inoremap <silent> <expr> <Plug>(neocomplete_start_unite_quick_match) unite#sources#neocomplete#start_quick_match()
 inoremap <silent> <expr> <Plug>(neocomplete_start_unite_complete) unite#sources#neocomplete#start_complete()
+inoremap <silent> <expr> <Plug>(neocomplete_start_unite_quick_match) unite#sources#neocomplete#start_quick_match()
+inoremap <silent> <Plug>(neocomplete_start_omni_complete) 
+inoremap <silent> <Plug>(neocomplete_start_auto_complete) =neocomplete#mappings#auto_complete()
+inoremap <silent> <Plug>(neocomplete_start_manual_complete) =neocomplete#mappings#manual_complete()
+inoremap <silent> <Plug>(neocomplete_auto_refresh) =neocomplete#mappings#refresh()
 inoremap <silent> <C-Tab> =UltiSnips#ListSnippets()
 inoremap <silent> <F9> =UltiSnips#ExpandSnippet()
 nnoremap  :call ScrollUpPercent(33)
@@ -98,7 +98,7 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +84 src/main.cpp
+badd +103 src/main.cpp
 badd +1 ~/.vimrc
 badd +5 src/headers/polygon.h
 badd +4 src/headers/matrixstacksingleton.h
@@ -116,7 +116,7 @@ badd +11 src/headers/visualcontext.h
 badd +1 src/headers/logiccontext
 badd +5 src/headers/logiccontext.h
 badd +37 src/visualcontext.cpp
-badd +58 tests/polygontests.cpp
+badd +1 tests/polygontests.cpp
 badd +1079 Doxyfile
 argglobal
 silent! argdel *
@@ -261,8 +261,8 @@ silent! normal! zE
 73,76fold
 78,82fold
 84,86fold
-107,119fold
-48,125fold
+125,140fold
+48,146fold
 21
 normal! zo
 25
@@ -271,14 +271,14 @@ normal! zo
 normal! zc
 48
 normal! zo
-107
+125
 normal! zo
-let s:l = 103 - ((15 * winheight(0) + 8) / 16)
+let s:l = 111 - ((0 * winheight(0) + 8) / 16)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-103
-normal! 0
+111
+normal! 038|
 lcd ~/dev/projects/terrian_prototype
 wincmd w
 argglobal
@@ -394,33 +394,43 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-12,14fold
-16,17fold
-19,22fold
-24,27fold
-28,30fold
-31,33fold
-34,36fold
-38,40fold
-42,53fold
+12,30fold
+32,33fold
+37,44fold
+46,49fold
+51,53fold
 55,58fold
-60,66fold
-68,92fold
-94,96fold
-16
+59,61fold
+62,64fold
+65,67fold
+69,71fold
+74,76fold
+78,89fold
+92,97fold
+99,102fold
+105,111fold
+113,119fold
+122,130fold
+132,156fold
+158,160fold
+32
 normal! zo
-60
+37
 normal! zo
-68
+113
 normal! zo
-94
+122
 normal! zo
-let s:l = 13 - ((5 * winheight(0) + 8) / 16)
+132
+normal! zo
+158
+normal! zo
+let s:l = 103 - ((0 * winheight(0) + 8) / 16)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-13
-normal! 065|
+103
+normal! 0
 lcd ~/dev/projects/terrian_prototype
 wincmd w
 argglobal
@@ -547,7 +557,6 @@ normal! zt
 normal! 015|
 lcd ~/dev/projects/terrian_prototype
 wincmd w
-2wincmd w
 exe '1resize ' . ((&lines * 16 + 18) / 36)
 exe '2resize ' . ((&lines * 16 + 18) / 36)
 exe 'vert 2resize ' . ((&columns * 56 + 56) / 113)
@@ -677,12 +686,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1079 - ((10 * winheight(0) + 16) / 33)
+let s:l = 419 - ((18 * winheight(0) + 16) / 33)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1079
-normal! 028|
+419
+normal! 027|
 lcd ~/dev/projects/terrian_prototype
 wincmd w
 argglobal
@@ -866,7 +875,7 @@ setlocal filetype=cpp
 endif
 setlocal fixendofline
 setlocal foldcolumn=0
-setlocal nofoldenable
+setlocal foldenable
 setlocal foldexpr=0
 setlocal foldignore=#
 setlocal foldlevel=0

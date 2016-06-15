@@ -1,0 +1,42 @@
+Programatic heightmap building techniques
+
+Invariants:
+When listing all vertices, the order is not important
+Building the triangles relies on the indices
+Each vertex, expect those on the side, will have 4 indices refering. Those on the corner will have 1. Those on the sides will have 2. 
+The work will come from using shared vertices properly
+
+1.
+Deal with shared vertices as they come.
+Issue comes in as we try to insert the index in the right part of the array
+Each triangle has 3 vertices
+Can you create each triangle and then translate/rotate them to the correct position?
+So if 1,1,1 is the origin and you need another vertex counter-clockwise.
+
+1.5
+What if we consider each square rather than each triangle?
+What if we just build the inside part, as they all share 4, and then the sides & corners after?
+
+1.5.0
+Building the inside. All vertices have 4 indices refering.
+1.5.1 - Square building
+If you have i,j,k and each vertex is going to be:
+1. (i,j,k)+(0,0,0)
+2. (i,j,k)+(1,0,0)
+3. (i,j,k)+(0,1,0)
+4. (i,j,k)+(1,1,0)
+1.5.2 Positve Adjacent squares
+Moving the square (1,0,0) means the shared are
+2,4
+Moving the square (0,1,0) means the shared are
+3,4
+Moving the square (1,1,0) means the shared are
+4
+1 is shared from the previous square at (-1,-1,0)
+	Which from the reference of the other sqaure is (1,1,0)
+Bemindful that the other indices (to reach 4) come from squares around
+
+2.
+Build each triangle one at a time and create new vertices if they don't exist already
+How do you determine if a vertex already exists?
+Use a hash?
