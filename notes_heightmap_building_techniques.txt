@@ -36,6 +36,49 @@ Moving the square (1,1,0) means the shared are
 	Which from the reference of the other sqaure is (1,1,0)
 Bemindful that the other indices (to reach 4) come from squares around
 
+1.6.0
+Using the idea built upon in 1.5.0 we can extend it to a general case.
+
+If we start with the first (top left in this case) square and extend rightwards,
+we can use the first method to deal with the vertices as they come.
+
+For progressing downwards, we keep track of the first square in the row,
+then we use the same logic for going right, to go down one, then progress right.
+
+By progressing one square at a time using 1.5.0 we can know which vertices
+will be shared. The current sqaure doesn't need to know where the next shared
+index will be placed because each square gets the needed shared indices
+from the previous square.
+
+1.6.1
+If we say the origin is 0,0,0
+we need to keep track of: 
+	first square in row
+	previous square
+	square above current square
+	
+we can calculate the position of the square above us by knowing
+	how far into the current row we are,
+	how large the previous row is,
+	that each square takes 6 indices
+Then we want to be a sqaure.
+
+we progress from bottom left, right, up, then, left, down, we've built a square.
+we've moved right from the previous square, so all the points on the left edge are shared.
+all the edges on the top are also shared from the previous row.
+We know a vertex doesn't exist when we try to access a non-valid point in the
+previous indices.
+
+so if we say indicesArray is all the current indices
+verticesArray is all the curret vertices
+loop
+index 0. previous square, index 0
+index 1. vertex of index 0 + (1,0,0)
+index 2. previous row, above square, index 1
+index 3. index 2
+index 4. previous row, above square, index 0
+index 5. index 0
+
 2.
 Build each triangle one at a time and create new vertices if they don't exist already
 How do you determine if a vertex already exists?
