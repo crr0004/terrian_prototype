@@ -70,6 +70,10 @@ void Polygon::translate(glm::vec3 moveBy){
 	model_matrix = glm::translate(model_matrix, moveBy);
 }
 
+void Polygon::rotate(glm::vec3 rotateAround, float rotateBy){
+	model_matrix = glm::rotate(model_matrix, rotateBy, rotateAround);
+}
+
 /* -------------------------------*/
 /** 
  * @brief Builds the parts needed to draw static indexed triangles

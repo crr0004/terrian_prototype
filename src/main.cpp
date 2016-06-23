@@ -10,6 +10,7 @@
 #include "polygon.h"
 #include "logiccontext.h"
 #include "visualcontext.h"
+#include "heightmap.h"
 
 static struct LogicContext logicContext;
 
@@ -25,22 +26,18 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
     if (key == GLFW_KEY_SPACE && action == GLFW_PRESS){
 		printf("Triangle 1 Model Matrix: %s\n", glm::to_string(logicContext.modelview * *triangle.getModelMatrix()).c_str());
 	}
-	if(key == GLFW_KEY_LEFT && action == GLFW_REPEAT && mods == 0){
+	if(key == GLFW_KEY_LEFT && action == GLFW_REPEAT && mods == GLFW_MOD_SHIFT){
 		logicContext.modelview = glm::rotate(logicContext.modelview, 0.1f, glm::vec3(0.0f, -1.0f, 0.0f));
-	}else if(key == GLFW_KEY_RIGHT && action == GLFW_REPEAT && mods == 0){
-		logicContext.modelview = glm::rotate(logicContext.modelview, 0.1f, glm::vec3(0.0f, 1.0f, 0.0f));
-	}else if(key == GLFW_KEY_LEFT && action == GLFW_REPEAT && mods == GLFW_MOD_SHIFT){
-		logicContext.modelview = glm::translate(logicContext.modelview, glm::vec3(-0.1f, 0.0f, 0.0f));
 	}else if(key == GLFW_KEY_RIGHT && action == GLFW_REPEAT && mods == GLFW_MOD_SHIFT){
+		logicContext.modelview = glm::rotate(logicContext.modelview, 0.1f, glm::vec3(0.0f, 1.0f, 0.0f));
+	}else if(key == GLFW_KEY_LEFT && action == GLFW_REPEAT && mods == 0){
+		logicContext.modelview = glm::translate(logicContext.modelview, glm::vec3(-0.1f, 0.0f, 0.0f));
+	}else if(key == GLFW_KEY_RIGHT && action == GLFW_REPEAT && mods == 0){
 		logicContext.modelview = glm::translate(logicContext.modelview, glm::vec3(0.1f, 0.0f, 0.0f));
 	}
 	if(key == GLFW_KEY_UP && action == GLFW_REPEAT && mods == 0){
-		logicContext.modelview = glm::scale(logicContext.modelview, glm::vec3(0.9f,0.9f,0.9f));
-	}else if(key == GLFW_KEY_DOWN && action == GLFW_REPEAT && mods == 0){
-		logicContext.modelview = glm::scale(logicContext.modelview, glm::vec3(1.1f,1.1f,1.1f));
-	}else if(key == GLFW_KEY_UP && action == GLFW_REPEAT && mods == GLFW_MOD_SHIFT){
 		logicContext.modelview = glm::translate(logicContext.modelview, glm::vec3(0.0f, 0.0f, -1.0f));
-	}else if(key == GLFW_KEY_DOWN && action == GLFW_REPEAT && mods == GLFW_MOD_SHIFT){
+	}else if(key == GLFW_KEY_DOWN && action == GLFW_REPEAT && mods == 0){
 		logicContext.modelview = glm::translate(logicContext.modelview, glm::vec3(0.0f, 0.0f, 1.0f));
 	}
 }
@@ -85,6 +82,7 @@ int main(void) {
 		0.0f, -1.0f,0.0f,
 		-1.0f, -1.0f,0.0f
 	};
+	/*
 	GLfloat triangle_one_vertices[] = {
 		0.0f, 0.0f, 1.0f,
 		0.0f, 100.0f, 1.0f,
@@ -96,6 +94,43 @@ int main(void) {
 		//Front face
 		0, 2, 1
 	};
+	*/
+	HeightmapName::HeightmapSettings heightmapSettings;
+
+	heightmapSettings.widthDensity = 1;
+	heightmapSettings.origin = glm::vec3(0.0f, 2.0f, -2.0f);
+	
+	HeightmapName::Heightmap heightmap;
+	heightmap.build(heightmapSettings);
+	GLfloat vertices[12];
+	GLuint indices[6];
+
+	/*
+	float squareOrigin[] = {0.0f, 2.0f, -2.0f};
+
+	vertices[0] = squareOrigin[0];
+	vertices[1] = squareOrigin[1];
+	vertices[2] = squareOrigin[2];
+
+	vertices[3] = squareOrigin[0] + 1.0f;
+	vertices[4] = squareOrigin[1] + 0.0f;
+	vertices[5] = squareOrigin[2] + 0.0f;
+
+	vertices[6] = squareOrigin[0] + 1.0f;
+	vertices[7] = squareOrigin[1] + 0.0f;
+	vertices[8] = squareOrigin[2] + 1.0f;
+
+	vertices[9] = squareOrigin[0] + 0.0f;
+	vertices[10] = squareOrigin[1] + 0.0f;
+	vertices[11] = squareOrigin[2] + 1.0f;
+
+	indices[0] = 0;
+	indices[1] = 1;
+	indices[2] = 2;
+	indices[3] = 2;
+	indices[4] = 3;
+	indices[5] = 0;
+	*/
 
 	GLfloat triangle_two_vertices[] = {
 		0.0f, 0.2f, 1.0f,
@@ -107,8 +142,8 @@ int main(void) {
 		0,1,2
 	};
 
-	triangle.setVertices(triangle_one_vertices, sizeof(triangle_one_vertices) / sizeof(GLfloat));
-	triangle.setIndices(triangle_one_indices, sizeof(triangle_one_indices) / sizeof(GLuint));
+	triangle.setVertices(vertices, sizeof(vertices) / sizeof(GLfloat));
+	triangle.setIndices(indices, sizeof(indices) / sizeof(GLuint));
 	triangle.buildStatic();
 
 	triangle_two.setVertices(triangle_two_vertices, sizeof(triangle_two_vertices) / sizeof(GLfloat));
@@ -119,27 +154,9 @@ int main(void) {
 
 	triangle.setShaderLocations(vertShaderLocation);
 	triangle_two.setShaderLocations(vertShaderLocation);
+	heightmap.setShaderLocations(vertShaderLocation);
 
 	triangle.translate(glm::vec3(-1.0f, 0.0f, 0.0f));
-/*
-//Generate a polygon made up triangles
-	struct HeightMapSettings heightMapSettings;
-	//Size of map in coordinate system
-	heightMapSettings.width = 500;
-	heightMapSettings.depth = 500;
-
-	//How many squares (really triangles*2) between map extents.
-	//500,500 means a density of 1
-	heightMapSettings.widthDensity = 500;
-	heightMapSettings.depthDensity = 500;
-
-	//Where to place the center of the map in the local coordinate system
-	heightMapSettings.origin = glm::vec3(0.0f,0.0f,0.0f);
-
-	HeightMap heightMap;
-	heightMap.build(heightMapSettings);
-	heightMap.setShaderLocations(vertShaderLocation);
-	*/
 
 	glViewport(0,0,VisualContext::width, VisualContext::height);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
@@ -150,11 +167,10 @@ int main(void) {
 		glPolygonMode(GL_FRONT, GL_FILL);
 		glUniformMatrix4fv(uloc_project, 1, GL_FALSE, glm::value_ptr(VisualContext::projection_matrix));
 
-	//	heightMap.update(&logicContext);
-	//	heightMap.draw(&logicContext);
-
-		triangle.update(&logicContext);
-		triangle.draw(&logicContext);
+//		triangle.update(&logicContext);
+//		triangle.draw(&logicContext);
+		heightmap.update(&logicContext);
+		heightmap.draw(&logicContext);
 		//triangle_two.update(&logicContext);
 		//triangle_two.draw(&logicContext);
 				 

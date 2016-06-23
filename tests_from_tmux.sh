@@ -4,3 +4,4 @@ then
 	rm "./Tests_Terrian.bin"
 fi
 scons debug=3 --tests
+./Tests_Terrian.bin

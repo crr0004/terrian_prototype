@@ -1,7 +1,9 @@
 #ifndef HEIGHTMAP_H
-#define HEIGHTMAP_H 1
+#define HEIGHTMAP_H
 #include <glm/glm.hpp>
-namespace Heightmap{
+#include "logiccontext.h"
+#include "polygon.h"
+namespace HeightmapName{
 	struct HeightmapSettings{
 		int	width; //how large is the map
 		int depth;
@@ -13,8 +15,14 @@ namespace Heightmap{
 	class Heightmap{
 		public:
 			Heightmap();
-			void build(struct HeightMapSettings settings);
-			void draw();
+			void build(HeightmapSettings settings);
+			void draw(LogicContext* state);
+			void update(LogicContext* state);
+			void setShaderLocations(GLuint vertShaderLocation);
+		protected:
+			void foo(){};
+		private:
+			Polygon polygon;
 
 	};
 }

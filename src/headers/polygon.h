@@ -16,6 +16,7 @@ class Polygon{
 
 		void update(struct LogicContext* state);
 		void translate(glm::vec3 moveBy);
+		void rotate(glm::vec3 rotateAround, float rotateBy);
 		glm::mat4* getModelMatrix();
 		~Polygon();
 
