@@ -97,10 +97,10 @@ int main(void) {
 	*/
 	HeightmapName::HeightmapSettings heightmapSettings;
 
-	heightmapSettings.widthDensity = 1;
+	heightmapSettings.widthDensity = 3;
 	heightmapSettings.origin = glm::vec3(0.0f, 2.0f, -2.0f);
 	
-	HeightmapName::Heightmap heightmap;
+	HeightmapName::Heightmap heightmap(heightmapSettings);
 	heightmap.build(heightmapSettings);
 	GLfloat vertices[12];
 	GLuint indices[6];
@@ -144,11 +144,11 @@ int main(void) {
 
 	triangle.setVertices(vertices, sizeof(vertices) / sizeof(GLfloat));
 	triangle.setIndices(indices, sizeof(indices) / sizeof(GLuint));
-	triangle.buildStatic();
+	//triangle.buildStatic();
 
 	triangle_two.setVertices(triangle_two_vertices, sizeof(triangle_two_vertices) / sizeof(GLfloat));
 	triangle_two.setIndices(triangle_two_indices, sizeof(triangle_two_indices) / sizeof(GLuint));
-	triangle_two.buildStatic();
+	//triangle_two.buildStatic();
 	
 	GLuint vertShaderLocation = glGetAttribLocation(shader_program, "vert");
 

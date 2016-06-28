@@ -80,6 +80,8 @@ void Polygon::rotate(glm::vec3 rotateAround, float rotateBy){
  */
 /* ---------------------------------*/
 void Polygon::buildStatic(){
+	printf("Drawing %d vertices\n", vertexSize /3);
+	printf("Drawing %d indices\nSize of GLuint %d\n", indicesSize, sizeof(GLuint));
 	glGenBuffers(2, &vboID[0]);
 	glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
 

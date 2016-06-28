@@ -65,7 +65,7 @@ xnoremap <silent> <F9> :call UltiSnips#SaveLastVisualSelection()gvs
 snoremap <silent> <F9> :call UltiSnips#ExpandSnippet()
 map <F5> !~/dirtags % & 
 map <F4> :lgrep -e " . expand("<cword>") . " "
-noremap <F3> :!(cd %:p:h && ctags --language-force=C++ -R -f .tags)
+noremap <F3> :!(cd %:p:h && ctags -R -f .tags)
 noremap <F11> :source ./.vim_session
 noremap <F2> :mksession! ./.vim_session
 nmap <F8> :TagbarToggle " Turns TagbarToggllet g:DoxygenToolkit_briefTag_pre="@Synopsis  "
@@ -77,7 +77,7 @@ set background=dark
 set backspace=indent,eol,start
 set balloonexpr=SyntasticBalloonsExprNotifier()
 set comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
-set completeopt=preview,menuone,noselect
+set completeopt=menuone
 set fileencodings=ucs-bom,utf-8,latin1
 set grepprg=grep\ -rnEI\ --exclude-dir=.git\ $*\ /dev/null
 set guicursor=n-v-c:block-Cursor/lCursor,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175,a:blinkon0
@@ -98,7 +98,7 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +198 src/main.cpp
+badd +86 src/main.cpp
 badd +1 ~/.vimrc
 badd +1 src/headers/polygon.h
 badd +4 src/headers/matrixstacksingleton.h
@@ -119,9 +119,10 @@ badd +37 src/visualcontext.cpp
 badd +2 tests/polygontests.cpp
 badd +419 Doxyfile
 badd +71 notes_heightmap_building_techniques.txt
-badd +5 src/heightmap.cpp
-badd +1 src/headers/heightmap.h
-badd +3 tests/heightmaptests.cpp
+badd +147 src/heightmap.cpp
+badd +2 src/headers/heightmap.h
+badd +5 tests/heightmaptests.cpp
+badd +7 .git/COMMIT_EDITMSG
 argglobal
 silent! argdel *
 set stal=2
@@ -256,36 +257,48 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-28,32fold
-26,45fold
-6,8fold
-10,13fold
-15,18fold
-20,23fold
-63,84fold
-25,89fold
-6
+9,15fold
+17,20fold
+22,25fold
+27,30fold
+32,34fold
+36,39fold
+41,45fold
+47,50fold
+52,57fold
+136,192fold
+134,205fold
+58,212fold
+9
 normal! zo
-26
+17
 normal! zo
-28
+22
 normal! zo
-10
+27
 normal! zo
-15
+32
 normal! zo
-20
+36
 normal! zo
-25
+41
 normal! zo
-63
+47
 normal! zo
-let s:l = 25 - ((13 * winheight(0) + 8) / 16)
+52
+normal! zo
+58
+normal! zo
+134
+normal! zo
+136
+normal! zo
+let s:l = 171 - ((14 * winheight(0) + 8) / 16)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-25
-normal! 045|
+171
+normal! 028|
 lcd ~/dev/projects/terrian_prototype
 wincmd w
 argglobal
@@ -412,23 +425,32 @@ silent! normal! zE
 108,133fold
 135,139fold
 141,143fold
-160,178fold
-184,201fold
-45,207fold
+165,179fold
+45,185fold
 22
 normal! zo
 45
 normal! zo
-184
+63
 normal! zo
-45
-normal! zc
-let s:l = 45 - ((26 * winheight(0) + 8) / 16)
+75
+normal! zo
+85
+normal! zo
+108
+normal! zo
+135
+normal! zo
+141
+normal! zo
+165
+normal! zo
+let s:l = 101 - ((5 * winheight(0) + 8) / 16)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-45
-normal! 01|
+101
+normal! 0
 lcd ~/dev/projects/terrian_prototype
 wincmd w
 argglobal
@@ -545,23 +567,22 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 7,13fold
-15,27fold
-6,28fold
+15,37fold
+6,38fold
 6
 normal! zo
 7
 normal! zo
 15
 normal! zo
-let s:l = 21 - ((11 * winheight(0) + 8) / 16)
+let s:l = 31 - ((10 * winheight(0) + 8) / 16)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-21
-normal! 063|
+31
+normal! 012|
 lcd ~/dev/projects/terrian_prototype
 wincmd w
-2wincmd w
 exe '1resize ' . ((&lines * 16 + 18) / 36)
 exe '2resize ' . ((&lines * 16 + 18) / 36)
 exe 'vert 2resize ' . ((&columns * 57 + 56) / 112)
@@ -698,13 +719,15 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-3,5fold
-let s:l = 3 - ((2 * winheight(0) + 16) / 33)
+4,5fold
+4
+normal! zo
+let s:l = 5 - ((4 * winheight(0) + 16) / 33)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-3
-normal! 01|
+5
+normal! 0
 lcd ~/dev/projects/terrian_prototype
 wincmd w
 argglobal
@@ -963,19 +986,19 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 7,13fold
-15,27fold
-6,28fold
+15,37fold
+6,38fold
 6
 normal! zo
 7
 normal! zo
 15
 normal! zo
-let s:l = 19 - ((10 * winheight(0) + 8) / 16)
+let s:l = 21 - ((12 * winheight(0) + 8) / 16)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-19
+21
 normal! 025|
 lcd ~/dev/projects/terrian_prototype
 wincmd w
@@ -984,7 +1007,7 @@ exe '2resize ' . ((&lines * 16 + 18) / 36)
 exe 'vert 2resize ' . ((&columns * 56 + 56) / 112)
 exe '3resize ' . ((&lines * 16 + 18) / 36)
 exe 'vert 3resize ' . ((&columns * 56 + 56) / 112)
-tabedit ~/dev/projects/terrian_prototype/src/main.cpp
+tabedit ~/dev/projects/terrian_prototype/src/visualcontext.cpp
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -1102,38 +1125,62 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-23,25fold
-26,28fold
-29,37fold
-38,42fold
-22,43fold
-63,74fold
-75,84fold
-85,89fold
-92,95fold
-97,105fold
-107,109fold
-125,143fold
-149,165fold
-45,171fold
+17,19fold
+25,31fold
+22,33fold
+20,35fold
+37,38fold
+51,58fold
+46,59fold
+39,61fold
+63,64fold
+79,102fold
+104,107fold
+76,108fold
+110,112fold
+65,116fold
+130,133fold
+140,142fold
+157,163fold
+118,169fold
+179,189fold
+171,192fold
+20
+normal! zo
 22
 normal! zo
 22
 normal! zc
-45
+20
+normal! zc
+39
 normal! zo
-85
+46
 normal! zo
-92
+46
+normal! zc
+39
+normal! zc
+65
 normal! zo
-125
+76
 normal! zo
-let s:l = 86 - ((26 * winheight(0) + 17) / 34)
+76
+normal! zc
+65
+normal! zc
+118
+normal! zo
+171
+normal! zo
+171
+normal! zc
+let s:l = 118 - ((0 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-86
-normal! 0
+118
+normal! 065|
 lcd ~/dev/projects/terrian_prototype
 tabedit ~/dev/projects/terrian_prototype/notes_heightmap_building_techniques.txt
 set splitbelow splitright
@@ -2031,9 +2078,9 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-136,142fold
-143,146fold
-147,150fold
+139,145fold
+146,149fold
+150,153fold
 let s:l = 32 - ((9 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l

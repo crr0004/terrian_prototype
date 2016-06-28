@@ -15,14 +15,24 @@ namespace HeightmapName{
 	class Heightmap{
 		public:
 			Heightmap();
+			~Heightmap();
+			Heightmap(HeightmapSettings settings);
 			void build(HeightmapSettings settings);
 			void draw(LogicContext* state);
 			void update(LogicContext* state);
 			void setShaderLocations(GLuint vertShaderLocation);
 		protected:
-			void foo(){};
+			void addVertex(float vertex);
+			void addVertex(float v1, float v2, float v3);
+			void addIndex(unsigned int index);
 		private:
 			Polygon polygon;
+			int verticesPosition;
+			int indicesPosition;
+			int squareCount;
+			HeightmapSettings* settings;
+			GLfloat* vertices;
+			GLuint* indices;
 
 	};
 }
