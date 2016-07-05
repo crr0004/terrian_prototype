@@ -97,8 +97,8 @@ int main(void) {
 	*/
 	HeightmapName::HeightmapSettings heightmapSettings;
 
-	heightmapSettings.widthDensity = 3;
-	heightmapSettings.origin = glm::vec3(0.0f, 2.0f, -2.0f);
+	heightmapSettings.widthDensity = 600;
+	heightmapSettings.origin = glm::vec3(0.0f, 0.0f, 0.0f);
 	
 	HeightmapName::Heightmap heightmap(heightmapSettings);
 	heightmap.build(heightmapSettings);

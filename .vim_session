@@ -2,12 +2,12 @@ let SessionLoad = 1
 if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
-inoremap <silent> <expr> <Plug>(neocomplete_start_unite_complete) unite#sources#neocomplete#start_complete()
-inoremap <silent> <expr> <Plug>(neocomplete_start_unite_quick_match) unite#sources#neocomplete#start_quick_match()
-inoremap <silent> <Plug>(neocomplete_start_omni_complete) 
-inoremap <silent> <Plug>(neocomplete_start_auto_complete) =neocomplete#mappings#auto_complete()
-inoremap <silent> <Plug>(neocomplete_start_manual_complete) =neocomplete#mappings#manual_complete()
 inoremap <silent> <Plug>(neocomplete_auto_refresh) =neocomplete#mappings#refresh()
+inoremap <silent> <Plug>(neocomplete_start_manual_complete) =neocomplete#mappings#manual_complete()
+inoremap <silent> <Plug>(neocomplete_start_auto_complete) =neocomplete#mappings#auto_complete()
+inoremap <silent> <Plug>(neocomplete_start_omni_complete) 
+inoremap <silent> <expr> <Plug>(neocomplete_start_unite_quick_match) unite#sources#neocomplete#start_quick_match()
+inoremap <silent> <expr> <Plug>(neocomplete_start_unite_complete) unite#sources#neocomplete#start_complete()
 inoremap <silent> <C-Tab> =UltiSnips#ListSnippets()
 inoremap <silent> <F9> =UltiSnips#ExpandSnippet()
 nnoremap  :call ScrollUpPercent(33)
@@ -52,7 +52,6 @@ nmap    za
 xmap gx <Plug>NetrwBrowseXVis
 nnoremap <silent> gB :BuffergatorMruCycleNext
 nnoremap <silent> gb :BuffergatorMruCyclePrev
-smap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
 nmap zuz <Plug>(FastFoldUpdate)
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
@@ -99,7 +98,7 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +86 src/main.cpp
-badd +1 ~/.vimrc
+badd +32 ~/.vimrc
 badd +1 src/headers/polygon.h
 badd +4 src/headers/matrixstacksingleton.h
 badd +103 src/polygon.cpp
@@ -115,11 +114,11 @@ badd +2 tests_from_tmux.sh
 badd +11 src/headers/visualcontext.h
 badd +1 src/headers/logiccontext
 badd +5 src/headers/logiccontext.h
-badd +37 src/visualcontext.cpp
+badd +117 src/visualcontext.cpp
 badd +2 tests/polygontests.cpp
 badd +419 Doxyfile
 badd +71 notes_heightmap_building_techniques.txt
-badd +147 src/heightmap.cpp
+badd +171 src/heightmap.cpp
 badd +2 src/headers/heightmap.h
 badd +5 tests/heightmaptests.cpp
 badd +7 .git/COMMIT_EDITMSG
@@ -263,12 +262,13 @@ silent! normal! zE
 27,30fold
 32,34fold
 36,39fold
-41,45fold
-47,50fold
-52,57fold
-136,192fold
-134,205fold
-58,212fold
+41,46fold
+48,52fold
+54,59fold
+111,142fold
+148,210fold
+144,213fold
+60,221fold
 9
 normal! zo
 17
@@ -283,22 +283,24 @@ normal! zo
 normal! zo
 41
 normal! zo
-47
+48
 normal! zo
-52
+54
 normal! zo
-58
+60
 normal! zo
-134
+111
 normal! zo
-136
+144
 normal! zo
-let s:l = 171 - ((14 * winheight(0) + 8) / 16)
+148
+normal! zo
+let s:l = 208 - ((13 * winheight(0) + 8) / 16)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-171
-normal! 028|
+208
+normal! 02|
 lcd ~/dev/projects/terrian_prototype
 wincmd w
 argglobal
@@ -445,12 +447,12 @@ normal! zo
 normal! zo
 165
 normal! zo
-let s:l = 101 - ((5 * winheight(0) + 8) / 16)
+let s:l = 100 - ((2 * winheight(0) + 8) / 16)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-101
-normal! 0
+100
+normal! 038|
 lcd ~/dev/projects/terrian_prototype
 wincmd w
 argglobal
@@ -994,11 +996,11 @@ normal! zo
 normal! zo
 15
 normal! zo
-let s:l = 21 - ((12 * winheight(0) + 8) / 16)
+let s:l = 27 - ((12 * winheight(0) + 8) / 16)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-21
+27
 normal! 025|
 lcd ~/dev/projects/terrian_prototype
 wincmd w
@@ -1007,7 +1009,7 @@ exe '2resize ' . ((&lines * 16 + 18) / 36)
 exe 'vert 2resize ' . ((&columns * 56 + 56) / 112)
 exe '3resize ' . ((&lines * 16 + 18) / 36)
 exe 'vert 3resize ' . ((&columns * 56 + 56) / 112)
-tabedit ~/dev/projects/terrian_prototype/src/visualcontext.cpp
+tabedit ~/dev/projects/terrian_prototype/src/polygon.cpp
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -1125,62 +1127,36 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-17,19fold
-25,31fold
-22,33fold
-20,35fold
-37,38fold
-51,58fold
-46,59fold
-39,61fold
-63,64fold
-79,102fold
-104,107fold
-76,108fold
-110,112fold
-65,116fold
-130,133fold
-140,142fold
-157,163fold
-118,169fold
-179,189fold
-171,192fold
-20
-normal! zo
-22
-normal! zo
-22
-normal! zc
-20
-normal! zc
-39
-normal! zo
+12,30fold
+32,33fold
+37,44fold
+46,49fold
+51,53fold
+55,58fold
+59,61fold
+62,64fold
+65,67fold
+69,71fold
+73,75fold
+78,80fold
+82,95fold
+98,103fold
+105,108fold
+111,117fold
+119,125fold
+128,136fold
+138,162fold
+164,166fold
 46
 normal! zo
-46
-normal! zc
-39
-normal! zc
-65
+82
 normal! zo
-76
-normal! zo
-76
-normal! zc
-65
-normal! zc
-118
-normal! zo
-171
-normal! zo
-171
-normal! zc
-let s:l = 118 - ((0 * winheight(0) + 17) / 34)
+let s:l = 83 - ((37 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-118
-normal! 065|
+83
+normal! 049|
 lcd ~/dev/projects/terrian_prototype
 tabedit ~/dev/projects/terrian_prototype/notes_heightmap_building_techniques.txt
 set splitbelow splitright
@@ -1940,7 +1916,7 @@ if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 3
-normal! 020|
+normal! 0
 lcd ~/dev/projects/terrian_prototype
 wincmd w
 exe '1resize ' . ((&lines * 16 + 18) / 36)
@@ -1948,25 +1924,13 @@ exe '2resize ' . ((&lines * 16 + 18) / 36)
 exe 'vert 2resize ' . ((&columns * 54 + 56) / 112)
 exe '3resize ' . ((&lines * 16 + 18) / 36)
 exe 'vert 3resize ' . ((&columns * 57 + 56) / 112)
-tabedit ~/.vimrc
+tabedit ~/.gitignore
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
 argglobal
-vnoremap <buffer> <silent> [" :exe "normal! gv"|call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
-nnoremap <buffer> <silent> [" :call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
-vnoremap <buffer> <silent> [] m':exe "normal! gv"|call search('^\s*endf*\%[unction]\>', "bW")
-nnoremap <buffer> <silent> [] m':call search('^\s*endf*\%[unction]\>', "bW")
-vnoremap <buffer> <silent> [[ m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "bW")
-nnoremap <buffer> <silent> [[ m':call search('^\s*fu\%[nction]\>', "bW")
-vnoremap <buffer> <silent> ]" :exe "normal! gv"|call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
-nnoremap <buffer> <silent> ]" :call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
-vnoremap <buffer> <silent> ][ m':exe "normal! gv"|call search('^\s*endf*\%[unction]\>', "W")
-nnoremap <buffer> <silent> ][ m':call search('^\s*endf*\%[unction]\>', "W")
-vnoremap <buffer> <silent> ]] m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "W")
-nnoremap <buffer> <silent> ]] m':call search('^\s*fu\%[nction]\>', "W")
 setlocal keymap=
 setlocal noarabic
 setlocal noautoindent
@@ -1983,8 +1947,8 @@ setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=sO:\"\ -,mO:\"\ \ ,eO:\"\",:\"
-setlocal commentstring=\"%s
+setlocal comments=:#
+setlocal commentstring=#\ %s
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
@@ -2000,8 +1964,8 @@ setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal noexpandtab
-if &filetype != 'vim'
-setlocal filetype=vim
+if &filetype != 'conf'
+setlocal filetype=conf
 endif
 setlocal fixendofline
 setlocal foldcolumn=0
@@ -2024,10 +1988,10 @@ setlocal iminsert=2
 setlocal imsearch=2
 setlocal include=
 setlocal includeexpr=
-setlocal indentexpr=GetVimIndent()
-setlocal indentkeys=0{,0},:,0#,!^F,o,O,e,=end,=else,=cat,=fina,=END,0\\
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
 setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255,#
+setlocal iskeyword=@,48-57,_,192-255
 setlocal keywordprg=
 setlocal nolinebreak
 setlocal nolisp
@@ -2063,13 +2027,13 @@ setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'vim'
-setlocal syntax=vim
+if &syntax != 'conf'
+setlocal syntax=conf
 endif
 setlocal tabstop=4
 setlocal tagcase=
 setlocal tags=
-setlocal textwidth=78
+setlocal textwidth=0
 setlocal thesaurus=
 setlocal noundofile
 setlocal undolevels=-123456
@@ -2078,15 +2042,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-139,145fold
-146,149fold
-150,153fold
-let s:l = 32 - ((9 * winheight(0) + 17) / 34)
+let s:l = 10 - ((9 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-32
-normal! 055|
+10
+normal! 05|
 lcd ~/dev/projects/terrian_prototype
 tabnext 1
 set stal=1

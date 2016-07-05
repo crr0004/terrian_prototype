@@ -8,9 +8,23 @@ Heightmap::Heightmap(){}
 
 Heightmap::Heightmap(HeightmapSettings settings){
 	squareCount = settings.widthDensity*settings.widthDensity;
-	//@TODO: these should be allocated outside here
+	//@TODO: this is allocating too much
 	vertices = new GLfloat[3*4*squareCount]; //3 is elements. 4 is for square
 	indices = new GLuint[2*3*squareCount];//2 triangles per square, 3 indices per triangle
+
+}
+
+/* -------------------------------*/
+/** 
+ * @brief Sets the vertices and indices of the heightmap manually. Really only ever used for testing
+ * 
+ * @Param vertices
+ * @Param indices
+ */
+/* ---------------------------------*/
+Heightmap::Heightmap(GLfloat* vertices, GLuint* indices){
+	this->vertices = vertices;
+	this->indices = indices;
 
 }
 
@@ -39,14 +53,12 @@ void Heightmap::addVertex(float vertex){
 }
 
 void Heightmap::addVertex(float v1, float v2, float v3){
-	printf("Adding %f %f %f vertices\n", v1, v2, v3);
 	addVertex(v1);
 	addVertex(v2);
 	addVertex(v3);
 }
 
 void Heightmap::addIndex(unsigned int index){
-	printf("Adding %d index\n", index);
 	indices[indicesPosition] = index;
 	indicesPosition++;
 }
@@ -200,12 +212,20 @@ void Heightmap::build(HeightmapSettings settings){
 			//Internal squares (surronded on each side)
 			//Shared vertices: bottom left, top right, top left
 			//New: bottom right
-//			squareOrigin *= moveRight;
-//			addVertex(squareOrigin[0] + 1.0f, squareOrigin[1], squareOrigin[2]);
-//			newestVertexIndex++;
-////
-//			addIndex(previousSquare.bottomRightIndex);
-//			addIndex(newestVertexIndex);
+			squareOrigin += moveRight;
+			addVertex(squareOrigin[0] + 1.0f, squareOrigin[1], squareOrigin[2]);
+			newestVertexIndex++;
+			int squareAboveNumber = (i-settings.widthDensity)+1;
+			addIndex(previousSquare.bottomRightIndex);
+			addIndex(newestVertexIndex);
+			addIndex(getIndexOfSquareVertex(squareAboveNumber, 2));
+			addIndex(getIndexOfSquareVertex(squareAboveNumber, 2));
+			addIndex(getIndexOfSquareVertex(squareAboveNumber, 1));
+			addIndex(previousSquare.bottomRightIndex);
+			previousSquare.bottomLeftIndex = previousSquare.bottomRightIndex;
+			previousSquare.bottomRightIndex = newestVertexIndex;
+			previousSquare.topRightIndex = getIndexOfSquareVertex(squareAboveNumber, 2);
+			previousSquare.topLeftIndex = getIndexOfSquareVertex(squareAboveNumber, 1);
 
 		}
 
@@ -217,5 +237,22 @@ void Heightmap::build(HeightmapSettings settings){
 	polygon.setIndices(indices, 2*3*squareCount);
 	polygon.buildStatic();
 	polygon.rotate(glm::vec3(-1.0f,0.0f,0.0f), 1.57f);
+
+}
+
+int Heightmap::getIndexOfSquare(int squareNumber){
+	//Each square has 6 indices
+	//We know the current position of the indices
+	//We know how many squares there are
+	//We know the first and last index are the same and point to the first vertex of the square
+	//
+	//So if we take advantage of the fact that this zero index and the previous facts
+	//We can go to the first index of the next square and move back one
+	return indices[(squareNumber*6)-1];
+
+}
+
+int Heightmap::getIndexOfSquareVertex(int squareNumber, int vertexNumber){
+	return indices[((squareNumber-1)*6)+vertexNumber-1];
 
 }

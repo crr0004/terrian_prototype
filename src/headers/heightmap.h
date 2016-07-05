@@ -16,15 +16,19 @@ namespace HeightmapName{
 		public:
 			Heightmap();
 			~Heightmap();
+			Heightmap(GLfloat* vertices, GLuint* indices);
 			Heightmap(HeightmapSettings settings);
 			void build(HeightmapSettings settings);
 			void draw(LogicContext* state);
 			void update(LogicContext* state);
 			void setShaderLocations(GLuint vertShaderLocation);
+			int getIndexOfSquare(int squareNumber);
+			int getIndexOfSquareVertex(int squareNumber, int vertexNumber);
 		protected:
 			void addVertex(float vertex);
 			void addVertex(float v1, float v2, float v3);
 			void addIndex(unsigned int index);
+
 		private:
 			Polygon polygon;
 			int verticesPosition;
