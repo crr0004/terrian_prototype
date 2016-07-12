@@ -29,7 +29,7 @@ src_files = Glob(srcPath + "*.cpp")
 env = Environment(LIBS=libs, CPPPATH=getIncludePath(), LIBPATH=getLibsPath())
 debug = ARGUMENTS.get('debug', 0)
 if int(debug):
-	    env.Append(CCFLAGS = '-g' + debug)
+	    env.Append(CCFLAGS = '-g' + debug + ' -Wall')
 
 tests = GetOption('tests')
 if(tests == True):

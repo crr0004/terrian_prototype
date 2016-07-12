@@ -19,9 +19,9 @@ public:
 	 using namespace std;
       //display warnings/errors however you like
      cout << "\n**********Debug Output**************"                 << endl;
-     cout << "source: "     << getStringForSource(source).c_str()     << endl;
-     cout << "type: "       << getStringForType(type).c_str()         << endl;
-     cout << "severity: "   << getStringForSeverity(severity).c_str() << endl;
+     cout << "source: "     << getStringForSource(source)     << endl;
+     cout << "type: "       << getStringForType(type)         << endl;
+     cout << "severity: "   << getStringForSeverity(severity) << endl;
      cout << "debug call: " << msg                                    << endl;
      cout << "\n************************" << endl;
    }
@@ -29,7 +29,7 @@ public:
   private:
      //Parsing code from OpenGL Shader Language CookBook SE
      //https://github.com/daw42/glslcookbook
-   static std::string getStringForType(GLenum type)
+   static const char* getStringForType(GLenum type)
    {
      switch (type)
      {
@@ -52,7 +52,7 @@ public:
      }
    }
  
-   static std::string getStringForSource(GLenum source)
+   static const char* getStringForSource(GLenum source)
    {
      switch (source)
      {
@@ -73,7 +73,7 @@ public:
      }
    }
  
-   static std::string getStringForSeverity(GLenum severity)
+   static const char* getStringForSeverity(GLenum severity)
    {
      switch (severity)
      {

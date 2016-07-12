@@ -124,7 +124,7 @@ GLFWwindow* VisualContext::CreateWindow(GLFWkeyfun key_callback){
         exit(EXIT_FAILURE);
 
 
-	//glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
+	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
 	window = glfwCreateWindow(width, height, "Simple example", NULL, NULL);
 
     if (!window) {
@@ -148,8 +148,8 @@ GLFWwindow* VisualContext::CreateWindow(GLFWkeyfun key_callback){
 	glDepthFunc(GL_LESS); 
 
 	// Cull triangles which normal is not towards the camera
-//	glEnable(GL_CULL_FACE);
-//	glCullFace(GL_BACK);
+	glEnable(GL_CULL_FACE);
+	glCullFace(GL_BACK);
 
 
 	GLint v;
