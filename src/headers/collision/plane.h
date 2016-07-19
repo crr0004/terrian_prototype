@@ -6,7 +6,7 @@ namespace Collision{
 		float d;
 		glm::vec3 n;
 	};
-	static int colides(const glm::vec3 a, const glm::vec3 b, const Plane p, float &t, glm::vec3 &q){
+	static int PlaneLineColides(const glm::vec3 a, const glm::vec3 b, const Plane p, float &t, glm::vec3 &q){
 		glm::vec3 ab = b - a;
 		t = (p.d - glm::dot(p.n, a)) / glm::dot(p.n, ab);
 

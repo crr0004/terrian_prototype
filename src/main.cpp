@@ -13,6 +13,7 @@
 #include "heightmap.h"
 
 static struct LogicContext logicContext;
+static glm::vec3 ray_world;
 
 
 static Polygon triangle;
@@ -24,7 +25,7 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
         glfwSetWindowShouldClose(window, GL_TRUE);
 	}
     if (key == GLFW_KEY_SPACE && action == GLFW_PRESS){
-		printf("Triangle 1 Model Matrix: %s\n", glm::to_string(logicContext.modelview * *triangle.getModelMatrix()).c_str());
+		printf("Triangle 1 Model Matrix: %s\n", glm::to_string(ray_world).c_str());
 	}
 	if(key == GLFW_KEY_LEFT && action == GLFW_REPEAT && mods == GLFW_MOD_SHIFT){
 		logicContext.modelview = glm::rotate(logicContext.modelview, 0.1f, glm::vec3(0.0f, -1.0f, 0.0f));
@@ -72,6 +73,7 @@ int main(void) {
  * 	.	.
  *
  */
+	/**
 	GLfloat heightMapTestVertices[] = {
 		-1.0f, 1.0f,0.0f,
 		-1.0f, 0.0f,0.0f,
@@ -82,6 +84,7 @@ int main(void) {
 		0.0f, -1.0f,0.0f,
 		-1.0f, -1.0f,0.0f
 	};
+	*/
 	/*
 	GLfloat triangle_one_vertices[] = {
 		0.0f, 0.0f, 1.0f,
@@ -171,6 +174,22 @@ int main(void) {
 //		triangle.draw(&logicContext);
 		heightmap.update(&logicContext);
 		heightmap.draw(&logicContext);
+
+		//Build ray from mouse
+		double mouseX;
+		double mouseY;
+
+		glfwGetCursorPos(window, &mouseX, &mouseY);
+
+		glm::vec4 ray_clip = glm::vec4((2.0f * mouseX) / VisualContext::width - 1.0f, 1.0f - (2.0f * mouseY) / VisualContext::height, -1.0f, 1.0f);
+
+		glm::vec4 ray_eye = glm::inverse(VisualContext::projection_matrix) * ray_clip;
+		ray_eye.z = -1.0f;
+		ray_eye.w = 0.0f;
+
+		ray_world = glm::vec3(glm::inverse(logicContext.modelview) * ray_eye);
+		ray_world = glm::normalize(ray_world);
+
 		//triangle_two.update(&logicContext);
 		//triangle_two.draw(&logicContext);
 				 
