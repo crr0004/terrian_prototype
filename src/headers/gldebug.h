@@ -3,6 +3,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
+#include <stdlib.h>
 class glDebug{
 public:
     glDebug(){};
@@ -24,6 +25,9 @@ public:
      cout << "severity: "   << getStringForSeverity(severity) << endl;
      cout << "debug call: " << msg                                    << endl;
      cout << "\n************************" << endl;
+	 if(type == GL_DEBUG_TYPE_ERROR){
+		 exit(1);
+	 }
    }
  
   private:

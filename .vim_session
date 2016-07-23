@@ -2,12 +2,12 @@ let SessionLoad = 1
 if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
-inoremap <silent> <Plug>(neocomplete_auto_refresh) =neocomplete#mappings#refresh()
-inoremap <silent> <Plug>(neocomplete_start_manual_complete) =neocomplete#mappings#manual_complete()
-inoremap <silent> <Plug>(neocomplete_start_auto_complete) =neocomplete#mappings#auto_complete()
-inoremap <silent> <Plug>(neocomplete_start_omni_complete) 
-inoremap <silent> <expr> <Plug>(neocomplete_start_unite_quick_match) unite#sources#neocomplete#start_quick_match()
 inoremap <silent> <expr> <Plug>(neocomplete_start_unite_complete) unite#sources#neocomplete#start_complete()
+inoremap <silent> <expr> <Plug>(neocomplete_start_unite_quick_match) unite#sources#neocomplete#start_quick_match()
+inoremap <silent> <Plug>(neocomplete_start_omni_complete) 
+inoremap <silent> <Plug>(neocomplete_start_auto_complete) =neocomplete#mappings#auto_complete()
+inoremap <silent> <Plug>(neocomplete_start_manual_complete) =neocomplete#mappings#manual_complete()
+inoremap <silent> <Plug>(neocomplete_auto_refresh) =neocomplete#mappings#refresh()
 inoremap <silent> <C-Tab> =UltiSnips#ListSnippets()
 inoremap <silent> <F9> =UltiSnips#ExpandSnippet()
 nnoremap  :call ScrollUpPercent(33)
@@ -52,6 +52,7 @@ nmap    za
 xmap gx <Plug>NetrwBrowseXVis
 nnoremap <silent> gB :BuffergatorMruCycleNext
 nnoremap <silent> gb :BuffergatorMruCyclePrev
+smap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
 nmap zuz <Plug>(FastFoldUpdate)
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
@@ -128,16 +129,16 @@ badd +1 SConstruct
 badd +3 src/headers/collision/polygon.hpp
 badd +3 src/headers/collision/polygon.h
 badd +1 src/headers/collision/point.h
-badd +18 src/headers/collision/plane.h
+badd +1 src/headers/collision/plane.h
 badd +1 tests/collision/planetest.cpp
 badd +6 ~/.ctags
 badd +3 ~/dev/dirtags
 badd +8 tests/planetest.cpp
-badd +0 tests/Collision_planetest.cpp
+badd +13 tests/Collision_planetest.cpp
 argglobal
 silent! argdel *
 set stal=2
-edit src/headers/collision/plane.h
+edit src/heightmap.cpp
 set splitbelow splitright
 wincmd _ | wincmd |
 split
@@ -268,28 +269,36 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-5,8fold
-13,16fold
-9,20fold
-4,22fold
-4
-normal! zo
-5
-normal! zo
-9
-normal! zo
-13
-normal! zo
-let s:l = 1 - ((0 * winheight(0) + 8) / 16)
+10,16fold
+19,24fold
+26,30fold
+32,35fold
+37,40fold
+42,45fold
+47,49fold
+51,54fold
+56,60fold
+62,65fold
+79,81fold
+69,83fold
+67,85fold
+87,92fold
+144,175fold
+181,251fold
+177,254fold
+93,261fold
+263,273fold
+275,278fold
+let s:l = 260 - ((213 * winheight(0) + 8) / 16)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 017|
+260
+normal! 0
 lcd ~/dev/projects/terrian_prototype
 wincmd w
 argglobal
-edit ~/dev/projects/terrian_prototype/src/visualcontext.cpp
+edit ~/dev/projects/terrian_prototype/src/main.cpp
 setlocal keymap=
 setlocal noarabic
 setlocal noautoindent
@@ -401,34 +410,25 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-17,19fold
-25,31fold
-22,33fold
-20,35fold
-37,38fold
-51,58fold
-46,59fold
-39,61fold
-63,64fold
-79,102fold
-104,107fold
-76,108fold
-110,112fold
-65,116fold
-130,133fold
-140,142fold
-157,163fold
-118,169fold
-179,189fold
-171,192fold
-118
-normal! zo
-let s:l = 127 - ((6 * winheight(0) + 8) / 16)
+24,26fold
+27,29fold
+30,38fold
+39,43fold
+23,44fold
+64,75fold
+76,87fold
+88,100fold
+111,136fold
+138,142fold
+144,146fold
+168,198fold
+46,204fold
+let s:l = 7 - ((6 * winheight(0) + 8) / 16)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-127
-normal! 02|
+7
+normal! 0
 lcd ~/dev/projects/terrian_prototype
 wincmd w
 argglobal
@@ -545,8 +545,8 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 7,13fold
-15,41fold
-6,42fold
+15,42fold
+6,43fold
 6
 normal! zo
 7
@@ -561,12 +561,13 @@ normal! zt
 normal! 0
 lcd ~/dev/projects/terrian_prototype
 wincmd w
+2wincmd w
 exe '1resize ' . ((&lines * 16 + 18) / 36)
 exe '2resize ' . ((&lines * 16 + 18) / 36)
 exe 'vert 2resize ' . ((&columns * 57 + 56) / 112)
 exe '3resize ' . ((&lines * 16 + 18) / 36)
 exe 'vert 3resize ' . ((&columns * 54 + 56) / 112)
-tabedit ~/dev/projects/terrian_prototype/tests/Collision_planetest.cpp
+tabedit ~/dev/projects/terrian_prototype/tests/heightmaptests.cpp
 set splitbelow splitright
 wincmd _ | wincmd |
 split
@@ -697,18 +698,22 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-10,22fold
-9,24fold
-9
+47,55fold
+56,65fold
+10,67fold
+68,70fold
+87,100fold
+71,101fold
+71
 normal! zo
-10
+87
 normal! zo
-let s:l = 13 - ((4 * winheight(0) + 8) / 16)
+let s:l = 95 - ((14 * winheight(0) + 8) / 16)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-13
-normal! 025|
+95
+normal! 0
 lcd ~/dev/projects/terrian_prototype
 wincmd w
 argglobal
@@ -824,23 +829,27 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-23,25fold
-26,28fold
-29,37fold
-38,42fold
-22,43fold
-63,74fold
-75,84fold
-85,97fold
-108,133fold
-135,139fold
-141,143fold
-165,179fold
-45,185fold
-22
+24,26fold
+27,29fold
+30,38fold
+39,43fold
+23,44fold
+64,75fold
+76,87fold
+88,100fold
+111,136fold
+138,142fold
+144,146fold
+168,198fold
+46,204fold
+23
 normal! zo
-26
+27
 normal! zo
+46
+normal! zo
+46
+normal! zc
 let s:l = 43 - ((25 * winheight(0) + 8) / 16)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
@@ -968,6 +977,10 @@ silent! normal! zE
 4,22fold
 4
 normal! zo
+9
+normal! zo
+9
+normal! zc
 let s:l = 1 - ((0 * winheight(0) + 8) / 16)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
@@ -1872,7 +1885,7 @@ normal! zt
 3
 normal! 018|
 lcd ~/dev/projects/terrian_prototype
-tabnext 2
+tabnext 1
 set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

@@ -1,23 +1,24 @@
 #ifndef POLYGON_H
 #define POLYGON_H
+#include "IPolygon.h"
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 
-class Polygon{
+class Polygon : public IPolygon{
 	public:
 		Polygon();
-		void setVertices(GLfloat vertices[], unsigned int size);
-		void setIndices(GLuint indices[], unsigned int size);
-		GLfloat* getVertices();
-		GLuint* getIndices();
-		void buildStatic();
-		void setShaderLocations(GLuint vertShaderLocation);
-		void draw(struct LogicContext* state);
+		virtual	void setVertices(GLfloat vertices[], unsigned int size);
+		virtual	void setIndices(GLuint indices[], unsigned int size);
+		virtual	GLfloat* getVertices();
+		virtual	GLuint* getIndices();
+		virtual	void buildStatic();
+		virtual	void setShaderLocations(GLuint vertShaderLocation);
+		virtual	void draw(struct LogicContext* state);
 
-		void update(struct LogicContext* state);
-		void translate(glm::vec3 moveBy);
-		void rotate(glm::vec3 rotateAround, float rotateBy);
-		glm::mat4* getModelMatrix();
+		virtual	void update(struct LogicContext* state);
+		virtual	void translate(glm::vec3 moveBy);
+		virtual	void rotate(glm::vec3 rotateAround, float rotateBy);
+		virtual	glm::mat4* getModelMatrix();
 		~Polygon();
 
 	private:

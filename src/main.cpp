@@ -11,6 +11,7 @@
 #include "logiccontext.h"
 #include "visualcontext.h"
 #include "heightmap.h"
+#include "line.h"
 
 static struct LogicContext logicContext;
 static glm::vec3 ray_world;
@@ -29,18 +30,46 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 	}
 	if(key == GLFW_KEY_LEFT && action == GLFW_REPEAT && mods == GLFW_MOD_SHIFT){
 		logicContext.modelview = glm::rotate(logicContext.modelview, 0.1f, glm::vec3(0.0f, -1.0f, 0.0f));
-	}else if(key == GLFW_KEY_RIGHT && action == GLFW_REPEAT && mods == GLFW_MOD_SHIFT){
+	}
+	else if(key == GLFW_KEY_RIGHT && action == GLFW_REPEAT && mods == GLFW_MOD_SHIFT){
 		logicContext.modelview = glm::rotate(logicContext.modelview, 0.1f, glm::vec3(0.0f, 1.0f, 0.0f));
-	}else if(key == GLFW_KEY_LEFT && action == GLFW_REPEAT && mods == 0){
+	}
+	else if(key == GLFW_KEY_LEFT && action == GLFW_REPEAT && mods == 0){
 		logicContext.modelview = glm::translate(logicContext.modelview, glm::vec3(-0.1f, 0.0f, 0.0f));
-	}else if(key == GLFW_KEY_RIGHT && action == GLFW_REPEAT && mods == 0){
+	}
+	else if(key == GLFW_KEY_RIGHT && action == GLFW_REPEAT && mods == 0){
 		logicContext.modelview = glm::translate(logicContext.modelview, glm::vec3(0.1f, 0.0f, 0.0f));
 	}
 	if(key == GLFW_KEY_UP && action == GLFW_REPEAT && mods == 0){
 		logicContext.modelview = glm::translate(logicContext.modelview, glm::vec3(0.0f, 0.0f, -1.0f));
-	}else if(key == GLFW_KEY_DOWN && action == GLFW_REPEAT && mods == 0){
+	}
+	else if(key == GLFW_KEY_DOWN && action == GLFW_REPEAT && mods == 0){
 		logicContext.modelview = glm::translate(logicContext.modelview, glm::vec3(0.0f, 0.0f, 1.0f));
 	}
+	else if(key == GLFW_KEY_UP && mods == GLFW_MOD_SHIFT){
+		logicContext.modelview = glm::rotate(logicContext.modelview, 0.1f, glm::vec3(1.0f, 0.0f, 0.0f));
+	}
+	else if(key == GLFW_KEY_DOWN && mods == GLFW_MOD_SHIFT){
+					logicContext.modelview = glm::rotate(logicContext.modelview, -0.1f, glm::vec3(1.0f, 0.0f, 0.0f));
+
+		}
+}
+static void calcWorldPickRay(GLFWwindow *window){
+		//Build ray from mouse
+		double mouseX;
+		double mouseY;
+
+		glfwGetCursorPos(window, &mouseX, &mouseY);
+
+		glm::vec4 ray_clip = glm::vec4((2.0f * mouseX) / VisualContext::width - 1.0f, 1.0f - (2.0f * mouseY) / VisualContext::height, -1.0f, 1.0f);
+
+		glm::vec4 ray_eye = glm::inverse(VisualContext::projection_matrix) * ray_clip;
+		ray_eye.z = -1.0f;
+		ray_eye.w = 0.0f;
+
+		ray_world = glm::vec3(glm::inverse(logicContext.modelview) * ray_eye);
+		ray_world = glm::normalize(ray_world);
+
 }
 
 int main(void) {
@@ -57,101 +86,31 @@ int main(void) {
 	logicContext.uloc_modelview = uloc_modelview;
 
     /* Set the camera position  */
-	logicContext.modelview = glm::translate(logicContext.modelview, glm::vec3(0.0f, 0.0f, -7.0f));
-	logicContext.modelview = glm::rotate(logicContext.modelview, 0.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+	logicContext.modelview = glm::translate(logicContext.modelview, glm::vec3(0.0f, 0.0f, -20.0f));
+	logicContext.modelview = glm::rotate(logicContext.modelview, 0.0f, glm::vec3(-1.0f, 0.0f, 0.0f));
 
-//Triangle test vertices
-/*
- * 	Our heightmap test will compose of the triangles: 
- * 	Each dot is a vertex
- * 	Arrows represent direction of edge, ? is down
- * 	. <	.. < .
- *  ?   ^?   ^
- * 	. >	.. > .
- * 	.	.
- *
- * 	.	.
- *
- */
-	/**
-	GLfloat heightMapTestVertices[] = {
-		-1.0f, 1.0f,0.0f,
-		-1.0f, 0.0f,0.0f,
-		0.0f,0.0f,0.0f,
-		1.0f, 0.0f,0.0f,
-		0.0f, 1.0f,0.0f,
-		1.0f, 1.0f,0.0f,
-		0.0f, -1.0f,0.0f,
-		-1.0f, -1.0f,0.0f
-	};
-	*/
-	/*
-	GLfloat triangle_one_vertices[] = {
-		0.0f, 0.0f, 1.0f,
-		0.0f, 100.0f, 1.0f,
-		100.0f, 0.0f, 1.0f,
-			};
+	HeightmapNS::HeightmapSettings heightmapSettings;
 
-
-	GLuint triangle_one_indices[] = {
-		//Front face
-		0, 2, 1
-	};
-	*/
-	HeightmapName::HeightmapSettings heightmapSettings;
-
-	heightmapSettings.widthDensity = 600;
+	heightmapSettings.widthDensity = 10;
 	heightmapSettings.origin = glm::vec3(0.0f, 0.0f, 0.0f);
 	
-	HeightmapName::Heightmap heightmap(heightmapSettings);
+	HeightmapNS::Heightmap heightmap(heightmapSettings);
 	heightmap.build(heightmapSettings);
-	GLfloat vertices[12];
-	GLuint indices[6];
-
-	/*
-	float squareOrigin[] = {0.0f, 2.0f, -2.0f};
-
-	vertices[0] = squareOrigin[0];
-	vertices[1] = squareOrigin[1];
-	vertices[2] = squareOrigin[2];
-
-	vertices[3] = squareOrigin[0] + 1.0f;
-	vertices[4] = squareOrigin[1] + 0.0f;
-	vertices[5] = squareOrigin[2] + 0.0f;
-
-	vertices[6] = squareOrigin[0] + 1.0f;
-	vertices[7] = squareOrigin[1] + 0.0f;
-	vertices[8] = squareOrigin[2] + 1.0f;
-
-	vertices[9] = squareOrigin[0] + 0.0f;
-	vertices[10] = squareOrigin[1] + 0.0f;
-	vertices[11] = squareOrigin[2] + 1.0f;
-
-	indices[0] = 0;
-	indices[1] = 1;
-	indices[2] = 2;
-	indices[3] = 2;
-	indices[4] = 3;
-	indices[5] = 0;
-	*/
 
 	GLfloat triangle_two_vertices[] = {
-		0.0f, 0.2f, 1.0f,
-		0.2f, 0.0f, 1.0f,
-		0.2f, 0.2f, 1.0f
+		0.0f, 1.0f, 0.0f,
+		1.0f, 0.0f, 0.0f,
+		1.0f, 1.0f, 0.0f
 	};
 
 	GLuint triangle_two_indices[] = {
 		0,1,2
 	};
 
-	triangle.setVertices(vertices, sizeof(vertices) / sizeof(GLfloat));
-	triangle.setIndices(indices, sizeof(indices) / sizeof(GLuint));
-	//triangle.buildStatic();
+	triangle.setVertices(triangle_two_vertices, sizeof(triangle_two_vertices) / sizeof(GLfloat));
+	triangle.setIndices(triangle_two_indices, sizeof(triangle_two_indices) / sizeof(GLuint));
+triangle.buildStatic();
 
-	triangle_two.setVertices(triangle_two_vertices, sizeof(triangle_two_vertices) / sizeof(GLfloat));
-	triangle_two.setIndices(triangle_two_indices, sizeof(triangle_two_indices) / sizeof(GLuint));
-	//triangle_two.buildStatic();
 	
 	GLuint vertShaderLocation = glGetAttribLocation(shader_program, "vert");
 
@@ -159,36 +118,33 @@ int main(void) {
 	triangle_two.setShaderLocations(vertShaderLocation);
 	heightmap.setShaderLocations(vertShaderLocation);
 
-	triangle.translate(glm::vec3(-1.0f, 0.0f, 0.0f));
-
 	glViewport(0,0,VisualContext::width, VisualContext::height);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-
+	
+	Line worldLine;
+	worldLine.buildStatic();
+	worldLine.setShaderLocations(vertShaderLocation);
+	Line worldLine2;
+	worldLine2.buildStatic();
+	worldLine2.setShaderLocations(vertShaderLocation);
+	//worldLine.rotate(glm::vec3(1.0f, 0.0f, 0.0f), 1.57f);
 	
     while (!glfwWindowShouldClose(window)) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glPolygonMode(GL_FRONT, GL_FILL);
 		glUniformMatrix4fv(uloc_project, 1, GL_FALSE, glm::value_ptr(VisualContext::projection_matrix));
 
-//		triangle.update(&logicContext);
-//		triangle.draw(&logicContext);
-		heightmap.update(&logicContext);
-		heightmap.draw(&logicContext);
-
-		//Build ray from mouse
-		double mouseX;
-		double mouseY;
-
-		glfwGetCursorPos(window, &mouseX, &mouseY);
-
-		glm::vec4 ray_clip = glm::vec4((2.0f * mouseX) / VisualContext::width - 1.0f, 1.0f - (2.0f * mouseY) / VisualContext::height, -1.0f, 1.0f);
-
-		glm::vec4 ray_eye = glm::inverse(VisualContext::projection_matrix) * ray_clip;
-		ray_eye.z = -1.0f;
-		ray_eye.w = 0.0f;
-
-		ray_world = glm::vec3(glm::inverse(logicContext.modelview) * ray_eye);
-		ray_world = glm::normalize(ray_world);
+		triangle.update(&logicContext);
+		triangle.draw(&logicContext);
+//		heightmap.update(&logicContext);
+//		heightmap.draw(&logicContext);
+		calcWorldPickRay(window);
+		worldLine.setStartEnd(glm::vec3(0.0f, 0.0f, 100.0f), ray_world);
+		worldLine.update(&logicContext);
+		worldLine.draw(&logicContext);
+		worldLine2.setStartEnd(ray_world, glm::vec3(10.0f, 0.0f, 0.0f));
+	worldLine2.update(&logicContext);
+	worldLine2.draw(&logicContext);
 
 		//triangle_two.update(&logicContext);
 		//triangle_two.draw(&logicContext);

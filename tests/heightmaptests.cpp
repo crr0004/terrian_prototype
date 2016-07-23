@@ -1,4 +1,9 @@
 #include "heightmap.h"
+#include "matrixstacksingleton.h"
+#include "logiccontext.h"
+#include "visualcontext.h"
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 #include <catch.hpp>
 #include <stdio.h>
 
@@ -37,10 +42,10 @@ TEST_CASE("Heightmap"){
 
 	indices[24] = 27;
 	indices[29] = 27;	
-	HeightmapName::Heightmap heightmap(vertices, indices);
+	HeightmapNS::Heightmap heightmap(vertices, indices);
 
 	SECTION("getIndexOfSquare"){
-		
+
 		int s0 = heightmap.getIndexOfSquare(1);
 		REQUIRE(s0 == 0);
 		int s3 = heightmap.getIndexOfSquare(3);
@@ -59,4 +64,38 @@ TEST_CASE("Heightmap"){
 
 	}
 
+}
+static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+
+}
+TEST_CASE("Heightmap Collision"){
+	struct LogicContext logicContext;
+	GLFWwindow *window = VisualContext::CreateWindow(key_callback);
+	GLuint shader_program = VisualContext::make_shader_program("shaders/shader.vert", "shaders/shader.frag");
+	glUseProgram(shader_program);
+	GLuint uloc_project   = glGetUniformLocation(shader_program, "project");
+	GLuint uloc_modelview = glGetUniformLocation(shader_program, "modelview");
+
+	/* Compute the projection matrix */
+	VisualContext::projection_matrix = glm::perspective(VisualContext::view_angle, VisualContext::aspect_ratio, VisualContext::z_near, VisualContext::z_far);
+
+	logicContext.uloc_modelview = uloc_modelview;
+    /* Set the camera position  */
+	logicContext.modelview = glm::translate(logicContext.modelview, glm::vec3(0.0f, 0.0f, -7.0f));
+	logicContext.modelview = glm::rotate(logicContext.modelview, 1.57f, glm::vec3(-1.0f, 0.0f, 0.0f));
+
+	SECTION("getIndexOfSquareIntersectingLine"){
+		glm::vec4 a = glm::vec4(0.0f, 0.0f, 0.0f, 0.0f) * logicContext.modelview;
+		glm::vec4 b = glm::vec4(0.0f, 0.0f, -20.0f, 0.0f) * logicContext.modelview;
+		HeightmapNS::HeightmapSettings heightmapSettings;
+
+		heightmapSettings.widthDensity = 10;
+		heightmapSettings.origin = glm::vec3(0.0f, 0.0f, 0.0f);
+
+		HeightmapNS::Heightmap heightmap(heightmapSettings);
+		heightmap.build(heightmapSettings);
+
+		REQUIRE( heightmap.getIndexOfSquareIntersectingLine(glm::vec3(a), glm::vec3(b)) == 0);
+
+	}
 }

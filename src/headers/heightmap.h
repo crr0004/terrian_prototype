@@ -3,7 +3,7 @@
 #include <glm/glm.hpp>
 #include "logiccontext.h"
 #include "polygon.h"
-namespace HeightmapName{
+namespace HeightmapNS{
 	struct HeightmapSettings{
 		int	width; //how large is the map
 		int depth;
@@ -22,6 +22,7 @@ namespace HeightmapName{
 			void draw(LogicContext* state);
 			void update(LogicContext* state);
 			void setShaderLocations(GLuint vertShaderLocation);
+			int getIndexOfSquareIntersectingLine(glm::vec3 a, glm::vec3 b);
 			int getIndexOfSquare(int squareNumber);
 			int getIndexOfSquareVertex(int squareNumber, int vertexNumber);
 		protected:

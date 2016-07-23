@@ -1,8 +1,9 @@
 #include "heightmap.h"
 #include <GLFW/glfw3.h>
 #include "logiccontext.h"
+#include "collision/AABB.h"
 #include <stdio.h>
-using namespace HeightmapName;
+using namespace HeightmapNS;
 
 Heightmap::Heightmap(){}
 
@@ -61,6 +62,26 @@ void Heightmap::addVertex(float v1, float v2, float v3){
 void Heightmap::addIndex(unsigned int index){
 	indices[indicesPosition] = index;
 	indicesPosition++;
+}
+
+int Heightmap::getIndexOfSquareIntersectingLine(glm::vec3 a, glm::vec3 b){
+	Collision::AABB square;
+	for(int i = 0; i < squareCount; i++){
+		int squareIndex = i*6;
+
+		square.min[0] = vertices[indices[squareIndex]+0];
+		square.min[1] = vertices[indices[squareIndex]+1];
+		square.min[2] = vertices[indices[squareIndex]+2];
+
+		square.max[0] = vertices[indices[squareIndex]+0];
+		square.max[1] = vertices[indices[squareIndex]+1];
+		square.max[2] = vertices[indices[squareIndex]+2];
+		if(TestSegmentAABB(a, b, square) == 1){
+			return i;
+		}
+
+	}
+	return -1;
 }
 
 struct PreviousSquare{
@@ -236,7 +257,6 @@ void Heightmap::build(HeightmapSettings settings){
 	polygon.setVertices(vertices, 3*4*squareCount);
 	polygon.setIndices(indices, 2*3*squareCount);
 	polygon.buildStatic();
-	polygon.rotate(glm::vec3(-1.0f,0.0f,0.0f), 1.57f);
 
 }
 
