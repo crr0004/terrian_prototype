@@ -65,10 +65,10 @@ static void calcWorldPickRay(GLFWwindow *window){
 
 		glm::vec4 ray_eye = glm::inverse(VisualContext::projection_matrix) * ray_clip;
 		ray_eye.z = -1.0f;
-		ray_eye.w = 0.0f;
+		ray_eye.w = 1.0f;
 
 		ray_world = glm::vec3(glm::inverse(logicContext.modelview) * ray_eye);
-		ray_world = glm::normalize(ray_world);
+//		ray_world = glm::normalize(ray_world);
 
 }
 
@@ -139,7 +139,7 @@ triangle.buildStatic();
 //		heightmap.update(&logicContext);
 //		heightmap.draw(&logicContext);
 		calcWorldPickRay(window);
-		worldLine.setStartEnd(glm::vec3(0.0f, 0.0f, 100.0f), ray_world);
+		worldLine.setStartEnd(ray_world, glm::vec3(0.0f, 0.0f, -100.0f));
 		worldLine.update(&logicContext);
 		worldLine.draw(&logicContext);
 		worldLine2.setStartEnd(ray_world, glm::vec3(10.0f, 0.0f, 0.0f));
