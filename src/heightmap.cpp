@@ -3,6 +3,8 @@
 #include "logiccontext.h"
 #include "collision/AABB.h"
 #include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
 using namespace HeightmapNS;
 
 Heightmap::Heightmap(){}
@@ -12,6 +14,7 @@ Heightmap::Heightmap(HeightmapSettings settings){
 	//@TODO: this is allocating too much
 	vertices = new GLfloat[3*4*squareCount]; //3 is elements. 4 is for square
 	indices = new GLuint[2*3*squareCount];//2 triangles per square, 3 indices per triangle
+	srand(time(NULL));
 
 }
 
@@ -55,7 +58,7 @@ void Heightmap::addVertex(float vertex){
 
 void Heightmap::addVertex(float v1, float v2, float v3){
 	addVertex(v1);
-	addVertex(v2);
+	addVertex(v2 + (rand() % 3));
 	addVertex(v3);
 }
 
@@ -258,6 +261,10 @@ void Heightmap::build(HeightmapSettings settings){
 	polygon.setIndices(indices, 2*3*squareCount);
 	polygon.buildStatic();
 
+}
+
+void Heightmap::rotate(glm::vec3 rotateAround, float rotateBy){
+	polygon.rotate(rotateAround, rotateBy);
 }
 
 int Heightmap::getIndexOfSquare(int squareNumber){

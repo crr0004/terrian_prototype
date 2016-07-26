@@ -25,6 +25,7 @@ namespace HeightmapNS{
 			int getIndexOfSquareIntersectingLine(glm::vec3 a, glm::vec3 b);
 			int getIndexOfSquare(int squareNumber);
 			int getIndexOfSquareVertex(int squareNumber, int vertexNumber);
+			void rotate(glm::vec3 rotateAround, float rotateBy);
 		protected:
 			void addVertex(float vertex);
 			void addVertex(float v1, float v2, float v3);

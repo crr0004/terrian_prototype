@@ -3,6 +3,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <fstream>
+#include <limits.h>
 #include "gldebug.h"
 
 GLfloat VisualContext::view_angle = 45.0f;
@@ -125,6 +126,7 @@ GLFWwindow* VisualContext::CreateWindow(GLFWkeyfun key_callback){
 
 
 	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
+	glfwWindowHint(GLFW_SAMPLES, 4);
 	window = glfwCreateWindow(width, height, "Simple example", NULL, NULL);
 
     if (!window) {
@@ -150,6 +152,7 @@ GLFWwindow* VisualContext::CreateWindow(GLFWkeyfun key_callback){
 	// Cull triangles which normal is not towards the camera
 	glEnable(GL_CULL_FACE);
 	glCullFace(GL_BACK);
+
 
 
 	GLint v;
