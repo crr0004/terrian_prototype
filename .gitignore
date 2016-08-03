@@ -28,5 +28,6 @@
 # Scons
 .sconsign.dblite
 
-# Documentation Directoy
+# Directoy
 doc/
+*build/
