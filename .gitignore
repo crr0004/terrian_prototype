@@ -31,3 +31,5 @@
 # Directoy
 doc/
 *build/
+*lua/
+*include/lua/
