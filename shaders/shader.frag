@@ -1,6 +1,4 @@
 #version 300 es
-
-
 precision highp float;
 in vec4 pos;
 out vec4 color;

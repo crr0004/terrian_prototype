@@ -172,24 +172,47 @@ GLFWwindow* VisualContext::CreateWindow(GLFWkeyfun key_callback){
 }
 
 char* VisualContext::readfile(const char* filePath){
+	char *buffer = NULL;
+	int string_size, read_size;
+	FILE *handler = fopen(filePath, "rb");
 
-	using namespace std;
-	streampos size;
-	char * memblock;
+	if (handler)
+	{
+		// Seek the last byte of the file
+		fseek(handler, 0, SEEK_END);
+		// Offset from the first to the last byte, or in other words, filesize
+		string_size = ftell(handler);
+		// go back to the start of the file
+		rewind(handler);
 
-	//ios:ate opens the file at the end so we can get the size of the file
-	ifstream file (filePath, ios::in|ios::binary|ios::ate);
-	if (file.is_open()){
+		// Allocate a string that can hold it all
+		//buffer = (char*) malloc(sizeof(char) * (string_size + 1) );
+		buffer = new char[string_size + 1];
 
-		size = file.tellg();
-		memblock = new char [size];
-		file.seekg (0, ios::beg);
-		file.read (memblock, size);
-		file.close();
+		// Read it all in one operation
+		read_size = fread(buffer, sizeof(char), string_size, handler);
 
-	}else{
-	   	fprintf(stderr, "Unable to open file at %s", filePath);
+		// fread doesn't set it so put a \0 in the last position
+		// and buffer is now officially a string
+		buffer[string_size] = '\0';
+
+		if (string_size != read_size)
+		{
+			// Something went wrong, throw away the memory and set
+			// the buffer to NULL
+			printf("Shader %s\n", buffer);
+			fprintf(stderr, "\
+Unable to open file at %s\t error code %d\n\
+Expected %d characters, got %d characters\n",\
+		       	filePath, ferror(handler), string_size, read_size);
+			delete buffer;
+			buffer = NULL;
+		}
+
+		// Always remember to close the file.
+		fclose(handler);
 	}
+	printf("Shader %s\n", buffer);
 
-	return memblock;
+	return buffer;
 }

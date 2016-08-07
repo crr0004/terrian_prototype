@@ -15,7 +15,7 @@ public:
                                    GLenum severity,
                                    GLsizei length,
                                    const GLchar *msg,
-                                   GLvoid *data)
+                                   const GLvoid *data)
    {
 	 using namespace std;
       //display warnings/errors however you like
