@@ -5,12 +5,18 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtx/string_cast.hpp>
 
+#include "terrian_config.h"
 #include "matrixstacksingleton.h"
 #include "polygon.h"
 #include "logiccontext.h"
 #include "visualcontext.h"
 #include "heightmap.h"
 #include "line.h"
+
+//For stringifying preprocessor values
+#define xstr(s) str(s)
+     #define str(s) #s
+#define concat(first, second) first second
 
 static struct LogicContext logicContext;
 static glm::vec3 ray_world;
@@ -82,7 +88,7 @@ static void calcWorldPickRay(GLFWwindow *window){
 int main(void) {
 
 	GLFWwindow *window = VisualContext::CreateWindow(key_callback);
-	GLuint shader_program = VisualContext::make_shader_program("shaders/shader.vert", "shaders/shader.frag");
+	GLuint shader_program = VisualContext::make_shader_program(concat(xstr(SHADERS_DIR), "/shader.vert"), concat(xstr(SHADERS_DIR), "/shader.frag"));
 	glUseProgram(shader_program);
 
 	GLuint vertShaderLocation = glGetAttribLocation(shader_program, "vert");

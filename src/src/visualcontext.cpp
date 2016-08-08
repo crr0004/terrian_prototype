@@ -205,14 +205,16 @@ char* VisualContext::readfile(const char* filePath){
 Unable to open file at %s\t error code %d\n\
 Expected %d characters, got %d characters\n",\
 		       	filePath, ferror(handler), string_size, read_size);
-			delete buffer;
+			delete[] buffer;
 			buffer = NULL;
 		}
 
 		// Always remember to close the file.
 		fclose(handler);
+	}else{
+		fprintf(stderr, "Couldn't open file %s\n", filePath);
+
 	}
-	printf("Shader %s\n", buffer);
 
 	return buffer;
 }

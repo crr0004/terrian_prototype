@@ -1,0 +1,1 @@
+#cmakedefine SHADERS_DIR @SHADERS_DIR@
