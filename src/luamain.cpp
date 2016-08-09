@@ -27,6 +27,18 @@ int main(int argc, char* argv[]){
 			lua_Integer returnCode = lua_tointeger(l, lua_gettop(l));
 			printf("Return code %d\n", (int)returnCode);
 		}
+
+		lua_getglobal(l, "add");
+		lua_pushnumber(l, 10);
+		lua_pushnumber(l, 20);
+		if(lua_pcall(l,2,1,0) != 0){
+			fprintf(stderr, "Couldn't call add error:\t%s.\n", "test.lua", lua_tostring(l, -1));
+		}else{
+			int result = (int)lua_tonumber(l, -1);
+			printf("Add result of 10 + 20 = %d\n", result);
+			//clear the result
+			lua_pop(l,1);
+		}
 		//clears the stack
 		lua_pop(l, lua_gettop(l));
 
