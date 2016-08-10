@@ -1,1 +1,2 @@
 #cmakedefine SHADERS_DIR @SHADERS_DIR@
+#cmakedefine SCRIPTS_DIR @SCRIPTS_DIR@

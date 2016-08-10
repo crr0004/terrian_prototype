@@ -40,6 +40,7 @@ target_link_libraries(LuaTests liblua_static)
 
 get_filename_component(GLEWDLL ${GLEW} DIRECTORY)
 set(SHADERS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/shaders/" CACHE PATH "Directory containing shaders")
+set(SCRIPTS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lua_scripts/" CACHE PATH "Directory containing lua scripts")
 file(COPY ${GLEWDLL}/glew32.dll DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 file(COPY lua/src/lua.h lua/src/lualib.h lua/src/lauxlib.h lua/etc/lua.hpp DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/include/lua/)
 

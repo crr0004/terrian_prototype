@@ -1,6 +1,12 @@
+#include <terrian_config.h>
 #include <lua/lua.hpp>
 #include <string.h>
 #include <stdio.h>
+
+//For stringifying preprocessor values
+#define xstr(s) str(s)
+     #define str(s) #s
+#define concat(first, second) first second
 
 int l_ink(lua_State *L) {
 	int x;
@@ -11,14 +17,47 @@ int l_ink(lua_State *L) {
 	return 1;
 }
 
+struct Dog
+{
+	int age = 0;
+	int height = 0;
+	const char* breed;
+};
+
+
+static int newDog(lua_State* l) {
+	Dog* bella = (Dog*)lua_newuserdata(l, sizeof(Dog));
+	bella->age = 12;
+	bella->height = 1;
+
+	return 1;
+}
+
+static int DogGetAge(lua_State* l) {
+	Dog *bella = (Dog*)lua_touserdata(l, 1);
+	luaL_argcheck(l, bella != NULL, 1, "Dog expected");
+	lua_pushinteger(l, bella->age);
+	return 1;
+}
+
+static const struct luaL_reg doglib[] = {
+	{"new", newDog},
+	{"age", DogGetAge},
+	{NULL, NULL}
+
+};
+
+
+
 int main(int argc, char* argv[]){
 	lua_State *l;
 	l = lua_open();
 	luaL_openlibs(l);
+	luaL_openlib(l, "dog", doglib, 0);
 	lua_pushcfunction(l, l_ink);
 	lua_setglobal(l, "ink");
 	 
-	if(luaL_loadfile(l, "test.lua") != 0){
+	if(luaL_loadfile(l, concat(xstr(SCRIPTS_DIR),"/test.lua")) != 0){
 		fprintf(stderr, "lua couldn't parse '%s': %s.\n", "test.lua", lua_tostring(l, -1));
 	}else{
 		//calls the loaded code
@@ -27,23 +66,24 @@ int main(int argc, char* argv[]){
 			lua_Integer returnCode = lua_tointeger(l, lua_gettop(l));
 			printf("Return code %d\n", (int)returnCode);
 		}
-
 		lua_getglobal(l, "add");
 		lua_pushnumber(l, 10);
 		lua_pushnumber(l, 20);
 		if(lua_pcall(l,2,1,0) != 0){
-			fprintf(stderr, "Couldn't call add error:\t%s.\n", "test.lua", lua_tostring(l, -1));
+			fprintf(stderr, "Couldn't call add error:\t%s\n", lua_tostring(l, -1));
 		}else{
 			int result = (int)lua_tonumber(l, -1);
 			printf("Add result of 10 + 20 = %d\n", result);
 			//clear the result
 			lua_pop(l,1);
 		}
+
+		lua_getglobal(l, "createDog");
+		if (lua_pcall(l, 0, 0, 0) != 0) {
+			fprintf(stderr, "Couldn't call function error:\t%s\n", lua_tostring(l, -1));
+		}
 		//clears the stack
 		lua_pop(l, lua_gettop(l));
-
 	}
-
 	return 0;
-
 }
