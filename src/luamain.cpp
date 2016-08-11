@@ -54,36 +54,48 @@ int main(int argc, char* argv[]){
 	l = lua_open();
 	luaL_openlibs(l);
 	luaL_openlib(l, "dog", doglib, 0);
-	lua_pushcfunction(l, l_ink);
-	lua_setglobal(l, "ink");
-	 
-	if(luaL_loadfile(l, concat(xstr(SCRIPTS_DIR),"/test.lua")) != 0){
-		fprintf(stderr, "lua couldn't parse '%s': %s.\n", "test.lua", lua_tostring(l, -1));
-	}else{
-		//calls the loaded code
-		lua_pcall(l, 0, 1, 0);
-		if(lua_isnumber(l, lua_gettop(l)) != 0){
-			lua_Integer returnCode = lua_tointeger(l, lua_gettop(l));
-			printf("Return code %d\n", (int)returnCode);
-		}
-		lua_getglobal(l, "add");
-		lua_pushnumber(l, 10);
-		lua_pushnumber(l, 20);
-		if(lua_pcall(l,2,1,0) != 0){
-			fprintf(stderr, "Couldn't call add error:\t%s\n", lua_tostring(l, -1));
-		}else{
-			int result = (int)lua_tonumber(l, -1);
-			printf("Add result of 10 + 20 = %d\n", result);
-			//clear the result
-			lua_pop(l,1);
-		}
+	int stackTop = 0;
+	int i = 0;
+	char in = (char)getchar();
+	while (in != 'e') {
 
-		lua_getglobal(l, "createDog");
-		if (lua_pcall(l, 0, 0, 0) != 0) {
-			fprintf(stderr, "Couldn't call function error:\t%s\n", lua_tostring(l, -1));
+			stackTop = lua_gettop(l);
+		for (i = 0; i < 1000; i++) {
+
+			if (luaL_loadfile(l, concat(xstr(SCRIPTS_DIR), "/test.luac")) != 0) {
+				fprintf(stderr, "lua couldn't parse '%s': %s.\n", "test.lua", lua_tostring(l, -1));
+			}
+				lua_pcall(l, 0, 0, 0);
+				//calls the loaded code
+				/*
+				lua_pcall(l, 0, 1, 0);
+				if(lua_isnumber(l, lua_gettop(l)) != 0){
+					lua_Integer returnCode = lua_tointeger(l, lua_gettop(l));
+					printf("Return code %d\n", (int)returnCode);
+				}
+				lua_getglobal(l, "add");
+				lua_pushnumber(l, 10);
+				lua_pushnumber(l, 20);
+				if(lua_pcall(l,2,1,0) != 0){
+					fprintf(stderr, "Couldn't call add error:\t%s\n", lua_tostring(l, -1));
+				}else{
+					int result = (int)lua_tonumber(l, -1);
+					printf("Add result of 10 + 20 = %d\n", result);
+					//clear the result
+					lua_pop(l,1);
+				}
+				*/
+
+				lua_getglobal(l, "createDog");
+				if (lua_pcall(l, 0, 0, 0) != 0) {
+					fprintf(stderr, "Couldn't call function error:\t%s\n", lua_tostring(l, -1));
+				}
 		}
-		//clears the stack
-		lua_pop(l, lua_gettop(l));
+			printf("Stack size: %d\n", lua_gettop(l));
+			//printf("Popping %d elements from lua stack\n", lua_gettop(l) - stackTop);
+			//lua_pop(l, lua_gettop(l) - stackTop);
+		in = (char)getchar();
 	}
+	int ch = getchar();
 	return 0;
 }

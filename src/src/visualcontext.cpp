@@ -190,7 +190,7 @@ char* VisualContext::readfile(const char* filePath){
 		buffer = new char[string_size + 1];
 
 		// Read it all in one operation
-		read_size = fread(buffer, sizeof(char), string_size, handler);
+		read_size = (int)fread(buffer, sizeof(char), string_size, handler);
 
 		// fread doesn't set it so put a \0 in the last position
 		// and buffer is now officially a string

@@ -14,7 +14,7 @@ Heightmap::Heightmap(HeightmapSettings settings){
 	//@TODO: this is allocating too much
 	vertices = new GLfloat[3*4*squareCount]; //3 is elements. 4 is for square
 	indices = new GLuint[2*3*squareCount];//2 triangles per square, 3 indices per triangle
-	srand(time(NULL));
+	srand((unsigned int)time(NULL));
 
 }
 
@@ -204,7 +204,7 @@ void Heightmap::build(HeightmapSettings settings){
 			//Shared vertices: Top left, top right
 			//New vertices: Bottom left, bottom right
 			squareOrigin = glm::vec3(settings.origin);
-			float column = i / settings.widthDensity;
+			float column = (float)(i / settings.widthDensity);
 			squareOrigin += (moveDown * column);
 
 			addVertex(squareOrigin[0], squareOrigin[1], squareOrigin[2]);
