@@ -2,10 +2,17 @@
 #include "matrixstacksingleton.h"
 #include "logiccontext.h"
 #include "visualcontext.h"
+#include "terrian_config.h"
+
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <catch.hpp>
 #include <stdio.h>
+//For stringifying preprocessor values
+#define xstr(s) str(s)
+     #define str(s) #s
+#define concat(first, second) first second
+
 
 TEST_CASE("Heightmap"){
 
@@ -71,7 +78,7 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 TEST_CASE("Heightmap Collision"){
 	struct LogicContext logicContext;
 	GLFWwindow *window = VisualContext::CreateWindow(key_callback);
-	GLuint shader_program = VisualContext::make_shader_program("shaders/shader.vert", "shaders/shader.frag");
+	GLuint shader_program = VisualContext::make_shader_program(concat(xstr(SHADERS_DIR), "/shader.vert"), concat(xstr(SHADERS_DIR), "/shader.frag"));
 	glUseProgram(shader_program);
 	GLuint uloc_project   = glGetUniformLocation(shader_program, "project");
 	GLuint uloc_modelview = glGetUniformLocation(shader_program, "modelview");
