@@ -14,7 +14,9 @@ Currently building on Fedora and Windows (MSVC).
 
 Depends on GLFW3, glm, glew
 
-[Lua](https://github.com/LuaDist/lua/tree/5.3.2) is built in source using submodules
+[Lua](https://github.com/LuaDist/lua/tree/5.2.4) is built in source using submodules
+
+[Lua Manual](https://www.lua.org/manual/5.2/)
 
 Tests suite uses [Catch](https://github.com/philsquared/Catch/tree/v1.2.1). It's header only and included in the repo
 
