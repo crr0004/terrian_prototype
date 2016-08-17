@@ -40,7 +40,7 @@ static int DogGetAge(lua_State* l) {
 	return 1;
 }
 
-static const struct luaL_reg doglib[] = {
+static const struct luaL_Reg doglib[] = {
 	{"new", newDog},
 	{"age", DogGetAge},
 	{NULL, NULL}
@@ -51,9 +51,9 @@ static const struct luaL_reg doglib[] = {
 
 int main(int argc, char* argv[]){
 	lua_State *l;
-	l = lua_open();
+	l = luaL_newstate();
 	luaL_openlibs(l);
-	luaL_openlib(l, "dog", doglib, 0);
+//	luaL_openlib(l, "dog", doglib, 0);
 	int stackTop = 0;
 	int i = 0;
 	char in = (char)getchar();

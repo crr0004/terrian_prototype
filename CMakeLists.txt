@@ -56,9 +56,9 @@ include_directories(${GLEWH})
 include_directories(${GLMH})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-target_link_libraries(Terrian_Prototype OpenGL32 ${GLEW} glu32 ${GLFW3} liblua_static)
-target_link_libraries(LuaTests liblua_static)
-TARGET_LINK_LIBRARIES(Terrian_Prototype_Tests OpenGL32 ${GLEW} glu32 ${GLFW3} liblua_static)
+target_link_libraries(Terrian_Prototype OpenGL32 ${GLEW} glu32 ${GLFW3} liblua)
+target_link_libraries(LuaTests liblua)
+TARGET_LINK_LIBRARIES(Terrian_Prototype_Tests OpenGL32 ${GLEW} glu32 ${GLFW3} liblua)
 
 #Compiler options for project
 if(MSVC)
@@ -68,7 +68,7 @@ endif()
 set(SHADERS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/shaders/" CACHE PATH "Directory containing shaders")
 set(SCRIPTS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lua_scripts/" CACHE PATH "Directory containing lua scripts")
 file(COPY ${GlewLocation}/bin/Release/x64/glew32.dll DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
-file(COPY lua/src/lua.h lua/src/lualib.h lua/src/lauxlib.h lua/etc/lua.hpp DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/include/lua/)
+file(COPY lua/src/lua.h lua/src/lualib.h lua/src/lauxlib.h lua/src/lua.hpp DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/include/lua/)
 
 #Output the configuration header
 configure_file(terrian_config.h.in terrian_config.h @ONLY)
