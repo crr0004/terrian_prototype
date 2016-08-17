@@ -1,10 +1,24 @@
-# terrian_prototype
-A prototype for creating a terrian &amp; heightmap algorithms.
+# Terrian Prototype
+A prototype for creating a terrian &amp; heightmap.
 
 #Building
-Requires scons. It is just a lot easier of a build system than others.
+Uses CMake for build system.
 
-Requires GLFW3, glm, glew to be installed.
+Currently building on Fedora and Windows (MSVC).
+
+##To Be Built On In The Future:
+- mingw (Windows and cross compile)
+- cygwin
+- Mac OSX (when I get a system to)
+- Possibly Nintedo 3ds
+
+Depends on GLFW3, glm, glew
+
+[Lua](https://github.com/LuaDist/lua/tree/5.3.2) is built in source using submodules
+
+Tests suite uses [Catch](https://github.com/philsquared/Catch/tree/v1.2.1). It's header only and included in the repo
 
 #Fedora 23
-dnf -y install glew-devel glfw3-devel glm-devel
+I think these names are wrong.
+
+		dnf -y install glew-devel glfw-devel glm-devel
