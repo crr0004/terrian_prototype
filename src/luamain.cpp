@@ -47,13 +47,18 @@ static const struct luaL_Reg doglib[] = {
 
 };
 
+int luaopen_doglib(lua_State* l) {
+
+	return 2;
+}
 
 
 int main(int argc, char* argv[]){
 	lua_State *l;
 	l = luaL_newstate();
 	luaL_openlibs(l);
-//	luaL_openlib(l, "dog", doglib, 0);
+	luaL_newlib(l, doglib);
+	lua_setglobal(l, "dog");
 	int stackTop = 0;
 	int i = 0;
 	char in = (char)getchar();
@@ -67,8 +72,15 @@ int main(int argc, char* argv[]){
 			} else {
 				lua_pcall(l, 0, 0, 0);
 				lua_getglobal(l, "update");
+				lua_pushnil(l);
+				lua_gettop
+				lua_setglobal(l, "update");
 				if (lua_pcall(l, 0, 0, 0) != 0) {
 					fprintf(stderr, "lua couldn't call update in '%s': %s.\n", "test.lua", lua_tostring(l, -1));
+				}
+				lua_getglobal(l, "createDog");
+				if (lua_pcall(l, 0, 0, 0) != 0) {
+					fprintf(stderr, "lua couldn't call createDog in '%s': %s.\n", "test.lua", lua_tostring(l, -1));
 				}
 				lua_pop(l, lua_gettop(l));
 			}
