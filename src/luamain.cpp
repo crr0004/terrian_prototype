@@ -79,9 +79,6 @@ static void PrintLuaTypeAt(lua_State* l, const int i) {
 		printf("Value is not printable\n");
 		break;
 	}
-int luaopen_doglib(lua_State* l) {
-
-	return 2;
 }
 
 
@@ -97,9 +94,9 @@ int main(int argc, char* argv[]){
 	lua_pcall(l, 0, 0, 0);
 	char in = (char)getchar();
 
-	lua_rawgeti(l, LUA_REGISTRYINDEX, LUA_GLOBALSINDEX);
+	lua_rawgeti(l, LUA_REGISTRYINDEX, LUA_RIDX_GLOBALS);
 	PrintLuaTypeAt(l, -1);
-	//lua_pushnil(l);               // put a nil key on stack
+	lua_pushnil(l);               // pushes the first key (which is nil for whatever reason) onto the stack
 	while (lua_next(l, -2) != 0) { // key(-1) is replaced by the next key(-1) in table(-2)
 		PrintLuaTypeAt(l, -2);
 		lua_pop(l, 1);               // remove value(-1), now key on top at(-1)
@@ -116,7 +113,7 @@ int main(int argc, char* argv[]){
 				lua_pcall(l, 0, 0, 0);
 				lua_getglobal(l, "update");
 				lua_pushnil(l);
-				lua_gettop
+				//lua_gettop
 				lua_setglobal(l, "update");
 				if (lua_pcall(l, 0, 0, 0) != 0) {
 					fprintf(stderr, "lua couldn't call update in '%s': %s.\n", "test.lua", lua_tostring(l, -1));
