@@ -47,6 +47,39 @@ static const struct luaL_reg doglib[] = {
 
 };
 
+static void PrintLuaTypeAt(lua_State* l, const int i) {
+
+	int type = lua_type(l, i);
+	switch (type) {
+
+	case LUA_TNIL:
+		break;
+	case LUA_TBOOLEAN:
+		printf("Value is boolean: %d\n", (int)lua_toboolean(l, i));
+		break;
+	case LUA_TLIGHTUSERDATA:
+		printf("Value is light user data (just a pointer)\n");
+		break;
+	case LUA_TNUMBER:
+		printf("Value is a number of: %d\n", (int)lua_tonumber(l, i));
+		break;
+	case LUA_TSTRING:
+		printf("Value is a string of: %s\n", lua_tostring(l, i));
+		break;
+	case LUA_TTABLE:
+		printf("Value is a table.\n");
+		break;
+	case LUA_TFUNCTION:
+		printf("Value is a function.\n");
+		break;
+	case LUA_TUSERDATA:
+		printf("Value is userdata\n");
+		break;
+	default:
+		printf("Value is not printable\n");
+		break;
+	}
+}
 
 
 int main(int argc, char* argv[]){
@@ -56,7 +89,18 @@ int main(int argc, char* argv[]){
 	luaL_openlib(l, "dog", doglib, 0);
 	int stackTop = 0;
 	int i = 0;
+	luaL_loadfile(l, concat(xstr(SCRIPTS_DIR), "/test.luac"));
+	lua_pcall(l, 0, 0, 0);
 	char in = (char)getchar();
+
+	lua_rawgeti(l, LUA_REGISTRYINDEX, LUA_GLOBALSINDEX);
+	PrintLuaTypeAt(l, -1);
+	//lua_pushnil(l);               // put a nil key on stack
+	while (lua_next(l, -2) != 0) { // key(-1) is replaced by the next key(-1) in table(-2)
+		PrintLuaTypeAt(l, -2);
+		lua_pop(l, 1);               // remove value(-1), now key on top at(-1)
+	}
+	lua_pop(l, 1);                 // remove global table(-1)
 	while (in != 'e') {
 
 			stackTop = lua_gettop(l);
