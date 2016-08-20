@@ -1,0 +1,4 @@
+[submodule "lua"]
+	path = lua
+	url = https://github.com/LuaDist/lua.git
+	branch = lua-5.2
