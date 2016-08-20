@@ -1,4 +1,0 @@
-[submodule "lua"]
-	path = lua
-	url = https://github.com/LuaDist/lua
-	branch = 5.2.4
