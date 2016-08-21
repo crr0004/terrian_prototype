@@ -124,9 +124,6 @@ int main(int argc, char* argv[]) {
 			else {
 				lua_pcall(l, 0, 0, 0);
 				lua_getglobal(l, "update");
-				lua_pushnil(l);
-				//lua_gettop
-				lua_setglobal(l, "update");
 				if (lua_pcall(l, 0, 0, 0) != 0) {
 					fprintf(stderr, "lua couldn't call update in '%s': %s.\n", "test.lua", lua_tostring(l, -1));
 				}
