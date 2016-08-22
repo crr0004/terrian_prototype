@@ -18,6 +18,7 @@ SET(Terrian_Prototype_src
 	src/src/polygon.cpp 
 	src/src/visualcontext.cpp 
 	src/src/window.cpp
+	src/src/luae/scriptheightmap.cpp
 	)
  SET(Terrian_Prototype_Tests_src
 	tests/Collision_planetest.cpp 

@@ -1,5 +1,5 @@
 #ifndef LUAE_UTILITIES_H
-#define LUAE_UTILITIES_H 1
+#define LUAE_UTILITIES_H
 #include <lua/lua.hpp>
 #include <stdio.h>
 namespace LuaE {
