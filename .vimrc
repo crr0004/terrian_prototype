@@ -1,1 +1,1 @@
-let g:syntastic_cpp_include_dirs = ['include', 'src/headers', '/usr/include']
+let g:syntastic_cpp_include_dirs = get(g:, 'syntastic_cpp_include_dirs','') + ['C:\Users\crhodes\dev\projects\glew-2.0.0\include', 'C:\Users\crhodes\dev\projects\glfw-3.2.bin.WIN64\include', 'C:\Users\crhodes\dev\projects\glm', 'C:\Users\crhodes\dev\projects\terrian_prototype\include', 'C:\Users\crhodes\dev\projects\terrian_prototype\src\headers']

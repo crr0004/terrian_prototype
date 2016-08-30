@@ -35,7 +35,7 @@ static int build(lua_State* l){
 
 	HeightmapNS::Heightmap heightmap(heightmapSettings);
 	heightmap.build(heightmapSettings);
-	heightmap.setShaderLocations(vertShaderLocation);
+	//heightmap.setShaderLocations(vertShaderLocation);
 	heightmap.rotate(glm::vec3(1,0,0), -1.57f);
 }
 
