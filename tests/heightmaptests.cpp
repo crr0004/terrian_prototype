@@ -8,6 +8,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <catch.hpp>
 #include <stdio.h>
+using namespace Terrian_Prototype;
 //For stringifying preprocessor values
 #define xstr(s) str(s)
      #define str(s) #s
@@ -49,7 +50,7 @@ TEST_CASE("Heightmap"){
 
 	indices[24] = 27;
 	indices[29] = 27;	
-	HeightmapNS::Heightmap heightmap(vertices, indices);
+	Heightmap heightmap(vertices, indices);
 
 	SECTION("getIndexOfSquare"){
 
@@ -77,7 +78,7 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 }
 TEST_CASE("Heightmap Collision"){
 	struct LogicContext logicContext;
-	GLFWwindow *window = VisualContext::CreateWindow(key_callback);
+	GLFWwindow *window = VisualContext::CreateGLFWWindow(key_callback);
 	GLuint shader_program = VisualContext::make_shader_program(concat(xstr(SHADERS_DIR), "/shader.vert"), concat(xstr(SHADERS_DIR), "/shader.frag"));
 	glUseProgram(shader_program);
 	GLuint uloc_project   = glGetUniformLocation(shader_program, "project");
@@ -94,12 +95,12 @@ TEST_CASE("Heightmap Collision"){
 	SECTION("getIndexOfSquareIntersectingLine"){
 		glm::vec4 a = glm::vec4(0.0f, 0.0f, 0.0f, 0.0f) * logicContext.modelview;
 		glm::vec4 b = glm::vec4(0.0f, 0.0f, -20.0f, 0.0f) * logicContext.modelview;
-		HeightmapNS::HeightmapSettings heightmapSettings;
+		HeightmapSettings heightmapSettings;
 
 		heightmapSettings.widthDensity = 10;
 		heightmapSettings.origin = glm::vec3(0.0f, 0.0f, 0.0f);
 
-		HeightmapNS::Heightmap heightmap(heightmapSettings);
+		Heightmap heightmap(heightmapSettings);
 		heightmap.build(heightmapSettings);
 
 		REQUIRE( heightmap.getIndexOfSquareIntersectingLine(glm::vec3(a), glm::vec3(b)) == 0);

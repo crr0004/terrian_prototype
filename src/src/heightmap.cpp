@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-using namespace HeightmapNS;
+using namespace Terrian_Prototype;
 
 Heightmap::Heightmap(){}
 

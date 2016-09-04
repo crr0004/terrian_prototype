@@ -1,6 +1,6 @@
 #include "polygon.h"
 #include <catch.hpp>
-#include <GL/glew.h>
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -10,6 +10,7 @@
 #include "logiccontext.h"
 #include "visualcontext.h"
 #include "terrian_config.h"
+using namespace Terrian_Prototype;
 //For stringifying preprocessor values
 #define xstr(s) str(s)
      #define str(s) #s
@@ -20,7 +21,7 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 }
 TEST_CASE("Polygon initialization"){
 	struct LogicContext logicContext;
-	GLFWwindow *window = VisualContext::CreateWindow(key_callback);
+	GLFWwindow *window = VisualContext::CreateGLFWWindow(key_callback);
 	GLuint shader_program = VisualContext::make_shader_program(concat(xstr(SHADERS_DIR), "/shader.vert"), concat(xstr(SHADERS_DIR), "/shader.frag"));
     glUseProgram(shader_program);
     GLuint uloc_project   = glGetUniformLocation(shader_program, "project");
@@ -54,7 +55,7 @@ TEST_CASE("Polygon initialization"){
 	};
 
 	SECTION("Vertices should only store reference"){
-		Polygon triangle;
+		Geometry::Polygon triangle;
 		triangle.setVertices(triangle_one_vertices, sizeof(triangle_one_vertices) / sizeof(GLfloat));
 
 		REQUIRE(triangle.getVertices() == &triangle_one_vertices[0]);
@@ -62,7 +63,7 @@ TEST_CASE("Polygon initialization"){
 		REQUIRE(triangle.getVertices() != &triangle_one_vertices[0]);
 	}
 	SECTION("Indices should only store reference"){
-		Polygon triangle;
+		Geometry::Polygon triangle;
 		triangle.setIndices(triangle_one_indices, sizeof(triangle_one_indices) / sizeof(GLuint));
 	}
 	SECTION("indicesSize should be the amount of triangles to draw"){

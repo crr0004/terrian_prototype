@@ -3,7 +3,7 @@
 #include <glm/glm.hpp>
 #include "logiccontext.h"
 #include "polygon.h"
-namespace HeightmapNS{
+namespace Terrian_Prototype{
 	struct HeightmapSettings{
 		int	width; //how large is the map
 		int depth;
@@ -32,7 +32,7 @@ namespace HeightmapNS{
 			void addIndex(unsigned int index);
 
 		private:
-			Polygon polygon;
+			Geometry::Polygon polygon;
 			int verticesPosition;
 			int indicesPosition;
 			int squareCount;
