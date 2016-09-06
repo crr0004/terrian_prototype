@@ -74,3 +74,11 @@ file(COPY lua/src/lua.h lua/src/lualib.h lua/src/lauxlib.h lua/src/lua.hpp DESTI
 #Output the configuration header
 configure_file(terrian_config.h.in terrian_config.h @ONLY)
 configure_file ( ${CMAKE_CURRENT_SOURCE_DIR}/lua/src/luaconf.h.in ${CMAKE_CURRENT_SOURCE_DIR}/include/lua/luaconf.h )
+set(HEADER_DIRS "")
+get_property(dirs DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
+foreach(dir ${dirs})
+	string(APPEND HEADER_DIRS "${dir},")
+endforeach()
+string(REGEX REPLACE ",$" "" HEADER_DIRS ${HEADER_DIRS})
+message(STATUS ${HEADER_DIRS})
+set(HEADER_DIRS_STRING ${HEADER_DIRS} CACHE STRING "List of included directories")
