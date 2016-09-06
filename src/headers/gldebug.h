@@ -1,6 +1,6 @@
 #ifndef GLDEBUG_H
 #define GLDEBUG_H
-#include <GL/glew.h>
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <stdlib.h>

@@ -1,4 +1,4 @@
-#include <GL/glew.h>
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -12,6 +12,7 @@
 #include "visualcontext.h"
 #include "heightmap.h"
 #include "line.h"
+using namespace Terrian_Prototype;
 
 //For stringifying preprocessor values
 #define xstr(s) str(s)
@@ -22,8 +23,8 @@ static struct LogicContext logicContext;
 static glm::vec3 ray_world;
 
 
-static Polygon triangle;
-static Polygon triangle_two;
+static Geometry::Polygon triangle;
+static Geometry::Polygon triangle_two;
 
 
 static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
@@ -87,7 +88,7 @@ static void calcWorldPickRay(GLFWwindow *window){
 
 int main(void) {
 
-	GLFWwindow *window = VisualContext::CreateWindow(key_callback);
+	GLFWwindow *window = VisualContext::CreateGLFWWindow(key_callback);
 	GLuint shader_program = VisualContext::make_shader_program(concat(xstr(SHADERS_DIR), "/shader.vert"), concat(xstr(SHADERS_DIR), "/shader.frag"));
 	glUseProgram(shader_program);
 
@@ -104,12 +105,12 @@ int main(void) {
 	logicContext.modelview = glm::translate(logicContext.modelview, glm::vec3(0.0f, 0.0f, -20.0f));
 	logicContext.modelview = glm::rotate(logicContext.modelview, 0.0f, glm::vec3(-1.0f, 0.0f, 0.0f));
 
-	HeightmapNS::HeightmapSettings heightmapSettings;
+	HeightmapSettings heightmapSettings;
 
 	heightmapSettings.widthDensity = 10;
 	heightmapSettings.origin = glm::vec3(0.0f, 0.0f, 0.0f);
 
-	HeightmapNS::Heightmap heightmap(heightmapSettings);
+	Heightmap heightmap(heightmapSettings);
 	heightmap.build(heightmapSettings);
 	heightmap.setShaderLocations(vertShaderLocation);
 	heightmap.rotate(glm::vec3(1,0,0), -1.57f);
@@ -180,5 +181,5 @@ int main(void) {
 	glfwDestroyWindow(window);
 
 	glfwTerminate();
-	exit(EXIT_SUCCESS);
+	return 0;
 }

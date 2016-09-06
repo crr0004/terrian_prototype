@@ -116,7 +116,7 @@ GLuint VisualContext::make_shader_program(const char* vs_path, const char* fs_pa
     return program;
 }
 
-GLFWwindow* VisualContext::CreateWindow(GLFWkeyfun key_callback){
+GLFWwindow* VisualContext::CreateGLFWWindow(GLFWkeyfun key_callback){
     GLFWwindow* window;
 
     glfwSetErrorCallback(error_callback);
@@ -134,14 +134,11 @@ GLFWwindow* VisualContext::CreateWindow(GLFWkeyfun key_callback){
         exit(EXIT_FAILURE);
     }
 
-
+    glfwSetKeyCallback(window, key_callback);
     glfwMakeContextCurrent(window);
+    gladLoadGLLoader((GLADloadproc) glfwGetProcAddress);
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, 1);
 
-	GLenum err=glewInit(); 
-	if(err!=GLEW_OK) { //Problem: glewInit failed, something is seriously wrong. 
-        fprintf(stderr, "ERROR: Unable to init glew\n");
-	}
 
 	glEnable(GL_DEBUG_OUTPUT);
 	// Enable depth test

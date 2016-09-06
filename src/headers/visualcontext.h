@@ -1,12 +1,12 @@
 #ifndef VISUALCONTEXT_H
 #define VISUALCONTEXT_H 1
-#include <GL/glew.h>
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 
 class VisualContext {
 	public:
-		static GLFWwindow* CreateWindow(GLFWkeyfun key_callback);
+		static GLFWwindow* CreateGLFWWindow(GLFWkeyfun key_callback);
 		static GLuint make_shader_program(const char* vs_text, const char* fs_text);
 		static GLfloat view_angle;
 		static int width;

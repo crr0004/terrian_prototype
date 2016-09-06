@@ -1,7 +1,7 @@
 #ifndef LINE_H
 #define LINE_H 1
 #include "IPolygon.h"
-#include <GL/glew.h>
+#include <glad/glad.h>
 #include <glm/glm.hpp>
 class Line : public IPolygon{
 	public:

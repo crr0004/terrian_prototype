@@ -1,6 +1,6 @@
 #ifndef IPOLYGON_H
 #define IPOLYGON_H 1
-#include <GL/glew.h>
+#include <glad/glad.h>
 #include <glm/glm.hpp>
 class IPolygon{
 	public:

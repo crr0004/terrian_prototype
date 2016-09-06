@@ -1,7 +1,7 @@
 #ifndef LOGICCONTEXT_H
 #define LOGICCONTEXT_H 1
 #include <glm/glm.hpp>
-#include <GL/glew.h>
+#include <glad/glad.h>
 
 struct LogicContext {
 	//This should go into a shader state.

@@ -2,6 +2,7 @@
 #include "luae/scriptheightmap.h"
 #include "heightmap.h"
 using namespace Luae;
+using namespace Terrian_Prototype;
 
 ScriptHeightMap* ScriptHeightMap::_instance = 0;
 
@@ -28,12 +29,12 @@ Start here
 
 static int build(lua_State* l){
 
-	HeightmapNS::HeightmapSettings heightmapSettings;
+	HeightmapSettings heightmapSettings;
 
 	heightmapSettings.widthDensity = 10;
 	heightmapSettings.origin = glm::vec3(0.0f, 0.0f, 0.0f);
 
-	HeightmapNS::Heightmap heightmap(heightmapSettings);
+	Heightmap heightmap(heightmapSettings);
 	heightmap.build(heightmapSettings);
 	//heightmap.setShaderLocations(vertShaderLocation);
 	heightmap.rotate(glm::vec3(1,0,0), -1.57f);

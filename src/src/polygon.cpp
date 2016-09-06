@@ -7,6 +7,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+using namespace Terrian_Prototype;
 
 /* -------------------------------*/
 /** 
@@ -29,7 +30,7 @@
 	@endcode
  */
 /* ---------------------------------*/
-Polygon::Polygon(){
+Geometry::Polygon::Polygon(){
 }
 
 
@@ -43,34 +44,34 @@ Polygon::Polygon(){
  * @param size how many elements are in the array
  */
 /* ---------------------------------*/
-void Polygon::setVertices(GLfloat vertices[], unsigned int size){
+void Geometry::Polygon::setVertices(GLfloat vertices[], unsigned int size){
 	vertexSize = size;
 	this->vertices = vertices;
 }
 /* -------------------------------*/
 /** 
- * @see Polygon::setVertices(GLfloat, unsigned int)
+ * @see Geometry::Polygon::setVertices(GLfloat, unsigned int)
  */
 /* ---------------------------------*/
-void Polygon::setIndices(GLuint indices[], unsigned int size){
+void Geometry::Polygon::setIndices(GLuint indices[], unsigned int size){
 	indicesSize = size;
 	this->indices = indices;
 }
-GLfloat* Polygon::getVertices(){
+GLfloat* Geometry::Polygon::getVertices(){
 	return vertices;
 }
-GLuint* Polygon::getIndices(){
+GLuint* Geometry::Polygon::getIndices(){
 	return indices;
 }
-glm::mat4* Polygon::getModelMatrix(){
+glm::mat4* Geometry::Polygon::getModelMatrix(){
 	return &model_matrix;
 }
 
-void Polygon::translate(glm::vec3 moveBy){
+void Geometry::Polygon::translate(glm::vec3 moveBy){
 	model_matrix = glm::translate(model_matrix, moveBy);
 }
 
-void Polygon::rotate(glm::vec3 rotateAround, float rotateBy){
+void Geometry::Polygon::rotate(glm::vec3 rotateAround, float rotateBy){
 	model_matrix = glm::rotate(model_matrix, rotateBy, rotateAround);
 }
 
@@ -79,7 +80,7 @@ void Polygon::rotate(glm::vec3 rotateAround, float rotateBy){
  * @brief Builds the parts needed to draw static indexed triangles
  */
 /* ---------------------------------*/
-void Polygon::buildStatic(){
+void Geometry::Polygon::buildStatic(){
 	glGenBuffers(2, &vboID[0]);
 	glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
 
@@ -100,7 +101,7 @@ void Polygon::buildStatic(){
  * @Param vertShaderLocation
  */
 /* ---------------------------------*/
-void Polygon::setShaderLocations(GLuint vertShaderLocation){
+void Geometry::Polygon::setShaderLocations(GLuint vertShaderLocation){
 	this->vertShaderLocation = vertShaderLocation;
 
 }
@@ -114,7 +115,7 @@ void Polygon::setShaderLocations(GLuint vertShaderLocation){
  * @param state current logical context containing references to the camera modelview matrix
  */
 /* ---------------------------------*/
-void Polygon::update(struct LogicContext* state){
+void Geometry::Polygon::update(struct LogicContext* state){
 	MatrixStackSingleton* instance = MatrixStackSingleton::instance();
 
 	instance->push(model_matrix);
@@ -129,11 +130,11 @@ void Polygon::update(struct LogicContext* state){
  *
  * @warning Must be directly called after update because it restores the modelview.
  * 
- * @param state @see Polygon::draw(struct LogicContext)
+ * @param state @see Geometry::Polygon::draw(struct LogicContext)
  * @TODO Should be usin a shader context rather than the logicContext
  */
 /* ---------------------------------*/
-void Polygon::draw(struct LogicContext* state){
+void Geometry::Polygon::draw(struct LogicContext* state){
 		glUniformMatrix4fv(state->uloc_modelview, 1, GL_FALSE, glm::value_ptr(model_matrix));
 		glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboID[1]);
@@ -159,7 +160,7 @@ void Polygon::draw(struct LogicContext* state){
 		model_matrix = (MatrixStackSingleton::instance())->pop();
 }
 
-Polygon::~Polygon(){
+Geometry::Polygon::~Polygon(){
 
 }
 
