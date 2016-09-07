@@ -13,5 +13,15 @@ class MatrixStackSingleton{
 		static MatrixStackSingleton* _instance;
 };
 */
+class ScriptManager{
+	public:
+		static ScriptManager* instance();
+	protected:
+		ScriptManager();
+		~ScriptManager();
+	private:
+		static ScriptManager* _instance;
+
+};
 
 #endif // !SCRIPTMANAGERSINGLETON_H
