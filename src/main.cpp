@@ -12,6 +12,7 @@
 #include "visualcontext.h"
 #include "heightmap.h"
 #include "line.h"
+#include "luae/scriptmanager.h"
 using namespace Terrian_Prototype;
 
 //For stringifying preprocessor values
@@ -102,6 +103,7 @@ int main(void) {
 	/* Set the camera position  */
 	logicContext.modelview = glm::translate(logicContext.modelview, glm::vec3(0.0f, 0.0f, -20.0f));
 	logicContext.modelview = glm::rotate(logicContext.modelview, 0.0f, glm::vec3(-1.0f, 0.0f, 0.0f));
+
 
 	HeightmapSettings heightmapSettings;
 

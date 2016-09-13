@@ -36,13 +36,15 @@ add_executable(GladScratch src/gladscratch.cpp 	src/src/glad.c)
 add_dependencies(Terrian_Prototype lua)
 add_dependencies(LuaTests lua)
 
+set_property(TARGET Terrian_Prototype_Tests PROPERTY CXX_STANDARD 11)
+set_property(TARGET Terrian_Prototype PROPERTY CXX_STANDARD 98)
+
 #Project headers
 include_directories("${PROJECT_SOURCE_DIR}/include")
 include_directories("${PROJECT_SOURCE_DIR}/src/headers")
 
 #Library locations (root directories)
 set(GlfwLocation "${CMAKE_CURRENT_SOURCE_DIR}/../glfw-3.2.bin.WIN32/" CACHE PATH "GLFW Library Location")
-#set(GlewLocation "${CMAKE_CURRENT_SOURCE_DIR}/../glew-2.0.0/" CACHE PATH "Glew Library Location")
 set(GlmLocation "${CMAKE_CURRENT_SOURCE_DIR}/../glm/" CACHE PATH "GLM Library Location")
 
 #Library file and header file locations for each library
@@ -54,9 +56,6 @@ else()
 	find_library(GLFW3 glfw PATHS "${GlfwLocation}" PATH_SUFFIXES)
 endif()
 find_path(GLFWH GLFW/glfw3.h PATHS "${GlfwLocation}" PATH_SUFFIXES "include")
-
-#find_library(GLEW glew32 PATHS "${GlewLocation}/" PATH_SUFFIXES "/lib/Release/x64/")
-#find_path(GLEWH GL/glew.h PATHS "${GlewLocation}/" PATH_SUFFIXES "include")
 
 find_path(GLMH glm/glm.hpp PATHS "${GlmLocation}" PATH_SUFFIXES "include")
 
@@ -89,11 +88,10 @@ endif()
 
 set(SHADERS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/shaders/" CACHE PATH "Directory containing shaders")
 set(SCRIPTS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lua_scripts/" CACHE PATH "Directory containing lua scripts")
-#file(COPY ${GlewLocation}/bin/Release/x64/glew32.dll DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 file(COPY lua/src/lua.h lua/src/lualib.h lua/src/lauxlib.h lua/src/lua.hpp DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/include/lua/)
 
 #Output the configuration header
-configure_file(terrian_config.h.in terrian_config.h @ONLY)
+configure_file(terrian_config.h.in ${CMAKE_CURRENT_SOURCE_DIR}/terrian_config.h @ONLY)
 configure_file ( ${CMAKE_CURRENT_SOURCE_DIR}/lua/src/luaconf.h.in ${CMAKE_CURRENT_SOURCE_DIR}/include/lua/luaconf.h )
 set(HEADER_DIRS "")
 get_property(dirs DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
