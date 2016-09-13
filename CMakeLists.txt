@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.6.1)
+cmake_minimum_required(VERSION 3.4)
 set(CMAKE_INSTALL_PREFIX "install" CACHE PATH "")
 project(TERRIAN_PROTOTYPE)
 
@@ -48,9 +48,10 @@ set(GlmLocation "${CMAKE_CURRENT_SOURCE_DIR}/../glm/" CACHE PATH "GLM Library Lo
 #Library file and header file locations for each library
 if(MSVC)
 	find_library(GLFW3 glfw3 PATHS "${GlfwLocation}" PATH_SUFFIXES "lib-vc2015")
-endif()
-if(MINGW)
+elseif(MINGW)
 	find_library(GLFW3 glfw3 PATHS "${GlfwLocation}" PATH_SUFFIXES "lib-mingw")
+else()
+	find_library(GLFW3 glfw PATHS "${GlfwLocation}" PATH_SUFFIXES)
 endif()
 find_path(GLFWH GLFW/glfw3.h PATHS "${GlfwLocation}" PATH_SUFFIXES "include")
 
@@ -64,10 +65,22 @@ include_directories(${GLFWH})
 include_directories(${GLMH})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-target_link_libraries(Terrian_Prototype OpenGL32 glu32 ${GLFW3} liblua)
-target_link_libraries(GladScratch OpenGL32 glu32 ${GLFW3} liblua)
+if(WIN32)
+	target_link_libraries(Terrian_Prototype OpenGL32 glu32)
+	target_link_libraries(GladScratch OpenGL32 glu32)
+	TARGET_LINK_LIBRARIES(Terrian_Prototype_Tests OpenGL32 glu32)
+
+else()
+
+	target_link_libraries(Terrian_Prototype GL GLU)
+	target_link_libraries(GladScratch GL GLU)
+	TARGET_LINK_LIBRARIES(Terrian_Prototype_Tests GL GLU)
+
+endif()
+target_link_libraries(Terrian_Prototype ${GLFW3} liblua)
+target_link_libraries(GladScratch ${GLFW3} liblua)
 target_link_libraries(LuaTests liblua)
-TARGET_LINK_LIBRARIES(Terrian_Prototype_Tests OpenGL32 glu32 ${GLFW3} liblua)
+TARGET_LINK_LIBRARIES(Terrian_Prototype_Tests ${GLFW3} liblua)
 
 #Compiler options for Visual Studios
 if(MSVC)
