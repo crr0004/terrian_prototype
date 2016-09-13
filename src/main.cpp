@@ -97,7 +97,6 @@ int main(void) {
 
 	/* Compute the projection matrix */
 	VisualContext::projection_matrix = glm::perspective(VisualContext::view_angle, VisualContext::aspect_ratio, VisualContext::z_near, VisualContext::z_far);
-
 	logicContext.uloc_modelview = uloc_modelview;
 
 	/* Set the camera position  */
