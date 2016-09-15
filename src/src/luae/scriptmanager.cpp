@@ -1,6 +1,6 @@
-#include "luae/scriptmanager.h"
+#include "luae/scriptmanager.hpp"
 #include <lua/lua.hpp>
-#include "terrian_config.h"
+#include "terrian_config.hpp"
 
 //For stringifying preprocessor values
 #define xstr(s) str(s)

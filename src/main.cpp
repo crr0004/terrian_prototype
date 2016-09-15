@@ -5,14 +5,14 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtx/string_cast.hpp>
 
-#include "terrian_config.h"
-#include "matrixstacksingleton.h"
-#include "polygon.h"
-#include "logiccontext.h"
-#include "visualcontext.h"
-#include "heightmap.h"
-#include "line.h"
-#include "luae/scriptmanager.h"
+#include "terrian_config.hpp"
+#include "matrixstacksingleton.hpp"
+#include "polygon.hpp"
+#include "logiccontext.hpp"
+#include "visualcontext.hpp"
+#include "heightmap.hpp"
+#include "line.hpp"
+#include "luae/scriptmanager.hpp"
 using namespace Terrian_Prototype;
 
 //For stringifying preprocessor values

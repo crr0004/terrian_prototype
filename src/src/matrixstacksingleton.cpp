@@ -1,4 +1,4 @@
-#include "matrixstacksingleton.h"
+#include "matrixstacksingleton.hpp"
 #include <cassert>
 #include <stdio.h>
 

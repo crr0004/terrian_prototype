@@ -1,6 +1,6 @@
 #ifndef POLYGON_H
 #define POLYGON_H
-#include "IPolygon.h"
+#include "IPolygon.hpp"
 #include <glad/glad.h>
 #include <glm/glm.hpp>
 
