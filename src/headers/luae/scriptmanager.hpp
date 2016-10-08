@@ -1,5 +1,6 @@
 #ifndef SCRIPTMANAGER_H
 #define SCRIPTMANAGER_H
+#include <lua/lua.hpp>
 /*
 class MatrixStackSingleton{
 	public:
@@ -13,5 +14,18 @@ class MatrixStackSingleton{
 		static MatrixStackSingleton* _instance;
 };
 */
+class ScriptManager{
+	public:
+		static ScriptManager* instance();
+		lua_State* getState();
+		void NewLib(const struct luaL_Reg lib[], const char* name);
+	protected:
+		ScriptManager();
+		~ScriptManager();
+	private:
+		static ScriptManager* _instance;
+		lua_State* state;
+
+};
 
 #endif // !SCRIPTMANAGERSINGLETON_H

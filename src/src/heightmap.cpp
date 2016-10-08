@@ -1,7 +1,7 @@
-#include "heightmap.h"
+#include "heightmap.hpp"
 #include <GLFW/glfw3.h>
-#include "logiccontext.h"
-#include "collision/AABB.h"
+#include "logiccontext.hpp"
+#include "collision/AABB.hpp"
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>

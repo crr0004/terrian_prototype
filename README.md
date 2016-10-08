@@ -12,7 +12,9 @@ Currently building on Fedora and Windows (MSVC).
 - Mac OSX (when I get a system to)
 - Possibly Nintedo 3ds
 
-Depends on GLFW3, glm, glew
+Depends on GLFW3, glm
+
+Uses GLAD, is built in source
 
 [Lua](https://github.com/LuaDist/lua/tree/5.2.4) is built in source using submodules
 

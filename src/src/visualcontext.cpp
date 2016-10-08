@@ -1,10 +1,10 @@
-#include "visualcontext.h"
+#include "visualcontext.hpp"
 #include <stdio.h>
 #include <iostream>
 #include <stdio.h>
 #include <fstream>
 #include <limits.h>
-#include "gldebug.h"
+#include "gldebug.hpp"
 
 GLfloat VisualContext::view_angle = 45.0f;
 int VisualContext::width = 800;

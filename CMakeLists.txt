@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.6.1)
+cmake_minimum_required(VERSION 3.4)
 set(CMAKE_INSTALL_PREFIX "install" CACHE PATH "")
 project(TERRIAN_PROTOTYPE)
 
@@ -36,13 +36,15 @@ add_executable(GladScratch src/gladscratch.cpp 	src/src/glad.c)
 add_dependencies(Terrian_Prototype lua)
 add_dependencies(LuaTests lua)
 
+set_property(TARGET Terrian_Prototype_Tests PROPERTY CXX_STANDARD 11)
+set_property(TARGET Terrian_Prototype PROPERTY CXX_STANDARD 98)
+
 #Project headers
 include_directories("${PROJECT_SOURCE_DIR}/include")
 include_directories("${PROJECT_SOURCE_DIR}/src/headers")
 
 #Library locations (root directories)
 set(GlfwLocation "${CMAKE_CURRENT_SOURCE_DIR}/../glfw-3.2.1.bin.WIN64/" CACHE PATH "GLFW Library Location")
-#set(GlewLocation "${CMAKE_CURRENT_SOURCE_DIR}/../glew-2.0.0/" CACHE PATH "Glew Library Location")
 set(GlmLocation "${CMAKE_CURRENT_SOURCE_DIR}/../glm/" CACHE PATH "GLM Library Location")
 
 #Library file and header file locations for each library
@@ -50,14 +52,12 @@ message(STATUS ${MSVC})
 if(MSVC)
 
 	find_library(GLFW3 glfw3 PATHS "${GlfwLocation}" PATH_SUFFIXES "lib-vc2015")
-endif()
-if(MINGW)
+elseif(MINGW)
 	find_library(GLFW3 glfw3 PATHS "${GlfwLocation}" PATH_SUFFIXES "lib-mingw")
+else()
+	find_library(GLFW3 glfw PATHS "${GlfwLocation}" PATH_SUFFIXES)
 endif()
 find_path(GLFWH GLFW/glfw3.h PATHS "${GlfwLocation}" PATH_SUFFIXES "include")
-
-#find_library(GLEW glew32 PATHS "${GlewLocation}/" PATH_SUFFIXES "/lib/Release/x64/")
-#find_path(GLEWH GL/glew.h PATHS "${GlewLocation}/" PATH_SUFFIXES "include")
 
 find_path(GLMH glm/glm.hpp PATHS "${GlmLocation}" PATH_SUFFIXES "include")
 
@@ -66,10 +66,22 @@ include_directories(${GLFWH})
 include_directories(${GLMH})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-target_link_libraries(Terrian_Prototype OpenGL32 glu32 ${GLFW3} liblua)
-target_link_libraries(GladScratch OpenGL32 glu32 ${GLFW3} liblua)
+if(WIN32)
+	target_link_libraries(Terrian_Prototype OpenGL32 glu32)
+	target_link_libraries(GladScratch OpenGL32 glu32)
+	TARGET_LINK_LIBRARIES(Terrian_Prototype_Tests OpenGL32 glu32)
+
+else()
+
+	target_link_libraries(Terrian_Prototype GL GLU)
+	target_link_libraries(GladScratch GL GLU)
+	TARGET_LINK_LIBRARIES(Terrian_Prototype_Tests GL GLU)
+
+endif()
+target_link_libraries(Terrian_Prototype ${GLFW3} liblua)
+target_link_libraries(GladScratch ${GLFW3} liblua)
 target_link_libraries(LuaTests liblua)
-TARGET_LINK_LIBRARIES(Terrian_Prototype_Tests OpenGL32 glu32 ${GLFW3} liblua)
+TARGET_LINK_LIBRARIES(Terrian_Prototype_Tests ${GLFW3} liblua)
 
 #Compiler options for Visual Studios
 if(MSVC)
@@ -78,11 +90,10 @@ endif()
 
 set(SHADERS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/shaders/" CACHE PATH "Directory containing shaders")
 set(SCRIPTS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lua_scripts/" CACHE PATH "Directory containing lua scripts")
-#file(COPY ${GlewLocation}/bin/Release/x64/glew32.dll DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 file(COPY lua/src/lua.h lua/src/lualib.h lua/src/lauxlib.h lua/src/lua.hpp DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/include/lua/)
 
 #Output the configuration header
-configure_file(terrian_config.h.in terrian_config.h @ONLY)
+configure_file(terrian_config.h.in ${CMAKE_CURRENT_SOURCE_DIR}/src/headers/terrian_config.h @ONLY)
 configure_file ( ${CMAKE_CURRENT_SOURCE_DIR}/lua/src/luaconf.h.in ${CMAKE_CURRENT_SOURCE_DIR}/include/lua/luaconf.h )
 set(HEADER_DIRS "")
 get_property(dirs DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)

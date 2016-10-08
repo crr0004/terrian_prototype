@@ -1,9 +1,9 @@
-#include "line.h"
+#include "line.hpp"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-#include "matrixstacksingleton.h"
-#include "logicstate.h"
+#include "matrixstacksingleton.hpp"
+#include "logicstate.hpp"
 
 Line::Line(){
 	vertices = 0;

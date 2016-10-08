@@ -1,6 +1,6 @@
 function createDog()
 	bella = dog.new()
-	print(dog.age(bella))
+	print("Dog age: " .. tostring(dog.age(bella)))
 end
 
 function update()

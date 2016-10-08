@@ -5,13 +5,14 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtx/string_cast.hpp>
 
-#include "terrian_config.h"
-#include "matrixstacksingleton.h"
-#include "polygon.h"
-#include "logiccontext.h"
-#include "visualcontext.h"
-#include "heightmap.h"
-#include "line.h"
+#include "terrian_config.hpp"
+#include "matrixstacksingleton.hpp"
+#include "polygon.hpp"
+#include "logiccontext.hpp"
+#include "visualcontext.hpp"
+#include "heightmap.hpp"
+#include "line.hpp"
+#include "luae/scriptmanager.hpp"
 using namespace Terrian_Prototype;
 
 //For stringifying preprocessor values
@@ -91,19 +92,18 @@ int main(void) {
 	GLFWwindow *window = VisualContext::CreateGLFWWindow(key_callback);
 	GLuint shader_program = VisualContext::make_shader_program(concat(xstr(SHADERS_DIR), "/shader.vert"), concat(xstr(SHADERS_DIR), "/shader.frag"));
 	glUseProgram(shader_program);
-
 	GLuint vertShaderLocation = glGetAttribLocation(shader_program, "vert");
 	GLuint uloc_project   = glGetUniformLocation(shader_program, "project");
 	GLuint uloc_modelview = glGetUniformLocation(shader_program, "modelview");
 
 	/* Compute the projection matrix */
 	VisualContext::projection_matrix = glm::perspective(VisualContext::view_angle, VisualContext::aspect_ratio, VisualContext::z_near, VisualContext::z_far);
-
 	logicContext.uloc_modelview = uloc_modelview;
 
 	/* Set the camera position  */
 	logicContext.modelview = glm::translate(logicContext.modelview, glm::vec3(0.0f, 0.0f, -20.0f));
 	logicContext.modelview = glm::rotate(logicContext.modelview, 0.0f, glm::vec3(-1.0f, 0.0f, 0.0f));
+
 
 	HeightmapSettings heightmapSettings;
 

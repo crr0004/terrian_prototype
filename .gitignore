@@ -33,3 +33,4 @@ doc/
 *build/
 *lua/
 *include/lua/
+*.tags

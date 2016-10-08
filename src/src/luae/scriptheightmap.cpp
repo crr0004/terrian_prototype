@@ -1,6 +1,6 @@
 #include <lua/lua.hpp>
-#include "luae/scriptheightmap.h"
-#include "heightmap.h"
+#include "luae/scriptheightmap.hpp"
+#include "heightmap.hpp"
 using namespace Luae;
 using namespace Terrian_Prototype;
 

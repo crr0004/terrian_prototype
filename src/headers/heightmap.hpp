@@ -1,8 +1,8 @@
 #ifndef HEIGHTMAP_H
 #define HEIGHTMAP_H
 #include <glm/glm.hpp>
-#include "logiccontext.h"
-#include "polygon.h"
+#include "logiccontext.hpp"
+#include "polygon.hpp"
 namespace Terrian_Prototype{
 	struct HeightmapSettings{
 		int	width; //how large is the map

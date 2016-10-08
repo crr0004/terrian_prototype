@@ -1,6 +1,6 @@
-#include "polygon.h"
-#include "matrixstacksingleton.h"
-#include "logicstate.h"
+#include "polygon.hpp"
+#include "matrixstacksingleton.hpp"
+#include "logicstate.hpp"
 
 #include <stdio.h>
 #include <glm/glm.hpp>
