@@ -16,7 +16,6 @@ SET(Terrian_Prototype_src
 	src/src/matrixstacksingleton.cpp 
 	src/src/polygon.cpp 
 	src/src/visualcontext.cpp 
-	src/src/window.cpp
 	src/src/luae/scriptheightmap.cpp
 	src/src/heightmap.cpp 
 	src/src/glad.c

@@ -1,4 +1,4 @@
-#include "collision/plane.h"
+#include "collision/plane.hpp"
 #include <catch.hpp>
 #include <glm/glm.hpp>
 #include <stdlib.h>

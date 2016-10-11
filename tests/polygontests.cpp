@@ -1,4 +1,4 @@
-#include "polygon.h"
+#include "polygon.hpp"
 #include <catch.hpp>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -6,10 +6,10 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <stdio.h>
 #include <iostream>
-#include "matrixstacksingleton.h"
-#include "logiccontext.h"
-#include "visualcontext.h"
-#include "terrian_config.h"
+#include "matrixstacksingleton.hpp"
+#include "logiccontext.hpp"
+#include "visualcontext.hpp"
+#include "terrian_config.hpp"
 using namespace Terrian_Prototype;
 //For stringifying preprocessor values
 #define xstr(s) str(s)

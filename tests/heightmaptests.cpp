@@ -1,8 +1,8 @@
-#include "heightmap.h"
-#include "matrixstacksingleton.h"
-#include "logiccontext.h"
-#include "visualcontext.h"
-#include "terrian_config.h"
+#include "heightmap.hpp"
+#include "matrixstacksingleton.hpp"
+#include "logiccontext.hpp"
+#include "visualcontext.hpp"
+#include "terrian_config.hpp"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>

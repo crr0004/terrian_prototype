@@ -1,5 +1,5 @@
 #include <catch.hpp>
-#include "matrixstacksingleton.h"
+#include "matrixstacksingleton.hpp"
 #include <glm/glm.hpp>
 #include <stdio.h>
 #include <iostream>
