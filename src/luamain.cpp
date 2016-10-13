@@ -1,4 +1,4 @@
-#include <terrian_config.h>
+#include <terrian_config.hpp>
 #include <lua/lua.hpp>
 #include <string.h>
 #include <stdio.h>
@@ -19,8 +19,8 @@ int l_ink(lua_State *L) {
 
 struct Dog
 {
-	int age = 0;
-	int height = 0;
+	int age;
+	int height;
 	const char* breed;
 };
 
@@ -107,6 +107,7 @@ int main(int argc, char* argv[]) {
 	lua_State *l;
 	l = luaL_newstate();
 	luaL_openlibs(l);
+	PrintGlobalTable(l);
 	luaL_newlib(l, doglib);
 	lua_setglobal(l, "dog");
 	int i = 0;

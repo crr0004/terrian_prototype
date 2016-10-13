@@ -1,5 +1,9 @@
 #Internal API for working with LUA
 
+##Sandboxing
+- Have to create a copy of the inititional environment
+- Then set that that as first upvalue of script (_ENV)
+- Then reset the global to that
 ##Exposing heightmap
 - Heightmap properties are exposed
 - Build is triggered from script
