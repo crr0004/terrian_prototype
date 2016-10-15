@@ -2,6 +2,7 @@
 #include <lua/lua.hpp>
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 //For stringifying preprocessor values
 #define xstr(s) str(s)
@@ -50,7 +51,7 @@ static const struct luaL_Reg doglib[] = {
 static void PrintLuaTypeAt(lua_State* l, const int i) {
 
 	int type = lua_type(l, i);
-	printf("Stack index %d\t\t", i);
+	printf("Stack index %d\t\t", lua_absindex(l, i));
 	switch (type) {
 
 	case LUA_TNIL:
@@ -83,33 +84,93 @@ static void PrintLuaTypeAt(lua_State* l, const int i) {
 	}
 }
 
-static void PrintTable(lua_State* l) {
-	if (lua_istable(l, -1) == 1) {
+
+static void PrintTableAt(lua_State* l, int index){
+	int tableIndex = lua_absindex(l, index);
+	if (lua_istable(l, tableIndex) == 1) {
 		lua_pushnil(l);               // pushes the first key (which is nil for whatever reason) onto the stack
-		while (lua_next(l, -2) != 0) { // key(-1) is replaced by the next key(-1) in table(-2)
+		while (lua_next(l, tableIndex) != 0) { // key(-1) is replaced by the next key(-1) in table(tableIndex)
 			PrintLuaTypeAt(l, -2);
 			PrintLuaTypeAt(l, -1);
 			lua_pop(l, 1);               // remove value(-1), now key on top at(-1)
+			//leaves key(-1) at top for next interation
 		}
 	}
 	else {
-		fprintf(stderr, "Object on top of stack is not a table\n");
+		fprintf(stderr, "Object at %d on stack is not a table\n", tableIndex);
 	}
+
+}
+static void PrintTable(lua_State* l) {
+	PrintTableAt(l, -1);
+}
+
+//From Programming in Lua 3rd Edition
+static void stackDump (lua_State *L) {
+	int i;
+	int top = lua_gettop(L); /* depth of the stack */
+	for (i = 1; i <= top; i++) { /* repeat for each level */
+		int t = lua_type(L, i);
+		switch (t) {
+			case LUA_TSTRING: { /* strings */
+								  printf("'%s'", lua_tostring(L, i));
+								  break;
+							  }
+			case LUA_TBOOLEAN: { /* booleans */
+								   printf(lua_toboolean(L, i) ? "true" : "false");
+								   break;
+							   }
+			case LUA_TNUMBER: { /* numbers */
+								  printf("%g", lua_tonumber(L, i));
+								  break;
+							  }
+			default: { /* other values */
+						 printf("%s", lua_typename(L, t));
+						 break;
+					 }
+		}
+		printf(" "); /* put a separator */
+	}
+	printf("\n"); /* end the listing */
 }
 
 static void PrintGlobalTable(lua_State* l) {
 	lua_pushglobaltable(l);
+	printf("Global table\n");
 	PrintTable(l);
 	lua_pop(l, 1);
+}
+
+static void CopyTableAtTo(lua_State* l, int t, int newTableIndex){
+	t = lua_absindex(l, t);
+	newTableIndex = lua_absindex(l, newTableIndex);
+	printf("t is %d, newTableIndex is %d\n", t, newTableIndex);
+	lua_pushnil(l);
+	while(lua_next(l, t) != 0){
+		lua_pushvalue(l,-2); //copies key to top so lua_next is happy
+		//swaps value and key on top of stack.
+		//Above function adds a value onto stack so -2 is now value
+		lua_insert(l,-2); 
+		//Set the value in the new stack. Consuming the top value and key
+		lua_settable(l,newTableIndex);
+
+	}
+
 }
 
 int main(int argc, char* argv[]) {
 	lua_State *l;
 	l = luaL_newstate();
 	luaL_openlibs(l);
-	PrintGlobalTable(l);
+	//PrintGlobalTable(l);
 	luaL_newlib(l, doglib);
 	lua_setglobal(l, "dog");
+
+	lua_newtable(l);
+	lua_pushglobaltable(l);
+	int globalTableIndex = lua_absindex(l,-2);
+	CopyTableAtTo(l, -1, -2);
+
 	int i = 0;
 	char in = (char)getchar();
 
@@ -117,12 +178,13 @@ int main(int argc, char* argv[]) {
 
 		for (i = 0; i < 1; i++) {
 
-			lua_pushnil(l);
-			int copyTo = lua_gettop(l);
+			int indexStart = lua_gettop(l);
+			//lua_rawseti(l, LUA_REGISTRYINDEX, LUA_RIDX_GLOBALS);
 			if (luaL_loadfile(l, concat(xstr(SCRIPTS_DIR), "/test.lua")) != 0) {
 				fprintf(stderr, "lua couldn't parse '%s': %s.\n", "test.lua", lua_tostring(l, -1));
 			}
 			else {
+				PrintTableAt(l, globalTableIndex);
 				lua_pcall(l, 0, 0, 0);
 				lua_getglobal(l, "update");
 				if (lua_pcall(l, 0, 0, 0) != 0) {
@@ -132,8 +194,9 @@ int main(int argc, char* argv[]) {
 				if (lua_pcall(l, 0, 0, 0) != 0) {
 					fprintf(stderr, "lua couldn't call createDog in '%s': %s.\n", "test.lua", lua_tostring(l, -1));
 				}
-				lua_pop(l, lua_gettop(l));
+				lua_pop(l, lua_gettop(l) - indexStart);
 			}
+			/*
 			if (luaL_loadfile(l, concat(xstr(SCRIPTS_DIR), "/hello.lua")) != 0) {
 				fprintf(stderr, "lua couldn't parse '%s': %s.\n", "hello.lua", lua_tostring(l, -1));
 			}
@@ -147,7 +210,6 @@ int main(int argc, char* argv[]) {
 			}
 			//PrintGlobalTable(l);
 			//calls the loaded code
-			/*
 			lua_pcall(l, 0, 1, 0);
 			if(lua_isnumber(l, lua_gettop(l)) != 0){
 				lua_Integer returnCode = lua_tointeger(l, lua_gettop(l));
