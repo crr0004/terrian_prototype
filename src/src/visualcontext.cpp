@@ -140,7 +140,7 @@ GLFWwindow* VisualContext::CreateGLFWWindow(GLFWkeyfun key_callback){
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, 1);
 
 
-	glEnable(GL_DEBUG_OUTPUT);
+	//glEnable(GL_DEBUG_OUTPUT);
 	// Enable depth test
 	glEnable(GL_DEPTH_TEST);
 	// Accept fragment if it closer to the camera than the former one

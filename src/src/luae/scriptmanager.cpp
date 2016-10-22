@@ -41,5 +41,4 @@ ScriptManager* ScriptManager::instance(){
 	}
 
 	return _instance;
-
 }

@@ -19,12 +19,14 @@ SET(Terrian_Prototype_src
 	src/src/luae/scriptheightmap.cpp
 	src/src/heightmap.cpp 
 	src/src/glad.c
+	src/src/luae/script.cpp
 	)
  SET(Terrian_Prototype_Tests_src
 	tests/Collision_planetest.cpp 
 	tests/heightmaptests.cpp 
 	tests/matrixstacksingletontests.cpp 
 	tests/polygontests.cpp
+	tests/luaescripttest.cpp
 	)
 	
 

@@ -104,6 +104,8 @@ int main(void) {
 	logicContext.modelview = glm::translate(logicContext.modelview, glm::vec3(0.0f, 0.0f, -20.0f));
 	logicContext.modelview = glm::rotate(logicContext.modelview, 0.0f, glm::vec3(-1.0f, 0.0f, 0.0f));
 
+	//Script script = Script::Load("update.lua");
+
 
 	HeightmapSettings heightmapSettings;
 
@@ -150,6 +152,12 @@ int main(void) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glPolygonMode(GL_FRONT, GL_FILL);
 		glUniformMatrix4fv(uloc_project, 1, GL_FALSE, glm::value_ptr(VisualContext::projection_matrix));
+
+		/*
+		if(script.has("update")){
+			script.call("update");
+		}
+		*/
 
 		triangle.update(&logicContext);
 		triangle.draw(&logicContext);

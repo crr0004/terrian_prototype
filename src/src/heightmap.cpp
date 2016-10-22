@@ -144,39 +144,6 @@ void Heightmap::build(HeightmapSettings settings){
 	firstSquareInRow.topRightIndex = 2;
 	firstSquareInRow.topLeftIndex = 3;
 
-	/*
-	squareOrigin = glm::vec3(settings.origin);
-	squareOrigin = squareOrigin + moveDown;
-
-	vertices[24] = squareOrigin[0];
-	vertices[25] = squareOrigin[1];
-	vertices[26] = squareOrigin[2];
-
-	vertices[27] = squareOrigin[0] + 1.0f;
-	vertices[28] = squareOrigin[1];
-	vertices[29] = squareOrigin[2];
-
-	indices[18] = 8;
-	indices[19] = 9;
-	indices[20] = 1;
-	indices[21] = 1;
-	indices[22] = 0;
-	indices[23] = 8;
-
-	squareOrigin += moveRight;
-
-	vertices[30] = squareOrigin[0] + 1.0f;
-	vertices[31] = squareOrigin[1];
-	vertices[32] = squareOrigin[2];
-
-	indices[24] = 9;
-	indices[25] = 10;
-	indices[26] = 4;
-	indices[27] = 4;
-	indices[28] = 1;
-	indices[29] = 9;
-	*/
-
 	for(int i = 1; i < squareCount; i++){
 		//First row squares
 		//Shared vertices: bottom left, top left
