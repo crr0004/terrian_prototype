@@ -27,6 +27,8 @@ TEST_CASE("Call functions"){
 	}
 	SECTION("Faile called name function"){
 
+
 	}
+
 
 }

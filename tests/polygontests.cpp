@@ -70,6 +70,9 @@ TEST_CASE("Polygon initialization"){
 	} 
 	SECTION("Model matrix should start as identity matrix"){
 	}
+	glfwDestroyWindow(window);
+
+	glfwTerminate();
 
 }
 

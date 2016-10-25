@@ -4,9 +4,12 @@
 
 namespace Luae {
 class Script {
+	private:
+		const char* scriptName;
 	
 	public:
 		Script();
+		Script(const char* scriptName);
 		~Script();
 		static Script* Load(const char* fileName);
 		bool has(const char* functionName);

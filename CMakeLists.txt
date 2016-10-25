@@ -22,16 +22,17 @@ SET(Terrian_Prototype_src
 	src/src/luae/script.cpp
 	)
  SET(Terrian_Prototype_Tests_src
-	tests/Collision_planetest.cpp 
-	tests/heightmaptests.cpp 
-	tests/matrixstacksingletontests.cpp 
-	tests/polygontests.cpp
+	 #tests/Collision_planetest.cpp 
+	 #tests/heightmaptests.cpp 
+	 #tests/matrixstacksingletontests.cpp 
+	 #tests/polygontests.cpp
 	tests/luaescripttest.cpp
 	)
 	
 
 add_executable(Terrian_Prototype src/main.cpp ${Terrian_Prototype_src})
 ADD_EXECUTABLE(Terrian_Prototype_Tests tests/main.cpp ${Terrian_Prototype_src} ${Terrian_Prototype_Tests_src})
+add_executable(StdLibScratch src/stdlibscratch.cpp)
 add_executable(LuaTests src/luamain.cpp)
 add_executable(GladScratch src/gladscratch.cpp 	src/src/glad.c)
 add_dependencies(Terrian_Prototype lua)
@@ -39,6 +40,7 @@ add_dependencies(LuaTests lua)
 
 set_property(TARGET Terrian_Prototype_Tests PROPERTY CXX_STANDARD 11)
 set_property(TARGET Terrian_Prototype PROPERTY CXX_STANDARD 98)
+set_property(TARGET StdLibScratch PROPERTY CXX_STANDARD 98)
 
 #Project headers
 include_directories("${PROJECT_SOURCE_DIR}/include")
