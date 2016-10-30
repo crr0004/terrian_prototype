@@ -2,3 +2,6 @@
 	path = lua
 	url = https://github.com/LuaDist/lua.git
 	branch = lua-5.2
+[submodule "fmt"]
+	path = fmt
+	url = https://github.com/fmtlib/fmt.git
