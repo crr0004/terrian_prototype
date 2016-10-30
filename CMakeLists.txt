@@ -11,6 +11,13 @@ set(BUILD_SHARED_LIBS OFF CACHE BOOL "" )
 set(BUILD_TESTING OFF CACHE BOOL "" )
 add_subdirectory(lua)
 
+#fmt
+set(CMAKE_BUILD_TYPE RelWithDebugInfo)
+set(FMT_USE_CPP11 OFF CACHE BOOL "")
+add_subdirectory(fmt)
+#Revert options for fmt
+set(CMAKE_BUILD_TYPE RelWithDebugInfo)
+
 SET(Terrian_Prototype_src
 	src/src/line.cpp 
 	src/src/matrixstacksingleton.cpp 
@@ -60,8 +67,6 @@ elseif(MINGW)
 else()
 	find_library(GLFW3 glfw PATHS "${GlfwLocation}")
 endif()
-find_library(FMT fmt PATHS "${FMTLocation}" PATH_SUFFIXES "lib")
-find_path(FMTH fmt/format.h PATHS "${FMTLocation}" PATH_SUFFIXES "include")
 
 find_path(GLFWH GLFW/glfw3.h PATHS "${GlfwLocation}" PATH_SUFFIXES "include")
 
@@ -70,7 +75,7 @@ find_path(GLMH glm/glm.hpp PATHS "${GlmLocation}" PATH_SUFFIXES "include")
 include_directories(${GLFWH})
 #include_directories(${GLEWH})
 include_directories(${GLMH})
-include_directories(${FMTH})
+include_directories(${FMT_HEADERS})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 if(WIN32)
@@ -86,12 +91,12 @@ else()
 	target_link_libraries(Terrian_Prototype_Tests ${UNIX_LIBS})
 
 endif()
-set(LIBS ${GLFW3} liblua ${FMT})
+set(LIBS ${GLFW3} liblua fmt)
 target_link_libraries(Terrian_Prototype ${LIBS})
 target_link_libraries(GladScratch ${LIBS})
 target_link_libraries(LuaTests liblua)
 target_link_libraries(Terrian_Prototype_Tests ${LIBS})
-target_link_libraries(StdLibScratch ${FMT})
+target_link_libraries(StdLibScratch fmt)
 
 #Compiler options for Visual Studios
 if(MSVC)
