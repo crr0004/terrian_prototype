@@ -31,7 +31,7 @@ SET(Terrian_Prototype_src
 	
 
 add_executable(Terrian_Prototype src/main.cpp ${Terrian_Prototype_src})
-ADD_EXECUTABLE(Terrian_Prototype_Tests tests/main.cpp ${Terrian_Prototype_src} ${Terrian_Prototype_Tests_src})
+add_executable(Terrian_Prototype_Tests tests/main.cpp ${Terrian_Prototype_src} ${Terrian_Prototype_Tests_src})
 add_executable(StdLibScratch src/stdlibscratch.cpp)
 add_executable(LuaTests src/luamain.cpp)
 add_executable(GladScratch src/gladscratch.cpp 	src/src/glad.c)
@@ -40,7 +40,7 @@ add_dependencies(LuaTests lua)
 
 set_property(TARGET Terrian_Prototype_Tests PROPERTY CXX_STANDARD 11)
 set_property(TARGET Terrian_Prototype PROPERTY CXX_STANDARD 98)
-set_property(TARGET StdLibScratch PROPERTY CXX_STANDARD 98)
+set_property(TARGET StdLibScratch PROPERTY CXX_STANDARD 11)
 
 #Project headers
 include_directories("${PROJECT_SOURCE_DIR}/include")
@@ -58,8 +58,11 @@ if(MSVC)
 elseif(MINGW)
 	find_library(GLFW3 glfw3 PATHS "${GlfwLocation}" PATH_SUFFIXES "lib-mingw")
 else()
-	find_library(GLFW3 glfw PATHS "${GlfwLocation}" PATH_SUFFIXES)
+	find_library(GLFW3 glfw PATHS "${GlfwLocation}")
 endif()
+find_library(FMT fmt PATHS "${FMTLocation}" PATH_SUFFIXES "lib")
+find_path(FMTH fmt/format.h PATHS "${FMTLocation}" PATH_SUFFIXES "include")
+
 find_path(GLFWH GLFW/glfw3.h PATHS "${GlfwLocation}" PATH_SUFFIXES "include")
 
 find_path(GLMH glm/glm.hpp PATHS "${GlmLocation}" PATH_SUFFIXES "include")
@@ -67,24 +70,28 @@ find_path(GLMH glm/glm.hpp PATHS "${GlmLocation}" PATH_SUFFIXES "include")
 include_directories(${GLFWH})
 #include_directories(${GLEWH})
 include_directories(${GLMH})
+include_directories(${FMTH})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 if(WIN32)
-	target_link_libraries(Terrian_Prototype OpenGL32 glu32)
-	target_link_libraries(GladScratch OpenGL32 glu32)
-	TARGET_LINK_LIBRARIES(Terrian_Prototype_Tests OpenGL32 glu32)
+	set(WIN_LIBS OpenGL32 glu32)
+	target_link_libraries(Terrian_Prototype ${WIN_LIBS})
+	target_link_libraries(GladScratch ${WIN_LIBS})
+	target_link_libraries(Terrian_Prototype_Tests ${WIN_LIBS})
 
 else()
-
-	target_link_libraries(Terrian_Prototype GL GLU)
-	target_link_libraries(GladScratch GL GLU)
-	TARGET_LINK_LIBRARIES(Terrian_Prototype_Tests GL GLU)
+	set(UNIX_LIBS GLU GLU)
+	target_link_libraries(Terrian_Prototype ${UNIX_LIBS})
+	target_link_libraries(GladScratch ${UNIX_LIBS})
+	target_link_libraries(Terrian_Prototype_Tests ${UNIX_LIBS})
 
 endif()
-target_link_libraries(Terrian_Prototype ${GLFW3} liblua)
-target_link_libraries(GladScratch ${GLFW3} liblua)
+set(LIBS ${GLFW3} liblua ${FMT})
+target_link_libraries(Terrian_Prototype ${LIBS})
+target_link_libraries(GladScratch ${LIBS})
 target_link_libraries(LuaTests liblua)
-TARGET_LINK_LIBRARIES(Terrian_Prototype_Tests ${GLFW3} liblua)
+target_link_libraries(Terrian_Prototype_Tests ${LIBS})
+target_link_libraries(StdLibScratch ${FMT})
 
 #Compiler options for Visual Studios
 if(MSVC)

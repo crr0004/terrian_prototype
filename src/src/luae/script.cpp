@@ -1,7 +1,7 @@
 #include <lua/lua.hpp>
 #include "luae/script.hpp"
-#include <stdio.h>
-#include <cstring>
+#include <string>
+#include <fmt/format.h>
 #include "terrian_config.hpp"
 
 //For stringifying preprocessor values
@@ -23,11 +23,13 @@ Script::~Script(){
 
 }
 
-Script* Script::Load(const char* fileName){
+Script* Script::Load(const std::string& fileName){
 
 
 	Script* result; 
 	//const char* filePath = concat(xstr(SCRIPTS_DIR), "hello");
+	std::string* Script_Dir = new std::string(xstr(SCRIPTS_DIR));
+	fmt::print("Script dir {}\n", Script_Dir->c_str());
 	//printf("%s\n", strcat(xstr(SCRIPTS_DIR), fileName));
 	
 	result = new Script();

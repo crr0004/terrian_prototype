@@ -1,6 +1,7 @@
 #ifndef LUAE_SCRIPT_H
 #define LUAE_SCRIPT_H
 #include <lua/lua.hpp>
+#include <string>
 
 namespace Luae {
 class Script {
@@ -11,7 +12,7 @@ class Script {
 		Script();
 		Script(const char* scriptName);
 		~Script();
-		static Script* Load(const char* fileName);
+		static Script* Load(const std::string& fileName);
 		bool has(const char* functionName);
 		void call(const char* functionName);
 };

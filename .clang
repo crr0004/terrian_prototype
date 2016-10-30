@@ -1,5 +1,6 @@
 -I.
 -I./include
 -I./src/headers
+-I/home/crhodes/dev/sources/fmt/build/install/include
 -I"E:\Users\crr00\dev\projects\glfw-3.2.1.bin.WIN64\include"
 -I"E:\Users\crr00\dev\projects\glm"
