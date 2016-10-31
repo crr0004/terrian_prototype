@@ -1,11 +1,5 @@
 #include "luae/scriptmanager.hpp"
 #include <lua/lua.hpp>
-#include "terrian_config.hpp"
-
-//For stringifying preprocessor values
-#define xstr(s) str(s)
-#define str(s) #s
-#define concat(first, second) first second
 
 ScriptManager* ScriptManager::_instance = 0;
 

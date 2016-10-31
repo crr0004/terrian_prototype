@@ -35,9 +35,11 @@ TEST_CASE("Call functions"){
 		delete script;
 	}
 	SECTION("Call named function"){
+		Luae::Script* script = Luae::Script::Load("update.lua");
+		script->call("update");
 
 	}
-	SECTION("Faile called name function"){
+	SECTION("Fail called name function"){
 
 
 	}

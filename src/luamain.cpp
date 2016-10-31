@@ -158,6 +158,12 @@ static void CopyTableAtTo(lua_State* l, int t, int newTableIndex){
 
 }
 
+void LuaHook(lua_State *l, lua_Debug *ar) {
+	lua_getinfo(l, ">Sn", ar);
+	printf("%s\n", ar->what);
+
+}
+
 int main(int argc, char* argv[]) {
 	lua_State *l;
 	l = luaL_newstate();
@@ -171,8 +177,20 @@ int main(int argc, char* argv[]) {
 	int globalTableIndex = lua_absindex(l,-2);
 	CopyTableAtTo(l, -1, -2);
 
+	lua_sethook(l, LuaHook, LUA_MASKCALL, 0);
+	if (luaL_loadfile(l, concat(xstr(SCRIPTS_DIR), "/test.lua")) != 0) {
+		fprintf(stderr, "lua couldn't parse '%s': %s.\n", "test.lua", lua_tostring(l, -1));
+	}
+	else {
+		lua_pcall(l, 0, 0, 0);
+		lua_getglobal(l, "update");
+		if (lua_pcall(l, 0, 0, 0) != 0) {
+			fprintf(stderr, "lua couldn't call update in '%s': %s.\n", "test.lua", lua_tostring(l, -1));
+		}
+	}
+
 	int i = 0;
-	char in = (char)getchar();
+	char in = 'e';//(char)getchar();
 
 	while (in != 'e') {
 
@@ -235,6 +253,5 @@ int main(int argc, char* argv[]) {
 		}
 		in = (char)getchar();
 	}
-	int ch = getchar();
 	return 0;
 }

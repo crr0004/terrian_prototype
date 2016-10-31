@@ -55,7 +55,7 @@ void Script::loadScript(){
 		fmt::print(stderr, "Script name isn't set. Can't load");
 	}else{
 		lua_State* lua = ScriptManager::instance()->getState();
-		//Probably should be cached somewhere
+		//TODO Probably should be cached somewhere
 		std::string* scriptPath = new std::string(xstr(SCRIPTS_DIR));
 		scriptPath->append("/");
 		scriptPath->append(this->scriptName);
@@ -78,4 +78,17 @@ bool Script::has(const char* functionName){
 	}
 
 	return false;
+}
+
+void Script::call(const char* functionName){
+	this->loadScript();
+	lua_State* lua = ScriptManager::instance()->getState();
+
+	lua_pcall(lua,0,0,0);
+	lua_getglobal(lua,functionName);
+	if(lua_isfunction(lua, -1) == 1){
+		if (lua_pcall(lua, 0, 0, 0) != 0) {
+			fmt::print(stderr, "lua couldn't call {}: {}.\n", functionName, lua_tostring(lua, -1));
+		}
+	}
 }
