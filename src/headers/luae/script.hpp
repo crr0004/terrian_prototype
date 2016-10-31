@@ -12,6 +12,7 @@ class Script {
 		Script();
 		Script(const char* scriptName);
 		~Script();
+		const char* getScriptName();
 		static Script* Load(const std::string& fileName);
 		bool has(const char* functionName);
 		void call(const char* functionName);

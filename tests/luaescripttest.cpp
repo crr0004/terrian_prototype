@@ -1,14 +1,18 @@
 #include <catch.hpp>
+#include <string>
+#include <cstring>
 #include "luae/script.hpp"
 
 TEST_CASE("Load script"){
 	SECTION("Load named script"){
-		Luae::Script* script = Luae::Script::Load("update.lua");
+		Luae::Script* script = Luae::Script::Load(std::string("update.lua"));
 		REQUIRE(script != NULL);
+		REQUIRE(std::strcmp(script->getScriptName(), "update.lua") == 0);
+
 
 	}
 	SECTION("Failed load script"){
-		Luae::Script* script = Luae::Script::Load("doesnt_exist.lua");
+		Luae::Script* script = Luae::Script::Load(std::string("doesnt_exist.lua"));
 		REQUIRE(script == NULL);
 	}
 
@@ -17,9 +21,13 @@ TEST_CASE("Load script"){
 TEST_CASE("Call functions"){
 
 	SECTION("Has named function"){
+		Luae::Script* script = Luae::Script::Load("update.lua");
+		REQUIRE(script->has("update"));
 
 	}
 	SECTION("Failed has named function"){
+		Luae::Script* script = Luae::Script::Load("update.lua");
+		REQUIRE(!script->has("nofunction"));
 
 	}
 	SECTION("Call named function"){

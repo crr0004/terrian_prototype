@@ -1,7 +1,8 @@
 #include <lua/lua.hpp>
-#include "luae/script.hpp"
 #include <string>
+#include <fstream>
 #include <fmt/format.h>
+#include "luae/script.hpp"
 #include "terrian_config.hpp"
 
 //For stringifying preprocessor values
@@ -11,6 +12,7 @@
 using namespace Luae;
 
 Script::Script(){
+	this->scriptName = '\0';
 
 }
 
@@ -26,12 +28,28 @@ Script::~Script(){
 Script* Script::Load(const std::string& fileName){
 
 
-	Script* result; 
-	//const char* filePath = concat(xstr(SCRIPTS_DIR), "hello");
-	std::string* Script_Dir = new std::string(xstr(SCRIPTS_DIR));
-	fmt::print("Script dir {}\n", Script_Dir->c_str());
-	//printf("%s\n", strcat(xstr(SCRIPTS_DIR), fileName));
+	Script* result = 0; 
+	std::string* scriptPath = new std::string(xstr(SCRIPTS_DIR));
+	scriptPath->append("/");
+	scriptPath->append(fileName);
+	std::fstream fs;
+	//Try to open it
+	fs.open(scriptPath->c_str());
 	
-	result = new Script();
+	//did it work?
+	if(fs.is_open()){
+		fmt::print("File {} exists", scriptPath->c_str());
+		result = new Script(fileName.c_str());
+	}
 	return result;
+}
+
+const char* Script::getScriptName(){
+	return this->scriptName;
+}
+
+bool Script::has(const char* functionName){
+
+	return false;
+
 }
