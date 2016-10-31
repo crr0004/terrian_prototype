@@ -27,6 +27,7 @@ SET(Terrian_Prototype_src
 	src/src/heightmap.cpp 
 	src/src/glad.c
 	src/src/luae/script.cpp
+	src/src/luae/scriptmanager.cpp
 	)
  SET(Terrian_Prototype_Tests_src
 	 #tests/Collision_planetest.cpp 

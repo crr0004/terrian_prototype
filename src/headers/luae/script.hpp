@@ -7,6 +7,7 @@ namespace Luae {
 class Script {
 	private:
 		const char* scriptName;
+		void loadScript();
 	
 	public:
 		Script();

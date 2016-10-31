@@ -9,6 +9,8 @@ TEST_CASE("Load script"){
 		REQUIRE(script != NULL);
 		REQUIRE(std::strcmp(script->getScriptName(), "update.lua") == 0);
 
+		delete script;
+
 
 	}
 	SECTION("Failed load script"){
@@ -24,11 +26,13 @@ TEST_CASE("Call functions"){
 		Luae::Script* script = Luae::Script::Load("update.lua");
 		REQUIRE(script->has("update"));
 
+		delete script;
 	}
 	SECTION("Failed has named function"){
 		Luae::Script* script = Luae::Script::Load("update.lua");
 		REQUIRE(!script->has("nofunction"));
 
+		delete script;
 	}
 	SECTION("Call named function"){
 

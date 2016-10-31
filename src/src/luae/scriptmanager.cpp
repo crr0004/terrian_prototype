@@ -28,12 +28,6 @@ void ScriptManager::NewLib(const struct luaL_Reg lib[], const char* name) {
 	lua_setglobal(state, name);
 }
 
-void ScriptManager::LoadScript(const char* name) {
-	if (luaL_loadfile(l, concat(xstr(SCRIPTS_DIR), name)) != 0) {
-		fprintf(stderr, "lua couldn't parse '%s': %s.\n", "test.lua", lua_tostring(l, -1));
-	}
-			
-}
 
 ScriptManager* ScriptManager::instance(){
 	if(ScriptManager::_instance == 0){
