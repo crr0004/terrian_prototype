@@ -13,7 +13,7 @@
 using namespace Luae;
 
 Script::Script(){
-	this->scriptName = '\0';
+	this->scriptName = 0;
 
 }
 
@@ -23,12 +23,11 @@ Script::Script(const char* scriptName){
 }
 
 Script::~Script(){
+	//delete scriptName;
 
 }
 
 Script* Script::Load(const std::string& fileName){
-
-
 	Script* result = 0; 
 	std::string* scriptPath = new std::string(xstr(SCRIPTS_DIR));
 	scriptPath->append("/");
@@ -80,15 +79,19 @@ bool Script::has(const char* functionName){
 	return false;
 }
 
-void Script::call(const char* functionName){
+bool Script::call(const char* functionName){
 	this->loadScript();
 	lua_State* lua = ScriptManager::instance()->getState();
+	bool result = false;
 
 	lua_pcall(lua,0,0,0);
 	lua_getglobal(lua,functionName);
 	if(lua_isfunction(lua, -1) == 1){
-		if (lua_pcall(lua, 0, 0, 0) != 0) {
+		if (lua_pcall(lua, 0, 0, 0) == 0) {
+			result = true;
+		}else{
 			fmt::print(stderr, "lua couldn't call {}: {}.\n", functionName, lua_tostring(lua, -1));
 		}
 	}
+	return result;
 }

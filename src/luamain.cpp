@@ -159,8 +159,18 @@ static void CopyTableAtTo(lua_State* l, int t, int newTableIndex){
 }
 
 void LuaHook(lua_State *l, lua_Debug *ar) {
-	lua_getinfo(l, ">Sn", ar);
-	printf("%s\n", ar->what);
+	if(lua_getstack(l,0,ar) == 0){
+		fprintf(stderr, "%s\n", "Error calling get stack");
+	}
+	if(lua_getinfo(l, "Snlf", ar) == 0){
+		fprintf(stderr, "%s\n", "Error calling get info");
+	}else{
+		printf("Event %d\tLine %d\t\t",ar->event, ar->currentline);
+		if(strcmp(ar->namewhat, "global") == 0){
+			printf("Type: %s\tName %s",ar->namewhat,ar->name);
+		}
+		printf("%s\n","");
+	}
 
 }
 
@@ -172,18 +182,22 @@ int main(int argc, char* argv[]) {
 	luaL_newlib(l, doglib);
 	lua_setglobal(l, "dog");
 
+	lua_Debug ar;
+
 	lua_newtable(l);
 	lua_pushglobaltable(l);
 	int globalTableIndex = lua_absindex(l,-2);
 	CopyTableAtTo(l, -1, -2);
 
-	lua_sethook(l, LuaHook, LUA_MASKCALL, 0);
+	//lua_sethook(l, LuaHook, LUA_MASKLINE | LUA_MASKCALL | LUA_MASKRET, 0);
+//	lua_sethook(l, LuaHook, LUA_MASKLINE | LUA_MASKCALL, 0);
 	if (luaL_loadfile(l, concat(xstr(SCRIPTS_DIR), "/test.lua")) != 0) {
 		fprintf(stderr, "lua couldn't parse '%s': %s.\n", "test.lua", lua_tostring(l, -1));
 	}
 	else {
 		lua_pcall(l, 0, 0, 0);
-		lua_getglobal(l, "update");
+		lua_getglobal(l, "uupdate");
+		stackDump(l);
 		if (lua_pcall(l, 0, 0, 0) != 0) {
 			fprintf(stderr, "lua couldn't call update in '%s': %s.\n", "test.lua", lua_tostring(l, -1));
 		}

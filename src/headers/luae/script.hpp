@@ -16,7 +16,7 @@ class Script {
 		const char* getScriptName();
 		static Script* Load(const std::string& fileName);
 		bool has(const char* functionName);
-		void call(const char* functionName);
+		bool call(const char* functionName);
 };
 	
 } // namespace Luae

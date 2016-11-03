@@ -16,7 +16,7 @@ set(CMAKE_BUILD_TYPE RelWithDebugInfo)
 set(FMT_USE_CPP11 OFF CACHE BOOL "")
 add_subdirectory(fmt)
 #Revert options for fmt
-set(CMAKE_BUILD_TYPE RelWithDebugInfo)
+set(CMAKE_BUILD_TYPE Debug)
 
 SET(Terrian_Prototype_src
 	src/src/line.cpp 
@@ -103,6 +103,9 @@ target_link_libraries(StdLibScratch fmt)
 if(MSVC)
 	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall")
 endif()
+target_compile_options(LuaTests PUBLIC -Og -g3)
+#target_compile_options(Terrian_Prototype_Tests PUBLIC -Og -g3)
+target_compile_options(liblua PUBLIC -Og -g3)
 
 set(SHADERS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/shaders/" CACHE PATH "Directory containing shaders")
 set(SCRIPTS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lua_scripts/" CACHE PATH "Directory containing lua scripts")
