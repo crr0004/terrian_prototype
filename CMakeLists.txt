@@ -35,6 +35,7 @@ SET(Terrian_Prototype_src
 	 #tests/matrixstacksingletontests.cpp 
 	 #tests/polygontests.cpp
 	tests/luaescripttest.cpp
+	tests/luaescriptmanagertest.cpp
 	)
 	
 

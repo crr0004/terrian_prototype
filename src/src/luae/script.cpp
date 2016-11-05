@@ -27,7 +27,11 @@ Script::~Script(){
 
 }
 
-Script* Script::Load(const std::string& fileName){
+Script* Script::Load(const std::string fileName){
+
+	return Script::Load(fileName.c_str());
+}
+Script* Script::Load(const char* fileName){
 	Script* result = 0; 
 	std::string* scriptPath = new std::string(xstr(SCRIPTS_DIR));
 	scriptPath->append("/");
@@ -38,8 +42,10 @@ Script* Script::Load(const std::string& fileName){
 	
 	//did it work?
 	if(fs.is_open()){
-		result = new Script(fileName.c_str());
+		result = new Script(fileName);
 		fs.close();
+	}else{
+		fmt::print(stderr, "Couldn't find script {}.\n", fileName);
 	}
 	delete scriptPath;
 	return result;
