@@ -85,7 +85,7 @@ bool Script::has(const char* functionName){
 	return false;
 }
 
-bool Script::call(const char* functionName){
+bool Script::call(const char* functionName, int nargs, int nresults){
 	this->loadScript();
 	lua_State* lua = ScriptManager::instance()->getState();
 	bool result = false;
@@ -93,11 +93,16 @@ bool Script::call(const char* functionName){
 	lua_pcall(lua,0,0,0);
 	lua_getglobal(lua,functionName);
 	if(lua_isfunction(lua, -1) == 1){
-		if (lua_pcall(lua, 0, 0, 0) == 0) {
+		if (lua_pcall(lua, nargs, nresults, 0) == 0) {
 			result = true;
 		}else{
 			fmt::print(stderr, "lua couldn't call {}: {}.\n", functionName, lua_tostring(lua, -1));
 		}
 	}
 	return result;
+
+}
+
+bool Script::call(const char* functionName){
+	return this->call(functionName, 0, 0);
 }

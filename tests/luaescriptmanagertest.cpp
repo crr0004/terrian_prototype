@@ -28,6 +28,14 @@ int ScriptManagerMockClass::luaeNoParams(lua_State* l){
 
 }
 int ScriptManagerMockClass::luaeWithParam(lua_State* l){
+	if(lua_isstring(l, -1) == 1){
+		const char* printMe = lua_tostring(l, -1);
+		ScriptManagerMockClass::withParam(printMe);
+
+	}else{
+		fmt::print(stderr, "Value passed to withParam isn't a string.\n");
+		return 1;
+	}
 
 	return 0;
 
@@ -43,6 +51,12 @@ int ScriptManagerMockClass::luaeWithTableReturn(lua_State* l){
 	return 0;
 }
 
+void ScriptManagerMockClass::withParam(const char* printMe){
+	fmt::print("Printed: {}.\n", printMe);
+	ScriptManagerMockClass::lastFunctionWorked = true;
+
+}
+
 void ScriptManagerMockClass::noParams(){
 	ScriptManagerMockClass::lastFunctionWorked = true;
 	fmt::print("noParams\n");
@@ -51,7 +65,7 @@ void ScriptManagerMockClass::noParams(){
 static const struct luaL_Reg MockClass[] = {
 	{"noParams", ScriptManagerMockClass::luaeNoParams},
 	{"withReturn", ScriptManagerMockClass::luaeWithReturn},
-	{"withParams", ScriptManagerMockClass::luaeWithParam},
+	{"withParam", ScriptManagerMockClass::luaeWithParam},
 	{"withTableReturn", ScriptManagerMockClass::luaeWithTableReturn},
 	{NULL, NULL}
 
@@ -84,8 +98,12 @@ TEST_CASE("ScriptManager Lib Tests"){
 	}
 	SECTION("Call lib function with paramters"){
 		Luae::Script* script = Luae::Script::Load("scriptmanagertests.lua");
+		lua_State* lua = ScriptManager::instance()->getState();
 		bool result = script->has("callLibParams");
 		REQUIRE(result);
+		bool callResult = script->call("callLibParams");
+		REQUIRE(callResult);
+		REQUIRE(ScriptManagerMockClass::lastFunctionWorked);
 		delete script;
 
 	}
