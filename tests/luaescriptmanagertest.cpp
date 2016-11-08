@@ -20,8 +20,11 @@ class ScriptManagerMockClass{
 
 
 };
+
 bool ScriptManagerMockClass::lastFunctionWorked = false;
+
 int ScriptManagerMockClass::luaeNoParams(lua_State* l){
+
 	ScriptManagerMockClass::noParams();
 
 	return 0;
@@ -34,21 +37,27 @@ int ScriptManagerMockClass::luaeWithParam(lua_State* l){
 
 	}else{
 		fmt::print(stderr, "Value passed to withParam isn't a string.\n");
-		return 1;
 	}
 
 	return 0;
 
 }
 int ScriptManagerMockClass::luaeWithReturn(lua_State* l){
+	const char* stringToReturn = ScriptManagerMockClass::withReturn();
+	lua_pushstring(l, stringToReturn);
+	
 
-	return 0;
+	return 1;
 
 }
 int ScriptManagerMockClass::luaeWithTableReturn(lua_State* l){
 
 
 	return 0;
+}
+void ScriptManagerMockClass::noParams(){
+	ScriptManagerMockClass::lastFunctionWorked = true;
+	fmt::print("noParams\n");
 }
 
 void ScriptManagerMockClass::withParam(const char* printMe){
@@ -57,15 +66,16 @@ void ScriptManagerMockClass::withParam(const char* printMe){
 
 }
 
-void ScriptManagerMockClass::noParams(){
+const char* ScriptManagerMockClass::withReturn(){
 	ScriptManagerMockClass::lastFunctionWorked = true;
-	fmt::print("noParams\n");
+	return "This returned";
 }
+
 
 static const struct luaL_Reg MockClass[] = {
 	{"noParams", ScriptManagerMockClass::luaeNoParams},
-	{"withReturn", ScriptManagerMockClass::luaeWithReturn},
 	{"withParam", ScriptManagerMockClass::luaeWithParam},
+	{"withReturn", ScriptManagerMockClass::luaeWithReturn},
 	{"withTableReturn", ScriptManagerMockClass::luaeWithTableReturn},
 	{NULL, NULL}
 
@@ -111,6 +121,9 @@ TEST_CASE("ScriptManager Lib Tests"){
 		Luae::Script* script = Luae::Script::Load("scriptmanagertests.lua");
 		bool result = script->has("callLibReturn");
 		REQUIRE(result);
+		bool callResult = script->call("callLibReturn");
+		REQUIRE(callResult);
+		REQUIRE(ScriptManagerMockClass::lastFunctionWorked);
 		delete script;
 
 	}
