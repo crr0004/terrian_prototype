@@ -52,8 +52,13 @@ int ScriptManagerMockClass::luaeWithReturn(lua_State* l){
 }
 int ScriptManagerMockClass::luaeWithTableReturn(lua_State* l){
 
+	const char* name = ScriptManagerMockClass::withTableReturn();
+	lua_createtable(l, 0, 1);
+	lua_pushstring(l, "name");
+	lua_pushstring(l, name);
+	lua_settable(l, -3);
 
-	return 0;
+	return 1;
 }
 void ScriptManagerMockClass::noParams(){
 	ScriptManagerMockClass::lastFunctionWorked = true;
@@ -71,6 +76,10 @@ const char* ScriptManagerMockClass::withReturn(){
 	return "This returned";
 }
 
+const char* ScriptManagerMockClass::withTableReturn(){
+	ScriptManagerMockClass::lastFunctionWorked = true;
+	return "bob";
+}
 
 static const struct luaL_Reg MockClass[] = {
 	{"noParams", ScriptManagerMockClass::luaeNoParams},
@@ -86,6 +95,8 @@ TEST_CASE("ScriptManager Lib Tests"){
 
 	ScriptManager::instance()->NewLib(MockClass, "MockClass");
 	ScriptManagerMockClass::lastFunctionWorked = false;
+
+	const char* values[] = {"hello", "one"};
 
 
 	SECTION("Add lib"){
@@ -131,6 +142,9 @@ TEST_CASE("ScriptManager Lib Tests"){
 		Luae::Script* script = Luae::Script::Load("scriptmanagertests.lua");
 		bool result = script->has("callLibTableReturn");
 		REQUIRE(result);
+		bool callResult = script->call("callLibTableReturn");
+		REQUIRE(callResult);
+		REQUIRE(ScriptManagerMockClass::lastFunctionWorked);
 		delete script;
 
 	}
