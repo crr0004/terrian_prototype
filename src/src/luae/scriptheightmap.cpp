@@ -4,14 +4,6 @@
 using namespace Terrian_Prototype;
 using namespace Luae;
 
-ScriptHeightMap* ScriptHeightMap::_instance = 0;
-
-ScriptHeightMap* ScriptHeightMap::instance() {
-	if (_instance == 0) {
-		_instance = new ScriptHeightMap;
-	}
-	return _instance;
-}
 /*
 Public functions to possibly expose to scripts
 			Heightmap(GLfloat* vertices, GLuint* indices);
@@ -26,8 +18,17 @@ Start here
 			int getIndexOfSquareVertex(int squareNumber, int vertexNumber);
 			void rotate(glm::vec3 rotateAround, float rotateBy);
 */
+static const struct luaL_Reg MockClass[] = {
+	{"Build", ScriptHeightMap::Build},
+	{NULL, NULL}
 
-static int build(lua_State* l){
+};
+
+void ScriptHeightMap::AddToLib(){
+
+}
+
+int ScriptHeightMap::Build(lua_State* l){
 
 	HeightmapSettings heightmapSettings;
 
@@ -39,13 +40,4 @@ static int build(lua_State* l){
 	//heightmap.setShaderLocations(vertShaderLocation);
 	heightmap.rotate(glm::vec3(1,0,0), -1.57f);
 	return 0;
-}
-
-ScriptHeightMap::ScriptHeightMap() {
-
-}
-
-ScriptHeightMap::~ScriptHeightMap() {
-	delete _instance;
-	_instance = 0;
 }

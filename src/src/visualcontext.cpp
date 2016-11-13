@@ -125,7 +125,7 @@ GLFWwindow* VisualContext::CreateGLFWWindow(GLFWkeyfun key_callback){
         exit(EXIT_FAILURE);
 
 
-	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
+	//glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_FALSE);
 	glfwWindowHint(GLFW_SAMPLES, 4);
 	window = glfwCreateWindow(width, height, "Simple example", NULL, NULL);
 
@@ -152,14 +152,14 @@ GLFWwindow* VisualContext::CreateGLFWWindow(GLFWkeyfun key_callback){
 
 
 
-	GLint v;
+	GLint v = 0;
 	glGetIntegerv(GL_CONTEXT_FLAGS, &v);
 	if(v & GL_CONTEXT_FLAG_DEBUG_BIT){
 		printf("%s %d\n", "OpenGL debugging enabled", v);
 		glDebugMessageCallback(glDebug::myCallback, (GLvoid*)0);
 		glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, NULL, GL_TRUE);
 	}else{
-		printf("%s %d\n", "OpenGL debugging disabled", v);
+		printf("%s\n", "OpenGL debugging disabled");
 	}
 	printf("OpenGL %s, GLSL %s\n", glGetString(GL_VERSION), glGetString(GL_SHADING_LANGUAGE_VERSION));
 

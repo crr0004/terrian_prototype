@@ -6,12 +6,9 @@ namespace Terrian_Prototype{
 	namespace Luae {
 		class ScriptHeightMap {
 			public:
-				static ScriptHeightMap* instance();
-			protected:
-				ScriptHeightMap();
-				~ScriptHeightMap();
-			private:
-				static ScriptHeightMap* _instance;
+				static void AddToLib();
+				static int Build(lua_State* l);
+
 		};
 	} // namespace Luae
 

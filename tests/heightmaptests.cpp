@@ -109,3 +109,27 @@ TEST_CASE("Heightmap Collision"){
 	}
 }
 */
+TEST_CASE("Lua script tests"){
+
+	struct LogicContext logicContext;
+	GLFWwindow *window = VisualContext::CreateGLFWWindow(key_callback);
+	GLuint shader_program = VisualContext::make_shader_program(concat(xstr(SHADERS_DIR), "/shader.vert"), concat(xstr(SHADERS_DIR), "/shader.frag"));
+	glUseProgram(shader_program);
+	GLuint uloc_project   = glGetUniformLocation(shader_program, "project");
+	GLuint uloc_modelview = glGetUniformLocation(shader_program, "modelview");
+
+	/* Compute the projection matrix */
+	VisualContext::projection_matrix = glm::perspective(VisualContext::view_angle, VisualContext::aspect_ratio, VisualContext::z_near, VisualContext::z_far);
+
+	logicContext.uloc_modelview = uloc_modelview;
+    /* Set the camera position  */
+	logicContext.modelview = glm::translate(logicContext.modelview, glm::vec3(0.0f, 0.0f, -7.0f));
+	logicContext.modelview = glm::rotate(logicContext.modelview, 1.57f, glm::vec3(-1.0f, 0.0f, 0.0f));
+	HeightmapSettings heightmapSettings;
+
+	heightmapSettings.widthDensity = 10;
+	heightmapSettings.origin = glm::vec3(0.0f, 0.0f, 0.0f);
+
+	Heightmap heightmap(heightmapSettings);
+	heightmap.build(heightmapSettings);
+}

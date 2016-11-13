@@ -70,6 +70,7 @@ TEST_CASE("Polygon initialization"){
 	} 
 	SECTION("Model matrix should start as identity matrix"){
 	}
+	glDeleteProgram(shader_program);
 	glfwDestroyWindow(window);
 
 	glfwTerminate();
