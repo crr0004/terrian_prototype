@@ -10,7 +10,6 @@
 #include "logiccontext.hpp"
 #include "visualcontext.hpp"
 #include "terrian_config.hpp"
-using namespace Terrian_Prototype;
 //For stringifying preprocessor values
 #define xstr(s) str(s)
      #define str(s) #s

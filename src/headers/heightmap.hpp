@@ -3,7 +3,6 @@
 #include <glm/glm.hpp>
 #include "logiccontext.hpp"
 #include "polygon.hpp"
-namespace Terrian_Prototype{
 	struct HeightmapSettings{
 		int	width; //how large is the map
 		int depth;
@@ -41,5 +40,4 @@ namespace Terrian_Prototype{
 			GLuint* indices;
 
 	};
-}
 #endif /* ifndef HEIGHTMAP_H */

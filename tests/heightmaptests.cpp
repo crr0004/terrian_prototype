@@ -1,14 +1,16 @@
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <catch.hpp>
+#include <stdio.h>
 #include "heightmap.hpp"
 #include "matrixstacksingleton.hpp"
 #include "logiccontext.hpp"
 #include "visualcontext.hpp"
 #include "terrian_config.hpp"
+#include "luae/script.hpp"
+#include "luae/scriptmanager.hpp"
+#include "luae/scriptheightmap.hpp"
 
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <catch.hpp>
-#include <stdio.h>
-using namespace Terrian_Prototype;
 //For stringifying preprocessor values
 #define xstr(s) str(s)
      #define str(s) #s
@@ -85,11 +87,11 @@ TEST_CASE("Heightmap Collision"){
 	GLuint uloc_project   = glGetUniformLocation(shader_program, "project");
 	GLuint uloc_modelview = glGetUniformLocation(shader_program, "modelview");
 
-	/* Compute the projection matrix 
+	// Compute the projection matrix 
 	VisualContext::projection_matrix = glm::perspective(VisualContext::view_angle, VisualContext::aspect_ratio, VisualContext::z_near, VisualContext::z_far);
 
 	logicContext.uloc_modelview = uloc_modelview;
-    /* Set the camera position  
+    // Set the camera position  
 	logicContext.modelview = glm::translate(logicContext.modelview, glm::vec3(0.0f, 0.0f, -7.0f));
 	logicContext.modelview = glm::rotate(logicContext.modelview, 1.57f, glm::vec3(-1.0f, 0.0f, 0.0f));
 
@@ -110,6 +112,7 @@ TEST_CASE("Heightmap Collision"){
 }
 */
 TEST_CASE("Lua script tests"){
+	/*
 
 	struct LogicContext logicContext;
 	GLFWwindow *window = VisualContext::CreateGLFWWindow(key_callback);
@@ -118,11 +121,11 @@ TEST_CASE("Lua script tests"){
 	GLuint uloc_project   = glGetUniformLocation(shader_program, "project");
 	GLuint uloc_modelview = glGetUniformLocation(shader_program, "modelview");
 
-	/* Compute the projection matrix */
+	// Compute the projection matrix 
 	VisualContext::projection_matrix = glm::perspective(VisualContext::view_angle, VisualContext::aspect_ratio, VisualContext::z_near, VisualContext::z_far);
 
 	logicContext.uloc_modelview = uloc_modelview;
-    /* Set the camera position  */
+    // Set the camera position  
 	logicContext.modelview = glm::translate(logicContext.modelview, glm::vec3(0.0f, 0.0f, -7.0f));
 	logicContext.modelview = glm::rotate(logicContext.modelview, 1.57f, glm::vec3(-1.0f, 0.0f, 0.0f));
 	HeightmapSettings heightmapSettings;
@@ -132,4 +135,8 @@ TEST_CASE("Lua script tests"){
 
 	Heightmap heightmap(heightmapSettings);
 	heightmap.build(heightmapSettings);
+	*/
+	Luae::ScriptHeightMap::AddToLib();
+	Luae::Script* script = Luae::Script::Load("scriptheightmaptests.lua");
+	script->call("init");
 }

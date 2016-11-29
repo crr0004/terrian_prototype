@@ -4,7 +4,6 @@
 #include <glad/glad.h>
 #include <glm/glm.hpp>
 
-namespace Terrian_Prototype{
 	namespace Geometry {
 		class Polygon : public IPolygon {
 		public:
@@ -33,6 +32,5 @@ namespace Terrian_Prototype{
 			glm::mat4 model_matrix;
 		};
 	}
-}
 
 #endif

@@ -13,7 +13,6 @@
 #include "heightmap.hpp"
 #include "line.hpp"
 #include "luae/scriptmanager.hpp"
-using namespace Terrian_Prototype;
 
 //For stringifying preprocessor values
 #define xstr(s) str(s)
