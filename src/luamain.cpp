@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 //For stringifying preprocessor values
 #define xstr(s) str(s)
@@ -28,7 +29,11 @@ struct Dog
 
 static int newDog(lua_State* l) {
 	Dog* bella = (Dog*)lua_newuserdata(l, sizeof(Dog));
-	bella->age = 12;
+	luaL_getmetatable(l, "Dog");
+	    // assert(lua_istable(L, -1)) if you're paranoid
+	lua_setmetatable(l, -2);
+	srand((unsigned int)time(NULL));
+	bella->age = rand() % 100;
 	bella->height = 1;
 
 	return 1;
@@ -43,6 +48,10 @@ static int DogGetAge(lua_State* l) {
 
 static const struct luaL_Reg doglib[] = {
 	{"new", newDog},
+	{NULL, NULL}
+
+};
+static const struct luaL_Reg doglibMember[] = {
 	{"age", DogGetAge},
 	{NULL, NULL}
 
@@ -179,6 +188,21 @@ int main(int argc, char* argv[]) {
 	l = luaL_newstate();
 	luaL_openlibs(l);
 	//PrintGlobalTable(l);
+	//Creates a metatable and registers in Lua's registery
+	luaL_newmetatable(l, "Dog");
+	//Sets functions against the meta table
+	luaL_setfuncs(l, doglibMember, 0);
+	//Adds __index 	to the meta table so we can use functions against
+	/*
+	 * Lua uses : syntax which causes an index lookup
+	 * It uses the following function name to look in the meta table
+	 * By adding __index we ensure that it always looks at its self
+	 *
+	 * I.E __index becomes the metatable itself which contains our functions
+	*/
+	lua_setfield(l, -1, "__index");
+	luaL_getmetatable(l, "Dog");
+	PrintTable(l);
 	luaL_newlib(l, doglib);
 	lua_setglobal(l, "dog");
 
@@ -196,8 +220,7 @@ int main(int argc, char* argv[]) {
 	}
 	else {
 		lua_pcall(l, 0, 0, 0);
-		lua_getglobal(l, "uupdate");
-		stackDump(l);
+		lua_getglobal(l, "update");
 		if (lua_pcall(l, 0, 0, 0) != 0) {
 			fprintf(stderr, "lua couldn't call update in '%s': %s.\n", "test.lua", lua_tostring(l, -1));
 		}
