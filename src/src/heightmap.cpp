@@ -14,6 +14,17 @@ Heightmap::Heightmap(HeightmapSettings settings){
 	vertices = new GLfloat[3*4*squareCount]; //3 is elements. 4 is for square
 	indices = new GLuint[2*3*squareCount];//2 triangles per square, 3 indices per triangle
 	srand((unsigned int)time(NULL));
+	this->settings = &settings;
+
+}
+
+Heightmap::Heightmap(HeightmapSettings *settings){
+	squareCount = settings->widthDensity*settings->widthDensity;
+	//@TODO: this is allocating too much
+	vertices = new GLfloat[3*4*squareCount]; //3 is elements. 4 is for square
+	indices = new GLuint[2*3*squareCount];//2 triangles per square, 3 indices per triangle
+	srand((unsigned int)time(NULL));
+	this->settings = settings;
 
 }
 
@@ -248,4 +259,13 @@ int Heightmap::getIndexOfSquare(int squareNumber){
 int Heightmap::getIndexOfSquareVertex(int squareNumber, int vertexNumber){
 	return indices[((squareNumber-1)*6)+vertexNumber-1];
 
+}
+
+int Heightmap::getSquareCount(){
+
+	return this->squareCount;
+}
+
+HeightmapSettings* Heightmap::getSettings(){
+	return settings;
 }

@@ -2,8 +2,10 @@
 #define LUAE_UTILITIES_H
 #include <lua/lua.hpp>
 #include <stdio.h>
+
 namespace Luae{
 
+	//TODO Rename so luae_ is prefixed
 	static void PrintLuaTypeAt(lua_State* l, const int i) {
 
 		int type = lua_type(l, i);
@@ -40,7 +42,7 @@ namespace Luae{
 		}
 	}
 
-
+	//TODO Rename so luae_ is prefixed
 	static void PrintTableAt(lua_State* l, int index){
 		int tableIndex = lua_absindex(l, index);
 		if (lua_istable(l, tableIndex) == 1) {
@@ -57,11 +59,13 @@ namespace Luae{
 		}
 
 	}
+	//TODO Rename so luae_ is prefixed
 	static void PrintTable(lua_State* l) {
 		PrintTableAt(l, -1);
 	}
 
 	//From Programming in Lua 3rd Edition
+	//TODO Rename so luae_ is prefixed
 	static void stackDump (lua_State *L) {
 		int i;
 		int top = lua_gettop(L); /* depth of the stack */
@@ -90,6 +94,7 @@ namespace Luae{
 		printf("\n"); /* end the listing */
 	}
 
+	//TODO Rename so luae_ is prefixed
 	static void PrintGlobalTable(lua_State* l) {
 		lua_pushglobaltable(l);
 		printf("Global table\n");
@@ -97,6 +102,7 @@ namespace Luae{
 		lua_pop(l, 1);
 	}
 
+	//TODO Rename so luae_ is prefixed
 	static void CopyTableAtTo(lua_State* l, int t, int newTableIndex){
 		t = lua_absindex(l, t);
 		newTableIndex = lua_absindex(l, newTableIndex);
@@ -112,6 +118,18 @@ namespace Luae{
 
 		}
 
+	}
+	static int luae_int_getfield(lua_State* l, int pos, const char* name){
+		lua_getfield(l, pos, name);
+		int value = lua_tonumber(l,pos);
+		lua_pop(l,1);
+		return value;
+	}
+	static float luae_float_getfield(lua_State* l, int pos, const char* name){
+		lua_getfield(l, pos, name);
+		float value = lua_tonumber(l,pos);
+		lua_pop(l,1);
+		return value;
 	}
 }
 

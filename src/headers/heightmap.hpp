@@ -9,6 +9,11 @@
 		int	widthDensity; //how many triangles are there
 		//int	depthDensity; //not using this at the moment. Assuming a square
 		glm::vec3 origin;
+		HeightmapSettings(){
+			width = -1;
+			depth = -1;
+			widthDensity = -1;
+		}
 	};
 
 	class Heightmap{
@@ -17,6 +22,7 @@
 			~Heightmap();
 			Heightmap(GLfloat* vertices, GLuint* indices);
 			Heightmap(HeightmapSettings settings);
+			Heightmap(HeightmapSettings* settings);
 			void build(HeightmapSettings settings);
 			void draw(LogicContext* state);
 			void update(LogicContext* state);
@@ -25,6 +31,8 @@
 			int getIndexOfSquare(int squareNumber);
 			int getIndexOfSquareVertex(int squareNumber, int vertexNumber);
 			void rotate(glm::vec3 rotateAround, float rotateBy);
+			int getSquareCount();
+			HeightmapSettings* getSettings();
 		protected:
 			void addVertex(float vertex);
 			void addVertex(float v1, float v2, float v3);

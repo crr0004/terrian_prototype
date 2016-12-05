@@ -5,6 +5,8 @@
 #include "luae/script.hpp"
 #include "luae/scriptmanager.hpp"
 
+using namespace Luae;
+
 
 class ScriptManagerMockClass{
 	public:

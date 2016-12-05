@@ -202,7 +202,6 @@ int main(int argc, char* argv[]) {
 	*/
 	lua_setfield(l, -1, "__index");
 	luaL_getmetatable(l, "Dog");
-	PrintTable(l);
 	luaL_newlib(l, doglib);
 	lua_setglobal(l, "dog");
 

@@ -7,6 +7,7 @@ namespace Luae{
 			public:
 				static void AddToLib();
 				static int Build(lua_State* l);
+				static int GetSettings(lua_State* l);
 			private:
 				HeightmapSettings settings;
 		};

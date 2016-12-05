@@ -106,3 +106,4 @@ bool Script::call(const char* functionName, int nargs, int nresults){
 bool Script::call(const char* functionName){
 	return this->call(functionName, 0, 0);
 }
+

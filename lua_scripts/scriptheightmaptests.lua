@@ -1,11 +1,13 @@
+HeightmapObject = nil
 function init()
 	settings = {
-		width=10,
-		x=0.0,
-		y=0.0,
-		z=0.0,
+		width=20,
+		x=10.0,
+		y=5.5,
+		z=-10.0,
 		widthDensity=10
 	}
-	Heightmap.Build(settings)
+	HeightmapObject = Heightmap.Build(settings)
+	HeightmapObject:getSettings()
 
 end

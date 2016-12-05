@@ -1,7 +1,9 @@
+#include <lua/lua.hpp>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <catch.hpp>
 #include <stdio.h>
+#include <fmt/format.h>
 #include "heightmap.hpp"
 #include "matrixstacksingleton.hpp"
 #include "logiccontext.hpp"
@@ -10,6 +12,7 @@
 #include "luae/script.hpp"
 #include "luae/scriptmanager.hpp"
 #include "luae/scriptheightmap.hpp"
+#include "luae/Utilities.hpp"
 
 //For stringifying preprocessor values
 #define xstr(s) str(s)
@@ -136,7 +139,19 @@ TEST_CASE("Lua script tests"){
 	Heightmap heightmap(heightmapSettings);
 	heightmap.build(heightmapSettings);
 	*/
+	lua_State* l = Luae::ScriptManager::instance()->getState();
 	Luae::ScriptHeightMap::AddToLib();
 	Luae::Script* script = Luae::Script::Load("scriptheightmaptests.lua");
-	script->call("init");
+	SECTION("Heightmap init"){
+		script->call("init");
+		lua_getglobal(l, "HeightmapObject");
+		Heightmap* heightmapTwo = *(Heightmap**)lua_touserdata(l, -1);
+		HeightmapSettings *settings = heightmapTwo->getSettings();
+
+		REQUIRE(settings->width == 20);
+		REQUIRE(settings->origin.x == 10);
+		REQUIRE(settings->origin.y == 5.5);
+		REQUIRE(settings->origin.z == -10.0);
+		REQUIRE(settings->widthDensity == 10);
+	}
 }
