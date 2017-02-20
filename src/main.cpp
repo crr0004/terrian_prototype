@@ -4,6 +4,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtx/string_cast.hpp>
+#include <lua/lua.hpp>
 
 #include "terrian_config.hpp"
 #include "matrixstacksingleton.hpp"
@@ -12,7 +13,9 @@
 #include "visualcontext.hpp"
 #include "heightmap.hpp"
 #include "line.hpp"
+#include "luae/script.hpp"
 #include "luae/scriptmanager.hpp"
+#include "luae/scriptheightmap.hpp"
 
 //For stringifying preprocessor values
 #define xstr(s) str(s)
@@ -106,6 +109,7 @@ int main(void) {
 	//Script script = Script::Load("update.lua");
 
 
+	/*
 	HeightmapSettings heightmapSettings;
 
 	heightmapSettings.widthDensity = 10;
@@ -115,6 +119,7 @@ int main(void) {
 	heightmap.build(heightmapSettings);
 	heightmap.setShaderLocations(vertShaderLocation);
 	heightmap.rotate(glm::vec3(1,0,0), -1.57f);
+	*/
 
 	GLfloat triangle_two_vertices[] = {
 		0.0f, 1.0f, 0.0f,
@@ -147,24 +152,25 @@ int main(void) {
 	//worldLine.rotate(glm::vec3(1.0f, 0.0f, 0.0f), 1.57f);
 	glEnable(GL_MULTISAMPLE);
 
+	lua_State* l = Luae::ScriptManager::instance()->getState();
+	Luae::ScriptHeightMap::AddToLib();
+	Luae::Script* script = Luae::Script::Load("scriptheightmap.lua");
+	script->call("init");
+	lua_getglobal(l, "HeightmapObject");
+	Heightmap* heightmapLua = *(Heightmap**)lua_touserdata(l, -1);
+
 	while (!glfwWindowShouldClose(window)) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glPolygonMode(GL_FRONT, GL_FILL);
 		glUniformMatrix4fv(uloc_project, 1, GL_FALSE, glm::value_ptr(VisualContext::projection_matrix));
-
-		/*
-		if(script.has("update")){
-			script.call("update");
-		}
-		*/
 
 		triangle.update(&logicContext);
 		triangle.draw(&logicContext);
 
 		glDisable(GL_CULL_FACE);
 
-		heightmap.update(&logicContext);
-		heightmap.draw(&logicContext);
+		heightmapLua->update(&logicContext);
+		heightmapLua->draw(&logicContext);
 		glEnable(GL_CULL_FACE);
 
 		calcWorldPickRay(window);

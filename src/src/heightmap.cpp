@@ -104,9 +104,12 @@ struct PreviousSquare{
 	int topLeftIndex;
 };
 void Heightmap::build(HeightmapSettings settings){
+	this->build(&settings);
+}
+void Heightmap::build(HeightmapSettings *settings){
 
 	//this should be calculated from the map origin and the map extents
-	glm::vec3 squareOrigin = glm::vec3(settings.origin);//glm::vec3(0.0f, 0.0f, 0.0f);
+	glm::vec3 squareOrigin = glm::vec3(settings->origin);//glm::vec3(0.0f, 0.0f, 0.0f);
 	//Vector to move right
 	glm::vec3 moveRight = glm::vec3(1.0f, 0.0f, 0.0f);
 	//Vector to move down
@@ -158,7 +161,7 @@ void Heightmap::build(HeightmapSettings settings){
 		//First row squares
 		//Shared vertices: bottom left, top left
 		//New: bottom right, top right
-		if(i < settings.widthDensity){
+		if(i < settings->widthDensity){
 			squareOrigin = squareOrigin + moveRight;
 			addVertex(squareOrigin[0] + 1.0f, squareOrigin[1], squareOrigin[2]);
 			newestVertexIndex++;
@@ -176,12 +179,12 @@ void Heightmap::build(HeightmapSettings settings){
 			previousSquare.bottomRightIndex = newestVertexIndex-1;
 			previousSquare.topRightIndex = newestVertexIndex;
 			previousSquare.topLeftIndex = previousSquare.topRightIndex;
-		}else if(i % settings.widthDensity == 0){
+		}else if(i % settings->widthDensity == 0){
 			//First square in row. I.E first column
 			//Shared vertices: Top left, top right
 			//New vertices: Bottom left, bottom right
-			squareOrigin = glm::vec3(settings.origin);
-			float column = (float)(i / settings.widthDensity);
+			squareOrigin = glm::vec3(settings->origin);
+			float column = (float)(i / settings->widthDensity);
 			squareOrigin += (moveDown * column);
 
 			addVertex(squareOrigin[0], squareOrigin[1], squareOrigin[2]);
@@ -216,7 +219,7 @@ void Heightmap::build(HeightmapSettings settings){
 			squareOrigin += moveRight;
 			addVertex(squareOrigin[0] + 1.0f, squareOrigin[1], squareOrigin[2]);
 			newestVertexIndex++;
-			int squareAboveNumber = (i-settings.widthDensity)+1;
+			int squareAboveNumber = (i-settings->widthDensity)+1;
 			addIndex(previousSquare.bottomRightIndex);
 			addIndex(newestVertexIndex);
 			addIndex(getIndexOfSquareVertex(squareAboveNumber, 2));

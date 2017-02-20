@@ -24,6 +24,7 @@
 			Heightmap(HeightmapSettings settings);
 			Heightmap(HeightmapSettings* settings);
 			void build(HeightmapSettings settings);
+			void build(HeightmapSettings *settings);
 			void draw(LogicContext* state);
 			void update(LogicContext* state);
 			void setShaderLocations(GLuint vertShaderLocation);

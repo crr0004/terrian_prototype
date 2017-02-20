@@ -59,7 +59,7 @@ int ScriptHeightMap::Build(lua_State* l){
 	*heightmapPointer = new Heightmap(settingsToPass);
 	luaL_getmetatable(l, "HeightmapMetatable");
 	lua_setmetatable(l, -2);
-	//(*heightmapPointer)->build(settingsToPass);
+	(*heightmapPointer)->build(settingsToPass);
 
 	/*
 	HeightmapSettings heightmapSettings;

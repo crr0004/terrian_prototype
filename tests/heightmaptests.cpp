@@ -115,7 +115,7 @@ TEST_CASE("Heightmap Collision"){
 }
 */
 TEST_CASE("Lua script tests"){
-	/*
+	
 
 	struct LogicContext logicContext;
 	GLFWwindow *window = VisualContext::CreateGLFWWindow(key_callback);
@@ -131,14 +131,7 @@ TEST_CASE("Lua script tests"){
     // Set the camera position  
 	logicContext.modelview = glm::translate(logicContext.modelview, glm::vec3(0.0f, 0.0f, -7.0f));
 	logicContext.modelview = glm::rotate(logicContext.modelview, 1.57f, glm::vec3(-1.0f, 0.0f, 0.0f));
-	HeightmapSettings heightmapSettings;
 
-	heightmapSettings.widthDensity = 10;
-	heightmapSettings.origin = glm::vec3(0.0f, 0.0f, 0.0f);
-
-	Heightmap heightmap(heightmapSettings);
-	heightmap.build(heightmapSettings);
-	*/
 	lua_State* l = Luae::ScriptManager::instance()->getState();
 	Luae::ScriptHeightMap::AddToLib();
 	Luae::Script* script = Luae::Script::Load("scriptheightmaptests.lua");

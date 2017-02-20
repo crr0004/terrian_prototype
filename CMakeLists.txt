@@ -29,6 +29,7 @@ SET(Terrian_Prototype_src
 	src/src/luae/script.cpp
 	src/src/luae/scriptmanager.cpp
 	src/src/luae/table.cpp
+	src/src/triangle.cpp
 	)
 SET(Terrian_Prototype_Tests_src
 	tests/Collision_planetest.cpp 
