@@ -27,11 +27,19 @@ void Triangle::setVertices(GLfloat vertices[], unsigned int size){
 GLfloat* Triangle::getVertices(){
 	return vertices;
 }
+unsigned int Triangle::getVertexSize(){
+	return vertexSize;
+}
 void Triangle::buildStatic(){
 	glGenBuffers(1, &vboID[0]);
 }
 void Triangle::setShaderLocations(GLuint vertShaderLocation){
 	this->vertShaderLocation = vertShaderLocation;
+}
+void Triangle::setShaderLocations(const char* name){
+	GLint shaderProgram;
+	glGetIntegerv(GL_CURRENT_PROGRAM,&shaderProgram);
+	this->vertShaderLocation = glGetAttribLocation(shaderProgram, name);
 }
 void Triangle::draw(struct LogicContext* state){
 	glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);

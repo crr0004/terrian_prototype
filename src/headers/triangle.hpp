@@ -10,8 +10,10 @@ class Triangle : public IPolygon{
 		void setIndices(GLuint indices[], unsigned int size){}
 		GLuint* getIndices(){return 0;}
 		GLfloat* getVertices() ;
+		unsigned int getVertexSize();
 		void buildStatic() ;
 		void setShaderLocations(GLuint vertShaderLocation) ;
+		void setShaderLocations(const char* name);
 		void draw(struct LogicContext* state) ;
 
 		void update(struct LogicContext* state) ;

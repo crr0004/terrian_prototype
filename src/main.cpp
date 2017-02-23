@@ -17,6 +17,7 @@
 #include "luae/script.hpp"
 #include "luae/scriptmanager.hpp"
 #include "luae/scriptheightmap.hpp"
+#include "luae/scriptriangle.hpp"
 
 //For stringifying preprocessor values
 #define xstr(s) str(s)
@@ -122,9 +123,12 @@ int main(void) {
 	worldLine.buildStatic();
 	worldLine.setShaderLocations(vertShaderLocation);
 
-	Triangle triangle;
-	triangle.buildStatic();
-	worldLine.setShaderLocations(vertShaderLocation);
+	lua_State* l = Luae::ScriptManager::instance()->getState();
+	Luae::ScriptTriangle::AddToLib();
+	Luae::Script* script = Luae::Script::Load("triangle_drawing.lua");
+	script->call("init");
+	lua_getglobal(l, "triangle");
+	Triangle* triangle = *(Triangle**)lua_touserdata(l,-1);
 
 	glEnable(GL_MULTISAMPLE);
 
@@ -141,8 +145,8 @@ int main(void) {
 		worldLine.update(&logicContext);
 		worldLine.draw(&logicContext);
 
-		triangle.update(&logicContext);
-		triangle.draw(&logicContext);
+		triangle->update(&logicContext);
+		triangle->draw(&logicContext);
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
