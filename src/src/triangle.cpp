@@ -7,21 +7,18 @@
 
 Triangle::Triangle(){
 	vertices = new GLfloat[9];
-}
-void Triangle::setFirstPoint(const glm::vec3 p){
-	vertices[0] = p[0];
-	vertices[1] = p[1];
-	vertices[2] = p[2];
-}
-void Triangle::setSecondPoint(const glm::vec3 p){
-	vertices[3] = p[0];
-	vertices[4] = p[1];
-	vertices[5] = p[2];
-}
-void Triangle::setThirdPoint(const glm::vec3 p){
-	vertices[6] = p[0];
-	vertices[7] = p[1];
-	vertices[8] = p[2];
+	vertexSize = 9;
+	vertices[0] = -1.0f;
+	vertices[1] = 0.0f;
+	vertices[2] = 0.0f;
+
+	vertices[3] = 1.0f;
+	vertices[4] = 0.0f;
+	vertices[5] = 0.0f;
+
+	vertices[6] = 1.0f;
+	vertices[7] = 1.0f;
+	vertices[8] = 0.0f;
 }
 void Triangle::setVertices(GLfloat vertices[], unsigned int size){
 	this->vertices = vertices;
@@ -53,9 +50,9 @@ void Triangle::draw(struct LogicContext* state){
 			(void*)0 //Pointer to the off of the first component of the first element
 			);
 	glDrawArrays(
-			GL_LINES,
+			GL_TRIANGLES,
 			0,
-			vertexSize //Amount of vertices to draw
+			vertexSize //Amount of indices to draw
 			);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glDisableVertexAttribArray(vertShaderLocation);
