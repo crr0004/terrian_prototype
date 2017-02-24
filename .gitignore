@@ -34,3 +34,6 @@ doc/
 *lua/
 *include/lua/
 *.tags
+
+#Git cherry picked files
+*.tmp.*
