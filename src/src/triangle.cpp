@@ -32,6 +32,24 @@ unsigned int Triangle::getVertexSize(){
 }
 void Triangle::buildStatic(){
 	glGenBuffers(1, &vboID[0]);
+	renderCommand = new ArrayDrawCommand();
+	VertexAttributeBuild vertBuilder = new VertexAttributeBuild();
+	vertBuilder->setLocation(vertShaderLocation);
+	vertBuilder->setType(GL_FLOAT);
+	vertBuilder->setSetNormalized(GL_FALSE);
+	vertBuilder->setAttributeSize(3);
+	vertBuilder->setStride(0);
+	vertBuilder->setOffset(0);
+	ArrayBufferBuilder arrayDraw = new ArrayBufferBuilder();
+	arrayDraw->numberOfArrays(1);
+	arrayDraw->setSize(vertexSize);
+	arrayDraw->setVertices(vertices);
+	arrayDraw->setType(GL_TRIANGLES);
+	arrayDraw->setStartingIndex(0);
+	DrawBuilder draw = new DrawBuilder();
+	draw->addVertexAttribute(vertBuilder->build());
+	draw->addArrayBuffer(arrayDraw->build());
+	
 }
 void Triangle::setShaderLocations(GLuint vertShaderLocation){
 	this->vertShaderLocation = vertShaderLocation;
@@ -65,7 +83,6 @@ void Triangle::draw(struct LogicContext* state){
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glDisableVertexAttribArray(vertShaderLocation);
 	model_matrix = (MatrixStackSingleton::instance())->pop();
-
 }
 void Triangle::update(struct LogicContext* state){
 	MatrixStackSingleton* instance = MatrixStackSingleton::instance();
