@@ -4,6 +4,10 @@
 #include <glm/gtc/type_ptr.hpp>
 #include "matrixstacksingleton.hpp"
 #include "logicstate.hpp"
+#include "RenderFactory.hpp"
+#include "IDrawBuilder.hpp"
+#include "IArrayBufferBuilder.hpp"
+#include "IVertexAttributeBuilder.hpp"
 
 Triangle::Triangle(){
 	vertices = new GLfloat[9];
@@ -32,21 +36,23 @@ unsigned int Triangle::getVertexSize(){
 }
 void Triangle::buildStatic(){
 	glGenBuffers(1, &vboID[0]);
-	renderCommand = new ArrayDrawCommand();
-	VertexAttributeBuild vertBuilder = new VertexAttributeBuild();
+
+	IVertexAttributeBuilder* vertBuilder = RenderFactory::NewVertexAttributeBuilder();
 	vertBuilder->setLocation(vertShaderLocation);
 	vertBuilder->setType(GL_FLOAT);
 	vertBuilder->setSetNormalized(GL_FALSE);
 	vertBuilder->setAttributeSize(3);
 	vertBuilder->setStride(0);
 	vertBuilder->setOffset(0);
-	ArrayBufferBuilder arrayDraw = new ArrayBufferBuilder();
+
+	IArrayBufferBuilder* arrayDraw = RenderFactory::NewArrayBufferBuilder();
 	arrayDraw->numberOfArrays(1);
 	arrayDraw->setSize(vertexSize);
 	arrayDraw->setVertices(vertices);
 	arrayDraw->setType(GL_TRIANGLES);
 	arrayDraw->setStartingIndex(0);
-	DrawBuilder draw = new DrawBuilder();
+
+	IDrawBuilder* draw = RenderFactory::NewDrawBuilder();
 	draw->addVertexAttribute(vertBuilder->build());
 	draw->addArrayBuffer(arrayDraw->build());
 	
