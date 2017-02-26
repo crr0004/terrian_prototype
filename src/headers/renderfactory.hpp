@@ -10,5 +10,14 @@ class RenderFactory {
 		static IDrawBuilder* NewDrawBuilder();
 		RenderFactory();
 		~RenderFactory();
+		void setPrototypes(IVertexAttributeBuilder*,
+				IArrayBufferBuilder*,
+				IDrawBuilder*);
+
+	protected:
+		static IVertexAttributeBuilder* vertexBuilderPrototype;
+		static IArrayBufferBuilder* arrayBuilderPrototype;
+		static IDrawBuilder* drawBuilderPrototype;
+
 };
 #endif

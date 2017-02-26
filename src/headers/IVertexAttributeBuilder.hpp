@@ -4,6 +4,6 @@ class IVertexAttributeBuilder {
 	public:
 		virtual ~IVertexAttributeBuilder();
 		IVertexAttributeBuilder();
-		virtual *IVertexAttributeBuilder clone() = 0;
+		virtual IVertexAttributeBuilder* clone() = 0;
 };
 #endif
