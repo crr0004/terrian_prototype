@@ -8,7 +8,28 @@
 
 TEST_CASE("RenderFactory basic usage"){
 	SECTION("Setting prototypes"){
+		using namespace fakeit;
 		RenderFactory* factory = new RenderFactory();
+		Mock<IDrawBuilder> drawMock;
+		Mock<IArrayBufferBuilder> arrayMock;
+		Mock<IVertexAttributeBuilder> vertexMock;
+
+		IDrawBuilder &drawBuilder = drawMock.get();
+		IArrayBufferBuilder &arrayBuilder = arrayMock.get();
+		IVertexAttributeBuilder &vertBuilder = vertexMock.get();
+
+		factory->setPrototypes(
+				&vertBuilder,
+				&arrayBuilder,
+				&drawBuilder);
+		When(Method(drawMock,clone)).Return(&drawBuilder);
+
+		IDrawBuilder *drawBuilderMock = RenderFactory::NewDrawBuilder();
+
+		Verify(Method(drawMock,clone));
+
+
+		//When(Method(mock,foo))
 		/*
 Mock<SomeInterface> mock;
 

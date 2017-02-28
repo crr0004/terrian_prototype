@@ -3,6 +3,8 @@
 #include "IArrayBufferBuilder.hpp"
 #include "IVertexAttributeBuilder.hpp"
 
+IDrawBuilder* RenderFactory::drawBuilderPrototype = 0;
+
 RenderFactory::RenderFactory(){
 
 }
@@ -14,6 +16,7 @@ void RenderFactory::setPrototypes(
 		IVertexAttributeBuilder* vertBuilder,
 		IArrayBufferBuilder* arrayBuilder,
 		IDrawBuilder* drawBuilder){
+	RenderFactory::drawBuilderPrototype = drawBuilder;
 
 }
 
@@ -30,7 +33,5 @@ IVertexAttributeBuilder* RenderFactory::NewAttributeBuilder(){
 
 IDrawBuilder* RenderFactory::NewDrawBuilder(){
 
-	return 0;
+	return drawBuilderPrototype->clone();
 }
-
-

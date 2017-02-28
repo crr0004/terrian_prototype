@@ -2,8 +2,7 @@
 #define IDRAWBUILDER_H
 class IDrawBuilder {
 	public:
-		virtual ~IDrawBuilder();
-		IDrawBuilder();
+		virtual ~IDrawBuilder(){}
 		virtual IDrawBuilder* clone() = 0;
 };
 #endif

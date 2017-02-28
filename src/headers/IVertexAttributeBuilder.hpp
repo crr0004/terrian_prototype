@@ -2,7 +2,7 @@
 #define IVERTEXATTRIBUTEBUILDER_H
 class IVertexAttributeBuilder {
 	public:
-		virtual ~IVertexAttributeBuilder();
+		virtual ~IVertexAttributeBuilder(){}
 		IVertexAttributeBuilder();
 		virtual IVertexAttributeBuilder* clone() = 0;
 };

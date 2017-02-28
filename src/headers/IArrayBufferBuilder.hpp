@@ -2,7 +2,7 @@
 #define IARRAYBUFFERBUILDER_H
 class IArrayBufferBuilder{
 	public:
-		virtual ~IArrayBufferBuilder();
+		virtual ~IArrayBufferBuilder(){}
 		IArrayBufferBuilder();
 		virtual IArrayBufferBuilder* clone() = 0;
 };
