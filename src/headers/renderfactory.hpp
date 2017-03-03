@@ -5,7 +5,7 @@
 #include "IVertexAttributeBuilder.hpp"
 class RenderFactory {
 	public:
-		static IVertexAttributeBuilder* NewAttributeBuilder();
+		static IVertexAttributeBuilder* NewVertexAttributeBuilder();
 		static IArrayBufferBuilder* NewArrayBufferBuilder();
 		static IDrawBuilder* NewDrawBuilder();
 		RenderFactory();

@@ -4,6 +4,8 @@
 #include "IVertexAttributeBuilder.hpp"
 
 IDrawBuilder* RenderFactory::drawBuilderPrototype = 0;
+IVertexAttributeBuilder* RenderFactory::vertexBuilderPrototype = 0;
+IArrayBufferBuilder* RenderFactory::arrayBuilderPrototype = 0;
 
 RenderFactory::RenderFactory(){
 
@@ -15,20 +17,24 @@ RenderFactory::~RenderFactory(){
 void RenderFactory::setPrototypes(
 		IVertexAttributeBuilder* vertBuilder,
 		IArrayBufferBuilder* arrayBuilder,
-		IDrawBuilder* drawBuilder){
+		IDrawBuilder* drawBuilder
+		){
+	
 	RenderFactory::drawBuilderPrototype = drawBuilder;
+	RenderFactory::vertexBuilderPrototype = vertBuilder;
+	RenderFactory::arrayBuilderPrototype = arrayBuilder;
 
 }
 
 
 IArrayBufferBuilder* RenderFactory::NewArrayBufferBuilder(){
 
-	return 0;
+	return arrayBuilderPrototype->clone();
 }
 
-IVertexAttributeBuilder* RenderFactory::NewAttributeBuilder(){
+IVertexAttributeBuilder* RenderFactory::NewVertexAttributeBuilder(){
 
-	return 0;
+	return vertexBuilderPrototype->clone();
 }
 
 IDrawBuilder* RenderFactory::NewDrawBuilder(){
