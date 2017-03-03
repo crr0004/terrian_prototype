@@ -5,7 +5,7 @@
 class VertexAttributeBuilt : public IVertexAttributeBuilt {
 	friend class VertexAttributeBuilder;
 	public:
-		~VertexAttributeBuilt(){}
+		~VertexAttributeBuilt();
 		void enable();
 		void bind();
 		void disable();

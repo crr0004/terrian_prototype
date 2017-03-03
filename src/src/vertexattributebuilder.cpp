@@ -14,7 +14,7 @@ VertexAttributeBuilder::~VertexAttributeBuilder(){
 IVertexAttributeBuilder* VertexAttributeBuilder::clone(){
 	VertexAttributeBuilder *clone = new VertexAttributeBuilder();
 
-	return 0;
+	return clone;
 }
 
 void VertexAttributeBuilder::setLocation(GLuint location){
