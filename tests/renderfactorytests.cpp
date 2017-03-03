@@ -16,6 +16,7 @@
 #include "IDrawBuilder.hpp"
 #include "IArrayBufferBuilder.hpp"
 #include "IVertexAttributeBuilder.hpp"
+#include "vertexattributebuilder.hpp"
 //For stringifying preprocessor values
 #define xstr(s) str(s)
 #define str(s) #s
@@ -83,7 +84,29 @@ TEST_CASE("Builders implementation"){
 	glViewport(0,0,VisualContext::width, VisualContext::height);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
+	RenderFactory* renderfactory = new RenderFactory();
+	fakeit::Mock<IDrawBuilder> drawMock;
+	fakeit::Mock<IArrayBufferBuilder> arrayMock;
+
+	IDrawBuilder &drawBuilder = drawMock.get();
+	IArrayBufferBuilder &arrayBuilder = arrayMock.get();
+	IVertexAttributeBuilder* vertexBuilder = new VertexAttributeBuilder();
+
+	renderfactory->setPrototypes(
+			vertexBuilder,
+			&arrayBuilder,
+			&drawBuilder);
+
 	SECTION("VertexAttributeBuilder basic usage"){
+		IVertexAttributeBuilder* vert = RenderFactory::NewVertexAttributeBuilder();
+		vert->setAttributeSize(3);
+		vert->setLocation(vertShaderLocation);
+		vert->setOffset(0);
+		vert->setSetNormalized(GL_FALSE);
+		vert->setStride(0);
+		vert->setType(GL_FLOAT);
+		IVertexAttributeBuilt* vertex = vert->build();
+
 		GLfloat *vertices = new GLfloat[9];
 		unsigned int vertexSize = 9;
 
@@ -102,6 +125,7 @@ TEST_CASE("Builders implementation"){
 
 		glGenBuffers(1, &vboID[0]);
 
+	//	while (!glfwWindowShouldClose(window)) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glPolygonMode(GL_FRONT, GL_FILL);
 		glUniformMatrix4fv(uloc_project, 1, GL_FALSE, glm::value_ptr(VisualContext::projection_matrix));
@@ -123,8 +147,39 @@ TEST_CASE("Builders implementation"){
 		glUniformMatrix4fv(logicContext.uloc_modelview, 1, GL_FALSE, glm::value_ptr(model_matrix));
 
 
-		glEnableVertexAttribArray(vertShaderLocation);
+		//glEnableVertexAttribArray(vertShaderLocation);
+		vertex->enable();
+		int enabled = 0;
+		glGetVertexAttribiv(vertShaderLocation, GL_VERTEX_ATTRIB_ARRAY_ENABLED, &enabled);
+		REQUIRE(enabled > 0);
+		enabled = 0;
 
+		vertex->bind();
+		float value = -1;
+		glGetVertexAttribfv(vertShaderLocation,
+				GL_VERTEX_ATTRIB_ARRAY_SIZE,
+				&value);
+		REQUIRE(value == 3.0);
+
+		value = -1;
+		glGetVertexAttribfv(vertShaderLocation,
+				GL_VERTEX_ATTRIB_ARRAY_TYPE,
+				&value);
+		REQUIRE(value == GL_FLOAT);
+
+		value = -1;
+		glGetVertexAttribfv(vertShaderLocation,
+				GL_VERTEX_ATTRIB_ARRAY_NORMALIZED,
+				&value);
+		REQUIRE(value == GL_FALSE);
+
+		value = -1;
+		glGetVertexAttribfv(vertShaderLocation,
+				GL_VERTEX_ATTRIB_ARRAY_STRIDE,
+				&value);
+		REQUIRE(value == 0);
+
+		/*
 		glVertexAttribPointer(
 				vertShaderLocation,
 				3, //size of attribute
@@ -133,6 +188,7 @@ TEST_CASE("Builders implementation"){
 				0, //stride
 				(void*)0 //Pointer to the off of the first component of the first element
 				);
+				*/
 		//VertexAttributeBuilder replaces to here
 		glDrawArrays(
 				GL_TRIANGLES,
@@ -140,10 +196,14 @@ TEST_CASE("Builders implementation"){
 				vertexSize //Amount of indices to draw
 				);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
-		glDisableVertexAttribArray(vertShaderLocation);
+
+		vertex->disable();
+		//glDisableVertexAttribArray(vertShaderLocation);
+
 		model_matrix = (MatrixStackSingleton::instance())->pop();
 		glfwSwapBuffers(window);
 		glfwPollEvents();
+	//}
 
 	}
 
