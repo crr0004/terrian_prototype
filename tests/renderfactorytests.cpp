@@ -206,6 +206,74 @@ TEST_CASE("Builders implementation"){
 	//}
 
 	}
+	SECTION("ArrayBuilder basic usage"){
+		IVertexAttributeBuilder* array = RenderFactory::NewVertexAttributeBuilder();
+
+		GLfloat *vertices = new GLfloat[9];
+		unsigned int vertexSize = 9;
+
+		vertices[0] = -1.0f;
+		vertices[1] = 0.0f;
+		vertices[2] = 0.0f;
+
+		vertices[3] = 1.0f;
+		vertices[4] = 0.0f;
+		vertices[5] = 0.0f;
+
+		vertices[6] = 1.0f;
+		vertices[7] = 1.0f;
+		vertices[8] = 0.0f;
+		GLuint vboID[1];
+
+		glGenBuffers(1, &vboID[0]);
+
+	//	while (!glfwWindowShouldClose(window)) {
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		glPolygonMode(GL_FRONT, GL_FILL);
+		glUniformMatrix4fv(uloc_project, 1, GL_FALSE, glm::value_ptr(VisualContext::projection_matrix));
+		MatrixStackSingleton* instance = MatrixStackSingleton::instance();
+		glm::mat4 model_matrix;
+
+		instance->push(model_matrix);
+		model_matrix = logicContext.modelview * model_matrix;
+
+		//VertexAttributeBuilder replaces this to
+
+		//Not this
+		glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
+
+		//Not this
+		glBufferData(GL_ARRAY_BUFFER, vertexSize * sizeof(GLfloat), vertices, GL_DYNAMIC_DRAW);
+
+		//Not this
+		glUniformMatrix4fv(logicContext.uloc_modelview, 1, GL_FALSE, glm::value_ptr(model_matrix));
+
+
+	glEnableVertexAttribArray(vertShaderLocation);
+
+		glVertexAttribPointer(
+				vertShaderLocation,
+				3, //size of attribute
+				GL_FLOAT,
+				GL_FALSE,
+				0, //stride
+				(void*)0 //Pointer to the off of the first component of the first element
+				);
+		glDrawArrays(
+				GL_TRIANGLES,
+				0,
+				vertexSize //Amount of indices to draw
+				);
+		glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+		glDisableVertexAttribArray(vertShaderLocation);
+
+		model_matrix = (MatrixStackSingleton::instance())->pop();
+		glfwSwapBuffers(window);
+		glfwPollEvents();
+	//}
+
+	}
 
 	glDeleteProgram(shader_program);
 	glfwDestroyWindow(window);
