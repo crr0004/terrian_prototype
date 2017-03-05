@@ -6,15 +6,7 @@ class IArrayBufferBuilt {
 		virtual void draw() = 0;
 		virtual void enable() = 0;
 		virtual void disable() = 0;
-	private:
-		GLsizei arrayCount;
-		GLvoid* source;
-		GLenum drawMode;
-		GLenum target;
-		GLenum mode;
-		GLint first;
-		GLsizeiptr bufferSize;
-		GLenum drawUsage;
+		virtual void buffer() = 0;
 };
 class IArrayBufferBuilder{
 	public:
