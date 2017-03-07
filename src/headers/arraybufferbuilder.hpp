@@ -5,6 +5,7 @@ class ArrayBufferBuilt : public IArrayBufferBuilt {
 	friend class ArrayBufferBuilder;
 	public:
 		void draw();
+		void buffer();
 		void enable();
 		void disable();
 		~ArrayBufferBuilt();
@@ -21,7 +22,6 @@ class ArrayBufferBuilt : public IArrayBufferBuilt {
 		GLenum drawUsage;
 		GLuint id;
 		bool buffered;
-
 };
 class ArrayBufferBuilder : public IArrayBufferBuilder {
 	public:
@@ -37,6 +37,6 @@ class ArrayBufferBuilder : public IArrayBufferBuilder {
 	protected:
 		ArrayBufferBuilder();
 	private:
-		ArrayBufferBuilt* arraybuilt;
+		ArrayBufferBuilt* arrayBuffer;
 };
 #endif
