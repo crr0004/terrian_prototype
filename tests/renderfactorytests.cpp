@@ -86,15 +86,14 @@ TEST_CASE("Builders implementation"){
 
 	RenderFactory* renderfactory = new RenderFactory();
 	fakeit::Mock<IDrawBuilder> drawMock;
-	fakeit::Mock<IArrayBufferBuilder> arrayMock;
 
 	IDrawBuilder &drawBuilder = drawMock.get();
-	IArrayBufferBuilder &arrayBuilder = arrayMock.get();
+	IArrayBufferBuilder &arrayBuilder = new ArrayBufferBuilder();
 	IVertexAttributeBuilder* vertexBuilder = new VertexAttributeBuilder();
 
 	renderfactory->setPrototypes(
 			vertexBuilder,
-			&arrayBuilder,
+			arrayBuilder,
 			&drawBuilder);
 
 	SECTION("VertexAttributeBuilder basic usage"){
@@ -207,10 +206,18 @@ TEST_CASE("Builders implementation"){
 
 	}
 	SECTION("ArrayBuilder basic usage"){
-		IVertexAttributeBuilder* array = RenderFactory::NewVertexAttributeBuilder();
+		IArrayBufferBuilder *array = RenderFactory::NewArrayBufferBuilder();
 
 		GLfloat *vertices = new GLfloat[9];
 		unsigned int vertexSize = 9;
+
+		array->setSource(vertices);
+		array->setArrayCount(vertexSize);
+		array->setMode(GL_TRIANGLES);
+		array->setFirst(0);
+		array->setTarget(GL_ARRAY_BUFFER);
+		array->setBufferSize(vertexSize * sizeof(GLfloat));
+		array->setDrawUsage(GL_DYNAMIC_DRAW);
 
 		vertices[0] = -1.0f;
 		vertices[1] = 0.0f;
@@ -223,6 +230,7 @@ TEST_CASE("Builders implementation"){
 		vertices[6] = 1.0f;
 		vertices[7] = 1.0f;
 		vertices[8] = 0.0f;
+		
 		GLuint vboID[1];
 
 		glGenBuffers(1, &vboID[0]);
@@ -237,15 +245,11 @@ TEST_CASE("Builders implementation"){
 		instance->push(model_matrix);
 		model_matrix = logicContext.modelview * model_matrix;
 
-		//VertexAttributeBuilder replaces this to
 
-		//Not this
 		glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
 
-		//Not this
 		glBufferData(GL_ARRAY_BUFFER, vertexSize * sizeof(GLfloat), vertices, GL_DYNAMIC_DRAW);
 
-		//Not this
 		glUniformMatrix4fv(logicContext.uloc_modelview, 1, GL_FALSE, glm::value_ptr(model_matrix));
 
 

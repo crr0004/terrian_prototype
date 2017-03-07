@@ -34,6 +34,8 @@ SET(Terrian_Prototype_src
 	src/src/renderfactory.cpp
 	src/src/vertexattributebuilder.cpp
 	src/src/vertexattributebuilt.cpp
+	src/src/arraybufferbuilder.cpp
+	src/src/arraybufferbuilt.cpp
 	)
 SET(Terrian_Prototype_Tests_src
 	tests/Collision_planetest.cpp 

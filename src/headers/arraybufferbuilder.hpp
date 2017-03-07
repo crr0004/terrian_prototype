@@ -7,6 +7,9 @@ class ArrayBufferBuilt : public IArrayBufferBuilt {
 		void draw();
 		void enable();
 		void disable();
+		~ArrayBufferBuilt();
+	protected:
+		ArrayBufferBuilt();
 	private:
 		GLsizei arrayCount;
 		GLvoid* source;
@@ -16,13 +19,15 @@ class ArrayBufferBuilt : public IArrayBufferBuilt {
 		GLint first;
 		GLsizeiptr bufferSize;
 		GLenum drawUsage;
+		GLuint id;
+		bool buffered;
 
-}
+};
 class ArrayBufferBuilder : public IArrayBufferBuilder {
 	public:
 		IArrayBufferBuilder* clone();
 		void setArrayCount(GLsizei);
-		void setVerticesPoint(const GLvoid*);
+		void setSource(const GLvoid*);
 		void setMode(GLenum);
 		void setFirst(GLint);
 		void setTarget(GLenum);
@@ -31,5 +36,7 @@ class ArrayBufferBuilder : public IArrayBufferBuilder {
 		~ArrayBufferBuilder();
 	protected:
 		ArrayBufferBuilder();
+	private:
+		ArrayBufferBuilt* arraybuilt;
 };
 #endif
