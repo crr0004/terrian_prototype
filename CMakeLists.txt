@@ -115,7 +115,7 @@ if(MSVC)
 	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall")
 endif()
 target_compile_options(LuaTests PUBLIC -Og -g3)
-#target_compile_options(Terrian_Prototype_Tests PUBLIC -Og -g3)
+target_compile_options(Terrian_Prototype_Tests PUBLIC -Og -g3)
 target_compile_options(liblua PUBLIC -Og -g3)
 
 set(SHADERS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/shaders/" CACHE PATH "Directory containing shaders")
