@@ -2,12 +2,8 @@
 #define COMMAND_H
 class Command {
 	public:
-		virtual ~Command();
+		virtual ~Command(){}
 
-		virtual void Execute() = 0;
-
-	protected:
-		Command();
-
+		virtual void execute() = 0;
 };
 #endif
