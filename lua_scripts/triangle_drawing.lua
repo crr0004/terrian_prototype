@@ -1,7 +1,9 @@
 triangle = nil
 function init()
 	triangle = Triangle.Create()
-	for k,v in ipairs(triangle:getVertices()) do print(k,v) end
+	triangle:translate({-5.0,0.0,0.0})
+	triangle1 = Triangle.Create()
+	triangle1:translate({5.0,0.0,0.0})
 --[[	point1 = Point.create(0.0, 0.0, 0.0)
 	point2 = Point.create(1.0, 0.0, 0.0)
 	point3 = Point.create(0.0, 1.0, 0.0)

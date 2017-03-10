@@ -5,15 +5,19 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtx/string_cast.hpp>
 #include <lua/lua.hpp>
+#include <vector>
+#include <fmt/format.h>
 
 #include "terrian_config.hpp"
 #include "matrixstacksingleton.hpp"
+#include "IPolygon.hpp"
 #include "polygon.hpp"
 #include "logiccontext.hpp"
 #include "visualcontext.hpp"
 #include "heightmap.hpp"
 #include "line.hpp"
 #include "triangle.hpp"
+#include "addtodrawqueue.hpp"
 #include "luae/script.hpp"
 #include "luae/scriptmanager.hpp"
 #include "luae/scriptheightmap.hpp"
@@ -95,6 +99,8 @@ int main(void) {
 	GLuint vertShaderLocation = glGetAttribLocation(shader_program, "vert");
 	GLuint uloc_project   = glGetUniformLocation(shader_program, "project");
 	GLuint uloc_modelview = glGetUniformLocation(shader_program, "modelview");
+	std::vector<IPolygon*> drawQueue;
+	AddToDrawQueueCommand::SetQueue(&drawQueue);
 
 	/* Compute the projection matrix */
 	VisualContext::projection_matrix = glm::perspective(VisualContext::view_angle, VisualContext::aspect_ratio, VisualContext::z_near, VisualContext::z_far);
@@ -127,8 +133,11 @@ int main(void) {
 	Luae::ScriptTriangle::AddToLib();
 	Luae::Script* script = Luae::Script::Load("triangle_drawing.lua");
 	script->call("init");
-	lua_getglobal(l, "triangle");
-	Triangle* triangle = *(Triangle**)lua_touserdata(l,-1);
+	//lua_getglobal(l, "triangle");
+	//Triangle* triangle = *(Triangle**)lua_touserdata(l,-1);
+	//drawQueue.push_back(triangle);
+//	AddToDrawQueueCommand addTriangle(triangle);
+//	addTriangle.execute();
 
 	glEnable(GL_MULTISAMPLE);
 
@@ -145,8 +154,18 @@ int main(void) {
 		worldLine.update(&logicContext);
 		worldLine.draw(&logicContext);
 
-		triangle->update(&logicContext);
-		triangle->draw(&logicContext);
+		//triangle->update(&logicContext);
+		//triangle->draw(&logicContext);
+
+		int i = 0;
+		for(std::vector<IPolygon*>::iterator drawHost = drawQueue.begin();
+				drawHost != drawQueue.end();
+				drawHost++){
+			(*drawHost)->update(&logicContext);
+			(*drawHost)->draw(&logicContext);
+			i++;
+		//	fmt::printf("Draw call #: %d\n", i);
+		}
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();

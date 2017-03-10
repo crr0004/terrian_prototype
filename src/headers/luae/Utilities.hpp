@@ -69,7 +69,7 @@ namespace Luae{
 	static void stackDump (lua_State *L) {
 		int i;
 		int top = lua_gettop(L); /* depth of the stack */
-		for (i = 1; i <= top; i++) { /* repeat for each level */
+		for (i = top; i >= 1; i--) { /* repeat for each level */
 			int t = lua_type(L, i);
 			switch (t) {
 				case LUA_TSTRING: { /* strings */
@@ -127,6 +127,12 @@ namespace Luae{
 	}
 	static float luae_float_getfield(lua_State* l, int pos, const char* name){
 		lua_getfield(l, pos, name);
+		float value = lua_tonumber(l,pos);
+		lua_pop(l,1);
+		return value;
+	}
+	static float luae_float_getfield(lua_State* l, int pos, int index){
+		lua_rawgeti(l, pos, index);
 		float value = lua_tonumber(l,pos);
 		lua_pop(l,1);
 		return value;

@@ -36,6 +36,7 @@ SET(Terrian_Prototype_src
 	src/src/vertexattributebuilt.cpp
 	src/src/arraybufferbuilder.cpp
 	src/src/arraybufferbuilt.cpp
+	src/src/addtodrawqueue.cpp
 	)
 SET(Terrian_Prototype_Tests_src
 	tests/Collision_planetest.cpp 
