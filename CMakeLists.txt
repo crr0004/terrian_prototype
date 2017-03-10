@@ -30,6 +30,8 @@ SET(Terrian_Prototype_src
 	src/src/luae/scriptmanager.cpp
 	src/src/luae/table.cpp
 	src/src/triangle.cpp
+	src/src/luae/scriptriangle.cpp
+	src/src/addtodrawqueue.cpp
 	)
 SET(Terrian_Prototype_Tests_src
 	tests/Collision_planetest.cpp 

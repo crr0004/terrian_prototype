@@ -1,4 +1,5 @@
 #include "triangle.hpp"
+#include <fmt/format.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -7,21 +8,18 @@
 
 Triangle::Triangle(){
 	vertices = new GLfloat[9];
-}
-void Triangle::setFirstPoint(const glm::vec3 p){
-	vertices[0] = p[0];
-	vertices[1] = p[1];
-	vertices[2] = p[2];
-}
-void Triangle::setSecondPoint(const glm::vec3 p){
-	vertices[3] = p[0];
-	vertices[4] = p[1];
-	vertices[5] = p[2];
-}
-void Triangle::setThirdPoint(const glm::vec3 p){
-	vertices[6] = p[0];
-	vertices[7] = p[1];
-	vertices[8] = p[2];
+	vertexSize = 9;
+	vertices[0] = -1.0f;
+	vertices[1] = 0.0f;
+	vertices[2] = 0.0f;
+
+	vertices[3] = 1.0f;
+	vertices[4] = 0.0f;
+	vertices[5] = 0.0f;
+
+	vertices[6] = 1.0f;
+	vertices[7] = 1.0f;
+	vertices[8] = 0.0f;
 }
 void Triangle::setVertices(GLfloat vertices[], unsigned int size){
 	this->vertices = vertices;
@@ -30,13 +28,29 @@ void Triangle::setVertices(GLfloat vertices[], unsigned int size){
 GLfloat* Triangle::getVertices(){
 	return vertices;
 }
+unsigned int Triangle::getVertexSize(){
+	return vertexSize;
+}
 void Triangle::buildStatic(){
 	glGenBuffers(1, &vboID[0]);
 }
 void Triangle::setShaderLocations(GLuint vertShaderLocation){
 	this->vertShaderLocation = vertShaderLocation;
 }
+void Triangle::setShaderLocations(const char* name){
+	GLint shaderProgram;
+	glGetIntegerv(GL_CURRENT_PROGRAM,&shaderProgram);
+	this->vertShaderLocation = glGetAttribLocation(shaderProgram, name);
+}
 void Triangle::draw(struct LogicContext* state){
+	/*
+	fmt::printf("Drawing triangle at X,Y,Z: (%f,%f,%f)\n",
+			model_matrix[3][0],
+			model_matrix[3][1],
+			model_matrix[3][2]
+			);
+			*/
+
 	glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
 
 	glBufferData(GL_ARRAY_BUFFER, vertexSize * sizeof(GLfloat), vertices, GL_DYNAMIC_DRAW);
@@ -53,14 +67,13 @@ void Triangle::draw(struct LogicContext* state){
 			(void*)0 //Pointer to the off of the first component of the first element
 			);
 	glDrawArrays(
-			GL_LINES,
+			GL_TRIANGLES,
 			0,
-			vertexSize //Amount of vertices to draw
+			vertexSize //Amount of indices to draw
 			);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glDisableVertexAttribArray(vertShaderLocation);
 	model_matrix = (MatrixStackSingleton::instance())->pop();
-
 }
 void Triangle::update(struct LogicContext* state){
 	MatrixStackSingleton* instance = MatrixStackSingleton::instance();

@@ -56,9 +56,9 @@ int ScriptManagerMockClass::luaeWithTableReturn(lua_State* l){
 
 	const char* name = ScriptManagerMockClass::withTableReturn();
 	lua_createtable(l, 0, 1);
-	lua_pushstring(l, "name");
-	lua_pushstring(l, name);
-	lua_settable(l, -3);
+	lua_pushstring(l, "name"); //push index name
+	lua_pushstring(l, name); //push index value
+	lua_settable(l, -3); //set t[index_name] = value
 
 	return 1;
 }
