@@ -1,4 +1,4 @@
-#include "arraybufferbuilt.hpp"
+#include "arraybufferbuilder.hpp"
 #include <glad/glad.h>
 
 ArrayBufferBuilt::ArrayBufferBuilt(){
@@ -19,9 +19,13 @@ void ArrayBufferBuilt::draw(){
 
 void ArrayBufferBuilt::enable(){
 	glBindBuffer(target, id);
+}
+
+void ArrayBufferBuilt::buffer(){
 	if(!buffered || drawUsage == GL_DYNAMIC_DRAW){
-		glBufferData(target. bufferSize, source, drawUsage);
+		glBufferData(target, bufferSize, source, drawUsage);
 	}
+
 }
 
 void ArrayBufferBuilt::disable(){

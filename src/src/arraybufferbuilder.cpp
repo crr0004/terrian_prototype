@@ -25,7 +25,7 @@ void ArrayBufferBuilder::setArrayCount(GLsizei count){
 	arrayBuffer->arrayCount = count;
 }
 
-void ArrayBufferBuilder::setSource(const GLvoid* source){
+void ArrayBufferBuilder::setSource(GLvoid* source){
 	arrayBuffer->source = source;
 }
 
@@ -47,37 +47,4 @@ void ArrayBufferBuilder::setBufferSize(GLsizeiptr bufferSize){
 
 void ArrayBufferBuilder::setDrawUsage(GLenum drawUsage){
 	arrayBuffer->drawUsage = drawUsage;
-}
-=======
-	arrayBuffer->arrayCount = count;
-}
-
-void ArrayBufferBuilder::setVerticesPoint(const GLvoid*){
-	arrayBuffer->
-}
-
-void ArrayBufferBuilder::setMode(GLenum){
-	arrayBuffer->
-}
-
-void ArrayBufferBuilder::setFirst(GLint){
-	arrayBuffer->
-}
-
-void ArrayBufferBuilder::setTarget(GLenum){
-	arrayBuffer->
-}
-
-void ArrayBufferBuilder::setBufferSize(GLsizeiptr){
-	arrayBuffer->
-}
-
-void ArrayBufferBuilder::setDrawUsage(GLenum){
-	arrayBuffer->
-}
-
-ArrayBufferBuilder::~ArrayBufferBuilder(){
-	if(arrayBuffer != 0){
-		delete arrayBuffer;
-	}
 }

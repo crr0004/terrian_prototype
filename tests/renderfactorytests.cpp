@@ -17,6 +17,7 @@
 #include "IArrayBufferBuilder.hpp"
 #include "IVertexAttributeBuilder.hpp"
 #include "vertexattributebuilder.hpp"
+#include "arraybufferbuilder.hpp"
 //For stringifying preprocessor values
 #define xstr(s) str(s)
 #define str(s) #s
@@ -88,7 +89,7 @@ TEST_CASE("Builders implementation"){
 	fakeit::Mock<IDrawBuilder> drawMock;
 
 	IDrawBuilder &drawBuilder = drawMock.get();
-	IArrayBufferBuilder &arrayBuilder = new ArrayBufferBuilder();
+	IArrayBufferBuilder *arrayBuilder = new ArrayBufferBuilder();
 	IVertexAttributeBuilder* vertexBuilder = new VertexAttributeBuilder();
 
 	renderfactory->setPrototypes(

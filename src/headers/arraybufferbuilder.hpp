@@ -8,6 +8,7 @@ class ArrayBufferBuilt : public IArrayBufferBuilt {
 		void buffer();
 		void enable();
 		void disable();
+		void setBufferID(GLuint);
 		~ArrayBufferBuilt();
 	protected:
 		ArrayBufferBuilt();
@@ -27,14 +28,13 @@ class ArrayBufferBuilder : public IArrayBufferBuilder {
 	public:
 		IArrayBufferBuilder* clone();
 		void setArrayCount(GLsizei);
-		void setSource(const GLvoid*);
+		void setSource(GLvoid*);
 		void setMode(GLenum);
 		void setFirst(GLint);
 		void setTarget(GLenum);
 		void setBufferSize(GLsizeiptr);
 		void setDrawUsage(GLenum);
 		~ArrayBufferBuilder();
-	protected:
 		ArrayBufferBuilder();
 	private:
 		ArrayBufferBuilt* arrayBuffer;
