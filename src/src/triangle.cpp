@@ -1,4 +1,5 @@
 #include "triangle.hpp"
+#include <fmt/format.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -32,24 +33,6 @@ unsigned int Triangle::getVertexSize(){
 }
 void Triangle::buildStatic(){
 	glGenBuffers(1, &vboID[0]);
-	renderCommand = new ArrayDrawCommand();
-	VertexAttributeBuild vertBuilder = new VertexAttributeBuild();
-	vertBuilder->setLocation(vertShaderLocation);
-	vertBuilder->setType(GL_FLOAT);
-	vertBuilder->setSetNormalized(GL_FALSE);
-	vertBuilder->setAttributeSize(3);
-	vertBuilder->setStride(0);
-	vertBuilder->setOffset(0);
-	ArrayBufferBuilder arrayDraw = new ArrayBufferBuilder();
-	arrayDraw->numberOfArrays(1);
-	arrayDraw->setSize(vertexSize);
-	arrayDraw->setVertices(vertices);
-	arrayDraw->setType(GL_TRIANGLES);
-	arrayDraw->setStartingIndex(0);
-	DrawBuilder draw = new DrawBuilder();
-	draw->addVertexAttribute(vertBuilder->build());
-	draw->addArrayBuffer(arrayDraw->build());
-	
 }
 void Triangle::setShaderLocations(GLuint vertShaderLocation){
 	this->vertShaderLocation = vertShaderLocation;
@@ -60,6 +43,14 @@ void Triangle::setShaderLocations(const char* name){
 	this->vertShaderLocation = glGetAttribLocation(shaderProgram, name);
 }
 void Triangle::draw(struct LogicContext* state){
+	/*
+	fmt::printf("Drawing triangle at X,Y,Z: (%f,%f,%f)\n",
+			model_matrix[3][0],
+			model_matrix[3][1],
+			model_matrix[3][2]
+			);
+			*/
+
 	glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
 
 	glBufferData(GL_ARRAY_BUFFER, vertexSize * sizeof(GLfloat), vertices, GL_DYNAMIC_DRAW);
