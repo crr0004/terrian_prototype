@@ -1,6 +1,8 @@
-triangle = nil
 function init()
 	triangle = Triangle.Create()
+	triangle:v1({-3.0, 0.0, 0.0})
+	triangle:v2({1.0, 0.0, 0.0})
+	triangle:v3({1.0, 1.0, 0.0})
 	triangle:translate({-5.0,0.0,0.0})
 	triangle1 = Triangle.Create()
 	triangle1:translate({5.0,0.0,0.0})

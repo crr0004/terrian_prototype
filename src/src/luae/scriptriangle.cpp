@@ -15,6 +15,9 @@ static const struct luaL_Reg LuaFunctions[] = {
 static const struct luaL_Reg LuaMembers[] = {
 	{"getVertices", ScriptTriangle::GetTriangleVerticesAsTable},
 	{"translate", ScriptTriangle::Translate},
+	{"v1", ScriptTriangle::SetVert1},
+	{"v2", ScriptTriangle::SetVert2},
+	{"v3", ScriptTriangle::SetVert3},
 	{NULL, NULL}
 };
 
@@ -32,6 +35,38 @@ int ScriptTriangle::GetSettings(lua_State* l){
 }
 */
 
+int ScriptTriangle::SetVert1(lua_State* l){
+	Triangle* triangle = *(Triangle**)lua_touserdata(l,-2);
+	float x = luae_float_getfield(l,-1,1);
+	float y = luae_float_getfield(l,-1,2);
+	float z = luae_float_getfield(l,-1,3);
+	GLfloat* vertices = triangle->getVertices();
+	vertices[0] = x;
+	vertices[1] = y;
+	vertices[2] = z;
+}
+int ScriptTriangle::SetVert2(lua_State* l){
+	Triangle* triangle = *(Triangle**)lua_touserdata(l,-2);
+	float x = luae_float_getfield(l,-1,1);
+	float y = luae_float_getfield(l,-1,2);
+	float z = luae_float_getfield(l,-1,3);
+	GLfloat* vertices = triangle->getVertices();
+	vertices[3] = x;
+	vertices[4] = y;
+	vertices[5] = z;
+
+}
+int ScriptTriangle::SetVert3(lua_State* l){
+	Triangle* triangle = *(Triangle**)lua_touserdata(l,-2);
+	float x = luae_float_getfield(l,-1,1);
+	float y = luae_float_getfield(l,-1,2);
+	float z = luae_float_getfield(l,-1,3);
+	GLfloat* vertices = triangle->getVertices();
+	vertices[6] = x;
+	vertices[7] = y;
+	vertices[8] = z;
+
+}
 int ScriptTriangle::GetTriangleVerticesAsTable(lua_State* l){
 	Triangle* triangle = *(Triangle**)lua_touserdata(l,-1);
 	GLfloat* vertices = triangle->getVertices();
