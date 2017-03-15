@@ -57,14 +57,32 @@ int ScriptTriangle::SetVert2(lua_State* l){
 
 }
 int ScriptTriangle::SetVert3(lua_State* l){
-	Triangle* triangle = *(Triangle**)lua_touserdata(l,-2);
-	float x = luae_float_getfield(l,-1,1);
-	float y = luae_float_getfield(l,-1,2);
-	float z = luae_float_getfield(l,-1,3);
+	int stackCount = lua_gettop(l);
+	int returnCount = 0;
+	Triangle* triangle = *(Triangle**)lua_touserdata(l,-stackCount);
 	GLfloat* vertices = triangle->getVertices();
-	vertices[6] = x;
-	vertices[7] = y;
-	vertices[8] = z;
+
+	if(stackCount >= 2){	
+		float x = luae_float_getfield(l,-1,1);
+		float y = luae_float_getfield(l,-1,2);
+		float z = luae_float_getfield(l,-1,3);
+		vertices[6] = x;
+		vertices[7] = y;
+		vertices[8] = z;
+	}else if(stackCount == 1){
+		lua_createtable(l, 0, 3);
+		lua_pushnumber(l, vertices[6]);
+		lua_rawseti(l, -2, 1);
+		lua_pushnumber(l, vertices[7]);
+		lua_rawseti(l, -2, 2);
+		lua_pushnumber(l, vertices[8]);
+		lua_rawseti(l, -2, 3);
+		returnCount = 1;
+
+	}
+	fmt::printf("Stack count: %d\n", lua_gettop(l));
+
+	return returnCount;
 
 }
 int ScriptTriangle::GetTriangleVerticesAsTable(lua_State* l){

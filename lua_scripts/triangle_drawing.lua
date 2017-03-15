@@ -3,6 +3,7 @@ function init()
 	triangle:v1({-3.0, 0.0, 0.0})
 	triangle:v2({1.0, 0.0, 0.0})
 	triangle:v3({1.0, 1.0, 0.0})
+	for k,v in ipairs(triangle:v3()) do print(v) end
 	triangle:translate({-5.0,0.0,0.0})
 	triangle1 = Triangle.Create()
 	triangle1:translate({5.0,0.0,0.0})
