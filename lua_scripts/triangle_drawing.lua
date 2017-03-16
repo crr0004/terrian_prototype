@@ -1,12 +1,10 @@
+triangle = nil
+print("Global loaded")
 function init()
 	triangle = Triangle.Create()
-	triangle:v1({-3.0, 0.0, 0.0})
-	triangle:v2({1.0, 0.0, 0.0})
-	triangle:v3({1.0, 1.0, 0.0})
-	for k,v in ipairs(triangle:v3()) do print(v) end
-	triangle:translate({-5.0,0.0,0.0})
 	triangle1 = Triangle.Create()
 	triangle1:translate({5.0,0.0,0.0})
+	for k,v in ipairs(triangle1:v3()) do print(v) end
 --[[	point1 = Point.create(0.0, 0.0, 0.0)
 	point2 = Point.create(1.0, 0.0, 0.0)
 	point3 = Point.create(0.0, 1.0, 0.0)
@@ -14,6 +12,11 @@ function init()
 end
 
 function update()
+	triangle:v1({-3.0, 0.0, 0.0})
+	triangle:v2({1.0, 0.0, 0.0})
+	triangle:v3({1.0, 1.0, 0.0})
+	triangle:translate({1.0, 0.0, 0.0})
+	--triangle:translate({-5.0,0.0,0.0})
 --[[
 	if Mouse.asCollideCircle(1.0).collides(point1.v) then
 		point1.v = Mouse.getV()

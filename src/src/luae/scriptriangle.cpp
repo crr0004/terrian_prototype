@@ -80,7 +80,6 @@ int ScriptTriangle::SetVert3(lua_State* l){
 		returnCount = 1;
 
 	}
-	fmt::printf("Stack count: %d\n", lua_gettop(l));
 
 	return returnCount;
 
@@ -104,7 +103,6 @@ int ScriptTriangle::Translate(lua_State* l){
 	float x = luae_float_getfield(l,-1,1);
 	float y = luae_float_getfield(l,-1,2);
 	float z = luae_float_getfield(l,-1,3);
-	fmt::printf("X: %f, Y: %f, Z: %f\n", x, y, z);
 	triangle->translate(glm::vec3(x,y,z));
 
 	return 0;

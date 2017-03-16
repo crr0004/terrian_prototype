@@ -48,6 +48,7 @@ Script* Script::Load(const char* fileName){
 		fmt::print(stderr, "Couldn't find script {}.\n", fileName);
 	}
 	delete scriptPath;
+	result->loadScript();
 	return result;
 }
 
@@ -66,6 +67,8 @@ void Script::loadScript(){
 		scriptPath->append(this->scriptName);
 		if (luaL_loadfile(lua, scriptPath->c_str()) != 0) {
 			fmt::print(stderr, "lua couldn't parse '{}': {}.\n", this->scriptName, lua_tostring(lua, -1));
+		}else{
+			lua_pcall(lua,0,0,0);
 		}
 		delete scriptPath;
 
@@ -86,11 +89,9 @@ bool Script::has(const char* functionName){
 }
 
 bool Script::call(const char* functionName, int nargs, int nresults){
-	this->loadScript();
 	lua_State* lua = ScriptManager::instance()->getState();
 	bool result = false;
 
-	lua_pcall(lua,0,0,0);
 	lua_getglobal(lua,functionName);
 	if(lua_isfunction(lua, -1) == 1){
 		if (lua_pcall(lua, nargs, nresults, 0) == 0) {
