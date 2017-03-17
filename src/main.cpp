@@ -22,6 +22,7 @@
 #include "luae/scriptmanager.hpp"
 #include "luae/scriptheightmap.hpp"
 #include "luae/scriptriangle.hpp"
+#include "luae/scriptmouse.hpp"
 
 //For stringifying preprocessor values
 #define xstr(s) str(s)
@@ -124,13 +125,16 @@ int main(void) {
 
 	glViewport(0,0,VisualContext::width, VisualContext::height);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	Luae::ScriptTriangle::AddToLib();
+	Luae::ScriptMouse::AddToLib();
+	Luae::ScriptMouse::SetWindow(window);
+	Luae::ScriptMouse::SetLogicContex(&logicContext);
 
 	Line worldLine;
 	worldLine.buildStatic();
 	worldLine.setShaderLocations(vertShaderLocation);
 
 	lua_State* l = Luae::ScriptManager::instance()->getState();
-	Luae::ScriptTriangle::AddToLib();
 	Luae::Script* script = Luae::Script::Load("triangle_drawing.lua");
 	script->call("init");
 	//lua_getglobal(l, "triangle");
@@ -153,18 +157,16 @@ int main(void) {
 		worldLine.setStartEnd(ray_world, rayWordEndPoint);
 		worldLine.update(&logicContext);
 		worldLine.draw(&logicContext);
+		script->call("update");
 
 		//triangle->update(&logicContext);
 		//triangle->draw(&logicContext);
 
-		int i = 0;
 		for(std::vector<IPolygon*>::iterator drawHost = drawQueue.begin();
 				drawHost != drawQueue.end();
 				drawHost++){
 			(*drawHost)->update(&logicContext);
 			(*drawHost)->draw(&logicContext);
-			i++;
-		//	fmt::printf("Draw call #: %d\n", i);
 		}
 
 		glfwSwapBuffers(window);
