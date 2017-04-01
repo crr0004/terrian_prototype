@@ -137,7 +137,9 @@ TEST_CASE("Lua script tests"){
 	Luae::Script* script = Luae::Script::Load("scriptheightmaptests.lua");
 	SECTION("Heightmap init"){
 		script->call("init");
+		script->push();
 		lua_getglobal(l, "HeightmapObject");
+		script->pop();
 		Heightmap* heightmapTwo = *(Heightmap**)lua_touserdata(l, -1);
 		HeightmapSettings *settings = heightmapTwo->getSettings();
 
@@ -147,4 +149,5 @@ TEST_CASE("Lua script tests"){
 		REQUIRE(settings->origin.z == -10.0);
 		REQUIRE(settings->widthDensity == 10);
 	}
+	Luae::ScriptManager::Close();
 }

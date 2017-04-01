@@ -64,11 +64,9 @@ int ScriptManagerMockClass::luaeWithTableReturn(lua_State* l){
 }
 void ScriptManagerMockClass::noParams(){
 	ScriptManagerMockClass::lastFunctionWorked = true;
-	fmt::print("noParams\n");
 }
 
 void ScriptManagerMockClass::withParam(const char* printMe){
-	fmt::print("Printed: {}.\n", printMe);
 	ScriptManagerMockClass::lastFunctionWorked = true;
 
 }
@@ -159,5 +157,6 @@ TEST_CASE("ScriptManager Lib Tests"){
 	 }
 	 */
 
+	Luae::ScriptManager::Close();
 }
 
