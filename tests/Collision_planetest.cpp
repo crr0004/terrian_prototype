@@ -18,7 +18,6 @@ TEST_CASE("Plane collisions"){
 		glm::vec3 q;
 
 		REQUIRE(PlaneLineColides(a, b, p, t, q) == 1);
-		printf("t: %f, q: %s\n", t, glm::to_string(q).c_str());
 	}
 
 }
