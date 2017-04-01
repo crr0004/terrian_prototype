@@ -38,6 +38,8 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 	glm::vec3 down = glm::vec3(glm::vec4(0.0, -1.0, 0.0, 1.0) * logicContext.modelview);
 	glm::vec3 left = glm::vec3(glm::vec4(-1.0, 0.0, 0.0, 1.0) * logicContext.modelview);
 	glm::vec3 right = glm::vec3(glm::vec4(1.0, 0.0, 0.0, 1.0) * logicContext.modelview);
+	glm::vec3 back = glm::vec3(glm::vec4(0.0, 0.0, -1.0, 1.0) * logicContext.modelview);
+	glm::vec3 forward = glm::vec3(glm::vec4(0.0, 0.0, 1.0, 1.0) * logicContext.modelview);
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS){
 		glfwSetWindowShouldClose(window, GL_TRUE);
 	}
@@ -72,6 +74,10 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 	else if(key == GLFW_KEY_DOWN && mods == GLFW_MOD_SHIFT){
 		logicContext.modelview = glm::rotate(logicContext.modelview, 0.1f, right);
 
+	}else if(key == GLFW_KEY_UP && mods == GLFW_MOD_CONTROL){
+		logicContext.modelview = glm::translate(logicContext.modelview, back * 0.1f);
+	}else if(key == GLFW_KEY_DOWN && mods == GLFW_MOD_CONTROL){
+		logicContext.modelview = glm::translate(logicContext.modelview, forward * 0.1f);
 	}
 }
 static void calcWorldPickRay(GLFWwindow *window){
@@ -165,6 +171,7 @@ int main(void) {
 		for(std::vector<IPolygon*>::iterator drawHost = drawQueue.begin();
 				drawHost != drawQueue.end();
 				drawHost++){
+			glDisable(GL_CULL_FACE);
 			(*drawHost)->update(&logicContext);
 			(*drawHost)->draw(&logicContext);
 		}
@@ -172,6 +179,7 @@ int main(void) {
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
+	delete script;
 
 	glfwDestroyWindow(window);
 
