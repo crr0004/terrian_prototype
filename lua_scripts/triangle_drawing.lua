@@ -1,4 +1,7 @@
 triangle = nil
+p1 = {-1.0, 0.0, 0.0}
+p2 = {0.0, 0.0, 0.0}
+p3 = {0.0, 1.0, 0.0}
 function init()
 	triangle = Triangle.Create()
 	triangle1 = Triangle.Create()
@@ -11,14 +14,18 @@ function init()
 end
 
 function update()
-	--triangle:v1({-math.sin(os.clock() * 10) * 10, 0.0, 0.0})
-	triangle:v2({1.0, 0.0, 0.0})
+	mouseCords = Mouse.mouseCords()
+	triangle:v2({0.0,-math.sin(os.clock() * 10) * 10,0.0})
 	triangle:v3({1.0, 1.0, 0.0})
-	mouseCords = Mouse.asCollideCircle(1.0, {0.0, 0.0, 0.0})
-	triangle:v1(mouseCords)
-	print(mouseCords[1])
-	print(mouseCords[2])
-	print(mouseCords[3])
+	if Mouse.getLeftMouseButton() == 1 then
+		triangle:v1(mouseCords)
+	end
+	--local vertexIndex = Collision.GetPointFromRay(triangle:getCollision(), mouseCords)
+	--[[	
+	var distance = Math.sqrt((point.x - sphere.x) * (point.x - sphere.x) +
+	(point.y - sphere.y) * (point.y - sphere.y) +
+	(point.z - sphere.z) * (point.z - sphere.z));
+	]]--
 	--triangle:translate({-5.0,0.0,0.0})
 --[[
 	if Mouse.asCollideCircle(1.0, point1.v) then
