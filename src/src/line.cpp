@@ -6,12 +6,9 @@
 #include "logicstate.hpp"
 
 Line::Line(){
-	vertices = 0;
+	vertices = new GLfloat[6];
 }
 void Line::setStartEnd(const glm::vec3 a, const glm::vec3 b){
-	if(vertices == 0 || vertexSize != 6){
-		vertices = new GLfloat[6];
-	}
 	vertices[0] = a[0];
 	vertices[1] = a[1];
 	vertices[2] = a[2];
@@ -79,5 +76,5 @@ glm::mat4* Line::getModelMatrix(){
 
 }
 Line::~Line(){
-	delete vertices;
+	delete[] vertices;
 }
