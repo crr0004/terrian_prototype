@@ -8,7 +8,8 @@ namespace Luae{
 		class ScriptMouse {
 			public:
 				static void AddToLib();
-				static int CircleCollision(lua_State*);
+				static int GetMouseCords(lua_State*);
+				static int getLeftMouseButton(lua_State*);
 				static void SetWindow(GLFWwindow*);
 				static void SetLogicContex(LogicContext*);
 			private:

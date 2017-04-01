@@ -8,8 +8,10 @@ using namespace Luae;
 
 GLFWwindow* ScriptMouse::window = 0;
 LogicContext* ScriptMouse::logicContext = 0;
+
 static const struct luaL_Reg LuaFunctions[] = {
-	{"asCollideCircle", ScriptMouse::CircleCollision},
+	{"mouseCords", ScriptMouse::GetMouseCords},
+	{"getLeftMouseButton", ScriptMouse::getLeftMouseButton},
 	{NULL, NULL}
 
 };
@@ -18,7 +20,14 @@ void ScriptMouse::AddToLib(){
 	ScriptManager::instance()->NewLib(LuaFunctions, "Mouse");
 }
 
-int ScriptMouse::CircleCollision(lua_State* l){
+int ScriptMouse::getLeftMouseButton(lua_State* l){
+	int leftButtonDown = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_1);
+	lua_pushnumber(l, leftButtonDown);
+
+	return 1;
+}
+
+int ScriptMouse::GetMouseCords(lua_State* l){
 	double mouseX;
 	double mouseY;
 
