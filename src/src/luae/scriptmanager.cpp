@@ -9,11 +9,23 @@ ScriptManager* ScriptManager::_instance = 0;
 ScriptManager::ScriptManager(){
 	state = luaL_newstate();
 	luaL_openlibs(state);
+	lua_pushglobaltable(state);
+	globalTableRef = luaL_ref(state, LUA_REGISTRYINDEX);	
 
 }
 
 ScriptManager::~ScriptManager(){
+	lua_rawgeti(state, LUA_REGISTRYINDEX, globalTableRef);
+	if(lua_isnoneornil(state, -1) == 0){
+		lua_pop(state, 1);
+		luaL_unref(state, LUA_REGISTRYINDEX, globalTableRef);
+	}
 	lua_close(state);
+}
+
+void ScriptManager::RestoreGlobalTable(){
+	lua_rawgeti(state, LUA_REGISTRYINDEX, globalTableRef);
+	lua_rawseti(state, LUA_REGISTRYINDEX, LUA_RIDX_GLOBALS);
 }
 
 lua_State* ScriptManager::getState() {
@@ -36,8 +48,7 @@ void ScriptManager::NewMetaLib(const struct luaL_Reg lib[], const char* name){
 	lua_pop(state, nup);  // remove upvalues
 	*/
 	luaL_newmetatable(state, name);
-	lua_pushstring(state, "hello");
-	luaL_setfuncs(state, lib, 1);
+	luaL_setfuncs(state, lib, 0);
 	lua_setfield(state, -1, "__index");
 }
 void ScriptManager::NewLib(const struct luaL_Reg lib[], const char* name) {
@@ -53,4 +64,10 @@ ScriptManager* ScriptManager::instance(){
 	}
 
 	return _instance;
+}
+void ScriptManager::Close(){
+	if(_instance != 0){
+		delete _instance;
+		_instance = 0;
+	}
 }
