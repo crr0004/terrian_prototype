@@ -17,6 +17,7 @@
 #include "heightmap.hpp"
 #include "line.hpp"
 #include "triangle.hpp"
+#include "circle.hpp"
 #include "addtodrawqueue.hpp"
 #include "luae/script.hpp"
 #include "luae/scriptmanager.hpp"
@@ -139,6 +140,14 @@ int main(void) {
 	Line worldLine;
 	worldLine.buildStatic();
 	worldLine.setShaderLocations(vertShaderLocation);
+	Circle circle;
+	circle.translate(glm::vec3(0.0f,0.0f,10.0f));
+	circle.buildStatic();
+	Circle circle2;
+	circle2.translate(glm::vec3(5.0f,0.0f,10.0f));
+	circle2.buildStatic();
+
+	circle.setShaderLocations(vertShaderLocation);
 
 	lua_State* l = Luae::ScriptManager::instance()->getState();
 	Luae::Script* script = Luae::Script::Load("triangle_drawing.lua");
@@ -149,7 +158,7 @@ int main(void) {
 //	AddToDrawQueueCommand addTriangle(triangle);
 //	addTriangle.execute();
 
-	glEnable(GL_MULTISAMPLE);
+		glEnable(GL_MULTISAMPLE);
 
 	while (!glfwWindowShouldClose(window)) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -163,6 +172,13 @@ int main(void) {
 		worldLine.setStartEnd(ray_world, rayWordEndPoint);
 		worldLine.update(&logicContext);
 		worldLine.draw(&logicContext);
+
+		circle.update(&logicContext);
+		circle.draw(&logicContext);
+
+		circle2.update(&logicContext);
+		circle2.draw(&logicContext);
+
 		script->call("update");
 
 		//triangle->update(&logicContext);
