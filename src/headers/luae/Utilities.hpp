@@ -42,11 +42,12 @@ namespace Luae{
 		}
 	}
 
+
 	//TODO Rename so luae_ is prefixed
 	static void PrintTableAt(lua_State* l, int index){
 		int tableIndex = lua_absindex(l, index);
 		if (lua_istable(l, tableIndex) == 1) {
-			lua_pushnil(l);               // pushes the first key (which is nil for whatever reason) onto the stack
+			lua_pushnil(l); // pushes a blank slot so lua_next works correctly. lua_next doesn't actually use this
 			while (lua_next(l, tableIndex) != 0) { // key(-1) is replaced by the next key(-1) in table(tableIndex)
 				PrintLuaTypeAt(l, -2);
 				PrintLuaTypeAt(l, -1);
@@ -69,7 +70,7 @@ namespace Luae{
 	static void stackDump (lua_State *L) {
 		int i;
 		int top = lua_gettop(L); /* depth of the stack */
-		for (i = 1; i <= top; i++) { /* repeat for each level */
+		for (i = top; i >= 1; i--) { /* repeat for each level */
 			int t = lua_type(L, i);
 			switch (t) {
 				case LUA_TSTRING: { /* strings */
@@ -119,6 +120,25 @@ namespace Luae{
 		}
 
 	}
+	static void luae_copytable(lua_State* l, int from, int to){
+		//Ensure we have absolute references
+		from = lua_absindex(l, from);
+		to = lua_absindex(l, to);
+		//Both are tables
+		if(lua_istable(l, from) == 1 && lua_istable(l, to) == 1){
+			lua_pushnil(l);
+			while(lua_next(l, from) != 0){
+			lua_pushvalue(l,-2); //copies key to top so lua_next is happy
+			//swaps value and key on top of stack.
+			//Above function adds a value onto stack so -2 is now value
+			lua_insert(l,-2); 
+			//Set the value in the new stack. Consuming the top value and key
+			lua_settable(l,to);
+			}
+		} else {
+			fprintf(stderr, "Object at %d or %d on stack is not a table\n", from, to);
+		}
+	}
 	static int luae_int_getfield(lua_State* l, int pos, const char* name){
 		lua_getfield(l, pos, name);
 		int value = lua_tonumber(l,pos);
@@ -127,6 +147,12 @@ namespace Luae{
 	}
 	static float luae_float_getfield(lua_State* l, int pos, const char* name){
 		lua_getfield(l, pos, name);
+		float value = lua_tonumber(l,pos);
+		lua_pop(l,1);
+		return value;
+	}
+	static float luae_float_getfield(lua_State* l, int pos, int index){
+		lua_rawgeti(l, pos, index);
 		float value = lua_tonumber(l,pos);
 		lua_pop(l,1);
 		return value;

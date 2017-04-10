@@ -5,17 +5,25 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtx/string_cast.hpp>
 #include <lua/lua.hpp>
+#include <vector>
+#include <fmt/format.h>
 
 #include "terrian_config.hpp"
 #include "matrixstacksingleton.hpp"
+#include "IPolygon.hpp"
 #include "polygon.hpp"
 #include "logiccontext.hpp"
 #include "visualcontext.hpp"
 #include "heightmap.hpp"
 #include "line.hpp"
+#include "triangle.hpp"
+#include "circle.hpp"
+#include "addtodrawqueue.hpp"
 #include "luae/script.hpp"
 #include "luae/scriptmanager.hpp"
 #include "luae/scriptheightmap.hpp"
+#include "luae/scriptriangle.hpp"
+#include "luae/scriptmouse.hpp"
 
 //For stringifying preprocessor values
 #define xstr(s) str(s)
@@ -26,15 +34,13 @@ static struct LogicContext logicContext;
 static glm::vec3 ray_world;
 
 
-static Geometry::Polygon triangle;
-static Geometry::Polygon triangle_two;
-
-
 static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
 	glm::vec3 up = glm::vec3(glm::vec4(0.0, 1.0, 0.0, 1.0) * logicContext.modelview);
 	glm::vec3 down = glm::vec3(glm::vec4(0.0, -1.0, 0.0, 1.0) * logicContext.modelview);
 	glm::vec3 left = glm::vec3(glm::vec4(-1.0, 0.0, 0.0, 1.0) * logicContext.modelview);
 	glm::vec3 right = glm::vec3(glm::vec4(1.0, 0.0, 0.0, 1.0) * logicContext.modelview);
+	glm::vec3 back = glm::vec3(glm::vec4(0.0, 0.0, -1.0, 1.0) * logicContext.modelview);
+	glm::vec3 forward = glm::vec3(glm::vec4(0.0, 0.0, 1.0, 1.0) * logicContext.modelview);
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS){
 		glfwSetWindowShouldClose(window, GL_TRUE);
 	}
@@ -69,6 +75,10 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 	else if(key == GLFW_KEY_DOWN && mods == GLFW_MOD_SHIFT){
 		logicContext.modelview = glm::rotate(logicContext.modelview, 0.1f, right);
 
+	}else if(key == GLFW_KEY_UP && mods == GLFW_MOD_CONTROL){
+		logicContext.modelview = glm::translate(logicContext.modelview, back * 0.1f);
+	}else if(key == GLFW_KEY_DOWN && mods == GLFW_MOD_CONTROL){
+		logicContext.modelview = glm::translate(logicContext.modelview, forward * 0.1f);
 	}
 }
 static void calcWorldPickRay(GLFWwindow *window){
@@ -97,6 +107,8 @@ int main(void) {
 	GLuint vertShaderLocation = glGetAttribLocation(shader_program, "vert");
 	GLuint uloc_project   = glGetUniformLocation(shader_program, "project");
 	GLuint uloc_modelview = glGetUniformLocation(shader_program, "modelview");
+	std::vector<IPolygon*> drawQueue;
+	AddToDrawQueueCommand::SetQueue(&drawQueue);
 
 	/* Compute the projection matrix */
 	VisualContext::projection_matrix = glm::perspective(VisualContext::view_angle, VisualContext::aspect_ratio, VisualContext::z_near, VisualContext::z_far);
@@ -105,9 +117,6 @@ int main(void) {
 	/* Set the camera position  */
 	logicContext.modelview = glm::translate(logicContext.modelview, glm::vec3(0.0f, 0.0f, -20.0f));
 	logicContext.modelview = glm::rotate(logicContext.modelview, 0.0f, glm::vec3(-1.0f, 0.0f, 0.0f));
-
-	//Script script = Script::Load("update.lua");
-
 
 	/*
 	HeightmapSettings heightmapSettings;
@@ -121,57 +130,41 @@ int main(void) {
 	heightmap.rotate(glm::vec3(1,0,0), -1.57f);
 	*/
 
-	GLfloat triangle_two_vertices[] = {
-		0.0f, 1.0f, 0.0f,
-		1.0f, 0.0f, 0.0f,
-		1.0f, 1.0f, 0.0f
-	};
-
-	GLuint triangle_two_indices[] = {
-		0,1,2
-	};
-
-	triangle.setVertices(triangle_two_vertices, sizeof(triangle_two_vertices) / sizeof(GLfloat));
-	triangle.setIndices(triangle_two_indices, sizeof(triangle_two_indices) / sizeof(GLuint));
-	triangle.buildStatic();
-	triangle.translate(glm::vec3(-2, 0, 0));
-
-	triangle.setShaderLocations(vertShaderLocation);
-	triangle_two.setShaderLocations(vertShaderLocation);
-
 	glViewport(0,0,VisualContext::width, VisualContext::height);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	Luae::ScriptTriangle::AddToLib();
+	Luae::ScriptMouse::AddToLib();
+	Luae::ScriptMouse::SetWindow(window);
+	Luae::ScriptMouse::SetLogicContex(&logicContext);
 
 	Line worldLine;
 	worldLine.buildStatic();
 	worldLine.setShaderLocations(vertShaderLocation);
+	Circle circle;
+	circle.translate(glm::vec3(0.0f,0.0f,10.0f));
+	circle.buildStatic();
+	Circle circle2;
+	circle2.translate(glm::vec3(5.0f,0.0f,10.0f));
+	circle2.buildStatic();
 
-	Line worldLine2;
-	worldLine2.buildStatic();
-	worldLine2.setShaderLocations(vertShaderLocation);
-	//worldLine.rotate(glm::vec3(1.0f, 0.0f, 0.0f), 1.57f);
-	glEnable(GL_MULTISAMPLE);
+	circle.setShaderLocations(vertShaderLocation);
 
 	lua_State* l = Luae::ScriptManager::instance()->getState();
-	Luae::ScriptHeightMap::AddToLib();
-	Luae::Script* script = Luae::Script::Load("scriptheightmap.lua");
+	Luae::Script* script = Luae::Script::Load("triangle_drawing.lua");
 	script->call("init");
-	lua_getglobal(l, "HeightmapObject");
-	Heightmap* heightmapLua = *(Heightmap**)lua_touserdata(l, -1);
+	//lua_getglobal(l, "triangle");
+	//Triangle* triangle = *(Triangle**)lua_touserdata(l,-1);
+	//drawQueue.push_back(triangle);
+//	AddToDrawQueueCommand addTriangle(triangle);
+//	addTriangle.execute();
+
+		glEnable(GL_MULTISAMPLE);
 
 	while (!glfwWindowShouldClose(window)) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glPolygonMode(GL_FRONT, GL_FILL);
 		glUniformMatrix4fv(uloc_project, 1, GL_FALSE, glm::value_ptr(VisualContext::projection_matrix));
 
-		triangle.update(&logicContext);
-		triangle.draw(&logicContext);
-
-		glDisable(GL_CULL_FACE);
-
-		heightmapLua->update(&logicContext);
-		heightmapLua->draw(&logicContext);
-		glEnable(GL_CULL_FACE);
 
 		calcWorldPickRay(window);
 		glm::vec3 rayWordEndPoint = glm::vec3(glm::vec4(0.0f, 0.0f, -100.0f, 1.0f) * logicContext.modelview);
@@ -180,16 +173,29 @@ int main(void) {
 		worldLine.update(&logicContext);
 		worldLine.draw(&logicContext);
 
-		worldLine2.setStartEnd(ray_world, glm::vec3(10.0f, 0.0f, 0.0f));
-		worldLine2.update(&logicContext);
-		worldLine2.draw(&logicContext);
+		circle.update(&logicContext);
+		circle.draw(&logicContext);
 
-		//triangle_two.update(&logicContext);
-		//triangle_two.draw(&logicContext);
+		circle2.update(&logicContext);
+		circle2.draw(&logicContext);
+
+		script->call("update");
+
+		//triangle->update(&logicContext);
+		//triangle->draw(&logicContext);
+
+		for(std::vector<IPolygon*>::iterator drawHost = drawQueue.begin();
+				drawHost != drawQueue.end();
+				drawHost++){
+			glDisable(GL_CULL_FACE);
+			(*drawHost)->update(&logicContext);
+			(*drawHost)->draw(&logicContext);
+		}
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
+	delete script;
 
 	glfwDestroyWindow(window);
 

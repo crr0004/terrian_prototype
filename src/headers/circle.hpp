@@ -1,11 +1,11 @@
-#ifndef TRIANGLE_H
-#define TRIANGLE_H 1
+#ifndef CIRCLE_H
+#define CIRCLE_H 1
 #include "IPolygon.hpp"
 #include <glad/glad.h>
 #include <glm/glm.hpp>
-class Triangle : public IPolygon{
+class Circle : public IPolygon{
 	public:
-		Triangle();
+		Circle();
 		void setVertices(GLfloat vertices[], unsigned int size) ;
 		void setIndices(GLuint indices[], unsigned int size){}
 		GLuint* getIndices(){return 0;}
@@ -21,7 +21,7 @@ class Triangle : public IPolygon{
 		void rotate(glm::vec3 rotateAround, float rotateBy) ;
 		glm::mat4* getModelMatrix() ;
 		void setStartEnd(const glm::vec3 a, const glm::vec3 b);
-		~Triangle();
+		~Circle();
 	private:
 		unsigned int vertexSize;
 		GLfloat *vertices;
@@ -30,4 +30,4 @@ class Triangle : public IPolygon{
 		glm::mat4 model_matrix;
 
 };
-#endif /* ifndef TRIANGLE_H */
+#endif /* ifndef CIRCLE_H */

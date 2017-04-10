@@ -30,6 +30,15 @@ SET(Terrian_Prototype_src
 	src/src/luae/scriptmanager.cpp
 	src/src/luae/table.cpp
 	src/src/triangle.cpp
+	src/src/circle.cpp
+	src/src/luae/scriptriangle.cpp
+	src/src/addtodrawqueue.cpp
+	src/src/luae/scriptmouse.cpp
+	src/src/luae/scriptcollision.cpp
+	src/src/collision_node.cpp
+	src/src/collision_simpleworld.cpp
+	src/src/collision_aabbcollider.cpp
+	src/src/collision_sphere.cpp
 	)
 SET(Terrian_Prototype_Tests_src
 	tests/Collision_planetest.cpp 
@@ -39,6 +48,8 @@ SET(Terrian_Prototype_Tests_src
 	tests/luaescripttest.cpp
 	tests/luaescriptmanagertest.cpp
 	tests/luaetabletest.cpp
+	tests/luaeutilitiestest.cpp
+	tests/collision_compositetests.cpp
 	)
 	
 
@@ -108,7 +119,7 @@ if(MSVC)
 	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall")
 endif()
 target_compile_options(LuaTests PUBLIC -Og -g3)
-#target_compile_options(Terrian_Prototype_Tests PUBLIC -Og -g3)
+target_compile_options(Terrian_Prototype PUBLIC -O1 -g)
 target_compile_options(liblua PUBLIC -Og -g3)
 
 set(SHADERS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/shaders/" CACHE PATH "Directory containing shaders")

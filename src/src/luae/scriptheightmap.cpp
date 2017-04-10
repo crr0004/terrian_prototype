@@ -37,8 +37,6 @@ void ScriptHeightMap::AddToLib(){
 }
 
 int ScriptHeightMap::GetSettings(lua_State* l){
-	lua_getglobal(l,"HeightmapObject");
-	lua_pop(l,1);
 
 	return 0;
 }
