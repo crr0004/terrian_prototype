@@ -9,6 +9,7 @@ namespace Collision {
 			virtual bool visitCollide(Collider*);
 			virtual bool visitCollide(AABBCollider*);
 			virtual bool visitCollide(SphereCollider*);
+			virtual void vistNotifyCollider(Collider*){}
 			virtual bool collides(const AABBCollider&);
 			virtual void add(INode*){}
 			virtual int insert(INode*){return -1;}

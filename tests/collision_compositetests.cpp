@@ -1,4 +1,5 @@
 #include <catch.hpp>
+#include <fakeit.hpp>
 #include "collision/node.hpp"
 
 TEST_CASE("Collision Component Tests"){
@@ -81,7 +82,7 @@ TEST_CASE("Sphere and AABBCollider test"){
 	REQUIRE(sphereCollider->visitCollide(triangleAABB));
 	REQUIRE(triangleAABB->visitCollide(sphereCollider));
 
-	center = glm::vec3(10.0f, 10.0f, 10.0f);
+	center = glm::vec3(10.0f, 10.0f, 0.0f);
 	radius = 1.0f;
 	SphereCollider* sphereCollider2 = new SphereCollider(center, radius);
 	REQUIRE(!sphereCollider2->visitCollide(triangleAABB));
@@ -94,6 +95,18 @@ TEST_CASE("Sphere and AABBCollider test"){
 TEST_CASE("Simpleworld test"){
 	using namespace Collision;
 	SimpleWorld *root = new SimpleWorld();
+
+	glm::vec3 center = glm::vec3(0.0f, 0.0f, 0.0f);
+	float radius = 5.0f;
+	Collider* sphere = new SphereCollider(center, radius);
+
+	glm::vec3 min = glm::vec3(3.0f, 3.0f, 3.0f);
+	glm::vec3 max = glm::vec3(4.0f, 4.0f, 4.0f);
+	Collider* aabb = new AABBCollider(min, max);
+
+	root->add(aabb);
+	root->add(sphere);
+	fakeit::Mock<AABBCollider> aabbStub;
 
 }
 
