@@ -9,13 +9,13 @@ namespace Collision {
 			virtual bool visitCollide(Collider*);
 			virtual bool visitCollide(AABBCollider*);
 			virtual bool visitCollide(SphereCollider*);
-			virtual void vistNotifyCollider(Collider*){}
+			virtual void visitNotifyCollider(Collider*){}
 			virtual void add(INode*){}
 			virtual int insert(INode*){return -1;}
 			virtual void remove(int){}
 			virtual int getChildCount(){return 0;}
 			virtual INode* getChild(int){return 0;}
-		private:
+		protected:
 			glm::vec3 center;
 			float radius;
 

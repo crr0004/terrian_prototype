@@ -16,7 +16,7 @@ namespace Collision {
 			virtual ~Node();
 			Node();
 			Node(int);
-		private:
+		protected:
 			std::vector<INode*> children;
 			INode* parent;
 

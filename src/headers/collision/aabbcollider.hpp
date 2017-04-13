@@ -9,7 +9,7 @@ namespace Collision {
 			virtual bool visitCollide(Collider*);
 			virtual bool visitCollide(AABBCollider*);
 			virtual bool visitCollide(SphereCollider*);
-			virtual void vistNotifyCollider(Collider*){}
+			virtual void visitNotifyCollider(Collider*){}
 			virtual bool collides(const AABBCollider&);
 			virtual void add(INode*){}
 			virtual int insert(INode*){return -1;}
@@ -18,7 +18,7 @@ namespace Collision {
 			virtual INode* getChild(int){return 0;}
 			const glm::vec3& getMin(){return min;}
 			const glm::vec3& getMax(){return max;}
-		private:
+		protected:
 			glm::vec3 min;
 			glm::vec3 max;
 
