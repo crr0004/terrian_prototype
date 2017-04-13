@@ -10,9 +10,9 @@ namespace Collision {
 			virtual bool visitCollide(AABBCollider*){return false;}
 			virtual bool visitCollide(SphereCollider*){return false;}
 
-			virtual void vistNotifyCollider(Collider*) = 0;
-			virtual void vistNotifyCollider(AABBCollider*){}
-			virtual void vistNotifyCollider(SphereCollider*){}
+			virtual void visitNotifyCollider(Collider*) = 0;
+			virtual void visitNotifyCollider(AABBCollider*){}
+			virtual void visitNotifyCollider(SphereCollider*){}
 	};
 } // namespace Collision
 #endif
