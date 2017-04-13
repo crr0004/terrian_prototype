@@ -102,12 +102,30 @@ TEST_CASE("Simpleworld test"){
 
 	glm::vec3 min = glm::vec3(3.0f, 3.0f, 3.0f);
 	glm::vec3 max = glm::vec3(4.0f, 4.0f, 4.0f);
-	Collider* aabb = new AABBCollider(min, max);
+	AABBCollider* aabb = new AABBCollider(min, max);
 
 	root->add(aabb);
 	root->add(sphere);
-	fakeit::Mock<AABBCollider> aabbStub;
+	using namespace fakeit;
+	Mock<AABBCollider> aabbStub;
+	When(OverloadedMethod(aabbStub,visitCollide,bool(Collider*))).AlwaysReturn(false);
+	When(OverloadedMethod(aabbStub,visitCollide,bool(SphereCollider*))).AlwaysReturn(false);
+	When(OverloadedMethod(aabbStub,visitCollide,bool(AABBCollider*)).Using(aabb)).Return(true);
+	Fake(Method(aabbStub, setParent));
+	Fake(Method(aabbStub, visitNotifyCollider));
+	
 
+	AABBCollider& a = aabbStub.get();
+	root->add(&a);
+	root->operation();
+
+	/*
+	 * This will only trigger when child2->notify is called.
+	 * This is because collision is only faked one way, aabbStub being asked
+	 * if it collides with aabb
+	*/
+	Verify(OverloadedMethod(aabbStub,visitNotifyCollider,void(Collider*)).Using(aabb));
+	Verify(Method(aabbStub, setParent).Using(root));
 }
 
 TEST_CASE("Collision node test"){
