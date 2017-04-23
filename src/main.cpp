@@ -196,6 +196,7 @@ int main(void) {
 		glfwPollEvents();
 	}
 	delete script;
+	MatrixStackSingleton::Destroy();
 
 	glfwDestroyWindow(window);
 
