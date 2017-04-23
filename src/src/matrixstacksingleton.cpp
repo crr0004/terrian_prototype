@@ -10,7 +10,7 @@ struct LinkedMatrix{
 
 MatrixStackSingleton* MatrixStackSingleton::_instance = 0;
 
-struct LinkedMatrix* _head;
+struct LinkedMatrix* _head = 0;
 
 MatrixStackSingleton* MatrixStackSingleton::instance(){
     if(_instance == 0){
@@ -18,14 +18,19 @@ MatrixStackSingleton* MatrixStackSingleton::instance(){
     }
     return _instance;
 }
+void MatrixStackSingleton::Destroy(){
+	if(_instance != 0){
+		delete _instance;
+	}
+}
 
 MatrixStackSingleton::MatrixStackSingleton(){
 }
 MatrixStackSingleton::~MatrixStackSingleton(){
-	delete _instance;
-	_instance = 0;
+	if(_head != 0){
+		delete _head;
+	}
 }
-
 glm::mat4 MatrixStackSingleton::push(glm::mat4 m){
 	struct LinkedMatrix* newHead = new LinkedMatrix;
 	newHead->me = m;
