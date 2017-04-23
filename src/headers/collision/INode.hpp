@@ -1,5 +1,6 @@
 #ifndef COLLISION_INODE_H
 #define COLLISION_INODE_H
+class Command;
 namespace Collision {
 	class INode{
 		public:
@@ -11,8 +12,9 @@ namespace Collision {
 			virtual INode* getChild(int) = 0;
 			virtual void setParent(INode*) = 0;
 			virtual INode* getParent() = 0;
+			virtual void setCommand(Command*) = 0;
+			virtual Command* getCommand() = 0;
 			virtual ~INode(){}
-
 	};
 } // namespace Collision
 #endif //COLLISION_INODE_H

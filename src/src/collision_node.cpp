@@ -1,6 +1,7 @@
 #include "collision/node.hpp"
 using namespace Collision;
 
+Command* command = 0;
 Node::Node(){
 
 }
@@ -46,4 +47,17 @@ INode* Node::getChild(int i){
 
 	return children.at(i);
 
+}
+
+void Node::operation(){
+	for(int i = 0; i < children.size(); i++){
+		children.at(i)->operation();
+	}
+}
+
+void Node::setCommand(Command* c){
+	this->command = c;
+}
+Command* Node::getCommand(){
+	return this->command;
 }

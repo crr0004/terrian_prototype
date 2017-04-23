@@ -98,7 +98,7 @@ TEST_CASE("Simpleworld test"){
 
 	glm::vec3 center = glm::vec3(0.0f, 0.0f, 0.0f);
 	float radius = 5.0f;
-	Collider* sphere = new SphereCollider(center, radius);
+	SphereCollider* sphere = new SphereCollider(center, radius);
 
 	glm::vec3 min = glm::vec3(3.0f, 3.0f, 3.0f);
 	glm::vec3 max = glm::vec3(4.0f, 4.0f, 4.0f);
@@ -112,7 +112,12 @@ TEST_CASE("Simpleworld test"){
 	When(OverloadedMethod(aabbStub,visitCollide,bool(SphereCollider*))).AlwaysReturn(false);
 	When(OverloadedMethod(aabbStub,visitCollide,bool(AABBCollider*)).Using(aabb)).Return(true);
 	Fake(Method(aabbStub, setParent));
-	Fake(Method(aabbStub, visitNotifyCollider));
+	//Fake(Method(aabbStub, visitNotifyCollider));
+	Fake(OverloadedMethod(aabbStub, visitNotifyCollider, void(Collider*)));
+	Fake(OverloadedMethod(aabbStub, visitNotifyCollider, void(AABBCollider*)));
+	Fake(OverloadedMethod(aabbStub, visitNotifyCollider, void(SphereCollider*)));
+	Fake(Method(aabbStub, operation));
+	Fake(Method(aabbStub, setCommand));
 	
 
 	AABBCollider& a = aabbStub.get();

@@ -1,6 +1,7 @@
 #ifndef COLLISION_COLLIDER_H
 #define COLLISION_COLLIDER_H
 #include "collision/node.hpp"
+#include "patterns/command.hpp"
 namespace Collision {
 	class AABBCollider;
 	class SphereCollider;

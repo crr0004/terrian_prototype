@@ -1,10 +1,12 @@
 #include "collision/aabbcollider.hpp"
 #include "collision/spherecollider.hpp"
+#include <cstddef>
 #include <glm/glm.hpp>
 using namespace Collision;
 AABBCollider::AABBCollider(const glm::vec3& min, const glm::vec3& max){
 	this->min = glm::vec3(min);
 	this->max = glm::vec3(max);
+	command = 0;
 }
 
 bool AABBCollider::collides(const AABBCollider& b){
@@ -27,7 +29,12 @@ bool AABBCollider::visitCollide(AABBCollider* b){
 	return true;
 }
 
-
 bool AABBCollider::visitCollide(SphereCollider* sphere){
 	return sphere->visitCollide(this);
+}
+void AABBCollider::visitNotifyCollider(Collider* collider){
+	collider->visitNotifyCollider(this);
+	if(command != NULL){
+		command->execute();
+	}
 }

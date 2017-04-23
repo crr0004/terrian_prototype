@@ -1,10 +1,12 @@
 #include "collision/spherecollider.hpp"
 #include "collision/aabbcollider.hpp"
+#include <cstddef>
 using namespace Collision;
 
 SphereCollider::SphereCollider(const glm::vec3& center, const float radius){
 	this->center = glm::vec3(center);
 	this->radius = radius;
+	command = 0;
 }
 
 bool SphereCollider::visitCollide(Collider* node){
@@ -27,4 +29,10 @@ bool SphereCollider::visitCollide(AABBCollider* aabb){
 
 bool SphereCollider::visitCollide(SphereCollider* sphere){
 	return false;
+}
+void SphereCollider::visitNotifyCollider(Collider* collider){
+	collider->visitNotifyCollider(this);
+	if(command != NULL){
+		command->execute();
+	}
 }
