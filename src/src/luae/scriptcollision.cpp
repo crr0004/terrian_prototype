@@ -17,4 +17,5 @@ void ScriptCollision::AddToLib(){
 
 int ScriptCollision::GetPointFromRay(lua_State* l){
 
+	return 0;
 }

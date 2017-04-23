@@ -44,6 +44,7 @@ int ScriptTriangle::SetVert1(lua_State* l){
 	vertices[0] = x;
 	vertices[1] = y;
 	vertices[2] = z;
+	return 0;
 }
 int ScriptTriangle::SetVert2(lua_State* l){
 	Triangle* triangle = *(Triangle**)lua_touserdata(l,-2);
@@ -54,6 +55,7 @@ int ScriptTriangle::SetVert2(lua_State* l){
 	vertices[3] = x;
 	vertices[4] = y;
 	vertices[5] = z;
+	return 0;
 
 }
 int ScriptTriangle::SetVert3(lua_State* l){
