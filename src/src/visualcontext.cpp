@@ -21,7 +21,7 @@ void VisualContext::error_callback(int error, const char* description) {
 void VisualContext::check_error(){
 	GLenum err;
 	while ((err = glGetError()) != GL_NO_ERROR) {
-		const char* error;
+		const char* error = "";
 
 		switch(err) {
 			case GL_INVALID_OPERATION:      error="INVALID_OPERATION";      break;
