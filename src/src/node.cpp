@@ -1,5 +1,4 @@
-#include "collision/node.hpp"
-using namespace Collision;
+#include "node.hpp"
 
 Command* command = 0;
 Node::Node(){

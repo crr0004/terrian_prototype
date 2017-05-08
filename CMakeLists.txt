@@ -35,7 +35,7 @@ SET(Terrian_Prototype_src
 	src/src/addtodrawqueue.cpp
 	src/src/luae/scriptmouse.cpp
 	src/src/luae/scriptcollision.cpp
-	src/src/collision_node.cpp
+	src/src/node.cpp
 	src/src/collision_simpleworld.cpp
 	src/src/collision_aabbcollider.cpp
 	src/src/collision_sphere.cpp

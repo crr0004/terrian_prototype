@@ -1,6 +1,6 @@
 #ifndef COLLISION_SIMPLEWORLD_H
 #define COLLISION_SIMPLEWORLD_H
-#include "collision/node.hpp"
+#include "node.hpp"
 #include "collision/collider.hpp"
 namespace Collision {
 	class SimpleWorld : public Node{

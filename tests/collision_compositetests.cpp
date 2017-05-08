@@ -1,36 +1,6 @@
 #include <catch.hpp>
 #include <fakeit.hpp>
-#include "collision/node.hpp"
-
-TEST_CASE("Collision Component Tests"){
-	using namespace Collision;
-	
-
-	/*
-	SimpleWorld *root = new SimpleWorld();
-	AddToWorldCommand::SetRoot(root);
-
-	float[] vertices = new float[9];
-	int vertexSize = 9;
-
-	vertices[0] = -1.0f;
-	vertices[1] = 0.0f;
-	vertices[2] = 0.0f;
-
-	vertices[3] = 1.0f;
-	vertices[4] = 0.0f;
-	vertices[5] = 0.0f;
-
-	vertices[6] = 1.0f;
-	vertices[7] = 1.0f;
-	vertices[8] = 0.0f;
-
-	AABBCollider triangleAABB = new AABBCollider(vertices);
-	AddToWorldCommand addToWorld = new AddToWorldCommand(triangleAABB);
-	*/
-	
-}
-
+#include "node.hpp"
 #include "collision/aabbcollider.hpp"
 #include "collision/collider.hpp"
 #include <glm/glm.hpp>
