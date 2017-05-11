@@ -1,9 +1,10 @@
 #ifndef LINE_H
 #define LINE_H 1
-#include "IPolygon.hpp"
+#include "polygon.hpp"
 #include <glad/glad.h>
 #include <glm/glm.hpp>
-class Line : public IPolygon{
+namespace Geometry{
+class Line : public Polygon{
 	public:
 		Line();
 		void setVertices(GLfloat vertices[], unsigned int size) ;
@@ -28,4 +29,5 @@ class Line : public IPolygon{
 		glm::mat4 model_matrix;
 
 };
+} //namespace Geometry
 #endif /* ifndef LINE_H */

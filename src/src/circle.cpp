@@ -5,7 +5,8 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <cmath>
 #include "matrixstacksingleton.hpp"
-#include "logicstate.hpp"
+#include "logiccontext.hpp"
+using namespace Geometry;
 
 Circle::Circle(){
 	int segments = 20;

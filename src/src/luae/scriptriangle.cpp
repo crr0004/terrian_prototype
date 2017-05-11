@@ -6,6 +6,7 @@
 #include "luae/scriptmanager.hpp"
 #include "luae/Utilities.hpp"
 using namespace Luae;
+using namespace Geometry;
 
 static const struct luaL_Reg LuaFunctions[] = {
 	{"Create", ScriptTriangle::Create},

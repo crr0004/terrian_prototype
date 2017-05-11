@@ -1,11 +1,11 @@
 #ifndef POLYGON_H
 #define POLYGON_H
-#include "IPolygon.hpp"
+#include "node.hpp"
+#include "logiccontext.hpp"
 #include <glad/glad.h>
 #include <glm/glm.hpp>
-
-	namespace Geometry {
-		class Polygon : public IPolygon {
+namespace Geometry {
+	class Polygon : public Node {
 		public:
 			Polygon();
 			virtual	void setVertices(GLfloat vertices[], unsigned int size);
@@ -14,7 +14,7 @@
 			virtual	GLuint* getIndices();
 			virtual	void buildStatic();
 			virtual	void setShaderLocations(GLuint vertShaderLocation);
-			virtual	void draw(struct LogicContext* state);
+			virtual	void draw(LogicContext* state);
 
 			virtual	void update(struct LogicContext* state);
 			virtual	void translate(glm::vec3 moveBy);
@@ -30,7 +30,6 @@
 			GLuint vboID[2];
 			GLuint vertShaderLocation;
 			glm::mat4 model_matrix;
-		};
-	}
-
+	};
+} //namespace Geometry
 #endif

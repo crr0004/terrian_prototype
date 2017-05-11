@@ -1,10 +1,10 @@
 #include "addtodrawqueue.hpp"
 #include <fmt/format.h>
 
-std::vector<IPolygon*>* AddToDrawQueueCommand::queue = 0;
-IPolygon* drawHost = 0;
+std::vector<Geometry::Polygon*>* AddToDrawQueueCommand::queue = 0;
+Geometry::Polygon* drawHost = 0;
 
-AddToDrawQueueCommand::AddToDrawQueueCommand(IPolygon* drawHost){
+AddToDrawQueueCommand::AddToDrawQueueCommand(Geometry::Polygon* drawHost){
 	this->drawHost = drawHost;
 }
 
@@ -12,7 +12,7 @@ AddToDrawQueueCommand::~AddToDrawQueueCommand(){
 	drawHost = 0;
 }
 
-void AddToDrawQueueCommand::SetQueue(std::vector<IPolygon*>* queue){
+void AddToDrawQueueCommand::SetQueue(std::vector<Geometry::Polygon*>* queue){
 	AddToDrawQueueCommand::queue = queue;
 }
 

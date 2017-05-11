@@ -2,16 +2,16 @@
 #define ADDTODRAWQUEUECOMMAND_H
 #include <vector>
 #include "patterns/command.hpp"
-#include "IPolygon.hpp"
+#include "polygon.hpp"
 class AddToDrawQueueCommand : public Command{
 	public:
-		static void SetQueue(std::vector<IPolygon*>*);
-		AddToDrawQueueCommand(IPolygon*);
+		static void SetQueue(std::vector<Geometry::Polygon*>*);
+		AddToDrawQueueCommand(Geometry::Polygon*);
 		~AddToDrawQueueCommand();
 		void execute();
 	private:
-		static std::vector<IPolygon*>* queue;
-		IPolygon* drawHost;
+		static std::vector<Geometry::Polygon*>* queue;
+		Geometry::Polygon* drawHost;
 
 
 };

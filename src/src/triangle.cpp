@@ -4,8 +4,9 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include "matrixstacksingleton.hpp"
-#include "logicstate.hpp"
+#include "logiccontext.hpp"
 
+using namespace Geometry;
 Triangle::Triangle(){
 	vertices = new GLfloat[9];
 	vertexSize = 9;

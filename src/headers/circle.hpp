@@ -1,9 +1,10 @@
 #ifndef CIRCLE_H
 #define CIRCLE_H 1
-#include "IPolygon.hpp"
+#include "polygon.hpp"
 #include <glad/glad.h>
 #include <glm/glm.hpp>
-class Circle : public IPolygon{
+namespace Geometry {
+class Circle : public Polygon{
 	public:
 		Circle();
 		void setVertices(GLfloat vertices[], unsigned int size) ;
@@ -30,4 +31,5 @@ class Circle : public IPolygon{
 		glm::mat4 model_matrix;
 
 };
+} // namespace Geometry
 #endif /* ifndef CIRCLE_H */

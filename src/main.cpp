@@ -10,7 +10,6 @@
 
 #include "terrian_config.hpp"
 #include "matrixstacksingleton.hpp"
-#include "IPolygon.hpp"
 #include "polygon.hpp"
 #include "logiccontext.hpp"
 #include "visualcontext.hpp"
@@ -107,7 +106,7 @@ int main(void) {
 	GLuint vertShaderLocation = glGetAttribLocation(shader_program, "vert");
 	GLuint uloc_project   = glGetUniformLocation(shader_program, "project");
 	GLuint uloc_modelview = glGetUniformLocation(shader_program, "modelview");
-	std::vector<IPolygon*> drawQueue;
+	std::vector<Geometry::Polygon*> drawQueue;
 	AddToDrawQueueCommand::SetQueue(&drawQueue);
 
 	/* Compute the projection matrix */
@@ -137,13 +136,13 @@ int main(void) {
 	Luae::ScriptMouse::SetWindow(window);
 	Luae::ScriptMouse::SetLogicContex(&logicContext);
 
-	Line worldLine;
+	Geometry::Line worldLine;
 	worldLine.buildStatic();
 	worldLine.setShaderLocations(vertShaderLocation);
-	Circle circle;
+	Geometry::Circle circle;
 	circle.translate(glm::vec3(0.0f,0.0f,10.0f));
 	circle.buildStatic();
-	Circle circle2;
+	Geometry::Circle circle2;
 	circle2.translate(glm::vec3(5.0f,0.0f,10.0f));
 	circle2.buildStatic();
 
@@ -155,7 +154,7 @@ int main(void) {
 	//lua_getglobal(l, "triangle");
 	//Triangle* triangle = *(Triangle**)lua_touserdata(l,-1);
 	//drawQueue.push_back(triangle);
-//	AddToDrawQueueCommand addTriangle(triangle);
+//	AddToDrawQueueCommand addTriangle(Geometry::Polygon);
 //	addTriangle.execute();
 
 		glEnable(GL_MULTISAMPLE);
@@ -184,7 +183,7 @@ int main(void) {
 		//triangle->update(&logicContext);
 		//triangle->draw(&logicContext);
 
-		for(std::vector<IPolygon*>::iterator drawHost = drawQueue.begin();
+		for(std::vector<Geometry::Polygon*>::iterator drawHost = drawQueue.begin();
 				drawHost != drawQueue.end();
 				drawHost++){
 			glDisable(GL_CULL_FACE);
