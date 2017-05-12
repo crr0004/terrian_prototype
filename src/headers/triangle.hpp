@@ -15,9 +15,8 @@ namespace Geometry {
 			void buildStatic() ;
 			void setShaderLocations(GLuint vertShaderLocation) ;
 			void setShaderLocations(const char* name);
-			void draw(struct LogicContext* state) ;
-
-			void update(struct LogicContext* state) ;
+			void draw() ;
+			void update() ;
 			void translate(glm::vec3 moveBy) ;
 			void rotate(glm::vec3 rotateAround, float rotateBy) ;
 			glm::mat4* getModelMatrix() ;

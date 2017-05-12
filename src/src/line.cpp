@@ -34,7 +34,7 @@ void Line::buildStatic(){
 void Line::setShaderLocations(GLuint vertShaderLocation){
 	this->vertShaderLocation = vertShaderLocation;
 }
-void Line::draw(struct LogicContext* state){
+void Line::draw(){
 	glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
 
 	glBufferData(GL_ARRAY_BUFFER, vertexSize * sizeof(GLfloat), vertices, GL_DYNAMIC_DRAW);
@@ -60,7 +60,7 @@ void Line::draw(struct LogicContext* state){
 	model_matrix = (MatrixStackSingleton::instance())->pop();
 
 }
-void Line::update(struct LogicContext* state){
+void Line::update(){
 	MatrixStackSingleton* instance = MatrixStackSingleton::instance();
 
 	instance->push(model_matrix);

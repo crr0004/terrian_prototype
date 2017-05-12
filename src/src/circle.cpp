@@ -48,7 +48,7 @@ void Circle::setShaderLocations(const char* name){
 	glGetIntegerv(GL_CURRENT_PROGRAM,&shaderProgram);
 	this->vertShaderLocation = glGetAttribLocation(shaderProgram, name);
 }
-void Circle::draw(struct LogicContext* state){
+void Circle::draw(){
 	/*
 	fmt::printf("Drawing triangle at X,Y,Z: (%f,%f,%f)\n",
 			model_matrix[3][0],
@@ -81,7 +81,7 @@ void Circle::draw(struct LogicContext* state){
 	glDisableVertexAttribArray(vertShaderLocation);
 	model_matrix = (MatrixStackSingleton::instance())->pop();
 }
-void Circle::update(struct LogicContext* state){
+void Circle::update(){
 	MatrixStackSingleton* instance = MatrixStackSingleton::instance();
 
 	instance->push(model_matrix);

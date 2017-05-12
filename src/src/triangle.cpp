@@ -43,7 +43,7 @@ void Triangle::setShaderLocations(const char* name){
 	glGetIntegerv(GL_CURRENT_PROGRAM,&shaderProgram);
 	this->vertShaderLocation = glGetAttribLocation(shaderProgram, name);
 }
-void Triangle::draw(struct LogicContext* state){
+void Triangle::draw(){
 	/*
 	fmt::printf("Drawing triangle at X,Y,Z: (%f,%f,%f)\n",
 			model_matrix[3][0],
@@ -76,7 +76,7 @@ void Triangle::draw(struct LogicContext* state){
 	glDisableVertexAttribArray(vertShaderLocation);
 	model_matrix = (MatrixStackSingleton::instance())->pop();
 }
-void Triangle::update(struct LogicContext* state){
+void Triangle::update(){
 	MatrixStackSingleton* instance = MatrixStackSingleton::instance();
 
 	instance->push(model_matrix);

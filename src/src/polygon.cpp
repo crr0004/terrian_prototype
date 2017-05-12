@@ -114,7 +114,7 @@ void Geometry::Polygon::setShaderLocations(GLuint vertShaderLocation){
  * @param state current logical context containing references to the camera modelview matrix
  */
 /* ---------------------------------*/
-void Geometry::Polygon::update(struct LogicContext* state){
+void Geometry::Polygon::update(){
 	MatrixStackSingleton* instance = MatrixStackSingleton::instance();
 
 	instance->push(model_matrix);
@@ -133,7 +133,7 @@ void Geometry::Polygon::update(struct LogicContext* state){
  * @TODO Should be usin a shader context rather than the logicContext
  */
 /* ---------------------------------*/
-void Geometry::Polygon::draw(struct LogicContext* state){
+void Geometry::Polygon::draw(){
 		glUniformMatrix4fv(state->uloc_modelview, 1, GL_FALSE, glm::value_ptr(model_matrix));
 		glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboID[1]);
@@ -158,8 +158,14 @@ void Geometry::Polygon::draw(struct LogicContext* state){
 		glDisableVertexAttribArray(vertShaderLocation);
 		model_matrix = (MatrixStackSingleton::instance())->pop();
 }
+void Geometry::Polygon::setLogicContext(LogicContext* state){
+	this->state = state;
+}
 
 Geometry::Polygon::~Polygon(){
 
 }
 
+void Geometry::Polygon::operation(){
+
+}

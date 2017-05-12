@@ -139,10 +139,13 @@ int main(void) {
 	Geometry::Line worldLine;
 	worldLine.buildStatic();
 	worldLine.setShaderLocations(vertShaderLocation);
+	worldLine.setLogicContext(&logicContext);
 	Geometry::Circle circle;
+	circle.setLogicContext(&logicContext);
 	circle.translate(glm::vec3(0.0f,0.0f,10.0f));
 	circle.buildStatic();
 	Geometry::Circle circle2;
+	circle2.setLogicContext(&logicContext);
 	circle2.translate(glm::vec3(5.0f,0.0f,10.0f));
 	circle2.buildStatic();
 
@@ -169,14 +172,14 @@ int main(void) {
 		glm::vec3 rayWordEndPoint = glm::vec3(glm::vec4(0.0f, 0.0f, -100.0f, 1.0f) * logicContext.modelview);
 
 		worldLine.setStartEnd(ray_world, rayWordEndPoint);
-		worldLine.update(&logicContext);
-		worldLine.draw(&logicContext);
+		worldLine.update();
+		worldLine.draw();
 
-		circle.update(&logicContext);
-		circle.draw(&logicContext);
+		circle.update();
+		circle.draw();
 
-		circle2.update(&logicContext);
-		circle2.draw(&logicContext);
+		circle2.update();
+		circle2.draw();
 
 		script->call("update");
 
@@ -187,8 +190,9 @@ int main(void) {
 				drawHost != drawQueue.end();
 				drawHost++){
 			glDisable(GL_CULL_FACE);
-			(*drawHost)->update(&logicContext);
-			(*drawHost)->draw(&logicContext);
+			(*drawHost)->setLogicContext(&logicContext);
+			(*drawHost)->update();
+			(*drawHost)->draw();
 		}
 
 		glfwSwapBuffers(window);

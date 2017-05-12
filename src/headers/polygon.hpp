@@ -14,14 +14,18 @@ namespace Geometry {
 			virtual	GLuint* getIndices();
 			virtual	void buildStatic();
 			virtual	void setShaderLocations(GLuint vertShaderLocation);
-			virtual	void draw(LogicContext* state);
-
-			virtual	void update(struct LogicContext* state);
+			virtual void setLogicContext(LogicContext* state);
+			virtual	void draw();
+			virtual	void update();
 			virtual	void translate(glm::vec3 moveBy);
 			virtual	void rotate(glm::vec3 rotateAround, float rotateBy);
 			virtual	glm::mat4* getModelMatrix();
 			~Polygon();
+			//Node methods
+			virtual void operation();
 
+		protected:
+			LogicContext* state;
 		private:
 			unsigned int vertexSize;
 			unsigned int indicesSize;

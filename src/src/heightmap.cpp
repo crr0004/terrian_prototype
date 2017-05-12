@@ -48,12 +48,13 @@ Heightmap::~Heightmap(){
 }
 
 void Heightmap::draw(LogicContext* state){
-	polygon.draw(state);
-
+	polygon.setLogicContext(state);
+	polygon.draw();
 }
 
 void Heightmap::update(LogicContext* state){
-	polygon.update(state);
+	polygon.setLogicContext(state);
+	polygon.update();
 
 }
 
