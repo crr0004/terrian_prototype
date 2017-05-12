@@ -190,7 +190,14 @@ int main(void) {
 				drawHost != drawQueue.end();
 				drawHost++){
 			glDisable(GL_CULL_FACE);
+			/**
+			 * TODO This is okay for now, however the logicContext will become
+			 * the shader from a shader manager/factory 
+			 * so each object should set it, itself.
+			 * (*drawHost)->setLogicContext(&logicContext);
+			 */
 			(*drawHost)->setLogicContext(&logicContext);
+
 			(*drawHost)->update();
 			(*drawHost)->draw();
 		}
