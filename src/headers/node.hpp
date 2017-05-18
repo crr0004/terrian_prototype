@@ -15,6 +15,8 @@ class Node : public INode{
 		virtual void setCommand(Command*);
 		virtual Command* getCommand();
 		virtual INode* getParent();
+		virtual int visit(INode*);
+		virtual int visit(Node*);
 		virtual ~Node();
 		Node();
 		Node(int);

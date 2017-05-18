@@ -39,6 +39,7 @@ SET(Terrian_Prototype_src
 	src/src/collision_simpleworld.cpp
 	src/src/collision_aabbcollider.cpp
 	src/src/collision_sphere.cpp
+	src/src/geometry_moveable.cpp
 	)
 SET(Terrian_Prototype_Tests_src
 	tests/Collision_planetest.cpp 
@@ -50,6 +51,7 @@ SET(Terrian_Prototype_Tests_src
 	tests/luaetabletest.cpp
 	tests/luaeutilitiestest.cpp
 	tests/collision_compositetests.cpp
+	tests/geometry_moveable.cpp
 	)
 	
 
@@ -120,7 +122,7 @@ if(MSVC)
 endif()
 target_compile_options(LuaTests PUBLIC -Og -g3)
 target_compile_options(Terrian_Prototype PUBLIC -O1 -g)
-target_compile_options(Terrian_Prototype_Tests PUBLIC -O1 -g)
+target_compile_options(Terrian_Prototype_Tests PUBLIC -Og -ggdb)
 target_compile_options(liblua PUBLIC -Og -g3)
 
 set(SHADERS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/shaders/" CACHE PATH "Directory containing shaders")

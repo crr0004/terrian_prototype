@@ -1,6 +1,10 @@
 #ifndef COLLISION_INODE_H
 #define COLLISION_INODE_H
 class Command;
+class Node;
+namespace Geometry{
+	class Moveable;
+}
 class INode{
 	public:
 		virtual void operation() = 0;
@@ -13,6 +17,9 @@ class INode{
 		virtual INode* getParent() = 0;
 		virtual void setCommand(Command*) = 0;
 		virtual Command* getCommand() = 0;
+		virtual int visit(INode*) = 0;
+		virtual int visit(Geometry::Moveable*){return -1;}
+		virtual int visit(Node*){return -1;}
 		virtual ~INode(){}
 };
 #endif //COLLISION_INODE_H

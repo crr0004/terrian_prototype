@@ -60,3 +60,10 @@ void Node::setCommand(Command* c){
 Command* Node::getCommand(){
 	return this->command;
 }
+int Node::visit(INode* node){
+	return node->visit(this);
+}
+int Node::visit(Node* node){
+	node->operation();
+	return 0;
+}
