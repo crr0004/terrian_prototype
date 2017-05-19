@@ -21,18 +21,8 @@ void Line::setStartEnd(const glm::vec3 a, const glm::vec3 b){
 	setVertices(vertices, 2*3);
 
 }
-void Line::setVertices(GLfloat vertices[], unsigned int size){
-	this->vertices = vertices;
-	vertexSize = size;
-}
-GLfloat* Line::getVertices(){
-	return vertices;
-}
 void Line::buildStatic(){
 	glGenBuffers(1, &vboID[0]);
-}
-void Line::setShaderLocations(GLuint vertShaderLocation){
-	this->vertShaderLocation = vertShaderLocation;
 }
 void Line::draw(){
 	glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
@@ -58,23 +48,6 @@ void Line::draw(){
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glDisableVertexAttribArray(vertShaderLocation);
 	model_matrix = (MatrixStackSingleton::instance())->pop();
-
-}
-void Line::update(){
-	MatrixStackSingleton* instance = MatrixStackSingleton::instance();
-
-	instance->push(model_matrix);
-	model_matrix = state->modelview * model_matrix;
-
-}
-void Line::translate(glm::vec3 moveBy){
-	model_matrix = glm::translate(model_matrix, moveBy);
-}
-void Line::rotate(glm::vec3 rotateAround, float rotateBy){
-	model_matrix = glm::rotate(model_matrix, rotateBy, rotateAround);
-}
-glm::mat4* Line::getModelMatrix(){
-	return &model_matrix;
 
 }
 Line::~Line(){

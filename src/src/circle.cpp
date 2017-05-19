@@ -27,26 +27,8 @@ Circle::Circle(){
 		fmt::printf("i is %d\n", i);
 	}
 }
-void Circle::setVertices(GLfloat vertices[], unsigned int size){
-	this->vertices = vertices;
-	vertexSize = size;
-}
-GLfloat* Circle::getVertices(){
-	return vertices;
-}
-unsigned int Circle::getVertexSize(){
-	return vertexSize;
-}
 void Circle::buildStatic(){
 	glGenBuffers(1, &vboID[0]);
-}
-void Circle::setShaderLocations(GLuint vertShaderLocation){
-	this->vertShaderLocation = vertShaderLocation;
-}
-void Circle::setShaderLocations(const char* name){
-	GLint shaderProgram;
-	glGetIntegerv(GL_CURRENT_PROGRAM,&shaderProgram);
-	this->vertShaderLocation = glGetAttribLocation(shaderProgram, name);
 }
 void Circle::draw(){
 	/*
@@ -80,23 +62,6 @@ void Circle::draw(){
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glDisableVertexAttribArray(vertShaderLocation);
 	model_matrix = (MatrixStackSingleton::instance())->pop();
-}
-void Circle::update(){
-	MatrixStackSingleton* instance = MatrixStackSingleton::instance();
-
-	instance->push(model_matrix);
-	model_matrix = state->modelview * model_matrix;
-
-}
-void Circle::translate(glm::vec3 moveBy){
-	model_matrix = glm::translate(model_matrix, moveBy);
-}
-void Circle::rotate(glm::vec3 rotateAround, float rotateBy){
-	model_matrix = glm::rotate(model_matrix, rotateBy, rotateAround);
-}
-glm::mat4* Circle::getModelMatrix(){
-	return &model_matrix;
-
 }
 Circle::~Circle(){
 	delete vertices;

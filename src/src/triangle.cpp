@@ -22,26 +22,8 @@ Triangle::Triangle(){
 	vertices[7] = 1.0f;
 	vertices[8] = 0.0f;
 }
-void Triangle::setVertices(GLfloat vertices[], unsigned int size){
-	this->vertices = vertices;
-	vertexSize = size;
-}
-GLfloat* Triangle::getVertices(){
-	return vertices;
-}
-unsigned int Triangle::getVertexSize(){
-	return vertexSize;
-}
 void Triangle::buildStatic(){
 	glGenBuffers(1, &vboID[0]);
-}
-void Triangle::setShaderLocations(GLuint vertShaderLocation){
-	this->vertShaderLocation = vertShaderLocation;
-}
-void Triangle::setShaderLocations(const char* name){
-	GLint shaderProgram;
-	glGetIntegerv(GL_CURRENT_PROGRAM,&shaderProgram);
-	this->vertShaderLocation = glGetAttribLocation(shaderProgram, name);
 }
 void Triangle::draw(){
 	/*
@@ -75,23 +57,6 @@ void Triangle::draw(){
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glDisableVertexAttribArray(vertShaderLocation);
 	model_matrix = (MatrixStackSingleton::instance())->pop();
-}
-void Triangle::update(){
-	MatrixStackSingleton* instance = MatrixStackSingleton::instance();
-
-	instance->push(model_matrix);
-	model_matrix = state->modelview * model_matrix;
-
-}
-void Triangle::translate(glm::vec3 moveBy){
-	model_matrix = glm::translate(model_matrix, moveBy);
-}
-void Triangle::rotate(glm::vec3 rotateAround, float rotateBy){
-	model_matrix = glm::rotate(model_matrix, rotateBy, rotateAround);
-}
-glm::mat4* Triangle::getModelMatrix(){
-	return &model_matrix;
-
 }
 Triangle::~Triangle(){
 	delete vertices;

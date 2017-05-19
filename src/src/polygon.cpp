@@ -65,6 +65,9 @@ GLuint* Geometry::Polygon::getIndices(){
 glm::mat4* Geometry::Polygon::getModelMatrix(){
 	return &model_matrix;
 }
+unsigned int Geometry::Polygon::getVertexSize(){
+	return vertexSize;
+}
 
 void Geometry::Polygon::translate(glm::vec3 moveBy){
 	model_matrix = glm::translate(model_matrix, moveBy);
@@ -103,6 +106,19 @@ void Geometry::Polygon::buildStatic(){
 void Geometry::Polygon::setShaderLocations(GLuint vertShaderLocation){
 	this->vertShaderLocation = vertShaderLocation;
 
+}
+/* -------------------------------*/
+/** 
+ * @brief Sets the location vec3 in the bound shader by name
+ * @TODO This really shouldn't need to exist and a shader context should exist
+ * 
+ * @Param name of shader variable
+ */
+/* ---------------------------------*/
+void Geometry::Polygon::setShaderLocations(const char* name){
+	GLint shaderProgram;
+	glGetIntegerv(GL_CURRENT_PROGRAM,&shaderProgram);
+	this->vertShaderLocation = glGetAttribLocation(shaderProgram, name);
 }
 
 /* -------------------------------*/

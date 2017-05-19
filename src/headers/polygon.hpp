@@ -12,8 +12,10 @@ namespace Geometry {
 			virtual	void setIndices(GLuint indices[], unsigned int size);
 			virtual	GLfloat* getVertices();
 			virtual	GLuint* getIndices();
+			virtual unsigned int getVertexSize();
 			virtual	void buildStatic();
 			virtual	void setShaderLocations(GLuint vertShaderLocation);
+			void setShaderLocations(const char* name);
 			virtual void setLogicContext(LogicContext* state);
 			virtual	void draw();
 			virtual	void update();
@@ -26,14 +28,14 @@ namespace Geometry {
 
 		protected:
 			LogicContext* state;
-		private:
 			unsigned int vertexSize;
 			unsigned int indicesSize;
 			GLfloat *vertices;
 			GLuint *indices;
-			GLuint vboID[2];
 			GLuint vertShaderLocation;
 			glm::mat4 model_matrix;
+		private:
+			GLuint vboID[2];
 	};
 } //namespace Geometry
 #endif

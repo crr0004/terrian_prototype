@@ -142,10 +142,12 @@ int main(void) {
 	worldLine.setLogicContext(&logicContext);
 	Geometry::Circle circle;
 	circle.setLogicContext(&logicContext);
+	circle.setShaderLocations(vertShaderLocation);
 	circle.translate(glm::vec3(0.0f,0.0f,10.0f));
 	circle.buildStatic();
 	Geometry::Circle circle2;
 	circle2.setLogicContext(&logicContext);
+	circle2.setShaderLocations(vertShaderLocation);
 	circle2.translate(glm::vec3(5.0f,0.0f,10.0f));
 	circle2.buildStatic();
 
