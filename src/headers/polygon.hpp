@@ -2,6 +2,7 @@
 #define POLYGON_H
 #include "node.hpp"
 #include "logiccontext.hpp"
+#include "geometry/moveable.hpp"
 #include <glad/glad.h>
 #include <glm/glm.hpp>
 namespace Geometry {
@@ -33,7 +34,7 @@ namespace Geometry {
 			GLfloat *vertices;
 			GLuint *indices;
 			GLuint vertShaderLocation;
-			glm::mat4 model_matrix;
+			Moveable moveable;	
 		private:
 			GLuint vboID[2];
 	};

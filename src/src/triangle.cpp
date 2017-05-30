@@ -26,19 +26,12 @@ void Triangle::buildStatic(){
 	glGenBuffers(1, &vboID[0]);
 }
 void Triangle::draw(){
-	/*
-	fmt::printf("Drawing triangle at X,Y,Z: (%f,%f,%f)\n",
-			model_matrix[3][0],
-			model_matrix[3][1],
-			model_matrix[3][2]
-			);
-			*/
 
 	glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
 
 	glBufferData(GL_ARRAY_BUFFER, vertexSize * sizeof(GLfloat), vertices, GL_DYNAMIC_DRAW);
 
-	glUniformMatrix4fv(state->uloc_modelview, 1, GL_FALSE, glm::value_ptr(model_matrix));
+	glUniformMatrix4fv(state->uloc_modelview, 1, GL_FALSE, glm::value_ptr(*moveable.getModelMatrix()));
 	glEnableVertexAttribArray(vertShaderLocation);
 
 	glVertexAttribPointer(
@@ -56,7 +49,7 @@ void Triangle::draw(){
 			);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glDisableVertexAttribArray(vertShaderLocation);
-	model_matrix = (MatrixStackSingleton::instance())->pop();
+	moveable.pop();
 }
 Triangle::~Triangle(){
 	delete vertices;

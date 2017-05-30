@@ -63,18 +63,18 @@ GLuint* Geometry::Polygon::getIndices(){
 	return indices;
 }
 glm::mat4* Geometry::Polygon::getModelMatrix(){
-	return &model_matrix;
+	return moveable.getModelMatrix();
 }
 unsigned int Geometry::Polygon::getVertexSize(){
 	return vertexSize;
 }
 
 void Geometry::Polygon::translate(glm::vec3 moveBy){
-	model_matrix = glm::translate(model_matrix, moveBy);
+	moveable.translate(moveBy);
 }
 
 void Geometry::Polygon::rotate(glm::vec3 rotateAround, float rotateBy){
-	model_matrix = glm::rotate(model_matrix, rotateBy, rotateAround);
+	moveable.rotate(rotateAround, rotateBy);
 }
 
 /* -------------------------------*/
@@ -131,11 +131,8 @@ void Geometry::Polygon::setShaderLocations(const char* name){
  */
 /* ---------------------------------*/
 void Geometry::Polygon::update(){
-	MatrixStackSingleton* instance = MatrixStackSingleton::instance();
-
-	instance->push(model_matrix);
-	model_matrix = state->modelview * model_matrix;
-
+	moveable.push();
+	moveable.translate(state->modelview);
 }
 
 /* -------------------------------*/
@@ -150,7 +147,7 @@ void Geometry::Polygon::update(){
  */
 /* ---------------------------------*/
 void Geometry::Polygon::draw(){
-		glUniformMatrix4fv(state->uloc_modelview, 1, GL_FALSE, glm::value_ptr(model_matrix));
+		glUniformMatrix4fv(state->uloc_modelview, 1, GL_FALSE, glm::value_ptr(*moveable.getModelMatrix()));
 		glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboID[1]);
 		glEnableVertexAttribArray(vertShaderLocation);
@@ -172,7 +169,7 @@ void Geometry::Polygon::draw(){
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glDisableVertexAttribArray(vertShaderLocation);
-		model_matrix = (MatrixStackSingleton::instance())->pop();
+		moveable.pop();
 }
 void Geometry::Polygon::setLogicContext(LogicContext* state){
 	this->state = state;

@@ -29,7 +29,7 @@ void Line::draw(){
 
 	glBufferData(GL_ARRAY_BUFFER, vertexSize * sizeof(GLfloat), vertices, GL_DYNAMIC_DRAW);
 
-	glUniformMatrix4fv(state->uloc_modelview, 1, GL_FALSE, glm::value_ptr(model_matrix));
+	glUniformMatrix4fv(state->uloc_modelview, 1, GL_FALSE, glm::value_ptr(*moveable.getModelMatrix()));
 	glEnableVertexAttribArray(vertShaderLocation);
 
 	glVertexAttribPointer(
@@ -47,7 +47,7 @@ void Line::draw(){
 			);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glDisableVertexAttribArray(vertShaderLocation);
-	model_matrix = (MatrixStackSingleton::instance())->pop();
+	moveable.pop();
 
 }
 Line::~Line(){
