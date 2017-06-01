@@ -24,29 +24,32 @@ int Moveable::visit(INode* node){
 }
 
 int Moveable::visit(Moveable* node){
-	node->translate(transitiveMatrix);
-
+	node->parentTranslate(model_matrix * transitiveMatrix);
 	return 0;
 }
 void Moveable::translate(glm::vec3 moveBy){
-	glm::mat4 matrix(1.0);
-	matrix = glm::translate(matrix, moveBy);
-	this->translate(matrix);
+	model_matrix = glm::translate(model_matrix, moveBy);
+	operation();
 }
 void Moveable::rotate(glm::vec3 rotateAround, float rotateBy){
-	glm::mat4 matrix(1.0);
-	matrix = glm::rotate(matrix, rotateBy, rotateAround);
-	this->translate(matrix);
+	model_matrix = glm::rotate(model_matrix, rotateBy, rotateAround);
+	operation();
 }
 glm::mat4* Moveable::getModelMatrix(){
 	return &model_matrix;
 }
-
 void Moveable::translate(glm::mat4& moveBy){
-	model_matrix = moveBy * model_matrix;
-	transitiveMatrix = moveBy * transitiveMatrix;
-	this->operation();
-	transitiveMatrix = glm::mat4(1.0);
+	model_matrix = model_matrix * moveBy;
+}
+void Moveable::parentTranslate(glm::mat4 moveBy){
+	transitiveMatrix = transitiveMatrix * moveBy;
+	operation();
+}
+glm::mat4 Moveable::getCulumativeMatrix(){
+	return transitiveMatrix * model_matrix;
+}
+glm::mat4* Moveable::getTransitiveMatrix(){
+	return &transitiveMatrix;
 }
 void Moveable::push(){
 	model_matrix = (MatrixStackSingleton::instance())->push(model_matrix);
