@@ -42,7 +42,7 @@ void Moveable::translate(glm::mat4& moveBy){
 	model_matrix = model_matrix * moveBy;
 }
 void Moveable::parentTranslate(glm::mat4 moveBy){
-	transitiveMatrix = transitiveMatrix * moveBy;
+	transitiveMatrix = glm::mat4(moveBy);
 	operation();
 }
 glm::mat4 Moveable::getCulumativeMatrix(){
