@@ -140,18 +140,21 @@ int main(void) {
 	worldLine.buildStatic();
 	worldLine.setShaderLocations(vertShaderLocation);
 	worldLine.setLogicContext(&logicContext);
+
 	Geometry::Circle circle;
+	Geometry::Circle circle2;
+
+	circle.getMoveable().add(&circle2.getMoveable());
+
 	circle.setLogicContext(&logicContext);
 	circle.setShaderLocations(vertShaderLocation);
-	circle.translate(glm::vec3(0.0f,0.0f,10.0f));
+	circle.translate(glm::vec3(1.0f,0.0f,10.0f));
 	circle.buildStatic();
-	Geometry::Circle circle2;
+
 	circle2.setLogicContext(&logicContext);
 	circle2.setShaderLocations(vertShaderLocation);
 	circle2.translate(glm::vec3(5.0f,0.0f,10.0f));
 	circle2.buildStatic();
-
-	circle.setShaderLocations(vertShaderLocation);
 
 	lua_State* l = Luae::ScriptManager::instance()->getState();
 	Luae::Script* script = Luae::Script::Load("triangle_drawing.lua");

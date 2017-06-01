@@ -23,6 +23,7 @@ namespace Geometry {
 			virtual	void translate(glm::vec3 moveBy);
 			virtual	void rotate(glm::vec3 rotateAround, float rotateBy);
 			virtual	glm::mat4* getModelMatrix();
+			virtual Moveable& getMoveable();
 			~Polygon();
 			//Node methods
 			virtual void operation();

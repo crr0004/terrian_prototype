@@ -48,3 +48,25 @@ TEST_CASE("All moveable operations cascade to children"){
 	REQUIRE(child1Matrix[3][1] == 0.0);
 	REQUIRE(child1Matrix[3][2] == 0.0);
 }
+
+TEST_CASE("Push and pop matrix works correctly"){
+	using namespace Geometry;
+	Moveable root;
+	Moveable child1;
+	glm::vec3 moveBy = glm::vec3(1.0,2.0,-3.0);
+
+	root.add(&child1);
+
+	glm::mat4& rootMatrix = *root.getModelMatrix();
+	glm::mat4& child1Matrix = *child1.getModelMatrix();
+
+	root.push();
+	root.translate(moveBy);
+	REQUIRE(child1Matrix[3][0] == rootMatrix[3][0]);
+	REQUIRE(child1Matrix[3][1] == rootMatrix[3][1]);
+	REQUIRE(child1Matrix[3][2] == rootMatrix[3][2]);
+	root.pop();
+	REQUIRE(child1Matrix[3][0] == rootMatrix[3][0]);
+	REQUIRE(child1Matrix[3][1] == rootMatrix[3][1]);
+	REQUIRE(child1Matrix[3][2] == rootMatrix[3][2]);
+}

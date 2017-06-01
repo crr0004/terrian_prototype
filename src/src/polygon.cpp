@@ -182,3 +182,8 @@ Geometry::Polygon::~Polygon(){
 void Geometry::Polygon::operation(){
 
 }
+
+Geometry::Moveable& Geometry::Polygon::getMoveable(){
+	return moveable;
+
+}
