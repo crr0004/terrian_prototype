@@ -50,11 +50,8 @@ TEST_CASE("Movable All moveable operations cascade to children"){
 	REQUIRE(child2Matrix[3][2] == rootMatrix[3][2]);
 
 	//child2 gets transformed by rootMatrix and child1
-	fmt::printf("Matrix %s\n", glm::to_string(child1.getCulumativeMatrix()));
 	child1.translate(moveBy2);
-	fmt::printf("Matrix %s\n", glm::to_string(*child1.getModelMatrix()));
 	child2Matrix = child2.getCulumativeMatrix();
-	fmt::printf("Matrix %s\n", glm::to_string(child2.getCulumativeMatrix()));
 	REQUIRE(child2Matrix[3][0] == rootMatrix[3][0] + moveBy2[0]);
 	REQUIRE(child2Matrix[3][1] == rootMatrix[3][1] + moveBy2[1]);
 	REQUIRE(child2Matrix[3][2] == rootMatrix[3][2] + moveBy2[2]);
@@ -62,6 +59,7 @@ TEST_CASE("Movable All moveable operations cascade to children"){
 	child1.translate(-moveBy2);
 
 	child1.translate(-moveBy);
+	child1Matrix = child1.getCulumativeMatrix();
 	REQUIRE(child1Matrix[3][0] == 0.0);
 	REQUIRE(child1Matrix[3][1] == 0.0);
 	REQUIRE(child1Matrix[3][2] == 0.0);
