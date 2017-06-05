@@ -124,7 +124,7 @@ TEST_CASE("Collision volumes are transformed"){
 	REQUIRE(aabb.visitCollide(&aabb2));
 
 	root1.add(&sphere.getMoveable());
-	root1.add(&aabb2);
+	root1.add(&aabb2.getMoveable());
 	root1.translate(glm::vec3(10.0f,10.0f,10.0f));
 
 	REQUIRE(!sphere.visitCollide(&aabb));

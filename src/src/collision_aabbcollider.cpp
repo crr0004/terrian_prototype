@@ -32,10 +32,15 @@ bool AABBCollider::visitCollide(Collider* node){
 	return node->visitCollide(this);	
 }
 
+
 bool AABBCollider::visitCollide(AABBCollider* b){
-	if (max[0] < b->min[0] || min[0] > b->max[0]) return false;
-	if (max[1] < b->min[1] || min[1] > b->max[1]) return false;
-	if (max[2] < b->min[2] || min[2] > b->max[2]) return false;
+	glm::vec3 min = getTransformedMin();
+	glm::vec3 max = getTransformedMax();
+	glm::vec3 bmin = b->getTransformedMin();
+	glm::vec3 bmax = b->getTransformedMax();
+	if (max[0] < bmin[0] || min[0] > bmax[0]) return false;
+	if (max[1] < bmin[1] || min[1] > bmax[1]) return false;
+	if (max[2] < bmin[2] || min[2] > bmax[2]) return false;
 	// Overlapping on all axes means AABBs are intersecting
 	return true;
 }

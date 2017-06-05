@@ -16,7 +16,7 @@ namespace Collision {
 			virtual void remove(int){}
 			virtual int getChildCount(){return 0;}
 			virtual INode* getChild(int){return 0;}
-			glm::vec3 getCenter(){	return glm::vec3(moveable.getCulumativeMatrix() * glm::vec4(center, 1.0f)); }
+			virtual glm::vec3 getTransformedCenter();
 			virtual Geometry::Moveable& getMoveable();
 		protected:
 			glm::vec3 center;
