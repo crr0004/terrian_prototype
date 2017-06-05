@@ -118,17 +118,29 @@ TEST_CASE("Collision volumes are transformed"){
 	glm::vec3 min = glm::vec3(2.0f, 3.0f, 3.0f);
 	glm::vec3 max = glm::vec3(4.0f, 4.0f, 4.0f);
 	AABBCollider aabb(min, max);
+	AABBCollider aabb2(glm::vec3(0.0f,0.0f,0.0f),glm::vec3(3.0f,3.0f,3.0f));
 
 	REQUIRE(sphere.visitCollide(&aabb));
+	REQUIRE(aabb.visitCollide(&aabb2));
 
 	root1.add(&sphere.getMoveable());
+	root1.add(&aabb2);
 	root1.translate(glm::vec3(10.0f,10.0f,10.0f));
+
 	REQUIRE(!sphere.visitCollide(&aabb));
+	REQUIRE(!aabb.visitCollide(&aabb2));
+
 	root2.add(&aabb.getMoveable());
 	root2.translate(glm::vec3(10.0f,10.0f,10.0f));
+
 	REQUIRE(sphere.visitCollide(&aabb));
+	REQUIRE(aabb.visitCollide(&aabb2));
+	REQUIRE(aabb.visitCollide(&sphere));
+
 	fmt::printf("Min %s\n", glm::to_string(aabb.getTransformedMin()));
 	fmt::printf("Max %s\n", glm::to_string(aabb.getTransformedMax()));
+
+
 
 
 }
