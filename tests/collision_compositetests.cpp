@@ -1,9 +1,11 @@
 #include <catch.hpp>
 #include <fakeit.hpp>
+#include <fmt/format.h>
 #include "node.hpp"
 #include "collision/aabbcollider.hpp"
 #include "collision/collider.hpp"
 #include <glm/glm.hpp>
+#include <glm/gtx/string_cast.hpp>
 TEST_CASE("AABBCollider test"){
 	using namespace Collision;
 	float* vertices = new float[9];
@@ -60,7 +62,6 @@ TEST_CASE("Sphere and AABBCollider test"){
 
 }
 
-
 #include "collision/simpleworld.hpp"
 TEST_CASE("Simpleworld test"){
 	using namespace Collision;
@@ -101,6 +102,35 @@ TEST_CASE("Simpleworld test"){
 	*/
 	Verify(OverloadedMethod(aabbStub,visitNotifyCollider,void(Collider*)).Using(aabb));
 	Verify(Method(aabbStub, setParent).Using(root));
+}
+
+#include "geometry/moveable.hpp"
+TEST_CASE("Collision volumes are transformed"){
+	using namespace Geometry;
+	using namespace Collision;
+	Moveable root1;
+	Moveable root2;
+
+	glm::vec3 center = glm::vec3(0.0f, 0.0f, 0.0f);
+	float radius = 5.0f;
+	SphereCollider sphere(center, radius);
+
+	glm::vec3 min = glm::vec3(2.0f, 3.0f, 3.0f);
+	glm::vec3 max = glm::vec3(4.0f, 4.0f, 4.0f);
+	AABBCollider aabb(min, max);
+
+	REQUIRE(sphere.visitCollide(&aabb));
+
+	root1.add(&sphere.getMoveable());
+	root1.translate(glm::vec3(10.0f,10.0f,10.0f));
+	REQUIRE(!sphere.visitCollide(&aabb));
+	root2.add(&aabb.getMoveable());
+	root2.translate(glm::vec3(10.0f,10.0f,10.0f));
+	REQUIRE(sphere.visitCollide(&aabb));
+	fmt::printf("Min %s\n", glm::to_string(aabb.getTransformedMin()));
+	fmt::printf("Max %s\n", glm::to_string(aabb.getTransformedMax()));
+
+
 }
 
 TEST_CASE("Collision node test"){

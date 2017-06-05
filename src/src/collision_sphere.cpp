@@ -15,15 +15,16 @@ bool SphereCollider::visitCollide(Collider* node){
 
 bool SphereCollider::visitCollide(AABBCollider* aabb){
 	glm::vec3 q;
-	const glm::vec3 min = aabb->getMin();
-	const glm::vec3 max = aabb->getMax();
+	glm::vec3 center = glm::vec3(moveable.getCulumativeMatrix() * glm::vec4(this->center, 1.0f));
+	glm::vec3 min = aabb->getTransformedMin();
+	glm::vec3 max = aabb->getTransformedMax();
 	for (int i = 0; i < 3; i++) {
-		float v = this->center[i];
+		float v = center[i];
 		if (v < min[i]) v = min[i]; // v = max(v, b.min[i])
 		if (v > max[i]) v = max[i]; // v = min(v, b.max[i])
 		q[i] = v;
 	}
-	glm::vec3 v = q - this->center;
+	glm::vec3 v = q - center;
 	return glm::dot(v,v) <= this->radius * this->radius;
 }
 
@@ -35,4 +36,8 @@ void SphereCollider::visitNotifyCollider(Collider* collider){
 	if(command != NULL){
 		command->execute();
 	}
+}
+
+Geometry::Moveable& SphereCollider::getMoveable(){
+	return moveable;
 }

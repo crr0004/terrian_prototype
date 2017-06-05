@@ -17,6 +17,17 @@ bool AABBCollider::collides(const AABBCollider& b){
 	return true;
 }
 
+Geometry::Moveable& AABBCollider::getMoveable(){
+	return moveable;
+}
+glm::vec3 AABBCollider::getTransformedMin(){
+	return glm::vec3(moveable.getCulumativeMatrix() * glm::vec4(min, 1.0f));
+}
+
+glm::vec3 AABBCollider::getTransformedMax(){
+	return glm::vec3(moveable.getCulumativeMatrix() * glm::vec4(max, 1.0f));
+}
+
 bool AABBCollider::visitCollide(Collider* node){
 	return node->visitCollide(this);	
 }
