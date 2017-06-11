@@ -13,9 +13,8 @@ namespace Collision {
 			virtual bool visitCollide(AABBCollider*){return false;}
 			virtual bool visitCollide(SphereCollider*){return false;}
 
-			virtual void visitNotifyCollider(Collider*) = 0;
-			virtual void visitNotifyCollider(AABBCollider*){}
-			virtual void visitNotifyCollider(SphereCollider*){}
+			virtual void notifyCollider(Collider*) = 0;
+			virtual unsigned long int getCategoryID(){return 0;}
 	};
 } // namespace Collision
 #endif

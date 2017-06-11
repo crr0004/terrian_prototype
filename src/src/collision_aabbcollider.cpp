@@ -48,9 +48,5 @@ bool AABBCollider::visitCollide(AABBCollider* b){
 bool AABBCollider::visitCollide(SphereCollider* sphere){
 	return sphere->visitCollide(this);
 }
-void AABBCollider::visitNotifyCollider(Collider* collider){
-	collider->visitNotifyCollider(this);
-	if(command != NULL){
-		command->execute();
-	}
+void AABBCollider::notifyCollider(Collider* collider){
 }

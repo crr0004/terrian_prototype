@@ -31,11 +31,7 @@ bool SphereCollider::visitCollide(AABBCollider* aabb){
 bool SphereCollider::visitCollide(SphereCollider* sphere){
 	return false;
 }
-void SphereCollider::visitNotifyCollider(Collider* collider){
-	collider->visitNotifyCollider(this);
-	if(command != NULL){
-		command->execute();
-	}
+void SphereCollider::notifyCollider(Collider* collider){
 }
 
 glm::vec3 SphereCollider::getTransformedCenter(){	

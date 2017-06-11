@@ -10,7 +10,8 @@ namespace Collision {
 			virtual bool visitCollide(Collider*);
 			virtual bool visitCollide(AABBCollider*);
 			virtual bool visitCollide(SphereCollider*);
-			virtual void visitNotifyCollider(Collider*);
+			virtual void notifyCollider(Collider*);
+			virtual unsigned long int getCategoryID(){return 0;}
 			virtual void add(INode*){}
 			virtual int insert(INode*){return -1;}
 			virtual void remove(int){}
