@@ -19,6 +19,7 @@ namespace Collision {
 			virtual INode* getChild(int){return 0;}
 			virtual glm::vec3 getTransformedCenter();
 			virtual Geometry::Moveable& getMoveable();
+			virtual float getRadius(){return radius;}
 		protected:
 			glm::vec3 center;
 			float radius;

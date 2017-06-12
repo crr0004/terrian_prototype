@@ -54,12 +54,6 @@ void Node::operation(){
 	}
 }
 
-void Node::setCommand(Command* c){
-	this->command = c;
-}
-Command* Node::getCommand(){
-	return this->command;
-}
 int Node::visit(INode* node){
 	return node->visit(this);
 }

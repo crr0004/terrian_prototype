@@ -23,6 +23,11 @@ int Moveable::visit(INode* node){
 	return 0;
 }
 
+void Moveable::add(INode* node){
+	children.push_back(node);
+	operation();
+}
+
 int Moveable::visit(Moveable* node){
 	node->parentTranslate(model_matrix * transitiveMatrix);
 	return 0;

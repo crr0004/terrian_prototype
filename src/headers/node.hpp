@@ -12,8 +12,6 @@ class Node : public INode{
 		virtual int getChildCount();
 		virtual INode* getChild(int);
 		virtual void setParent(INode*);
-		virtual void setCommand(Command*);
-		virtual Command* getCommand();
 		virtual INode* getParent();
 		virtual int visit(INode*);
 		virtual int visit(Node*);
@@ -23,7 +21,6 @@ class Node : public INode{
 	protected:
 		std::vector<INode*> children;
 		INode* parent;
-		Command* command;
 
 };	
 #endif

@@ -6,7 +6,6 @@ using namespace Collision;
 AABBCollider::AABBCollider(const glm::vec3& min, const glm::vec3& max){
 	this->min = glm::vec3(min);
 	this->max = glm::vec3(max);
-	command = 0;
 }
 
 bool AABBCollider::collides(const AABBCollider& b){

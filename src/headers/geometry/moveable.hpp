@@ -8,6 +8,7 @@ namespace Geometry {
 		public:
 			Moveable();
 			virtual void operation();
+			virtual void add(INode*);
 			virtual int visit(Moveable*);
 			virtual int visit(INode* node);
 			virtual	void translate(glm::vec3 moveBy);

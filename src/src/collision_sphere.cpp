@@ -6,7 +6,6 @@ using namespace Collision;
 SphereCollider::SphereCollider(const glm::vec3& center, const float radius){
 	this->center = glm::vec3(center);
 	this->radius = radius;
-	command = 0;
 }
 
 bool SphereCollider::visitCollide(Collider* node){
@@ -29,9 +28,13 @@ bool SphereCollider::visitCollide(AABBCollider* aabb){
 }
 
 bool SphereCollider::visitCollide(SphereCollider* sphere){
-	return false;
+	glm::vec3 d = this->getTransformedCenter() - sphere->getTransformedCenter();
+	float dist2 = glm::dot(d, d);
+	float radiusSum = this->radius + sphere->getRadius();
+	return dist2 <= radiusSum * radiusSum;
 }
 void SphereCollider::notifyCollider(Collider* collider){
+
 }
 
 glm::vec3 SphereCollider::getTransformedCenter(){	

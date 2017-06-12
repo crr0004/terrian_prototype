@@ -15,8 +15,6 @@ class INode{
 		virtual INode* getChild(int) = 0;
 		virtual void setParent(INode*) = 0;
 		virtual INode* getParent() = 0;
-		virtual void setCommand(Command*) = 0;
-		virtual Command* getCommand() = 0;
 		virtual int visit(INode*) = 0;
 		virtual int visit(Geometry::Moveable*){return -1;}
 		virtual int visit(Node*){return -1;}

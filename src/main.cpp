@@ -24,6 +24,9 @@
 #include "luae/scriptriangle.hpp"
 #include "luae/scriptmouse.hpp"
 
+#include "collision/simpleworld.hpp"
+#include "collision/spherecollider.hpp"
+
 //For stringifying preprocessor values
 #define xstr(s) str(s)
      #define str(s) #s
@@ -143,17 +146,25 @@ int main(void) {
 
 	Geometry::Circle circle;
 	Geometry::Circle circle2;
+	Collision::SphereCollider sphere1(glm::vec3(0.0,0.0,0.0), 1.0f);
+	Collision::SphereCollider sphere2(glm::vec3(0.0,0.0,0.0), 1.0f);
+	//sphere1.getMoveable().translate(glm::vec3(-3,0,0));
 
-	circle.getMoveable().add(&circle2.getMoveable());
+	sphere1.getMoveable().add(&circle.getMoveable());
+	sphere2.getMoveable().add(&circle2.getMoveable());
+	fmt::printf("circle matrix: %s", glm::to_string(sphere1.getMoveable().getCulumativeMatrix()));
+	//sphere1.getMoveable().translate(glm::vec3(-3,0,0));
+
+	Collision::SimpleWorld world;
+	world.add(&sphere1);
+	world.add(&sphere2);
 
 	circle.setLogicContext(&logicContext);
 	circle.setShaderLocations(vertShaderLocation);
-	circle.translate(glm::vec3(1.0f,0.0f,10.0f));
 	circle.buildStatic();
 
 	circle2.setLogicContext(&logicContext);
 	circle2.setShaderLocations(vertShaderLocation);
-	circle2.translate(glm::vec3(5.0f,0.0f,10.0f));
 	circle2.buildStatic();
 
 	lua_State* l = Luae::ScriptManager::instance()->getState();
@@ -180,6 +191,7 @@ int main(void) {
 		worldLine.update();
 		worldLine.draw();
 
+		world.operation();
 		circle.update();
 		circle.draw();
 

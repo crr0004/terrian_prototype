@@ -3,6 +3,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <glm/gtx/string_cast.hpp>
 #include <cmath>
 #include "matrixstacksingleton.hpp"
 #include "logiccontext.hpp"
@@ -16,7 +17,7 @@ Circle::Circle(){
 
 	GLfloat x = 0.0f;
 	GLfloat y = 0.0f;
-	GLfloat radius = 1.8f;
+	GLfloat radius = 1.0f;
 	vertices[0] = x;
 	vertices[1] = y;
 	vertices[2] = 0.0f;
@@ -24,7 +25,6 @@ Circle::Circle(){
 		vertices[(i*3)+0] = x + (radius *std::cos(i*twicePi/segments));
 		vertices[(i*3)+1] = y + (radius *std::sin(i*twicePi/segments));
 		vertices[(i*3)+2] = 0.0f;
-		fmt::printf("i is %d\n", i);
 	}
 }
 void Circle::buildStatic(){
@@ -36,7 +36,8 @@ void Circle::draw(){
 
 	glBufferData(GL_ARRAY_BUFFER, vertexSize * sizeof(GLfloat), vertices, GL_DYNAMIC_DRAW);
 
-	glUniformMatrix4fv(state->uloc_modelview, 1, GL_FALSE, glm::value_ptr(*moveable.getModelMatrix()));
+	glUniformMatrix4fv(state->uloc_modelview, 1, GL_FALSE, glm::value_ptr(moveable.getCulumativeMatrix()));
+	//fmt::printf("Circle matrix: %s\n", glm::to_string(moveable.getCulumativeMatrix()));
 	glEnableVertexAttribArray(vertShaderLocation);
 
 	glVertexAttribPointer(

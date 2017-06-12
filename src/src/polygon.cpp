@@ -147,7 +147,7 @@ void Geometry::Polygon::update(){
  */
 /* ---------------------------------*/
 void Geometry::Polygon::draw(){
-		glUniformMatrix4fv(state->uloc_modelview, 1, GL_FALSE, glm::value_ptr(*moveable.getModelMatrix()));
+		glUniformMatrix4fv(state->uloc_modelview, 1, GL_FALSE, glm::value_ptr(moveable.getCulumativeMatrix()));
 		glBindBuffer(GL_ARRAY_BUFFER, vboID[0]);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboID[1]);
 		glEnableVertexAttribArray(vertShaderLocation);
