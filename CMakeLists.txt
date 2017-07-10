@@ -9,12 +9,12 @@ set(LUA_BUILD_WLUA OFF CACHE BOOL "" )
 set(LUA_BUILD_SHARED_LIBS OFF CACHE BOOL "" )
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "" )
 set(BUILD_TESTING OFF CACHE BOOL "" )
-add_subdirectory(lua)
+add_subdirectory(lua EXCLUDE_FROM_ALL)
 
 #fmt
 set(CMAKE_BUILD_TYPE RelWithDebugInfo)
 set(FMT_USE_CPP11 OFF CACHE BOOL "")
-add_subdirectory(fmt)
+add_subdirectory(fmt EXCLUDE_FROM_ALL)
 #Revert options for fmt
 set(CMAKE_BUILD_TYPE Debug)
 
@@ -57,15 +57,16 @@ SET(Terrian_Prototype_Tests_src
 
 add_executable(Terrian_Prototype src/main.cpp ${Terrian_Prototype_src})
 add_executable(Terrian_Prototype_Tests tests/main.cpp ${Terrian_Prototype_src} ${Terrian_Prototype_Tests_src})
-add_executable(StdLibScratch src/stdlibscratch.cpp)
-add_executable(LuaTests src/luamain.cpp)
-add_executable(GladScratch src/gladscratch.cpp 	src/src/glad.c)
+add_executable(StdLibScratch EXCLUDE_FROM_ALL src/stdlibscratch.cpp )
+add_executable(LuaTests EXCLUDE_FROM_ALL src/luamain.cpp)
+add_executable(GladScratch EXCLUDE_FROM_ALL src/gladscratch.cpp 	src/src/glad.c)
 add_dependencies(Terrian_Prototype lua)
 add_dependencies(LuaTests lua)
 
 set_property(TARGET Terrian_Prototype_Tests PROPERTY CXX_STANDARD 11)
 set_property(TARGET Terrian_Prototype PROPERTY CXX_STANDARD 98)
 set_property(TARGET StdLibScratch PROPERTY CXX_STANDARD 11)
+set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT Terrian_Prototype)
 
 #Project headers
 include_directories("${PROJECT_SOURCE_DIR}/include")
