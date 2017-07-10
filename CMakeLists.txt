@@ -119,11 +119,13 @@ target_link_libraries(StdLibScratch fmt)
 #Compiler options for Visual Studios
 if(MSVC)
 	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall")
+else()
+	#Visual studio is a bit dumb and doesn't know what these mean
+	target_compile_options(LuaTests PUBLIC -Og -g3)
+	target_compile_options(Terrian_Prototype PUBLIC -O1 -g)
+	target_compile_options(Terrian_Prototype_Tests PUBLIC -Og -ggdb)
+	target_compile_options(liblua PUBLIC -Og -g3)
 endif()
-target_compile_options(LuaTests PUBLIC -Og -g3)
-target_compile_options(Terrian_Prototype PUBLIC -O1 -g)
-target_compile_options(Terrian_Prototype_Tests PUBLIC -Og -ggdb)
-target_compile_options(liblua PUBLIC -Og -g3)
 
 set(SHADERS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/shaders/" CACHE PATH "Directory containing shaders")
 set(SCRIPTS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lua_scripts/" CACHE PATH "Directory containing lua scripts")
