@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.4)
 set(CMAKE_INSTALL_PREFIX "install" CACHE PATH "")
+set_property( GLOBAL PROPERTY USE_FOLDERS ON)
 project(TERRIAN_PROTOTYPE)
 
 #Lua options
@@ -53,9 +54,44 @@ SET(Terrian_Prototype_Tests_src
 	tests/collision_compositetests.cpp
 	tests/geometry_moveable.cpp
 	)
-	
+SET(Terrian_Prototype_Headers
+	src/headers/collision/AABB.hpp
+	src/headers/collision/aabbcollider.hpp
+	src/headers/collision/collider.hpp
+	src/headers/collision/notification_command.hpp
+	src/headers/collision/plane.hpp
+	src/headers/collision/simpleworld.hpp
+	src/headers/collision/spherecollider.hpp
+	src/headers/geometry/moveable.hpp
+	src/headers/geometry/point.hpp
+	src/headers/luae/luae.hpp
+	src/headers/luae/script.hpp
+	src/headers/luae/scriptcollision.hpp
+	src/headers/luae/scriptheightmap.hpp
+	src/headers/luae/scriptmanager.hpp
+	src/headers/luae/scriptmouse.hpp
+	src/headers/luae/scriptriangle.hpp
+	src/headers/luae/table.hpp
+	src/headers/luae/Utilities.hpp
+	src/headers/patterns/builder.hpp
+	src/headers/patterns/command.hpp
+	src/headers/addtodrawqueue.hpp
+	src/headers/circle.hpp
+	src/headers/gldebug.hpp
+	src/headers/heightmap.hpp
+	src/headers/INode.hpp
+	src/headers/line.hpp
+	src/headers/logiccontext.hpp
+	src/headers/matrixstacksingleton.hpp
+	src/headers/node.hpp
+	src/headers/polygon.hpp
+	src/headers/terrian_config.hpp
+	src/headers/triangle.hpp
+	src/headers/visualcontext.hpp
+	src/headers/VisualServer.hpp
+	)
 
-add_executable(Terrian_Prototype src/main.cpp ${Terrian_Prototype_src})
+add_executable(Terrian_Prototype src/main.cpp ${Terrian_Prototype_src} ${Terrian_Prototype_Headers})
 add_executable(Terrian_Prototype_Tests tests/main.cpp ${Terrian_Prototype_src} ${Terrian_Prototype_Tests_src})
 add_executable(StdLibScratch EXCLUDE_FROM_ALL src/stdlibscratch.cpp )
 add_executable(LuaTests EXCLUDE_FROM_ALL src/luamain.cpp)
@@ -71,6 +107,9 @@ set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT T
 #Project headers
 include_directories("${PROJECT_SOURCE_DIR}/include")
 include_directories("${PROJECT_SOURCE_DIR}/src/headers")
+
+#Add source group for IDEs
+source_group(TREE "${PROJECT_SOURCE_DIR}/src/" FILES ${Terrian_Prototype_Headers})
 
 #Library locations (root directories)
 set(GlfwLocation "${CMAKE_CURRENT_SOURCE_DIR}/../glfw-3.2.1.bin.WIN64/" CACHE PATH "GLFW Library Location")
