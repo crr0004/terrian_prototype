@@ -141,19 +141,19 @@ namespace Luae{
 	}
 	static int luae_int_getfield(lua_State* l, int pos, const char* name){
 		lua_getfield(l, pos, name);
-		int value = lua_tonumber(l,pos);
+		int value = (int)lua_tonumber(l,pos);
 		lua_pop(l,1);
 		return value;
 	}
 	static float luae_float_getfield(lua_State* l, int pos, const char* name){
 		lua_getfield(l, pos, name);
-		float value = lua_tonumber(l,pos);
+		float value = (float)lua_tonumber(l,pos);
 		lua_pop(l,1);
 		return value;
 	}
 	static float luae_float_getfield(lua_State* l, int pos, int index){
 		lua_rawgeti(l, pos, index);
-		float value = lua_tonumber(l,pos);
+		float value = (float)lua_tonumber(l,pos);
 		lua_pop(l,1);
 		return value;
 	}
