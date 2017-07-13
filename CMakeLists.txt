@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.4)
+cmake_minimum_required(VERSION 3.8)
 set(CMAKE_INSTALL_PREFIX "install" CACHE PATH "")
 set_property( GLOBAL PROPERTY USE_FOLDERS ON)
 project(TERRIAN_PROTOTYPE)
@@ -92,7 +92,7 @@ SET(Terrian_Prototype_Headers
 	)
 
 add_executable(Terrian_Prototype src/main.cpp ${Terrian_Prototype_src} ${Terrian_Prototype_Headers})
-add_executable(Terrian_Prototype_Tests tests/main.cpp ${Terrian_Prototype_src} ${Terrian_Prototype_Tests_src})
+add_executable(Terrian_Prototype_Tests tests/main.cpp ${Terrian_Prototype_src} ${Terrian_Prototype_Tests_src} ${Terrian_Prototype_Headers})
 add_executable(StdLibScratch EXCLUDE_FROM_ALL src/stdlibscratch.cpp )
 add_executable(LuaTests EXCLUDE_FROM_ALL src/luamain.cpp)
 add_executable(GladScratch EXCLUDE_FROM_ALL src/gladscratch.cpp 	src/src/glad.c)
@@ -110,6 +110,8 @@ include_directories("${PROJECT_SOURCE_DIR}/src/headers")
 
 #Add source group for IDEs
 source_group(TREE "${PROJECT_SOURCE_DIR}/src/" FILES ${Terrian_Prototype_Headers})
+source_group(TREE "${PROJECT_SOURCE_DIR}/src/src/" PREFIX "Source Files\\src" FILES ${Terrian_Prototype_src})
+source_group(TREE "${PROJECT_SOURCE_DIR}/" PREFIX "Source Files" FILES ${Terrian_Prototype_Tests_src} tests/main.cpp)
 
 #Library locations (root directories)
 set(GlfwLocation "${CMAKE_CURRENT_SOURCE_DIR}/../glfw-3.2.1.bin.WIN64/" CACHE PATH "GLFW Library Location")
@@ -130,10 +132,10 @@ find_path(GLFWH GLFW/glfw3.h PATHS "${GlfwLocation}" PATH_SUFFIXES "include")
 
 find_path(GLMH glm/glm.hpp PATHS "${GlmLocation}" PATH_SUFFIXES "include")
 
-include_directories(${GLFWH})
+include_directories(SYSTEM ${GLFWH})
 #include_directories(${GLEWH})
-include_directories(${GLMH})
-include_directories(${FMT_HEADERS})
+include_directories(SYSTEM ${GLMH})
+include_directories(SYSTEM ${FMT_HEADERS})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 if(WIN32)
@@ -158,7 +160,15 @@ target_link_libraries(StdLibScratch fmt)
 
 #Compiler options for Visual Studios
 if(MSVC)
-	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall")
+	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -W0")
+	set_source_files_properties(
+	  src/src/glad.c
+	  PROPERTIES
+	  COMPILE_FLAGS "-W0"
+	)
+
+	target_compile_options(Terrian_Prototype PRIVATE "/W4")
+
 else()
 	#Visual studio is a bit dumb and doesn't know what these mean
 	target_compile_options(LuaTests PUBLIC -Og -g3)
