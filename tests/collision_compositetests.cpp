@@ -79,16 +79,15 @@ TEST_CASE("Simpleworld test"){
 	root->add(sphere);
 	using namespace fakeit;
 	Mock<AABBCollider> aabbStub;
+	Geometry::Moveable stubMoveable;
 	When(OverloadedMethod(aabbStub,visitCollide,bool(Collider*))).AlwaysReturn(false);
 	When(OverloadedMethod(aabbStub,visitCollide,bool(SphereCollider*))).AlwaysReturn(false);
 	When(OverloadedMethod(aabbStub,visitCollide,bool(AABBCollider*)).Using(aabb)).Return(true);
+	When(OverloadedMethod(aabbStub, getMoveable, Geometry::Moveable&())).Return(stubMoveable);
 	Fake(Method(aabbStub, setParent));
 	//Fake(Method(aabbStub, visitNotifyCollider));
-	Fake(OverloadedMethod(aabbStub, visitNotifyCollider, void(Collider*)));
-	Fake(OverloadedMethod(aabbStub, visitNotifyCollider, void(AABBCollider*)));
-	Fake(OverloadedMethod(aabbStub, visitNotifyCollider, void(SphereCollider*)));
+	Fake(OverloadedMethod(aabbStub, notifyCollider, void(Collider*)));
 	Fake(Method(aabbStub, operation));
-	Fake(Method(aabbStub, setCommand));
 	
 
 	AABBCollider& a = aabbStub.get();
@@ -100,8 +99,8 @@ TEST_CASE("Simpleworld test"){
 	 * This is because collision is only faked one way, aabbStub being asked
 	 * if it collides with aabb
 	*/
-	Verify(OverloadedMethod(aabbStub,visitNotifyCollider,void(Collider*)).Using(aabb));
-	Verify(Method(aabbStub, setParent).Using(root));
+	Verify(OverloadedMethod(aabbStub,notifyCollider,void(Collider*)).Using(aabb));
+	//Verify(Method(aabbStub, setParent).Using(root));
 }
 
 #include "geometry/moveable.hpp"
