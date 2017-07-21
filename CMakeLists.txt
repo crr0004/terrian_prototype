@@ -23,28 +23,6 @@ set(CMAKE_BUILD_TYPE Debug)
 include_directories("${PROJECT_SOURCE_DIR}/include")
 include_directories("${PROJECT_SOURCE_DIR}/src/headers")
 
-SET(TESTS_SRC
-	tests/Collision_planetest.cpp 
-	tests/heightmaptests.cpp 
-	tests/matrixstacksingletontests.cpp 
-	tests/polygontests.cpp
-	tests/luaescripttest.cpp
-	tests/luaescriptmanagertest.cpp
-	tests/luaetabletest.cpp
-	tests/luaeutilitiestest.cpp
-	tests/collision_compositetests.cpp
-	tests/geometry_moveable.cpp
-	)
-
-
-
-
-
-
-
-#Add source group for IDEs
-
-source_group(TREE "${PROJECT_SOURCE_DIR}/" PREFIX "Source Files" FILES ${TESTS_SRC} tests/main.cpp)
 
 #Library locations (root directories)
 set(GlfwLocation "${CMAKE_CURRENT_SOURCE_DIR}/../glfw-3.2.1.bin.WIN64/" CACHE PATH "GLFW Library Location")
@@ -87,26 +65,25 @@ if(MSVC)
 else()
 	#Visual studio is a bit dumb and doesn't know what these mean
 	target_compile_options(LuaTests PUBLIC -Og -g3)
-	target_compile_options(Terrian_Prototype PUBLIC -O1 -g)
+
 	target_compile_options(Terrian_Prototype_Tests PUBLIC -Og -ggdb)
 	target_compile_options(liblua PUBLIC -Og -g3)
 endif()
 
 add_subdirectory(src)
+ADD_SUBDIRECTORY(tests)
 
-add_executable(Terrian_Prototype_Tests tests/main.cpp ${MAIN_SRC} ${TESTS_SRC} ${MAIN_HEADERS})
 add_executable(StdLibScratch EXCLUDE_FROM_ALL src/stdlibscratch.cpp )
 add_executable(LuaTests EXCLUDE_FROM_ALL src/luamain.cpp)
 add_executable(GladScratch EXCLUDE_FROM_ALL src/gladscratch.cpp src/src/glad.c)
 
 target_link_libraries(GladScratch ${LIBS})
 target_link_libraries(LuaTests liblua)
-target_link_libraries(Terrian_Prototype_Tests ${LIBS})
 target_link_libraries(StdLibScratch fmt)
 
 add_dependencies(LuaTests lua)
 
-set_property(TARGET Terrian_Prototype_Tests PROPERTY CXX_STANDARD 11)
+
 
 set_property(TARGET StdLibScratch PROPERTY CXX_STANDARD 11)
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT main)

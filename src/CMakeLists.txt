@@ -75,14 +75,6 @@ set_property(TARGET main PROPERTY CXX_STANDARD 98)
 source_group(TREE "${PROJECT_SOURCE_DIR}/src/" FILES ${MAIN_HEADERS})
 source_group(TREE "${PROJECT_SOURCE_DIR}/src/src/" PREFIX "Source Files\\src" FILES ${MAIN_SRC})
 
-set(LIBS ${GLFW3} liblua fmt)
-
-if(WIN32)
-	set(LIBS ${LIBS} OpenGL32 glu32)
-else()
-	set(LIBS ${LIBS} GLU GLU)
-endif()
-
 target_link_libraries(main ${LIBS})
 
 #Compiler options for Visual Studios
@@ -99,4 +91,5 @@ if(MSVC)
 else()
 	#Visual studio is a bit dumb and doesn't know what these mean
 	target_compile_options(main PUBLIC -O1 -g)
+	
 endif()
