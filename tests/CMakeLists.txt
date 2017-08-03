@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.6)
 
 SET(TESTS_SRC
 	${PROJECT_SOURCE_DIR}/tests/Collision_planetest.cpp 
@@ -15,7 +15,10 @@ SET(TESTS_SRC
 
 SET(TESTS_SRC ${TESTS_SRC} PARENT_SCOPE)
 
+if(${CMAKE_VERSION} VERSION_GREATER "3.8.2")
 source_group(TREE "${PROJECT_SOURCE_DIR}/" PREFIX "Source Files" FILES ${TESTS_SRC} main.cpp)
+
+endif()
 
 add_executable(Terrian_Prototype_Tests main.cpp ${MAIN_SRC} ${TESTS_SRC} ${MAIN_HEADERS})
 target_link_libraries(Terrian_Prototype_Tests ${LIBS})

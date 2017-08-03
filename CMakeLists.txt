@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.6)
 set(CMAKE_INSTALL_PREFIX "install" CACHE PATH "")
 set_property( GLOBAL PROPERTY USE_FOLDERS ON)
 project(TERRIAN_PROTOTYPE)
@@ -64,9 +64,9 @@ if(MSVC)
 
 else()
 	#Visual studio is a bit dumb and doesn't know what these mean
-	target_compile_options(LuaTests PUBLIC -Og -g3)
+	#target_compile_options(LuaTests PUBLIC -Og -g3)
 
-	target_compile_options(Terrian_Prototype_Tests PUBLIC -Og -ggdb)
+	#target_compile_options(Terrian_Prototype_Tests PUBLIC -Og -ggdb)
 	target_compile_options(liblua PUBLIC -Og -g3)
 endif()
 

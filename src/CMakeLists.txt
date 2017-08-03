@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.6)
 
 SET(MAIN_SRC
 	${PROJECT_SOURCE_DIR}/src/src/line.cpp
@@ -72,8 +72,11 @@ add_dependencies(main lua)
 
 set_property(TARGET main PROPERTY CXX_STANDARD 98)
 
-source_group(TREE "${PROJECT_SOURCE_DIR}/src/" FILES ${MAIN_HEADERS})
-source_group(TREE "${PROJECT_SOURCE_DIR}/src/src/" PREFIX "Source Files\\src" FILES ${MAIN_SRC})
+if(${CMAKE_VERSION} VERSION_GREATER "3.8.2")
+	source_group(TREE "${PROJECT_SOURCE_DIR}/src/" FILES ${MAIN_HEADERS})
+	source_group(TREE "${PROJECT_SOURCE_DIR}/src/src/" PREFIX "Source Files\\src" FILES ${MAIN_SRC})
+
+endif()
 
 target_link_libraries(main ${LIBS})
 
