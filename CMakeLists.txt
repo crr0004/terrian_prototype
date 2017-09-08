@@ -10,6 +10,8 @@ set(LUA_BUILD_WLUA OFF CACHE BOOL "" )
 set(LUA_BUILD_SHARED_LIBS OFF CACHE BOOL "" )
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "" )
 set(BUILD_TESTING OFF CACHE BOOL "" )
+set(LUA_USE_READLINE OFF CACHE BOOL "")
+set(LUA_USE_CURSES OFF CACHE BOOL "")
 add_subdirectory(lua EXCLUDE_FROM_ALL)
 
 #fmt
@@ -29,7 +31,6 @@ set(GlfwLocation "${CMAKE_CURRENT_SOURCE_DIR}/../glfw-3.2.1.bin.WIN64/" CACHE PA
 set(GlmLocation "${CMAKE_CURRENT_SOURCE_DIR}/../glm/" CACHE PATH "GLM Library Location")
 
 #Library file and header file locations for each library
-message(STATUS ${MSVC})
 if(MSVC)
 
 	find_library(GLFW3 glfw3 PATHS "${GlfwLocation}" PATH_SUFFIXES "lib-vc2015")
@@ -67,25 +68,25 @@ else()
 	#target_compile_options(LuaTests PUBLIC -Og -g3)
 
 	#target_compile_options(Terrian_Prototype_Tests PUBLIC -Og -ggdb)
-	target_compile_options(liblua PUBLIC -Og -g3)
+	#target_compile_options(liblua PUBLIC -Og -g3)
 endif()
 
-add_subdirectory(src)
+
+ADD_SUBDIRECTORY(src)
 ADD_SUBDIRECTORY(tests)
 
-add_executable(StdLibScratch EXCLUDE_FROM_ALL src/stdlibscratch.cpp )
-add_executable(LuaTests EXCLUDE_FROM_ALL src/luamain.cpp)
-add_executable(GladScratch EXCLUDE_FROM_ALL src/gladscratch.cpp src/src/glad.c)
+#add_executable(StdLibScratch EXCLUDE_FROM_ALL src/stdlibscratch.cpp )
+#add_executable(LuaTests EXCLUDE_FROM_ALL src/luamain.cpp)
+#add_executable(GladScratch EXCLUDE_FROM_ALL src/gladscratch.cpp src/src/glad.c)
 
-target_link_libraries(GladScratch ${LIBS})
-target_link_libraries(LuaTests liblua)
-target_link_libraries(StdLibScratch fmt)
+#target_link_libraries(GladScratch ${LIBS})
+#target_link_libraries(LuaTests liblua)
+#target_link_libraries(StdLibScratch fmt)
 
-add_dependencies(LuaTests lua)
+#add_dependencies(LuaTests lua)
 
 
 
-set_property(TARGET StdLibScratch PROPERTY CXX_STANDARD 11)
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT main)
 
 set(SHADERS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/shaders/" CACHE PATH "Directory containing shaders")
