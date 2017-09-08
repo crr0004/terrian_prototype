@@ -120,59 +120,10 @@ int main(void) {
 	logicContext.modelview = glm::translate(logicContext.modelview, glm::vec3(0.0f, 0.0f, -20.0f));
 	logicContext.modelview = glm::rotate(logicContext.modelview, 0.0f, glm::vec3(-1.0f, 0.0f, 0.0f));
 	glViewport(0,0,VisualContext::width, VisualContext::height);
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	//Setup background colour
+	glClearColor(0.0f, 0.0f, 1.0f, 0.0f);
 	//END Setup for windows
 
-
-	//Create a draw queue
-	std::vector<Geometry::Polygon*> drawQueue;
-	//Draw queue gets added to a command so other parts of code can easily add
-	//to queue
-	AddToDrawQueueCommand::SetQueue(&drawQueue);
-	//Add lua adapters to lua namespace
-	Luae::ScriptTriangle::AddToLib();
-	//ScriptMouse is pretty broken at the moment
-	/*
-	Luae::ScriptMouse::AddToLib();
-	Luae::ScriptMouse::SetWindow(window);
-	Luae::ScriptMouse::SetLogicContex(&logicContext);
-	*/
-
-	Geometry::Line worldLine;
-	worldLine.buildStatic();
-	worldLine.setShaderLocations(vertShaderLocation);
-	worldLine.setLogicContext(&logicContext);
-
-	Geometry::Circle circle;
-	Geometry::Circle circle2;
-
-	circle.setLogicContext(&logicContext);
-	circle.setShaderLocations(vertShaderLocation);
-	circle.buildStatic();
-
-	circle2.setLogicContext(&logicContext);
-	circle2.setShaderLocations(vertShaderLocation);
-	circle2.buildStatic();
-
-	lua_State* l = Luae::ScriptManager::instance()->getState();
-	Luae::Script* script = Luae::Script::Load("triangle_drawing.lua");
-	script->call("init");
-	/**
-	 * SAMPLE
-	 * How you add to draw queue
-	 * This is currently how script adapters do it
-
-		lua_getglobal(l, "triangle");
-		Triangle* triangle = *(Triangle**)lua_touserdata(l,-1);
-		drawQueue.push_back(triangle);
-		AddToDrawQueueCommand addTriangle(Geometry::Polygon);
-		addTriangle.execute();
-	 
-	 * END SAMPLE
-	*/
-
-	//Enables antialiasing
-	glEnable(GL_MULTISAMPLE);
 
 	while (!glfwWindowShouldClose(window)) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -183,41 +134,25 @@ int main(void) {
 		calcWorldPickRay(window);
 		glm::vec3 rayWordEndPoint = glm::vec3(glm::vec4(0.0f, 0.0f, -100.0f, 1.0f) * logicContext.modelview);
 
-		worldLine.setStartEnd(ray_world, rayWordEndPoint);
-		worldLine.update();
-		worldLine.draw();
+		//Put manual updates and draws here
 
-		circle.update();
-		circle.draw();
-
-		circle2.update();
-		circle2.draw();
-
-		script->call("update");
-
-		//triangle->update(&logicContext);
-		//triangle->draw(&logicContext);
-
+		/**
+		 * What a queue draw loop looks like
 		for(std::vector<Geometry::Polygon*>::iterator drawHost = drawQueue.begin();
 				drawHost != drawQueue.end();
 				drawHost++){
 			glDisable(GL_CULL_FACE);
-			/**
-			 * TODO This is okay for now, however the logicContext will become
-			 * the shader from a shader manager/factory 
-			 * so each object should set it, itself.
-			 * (*drawHost)->setLogicContext(&logicContext);
-			 */
 			(*drawHost)->setLogicContext(&logicContext);
 
 			(*drawHost)->update();
 			(*drawHost)->draw();
 		}
+		**/
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
-	delete script;
+	//This is from the horrible singleton that is a matrix stack
 	MatrixStackSingleton::Destroy();
 
 	glfwDestroyWindow(window);
