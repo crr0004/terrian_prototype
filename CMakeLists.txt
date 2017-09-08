@@ -74,6 +74,7 @@ endif()
 
 ADD_SUBDIRECTORY(src)
 ADD_SUBDIRECTORY(tests)
+ADD_SUBDIRECTORY(examples)
 
 #add_executable(StdLibScratch EXCLUDE_FROM_ALL src/stdlibscratch.cpp )
 #add_executable(LuaTests EXCLUDE_FROM_ALL src/luamain.cpp)

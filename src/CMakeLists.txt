@@ -70,17 +70,12 @@ add_library(jellyEngine ${MAIN_SRC} ${MAIN_HEADERS})
 target_link_libraries(jellyEngine ${LIBS})
 SET(LIBS ${LIBS} jellyEngine)
 SET(LIBS ${LIBS} PARENT_SCOPE)
-add_executable(main main.cpp)
-
-set_property(TARGET main PROPERTY CXX_STANDARD 98)
 
 if(${CMAKE_VERSION} VERSION_GREATER "3.8.2")
 	source_group(TREE "${PROJECT_SOURCE_DIR}/src/" FILES ${MAIN_HEADERS})
 	source_group(TREE "${PROJECT_SOURCE_DIR}/src/src/" PREFIX "Source Files\\src" FILES ${MAIN_SRC})
 
 endif()
-
-target_link_libraries(main ${LIBS})
 
 #Compiler options for Visual Studios
 if(MSVC)
@@ -91,10 +86,7 @@ if(MSVC)
 	  COMPILE_FLAGS "-W0"
 	)
 
-	target_compile_options(main PRIVATE "/W4")
 
 else()
-	#Visual studio is a bit dumb and doesn't know what these mean
-	target_compile_options(main PUBLIC -O1 -g)
 	
 endif()
