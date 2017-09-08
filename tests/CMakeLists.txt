@@ -29,5 +29,6 @@ if(MSVC)
 
 else()
 	#Visual studio is a bit dumb and doesn't know what these mean
-	target_compile_options(Terrian_Prototype_Tests PUBLIC -Og -ggdb)
+	target_compile_options(Terrian_Prototype_Tests PUBLIC -Og -ggdb
+		-fpermissive)
 endif()
