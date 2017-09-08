@@ -23,7 +23,7 @@ SET(MAIN_SRC
 	${PROJECT_SOURCE_DIR}/src/src/collision_sphere.cpp
 	${PROJECT_SOURCE_DIR}/src/src/geometry_moveable.cpp
 	)
-SET(MAIN_SRC ${MAIN_SRC} PARENT_SCOPE)
+SET(JELLY_ENGINE_SRC ${MAIN_SRC} PARENT_SCOPE)
 
 SET(MAIN_HEADERS
 	${PROJECT_SOURCE_DIR}/src/headers/collision/AABB.hpp
@@ -62,13 +62,15 @@ SET(MAIN_HEADERS
 	${PROJECT_SOURCE_DIR}/src/headers/VisualServer.hpp
 	)
 
-set(MAIN_HEADERS ${MAIN_HEADERS} PARENT_SCOPE)
+set(JELLY_ENGINE_HEADERS ${MAIN_HEADERS} PARENT_SCOPE)
 
-message(STATUS ${MAIN_SRC})
+#message(STATUS ${MAIN_SRC})
 
-add_executable(main main.cpp ${MAIN_SRC} ${MAIN_HEADERS})
-
-add_dependencies(main lua)
+add_library(jellyEngine ${MAIN_SRC} ${MAIN_HEADERS})
+target_link_libraries(jellyEngine ${LIBS})
+SET(LIBS ${LIBS} jellyEngine)
+SET(LIBS ${LIBS} PARENT_SCOPE)
+add_executable(main main.cpp)
 
 set_property(TARGET main PROPERTY CXX_STANDARD 98)
 

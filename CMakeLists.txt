@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.6)
 set(CMAKE_INSTALL_PREFIX "install" CACHE PATH "")
 set_property( GLOBAL PROPERTY USE_FOLDERS ON)
-project(TERRIAN_PROTOTYPE)
+project(Jelly_Engine)
 
 #Lua options
 set(LUA_ANSI ON CACHE BOOL "")
