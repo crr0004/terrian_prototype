@@ -129,50 +129,107 @@ int main(void) {
 	//Draw queue gets added to a command so other parts of code can easily add
 	//to queue
 	AddToDrawQueueCommand::SetQueue(&drawQueue);
-	//Add lua adapters to lua namespace
-	Luae::ScriptTriangle::AddToLib();
-	//ScriptMouse is pretty broken at the moment
-	/*
-	Luae::ScriptMouse::AddToLib();
-	Luae::ScriptMouse::SetWindow(window);
-	Luae::ScriptMouse::SetLogicContex(&logicContext);
-	*/
 
-	Geometry::Line worldLine;
-	worldLine.buildStatic();
-	worldLine.setShaderLocations(vertShaderLocation);
-	worldLine.setLogicContext(&logicContext);
+
+
+///-----includes_end-----
+
+	int i;
+	///-----initialization_start-----
+
+	///collision configuration contains default setup for memory, collision setup. Advanced users can create their own configuration.
+	btDefaultCollisionConfiguration* collisionConfiguration = new btDefaultCollisionConfiguration();
+
+	///use the default collision dispatcher. For parallel processing you can use a diffent dispatcher (see Extras/BulletMultiThreaded)
+	btCollisionDispatcher* dispatcher = new btCollisionDispatcher(collisionConfiguration);
+
+	///btDbvtBroadphase is a good general purpose broadphase. You can also try out btAxis3Sweep.
+	btBroadphaseInterface* overlappingPairCache = new btDbvtBroadphase();
+
+	///the default constraint solver. For parallel processing you can use a different solver (see Extras/BulletMultiThreaded)
+	btSequentialImpulseConstraintSolver* solver = new btSequentialImpulseConstraintSolver;
+
+	btDiscreteDynamicsWorld* dynamicsWorld = new btDiscreteDynamicsWorld(dispatcher, overlappingPairCache, solver, collisionConfiguration);
+
+	dynamicsWorld->setGravity(btVector3(0, -10, 0));
+
+	///-----initialization_end-----
+
+	//keep track of the shapes, we release memory at exit.
+	//make sure to re-use collision shapes among rigid bodies whenever possible!
+	btAlignedObjectArray<btCollisionShape*> collisionShapes;
+
+	///create a few basic rigid bodies
+
+	//the ground is a cube of side 100 at position y = -56.
+	//the sphere will hit it at y = -6, with center at -5
+	{
+		btCollisionShape* groundShape = new btBoxShape(btVector3(btScalar(50.), btScalar(50.), btScalar(50.)));
+
+		collisionShapes.push_back(groundShape);
+
+		btTransform groundTransform;
+		groundTransform.setIdentity();
+		groundTransform.setOrigin(btVector3(0, -56, 0));
+
+		btScalar mass(0.);
+
+		//rigidbody is dynamic if and only if mass is non zero, otherwise static
+		bool isDynamic = (mass != 0.f);
+
+		btVector3 localInertia(0, 0, 0);
+		if (isDynamic)
+			groundShape->calculateLocalInertia(mass, localInertia);
+
+		//using motionstate is optional, it provides interpolation capabilities, and only synchronizes 'active' objects
+		btDefaultMotionState* myMotionState = new btDefaultMotionState(groundTransform);
+		btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, myMotionState, groundShape, localInertia);
+		btRigidBody* body = new btRigidBody(rbInfo);
+
+		//add the body to the dynamics world
+		dynamicsWorld->addRigidBody(body);
+	}
+	btRigidBody* sphereBody;
+	{
+		//create a dynamic rigidbody
+
+		//btCollisionShape* colShape = new btBoxShape(btVector3(1,1,1));
+		btCollisionShape* colShape = new btSphereShape(btScalar(1.));
+		collisionShapes.push_back(colShape);
+
+		/// Create Dynamic Objects
+		btTransform startTransform;
+		startTransform.setIdentity();
+
+		btScalar mass(1.f);
+
+		//rigidbody is dynamic if and only if mass is non zero, otherwise static
+		bool isDynamic = (mass != 0.f);
+
+		btVector3 localInertia(1, 0, 0);
+		if (isDynamic)
+			colShape->calculateLocalInertia(mass, localInertia);
+
+		startTransform.setOrigin(btVector3(2, 10, 0));
+
+		//using motionstate is recommended, it provides interpolation capabilities, and only synchronizes 'active' objects
+		btDefaultMotionState* myMotionState = new btDefaultMotionState(startTransform);
+		btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, myMotionState, colShape, localInertia);
+		sphereBody = new btRigidBody(rbInfo);
+
+		dynamicsWorld->addRigidBody(sphereBody);
+	}
 
 	Geometry::Circle circle;
-	Geometry::Circle circle2;
-
 	circle.setLogicContext(&logicContext);
 	circle.setShaderLocations(vertShaderLocation);
 	circle.buildStatic();
 
-	circle2.setLogicContext(&logicContext);
-	circle2.setShaderLocations(vertShaderLocation);
-	circle2.buildStatic();
 
-	lua_State* l = Luae::ScriptManager::instance()->getState();
-	Luae::Script* script = Luae::Script::Load("example_bullet.lua");
-	script->call("init");
-	/**
-	 * SAMPLE
-	 * How you add to draw queue
-	 * This is currently how script adapters do it
+	drawQueue.push_back(&circle);
 
-		lua_getglobal(l, "triangle");
-		Triangle* triangle = *(Triangle**)lua_touserdata(l,-1);
-		drawQueue.push_back(triangle);
-		AddToDrawQueueCommand addTriangle(Geometry::Polygon);
-		addTriangle.execute();
-	 
-	 * END SAMPLE
-	*/
-
-	btDefaultCollisionConfiguration* collisionConfiguration = new btDefaultCollisionConfiguration();	
-
+	/// Do some simulation
+	
 	//Enables antialiasing
 	glEnable(GL_MULTISAMPLE);
 
@@ -181,24 +238,30 @@ int main(void) {
 		glPolygonMode(GL_FRONT, GL_FILL);
 		glUniformMatrix4fv(uloc_project, 1, GL_FALSE, glm::value_ptr(VisualContext::projection_matrix));
 
+		dynamicsWorld->stepSimulation(1.f / 60.f, 10);
 
-		calcWorldPickRay(window);
-		glm::vec3 rayWordEndPoint = glm::vec3(glm::vec4(0.0f, 0.0f, -100.0f, 1.0f) * logicContext.modelview);
-
-		worldLine.setStartEnd(ray_world, rayWordEndPoint);
-		worldLine.update();
-		worldLine.draw();
-
-		circle.update();
-		circle.draw();
-
-		circle2.update();
-		circle2.draw();
-
-		script->call("update");
-
-		//triangle->update(&logicContext);
-		//triangle->draw(&logicContext);
+		//print positions of all objects
+		for (int j = dynamicsWorld->getNumCollisionObjects() - 1; j >= 0; j--)
+		{
+			btCollisionObject* obj = dynamicsWorld->getCollisionObjectArray()[j];
+			btRigidBody* body = btRigidBody::upcast(obj);
+			btTransform trans;
+			if (body && body->getMotionState())
+			{
+				body->getMotionState()->getWorldTransform(trans);
+			}
+			else
+			{
+				trans = obj->getWorldTransform();
+			}
+			//printf("world pos object %d = %f,%f,%f\n", j, float(trans.getOrigin().getX()), float(trans.getOrigin().getY()), float(trans.getOrigin().getZ()));
+		}
+		btTransform sphereTrans;
+		sphereBody->getMotionState()->getWorldTransform(sphereTrans);
+		btVector3& sphereOrigin = sphereTrans.getOrigin();
+		circle.getMoveable().setPos(glm::vec3(
+					sphereOrigin.getX(),sphereOrigin.getY(),sphereOrigin.getZ()));
+	///-----stepsimulation_end-----
 
 		for(std::vector<Geometry::Polygon*>::iterator drawHost = drawQueue.begin();
 				drawHost != drawQueue.end();
@@ -219,8 +282,49 @@ int main(void) {
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
-	delete script;
+
 	MatrixStackSingleton::Destroy();
+	//cleanup in the reverse order of creation/initialization
+
+	///-----cleanup_start-----
+
+	//remove the rigidbodies from the dynamics world and delete them
+	for (i = dynamicsWorld->getNumCollisionObjects() - 1; i >= 0; i--)
+	{
+		btCollisionObject* obj = dynamicsWorld->getCollisionObjectArray()[i];
+		btRigidBody* body = btRigidBody::upcast(obj);
+		if (body && body->getMotionState())
+		{
+			delete body->getMotionState();
+		}
+		dynamicsWorld->removeCollisionObject(obj);
+		delete obj;
+	}
+
+	//delete collision shapes
+	for (int j = 0; j < collisionShapes.size(); j++)
+	{
+		btCollisionShape* shape = collisionShapes[j];
+		collisionShapes[j] = 0;
+		delete shape;
+	}
+
+	//delete dynamics world
+	delete dynamicsWorld;
+
+	//delete solver
+	delete solver;
+
+	//delete broadphase
+	delete overlappingPairCache;
+
+	//delete dispatcher
+	delete dispatcher;
+
+	delete collisionConfiguration;
+
+	//next line is optional: it will be cleared by the destructor when the array goes out of scope
+collisionShapes.clear();	
 
 	glfwDestroyWindow(window);
 

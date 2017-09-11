@@ -40,6 +40,12 @@ void Moveable::rotate(glm::vec3 rotateAround, float rotateBy){
 	model_matrix = glm::rotate(model_matrix, rotateBy, rotateAround);
 	operation();
 }
+void Moveable::setPos(glm::vec3 newPos){
+	model_matrix[3][0] = newPos.x;
+	model_matrix[3][1] = newPos.y;
+	model_matrix[3][2] = newPos.z;
+
+}
 glm::mat4* Moveable::getModelMatrix(){
 	return &model_matrix;
 }
