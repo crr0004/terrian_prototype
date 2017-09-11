@@ -25,6 +25,9 @@ set(CMAKE_BUILD_TYPE Debug)
 include_directories("${PROJECT_SOURCE_DIR}/include")
 include_directories("${PROJECT_SOURCE_DIR}/src/headers")
 
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(BULLET REQUIRED bullet)
+
 
 #Library locations (root directories)
 set(GlfwLocation "${CMAKE_CURRENT_SOURCE_DIR}/../glfw-3.2.1.bin.WIN64/" CACHE PATH "GLFW Library Location")
@@ -49,8 +52,9 @@ include_directories(SYSTEM ${GLFWH})
 include_directories(SYSTEM ${GLMH})
 include_directories(SYSTEM ${FMT_HEADERS})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
+include_directories(${BULLET_INCLUDE_DIRS})
 
-set(LIBS ${GLFW3} liblua fmt)
+set(LIBS ${GLFW3} liblua fmt ${BULLET_LIBRARIES})
 
 if(WIN32)
 	set(LIBS ${LIBS} OpenGL32 glu32)

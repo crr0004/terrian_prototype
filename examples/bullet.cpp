@@ -1,4 +1,3 @@
-
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
@@ -8,6 +7,7 @@
 #include <lua/lua.hpp>
 #include <vector>
 #include <fmt/format.h>
+#include <btBulletDynamicsCommon.h>
 
 #include "terrian_config.hpp"
 #include "matrixstacksingleton.hpp"
@@ -155,7 +155,7 @@ int main(void) {
 	circle2.buildStatic();
 
 	lua_State* l = Luae::ScriptManager::instance()->getState();
-	Luae::Script* script = Luae::Script::Load("triangle_drawing.lua");
+	Luae::Script* script = Luae::Script::Load("example_bullet.lua");
 	script->call("init");
 	/**
 	 * SAMPLE
@@ -170,6 +170,8 @@ int main(void) {
 	 
 	 * END SAMPLE
 	*/
+
+	btDefaultCollisionConfiguration* collisionConfiguration = new btDefaultCollisionConfiguration();	
 
 	//Enables antialiasing
 	glEnable(GL_MULTISAMPLE);
