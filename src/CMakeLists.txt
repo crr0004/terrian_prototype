@@ -13,6 +13,7 @@ SET(MAIN_SRC
 	${PROJECT_SOURCE_DIR}/src/src/luae/table.cpp
 	${PROJECT_SOURCE_DIR}/src/src/triangle.cpp
 	${PROJECT_SOURCE_DIR}/src/src/circle.cpp
+	${PROJECT_SOURCE_DIR}/src/src/rectangle.cpp
 	${PROJECT_SOURCE_DIR}/src/src/luae/scriptriangle.cpp
 	${PROJECT_SOURCE_DIR}/src/src/addtodrawqueue.cpp
 	${PROJECT_SOURCE_DIR}/src/src/luae/scriptmouse.cpp
@@ -48,6 +49,7 @@ SET(MAIN_HEADERS
 	${PROJECT_SOURCE_DIR}/src/headers/patterns/command.hpp
 	${PROJECT_SOURCE_DIR}/src/headers/addtodrawqueue.hpp
 	${PROJECT_SOURCE_DIR}/src/headers/circle.hpp
+	${PROJECT_SOURCE_DIR}/src/headers/rectangle.hpp
 	${PROJECT_SOURCE_DIR}/src/headers/gldebug.hpp
 	${PROJECT_SOURCE_DIR}/src/headers/heightmap.hpp
 	${PROJECT_SOURCE_DIR}/src/headers/INode.hpp
