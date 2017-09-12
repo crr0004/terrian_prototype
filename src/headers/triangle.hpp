@@ -9,7 +9,6 @@ namespace Geometry {
 			Triangle();
 			void buildStatic() ;
 			void draw() ;
-			void setStartEnd(const glm::vec3 a, const glm::vec3 b);
 			~Triangle();
 		private:
 			GLuint vboID[1];
