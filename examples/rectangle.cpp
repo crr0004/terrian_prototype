@@ -134,6 +134,8 @@ int main(void) {
 	//drawQueue.push_back(polygonPointer);
 
 	Geometry::Rectangle rectangle;
+	rectangle.setLengths(10,5);
+
 	rectangle.setLogicContext(&logicContext);
 	rectangle.setShaderLocations(vertShaderLocation);
 	rectangle.buildStatic();

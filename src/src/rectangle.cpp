@@ -39,6 +39,30 @@ void Rectangle::buildStatic(){
 	glGenBuffers(1, &vboID[0]);
 }
 void Rectangle::setLengths(float a, float b){
+	vertices[0] = 0.0f;
+	vertices[1] = 0.0f;
+	vertices[2] = 0.0f;
+
+	vertices[3] = a;
+	vertices[4] = 0.0f;
+	vertices[5] = 0.0f;
+
+	vertices[6] = a;
+	vertices[7] = b;
+	vertices[8] = 0.0f;
+
+	
+	vertices[9] = 0.0f;
+	vertices[10] = 0.0f;
+	vertices[11] = 0.0f;
+
+	vertices[12] = a;
+	vertices[13] = b;
+	vertices[14] = 0.0f;
+
+	vertices[15] = 0.0f;
+	vertices[16] = b;
+	vertices[17] = 0.0f;
 
 }
 void Rectangle::draw(){
