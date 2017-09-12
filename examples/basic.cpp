@@ -123,6 +123,14 @@ int main(void) {
 	//Setup background colour
 	glClearColor(0.0f, 0.0f, 1.0f, 0.0f);
 	//END Setup for windows
+	//Create a draw queue
+	std::vector<Geometry::Polygon*> drawQueue;
+	//Draw queue gets added to a command so other parts of code can easily add
+	//to queue
+	AddToDrawQueueCommand::SetQueue(&drawQueue);
+
+	//Manually add to draw queue
+	//drawQueue.push_back(polygonPointer);
 
 
 	while (!glfwWindowShouldClose(window)) {
