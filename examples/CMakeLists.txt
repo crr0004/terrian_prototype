@@ -29,5 +29,6 @@ if(MSVC)
 else()
 	#Visual studio is a bit dumb and doesn't know what these mean
 	target_compile_options(${1_EXAMPLE_NAME} PUBLIC -O1 -g)
+	target_compile_options(${2_EXAMPLE_NAME} PUBLIC -ggdb)
 	
 endif()
