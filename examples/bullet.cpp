@@ -185,6 +185,7 @@ int main(void) {
 		btDefaultMotionState* myMotionState = new btDefaultMotionState(groundTransform);
 		btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, myMotionState, groundShape, localInertia);
 		btRigidBody* body = new btRigidBody(rbInfo);
+		body->setRestitution(1.0);
 
 		//add the body to the dynamics world
 		dynamicsWorld->addRigidBody(body);
@@ -201,7 +202,7 @@ int main(void) {
 		btTransform startTransform;
 		startTransform.setIdentity();
 
-		btScalar mass(1.f);
+		btScalar mass(10.f);
 
 		//rigidbody is dynamic if and only if mass is non zero, otherwise static
 		bool isDynamic = (mass != 0.f);
@@ -210,12 +211,13 @@ int main(void) {
 		if (isDynamic)
 			colShape->calculateLocalInertia(mass, localInertia);
 
-		startTransform.setOrigin(btVector3(2, 10, 0));
+		startTransform.setOrigin(btVector3(0, 10, 0));
 
 		//using motionstate is recommended, it provides interpolation capabilities, and only synchronizes 'active' objects
 		btDefaultMotionState* myMotionState = new btDefaultMotionState(startTransform);
 		btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, myMotionState, colShape, localInertia);
 		sphereBody = new btRigidBody(rbInfo);
+		sphereBody->setRestitution(1.0);
 
 		dynamicsWorld->addRigidBody(sphereBody);
 	}
@@ -254,7 +256,7 @@ int main(void) {
 			{
 				trans = obj->getWorldTransform();
 			}
-			//printf("world pos object %d = %f,%f,%f\n", j, float(trans.getOrigin().getX()), float(trans.getOrigin().getY()), float(trans.getOrigin().getZ()));
+			printf("world pos object %d = %f,%f,%f\n", j, float(trans.getOrigin().getX()), float(trans.getOrigin().getY()), float(trans.getOrigin().getZ()));
 		}
 		btTransform sphereTrans;
 		sphereBody->getMotionState()->getWorldTransform(sphereTrans);
