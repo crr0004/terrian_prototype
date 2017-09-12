@@ -166,15 +166,18 @@ int main(void) {
 	//the sphere will hit it at y = -6, with center at -5
 	btRigidBody* rectBody;
 	{
+		//this creates a box with half lengths of 10
 		btCollisionShape* groundShape = new btBoxShape(btVector3(btScalar(10.), btScalar(10.), btScalar(10.)));
 
 		collisionShapes.push_back(groundShape);
 
 		btTransform groundTransform;
 		groundTransform.setIdentity();
+		//set middle of box at these coordinates
 		groundTransform.setOrigin(btVector3(11, -15, 0));
 
 		btScalar mass(0.);
+		
 
 		//rigidbody is dynamic if and only if mass is non zero, otherwise static
 		bool isDynamic = (mass != 0.f);
@@ -225,6 +228,7 @@ int main(void) {
 	}
 
 	Geometry::Rectangle rectangle;
+	//Our rectangle doesn't use half lengths at the moment
 	rectangle.setLengths(20,20);
 
 	rectangle.setLogicContext(&logicContext);
@@ -236,6 +240,8 @@ int main(void) {
 	btTransform rectTrans;
 	rectBody->getMotionState()->getWorldTransform(rectTrans);
 	btVector3& rectOrigin = rectTrans.getOrigin();
+	//Minus half lengths of bulletbox because our objects origins are at
+	//bottom left, not middle of object
 	rectangle.getMoveable().setPos(glm::vec3(
 				rectOrigin.getX()-10,rectOrigin.getY()-10,rectOrigin.getZ()));
 
