@@ -18,6 +18,7 @@
 #include "line.hpp"
 #include "triangle.hpp"
 #include "circle.hpp"
+#include "rectangle.hpp"
 #include "addtodrawqueue.hpp"
 #include "luae/script.hpp"
 #include "luae/scriptmanager.hpp"
@@ -163,14 +164,15 @@ int main(void) {
 
 	//the ground is a cube of side 100 at position y = -56.
 	//the sphere will hit it at y = -6, with center at -5
+	btRigidBody* rectBody;
 	{
-		btCollisionShape* groundShape = new btBoxShape(btVector3(btScalar(50.), btScalar(50.), btScalar(50.)));
+		btCollisionShape* groundShape = new btBoxShape(btVector3(btScalar(10.), btScalar(10.), btScalar(10.)));
 
 		collisionShapes.push_back(groundShape);
 
 		btTransform groundTransform;
 		groundTransform.setIdentity();
-		groundTransform.setOrigin(btVector3(0, -56, 0));
+		groundTransform.setOrigin(btVector3(11, -15, 0));
 
 		btScalar mass(0.);
 
@@ -184,11 +186,11 @@ int main(void) {
 		//using motionstate is optional, it provides interpolation capabilities, and only synchronizes 'active' objects
 		btDefaultMotionState* myMotionState = new btDefaultMotionState(groundTransform);
 		btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, myMotionState, groundShape, localInertia);
-		btRigidBody* body = new btRigidBody(rbInfo);
-		body->setRestitution(1.0);
+		rectBody = new btRigidBody(rbInfo);
+		rectBody->setRestitution(1.0);
 
 		//add the body to the dynamics world
-		dynamicsWorld->addRigidBody(body);
+		dynamicsWorld->addRigidBody(rectBody);
 	}
 	btRigidBody* sphereBody;
 	{
@@ -221,6 +223,21 @@ int main(void) {
 
 		dynamicsWorld->addRigidBody(sphereBody);
 	}
+
+	Geometry::Rectangle rectangle;
+	rectangle.setLengths(20,20);
+
+	rectangle.setLogicContext(&logicContext);
+	rectangle.setShaderLocations(vertShaderLocation);
+	rectangle.buildStatic();
+
+	drawQueue.push_back(&rectangle);
+
+	btTransform rectTrans;
+	rectBody->getMotionState()->getWorldTransform(rectTrans);
+	btVector3& rectOrigin = rectTrans.getOrigin();
+	rectangle.getMoveable().setPos(glm::vec3(
+				rectOrigin.getX()-10,rectOrigin.getY()-10,rectOrigin.getZ()));
 
 	Geometry::Circle circle;
 	circle.setLogicContext(&logicContext);
