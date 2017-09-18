@@ -1,4 +1,3 @@
-
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
@@ -8,6 +7,8 @@
 #include <lua/lua.hpp>
 #include <vector>
 #include <fmt/format.h>
+#include <ctime>
+#include <time.h>
 
 #include "terrian_config.hpp"
 #include "matrixstacksingleton.hpp"
@@ -18,6 +19,7 @@
 #include "line.hpp"
 #include "triangle.hpp"
 #include "circle.hpp"
+#include "rectangle.hpp"
 #include "addtodrawqueue.hpp"
 #include "luae/script.hpp"
 #include "luae/scriptmanager.hpp"
@@ -25,8 +27,6 @@
 #include "luae/scriptriangle.hpp"
 #include "luae/scriptmouse.hpp"
 
-#include "collision/simpleworld.hpp"
-#include "collision/spherecollider.hpp"
 
 //For stringifying preprocessor values
 #define xstr(s) str(s)
@@ -104,6 +104,9 @@ static void calcWorldPickRay(GLFWwindow *window){
 
 int main(void) {
 
+	//disable stdout buffering
+	setbuf(stdout, NULL);
+
 	//Setup for windows
 	GLFWwindow *window = VisualContext::CreateGLFWWindow(key_callback);
 	GLuint shader_program = VisualContext::make_shader_program(concat(xstr(SHADERS_DIR), "/shader.vert"), concat(xstr(SHADERS_DIR), "/shader.frag"));
@@ -121,7 +124,7 @@ int main(void) {
 	logicContext.modelview = glm::rotate(logicContext.modelview, 0.0f, glm::vec3(-1.0f, 0.0f, 0.0f));
 	glViewport(0,0,VisualContext::width, VisualContext::height);
 	//Setup background colour
-	glClearColor(0.0f, 0.0f, 1.0f, 0.0f);
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	//END Setup for windows
 	//Create a draw queue
 	std::vector<Geometry::Polygon*> drawQueue;
@@ -132,6 +135,31 @@ int main(void) {
 	//Manually add to draw queue
 	//drawQueue.push_back(polygonPointer);
 
+	Geometry::Rectangle rectangle;
+	//Our rectangle doesn't use half lengths at the moment
+	rectangle.setLengths(10,2);
+
+	rectangle.setLogicContext(&logicContext);
+	rectangle.setShaderLocations(vertShaderLocation);
+	rectangle.buildStatic();
+
+	drawQueue.push_back(&rectangle);
+
+	Geometry::Circle circle;
+	circle.setLogicContext(&logicContext);
+	circle.setShaderLocations(vertShaderLocation);
+	circle.buildStatic();
+
+	drawQueue.push_back(&circle);
+
+	rectangle.getMoveable().setPos(glm::vec3(-5,-12,0));
+
+    double t = 0.0;
+    double dt = 0.01;
+
+	struct timespec currentTime, newTime;	
+	clock_gettime(CLOCK_MONOTONIC, &currentTime);
+    double accumulator = 0.0;
 
 	while (!glfwWindowShouldClose(window)) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -143,7 +171,45 @@ int main(void) {
 		glm::vec3 rayWordEndPoint = glm::vec3(glm::vec4(0.0f, 0.0f, -100.0f, 1.0f) * logicContext.modelview);
 
 		//Put manual updates and draws here
+		//
+	
+		//Physics step
+		clock_gettime(CLOCK_MONOTONIC, &newTime);
+		double frameTime = (newTime.tv_sec + (newTime.tv_nsec/1.0e9)) - (currentTime.tv_sec + (currentTime.tv_nsec/1.0e9));
+	//	fmt::printf("frame time in seconds %f\n", frameTime);
+		if ( frameTime > 0.25 )
+			frameTime = 0.25;
 
+		clock_gettime(CLOCK_MONOTONIC, &currentTime);
+
+		accumulator += frameTime;
+
+		while ( accumulator >= dt )
+		{
+		//	previousState = currentState;
+		//	integrate( currentState, t, dt );
+			//fmt::printf("-9.8*dt = %f\n", -9.8*dt);
+			circle.getMoveable().translate(glm::vec3(0.0, -9.8*dt, 0.0));
+			glm::vec3 circlePos = circle.getMoveable().getPosAsVec3();
+			fmt::printf("Circle pos %f,%f,%f\n", circlePos.x, circlePos.y, circlePos.z);
+			t += dt;
+			accumulator -= dt;
+		}
+
+		const double alpha = accumulator / dt;
+
+		//State state = currentState * alpha + previousState * ( 1.0 - alpha );
+
+
+		for(std::vector<Geometry::Polygon*>::iterator drawHost = drawQueue.begin();
+				drawHost != drawQueue.end();
+				drawHost++){
+			glDisable(GL_CULL_FACE);
+			(*drawHost)->setLogicContext(&logicContext);
+
+			(*drawHost)->update();
+			(*drawHost)->draw();
+		}
 		/**
 		 * What a queue draw loop looks like
 		for(std::vector<Geometry::Polygon*>::iterator drawHost = drawQueue.begin();
