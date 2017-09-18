@@ -5,6 +5,7 @@ set(EXAMPLES
 	basic 
 	rectangle 
 	bullet_collision
+	physics
 	)
 
 foreach(EXAMPLE_NAME ${EXAMPLES})
