@@ -8,6 +8,7 @@
 #include <vector>
 #include <fmt/format.h>
 #include <btBulletDynamicsCommon.h>
+#include <time.h>
 
 #include "terrian_config.hpp"
 #include "matrixstacksingleton.hpp"
@@ -103,6 +104,8 @@ static void calcWorldPickRay(GLFWwindow *window){
 }
 
 int main(void) {
+	//disable stdout buffering
+	setbuf(stdout, NULL);
 
 	//Setup for windows
 	GLFWwindow *window = VisualContext::CreateGLFWWindow(key_callback);
@@ -159,18 +162,19 @@ int main(void) {
 	//the ground is a cube of side 100 at position y = -56.
 	//the sphere will hit it at y = -6, with center at -5
 		//this creates a box with half lengths of 10
-		btCollisionShape* groundShape = new btBoxShape(btVector3(btScalar(10.), btScalar(10.), btScalar(10.)));
+		btCollisionShape* groundShape = new btBoxShape(btVector3(btScalar(10.), btScalar(2.5), btScalar(10.)));
 
 		collisionShapes.push_back(groundShape);
 		btCollisionObject* ground = new btCollisionObject();
-		ground->getWorldTransform().setOrigin(btVector3(11, 0, 0));
+		ground->getWorldTransform().setOrigin(btVector3(-5, 5, 0));
+
 		ground->setCollisionShape(groundShape);
 
 		//btCollisionShape* colShape = new btBoxShape(btVector3(1,1,1));
 		btCollisionShape* colShape = new btSphereShape(btScalar(1.));
 		collisionShapes.push_back(colShape);
 		btCollisionObject* sphere = new btCollisionObject();
-		sphere->getWorldTransform().setOrigin(btVector3(0,0,0));
+		sphere->getWorldTransform().setOrigin(btVector3(0,-15,0));
 		sphere->setCollisionShape(colShape);
 
 		collisionWorld->addCollisionObject(ground);
@@ -178,7 +182,7 @@ int main(void) {
 
 	Geometry::Rectangle rectangle;
 	//Our rectangle doesn't use half lengths at the moment
-	rectangle.setLengths(20,20);
+	rectangle.setLengths(20,5);
 
 	rectangle.setLogicContext(&logicContext);
 	rectangle.setShaderLocations(vertShaderLocation);
@@ -205,6 +209,12 @@ int main(void) {
 	
 	//Enables antialiasing
 	glEnable(GL_MULTISAMPLE);
+    double t = 0.0;
+    double dt = 0.01;
+
+	struct timespec currentTime, newTime;	
+	clock_gettime(CLOCK_MONOTONIC, &currentTime);
+    double accumulator = 0.0;
 
 	while (!glfwWindowShouldClose(window)) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -213,16 +223,46 @@ int main(void) {
 
 		btTransform sphereTrans = sphere->getWorldTransform();
 		btVector3& sphereOrigin = sphereTrans.getOrigin();
-		circle.getMoveable().setPos(glm::vec3(
-					sphereOrigin.getX(),sphereOrigin.getY(),sphereOrigin.getZ()));
+		//circle.getMoveable().setPos(glm::vec3(
+		//			sphereOrigin.getX(),sphereOrigin.getY(),sphereOrigin.getZ()));
 	///-----stepsimulation_end-----
+		clock_gettime(CLOCK_MONOTONIC, &newTime);
+		double frameTime = (newTime.tv_sec + (newTime.tv_nsec/1.0e9)) - (currentTime.tv_sec + (currentTime.tv_nsec/1.0e9));
+	//	fmt::printf("frame time in seconds %f\n", frameTime);
+		if ( frameTime > 0.25 )
+			frameTime = 0.25;
+
+		clock_gettime(CLOCK_MONOTONIC, &currentTime);
+
+		accumulator += frameTime;
+
+		while ( accumulator >= dt )
+		{
+		//	previousState = currentState;
+		//	integrate( currentState, t, dt );
+			//fmt::printf("-9.8*dt = %f\n", -9.8*dt);
+			circle.getMoveable().translate(glm::vec3(0.0, -9.8*dt, 0.0));
+			btTransform& groundTrans = ground->getWorldTransform();
+		
+			groundTrans.setOrigin(
+					groundTrans.getOrigin()*btVector3(0.0,-9.8*dt,0.0)
+					);
+			ground->setWorldTransform(groundTrans);
+			
+			glm::vec3 circlePos = circle.getMoveable().getPosAsVec3();
+			//fmt::printf("Circle pos %f,%f,%f\n", circlePos.x, circlePos.y, circlePos.z);
+			t += dt;
+			accumulator -= dt;
+		}
+
+		const double alpha = accumulator / dt;
 	
 		collisionWorld->performDiscreteCollisionDetection();
 
 		int numManifolds = collisionWorld->getDispatcher()->getNumManifolds();
-		if(numManifolds > 0){
+	//	if(numManifolds > 0){
 			fmt::printf("Manifolds: %d\n", numManifolds);
-		}
+	//	}
 
 		for (int i = 0; i < numManifolds; i++) {
 			btPersistentManifold* contactManifold = collisionWorld->getDispatcher()->getManifoldByIndexInternal(i);
