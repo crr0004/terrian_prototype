@@ -46,6 +46,14 @@ void Moveable::setPos(glm::vec3 newPos){
 	model_matrix[3][2] = newPos.z;
 
 }
+glm::vec3 Moveable::getPosAsVec3(){
+	return glm::vec3(
+			model_matrix[3][0],
+			model_matrix[3][1],
+			model_matrix[3][2]
+			);
+}
+
 glm::mat4* Moveable::getModelMatrix(){
 	return &model_matrix;
 }

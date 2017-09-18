@@ -16,6 +16,7 @@ namespace Geometry {
 			virtual void parentTranslate(glm::mat4);
 			virtual	void rotate(glm::vec3 rotateAround, float rotateBy);
 			virtual void setPos(glm::vec3);
+			virtual glm::vec3 getPosAsVec3();
 			virtual void push();
 			virtual void pop();
 			virtual	glm::mat4* getModelMatrix();
