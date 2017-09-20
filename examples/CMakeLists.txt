@@ -5,17 +5,23 @@ set(EXAMPLES
 	basic 
 	rectangle 
 	bullet_collision
+	bullet_integration
 	physics
 	)
 
 foreach(EXAMPLE_NAME ${EXAMPLES})
 	
-	add_executable(${EXAMPLE_NAME}_EXAMPLE ${PROJECT_SOURCE_DIR}/examples/${EXAMPLE_NAME}.cpp)
-	target_link_libraries(${EXAMPLE_NAME}_EXAMPLE ${LIBS})
-	target_compile_options(${EXAMPLE_NAME}_EXAMPLE PUBLIC -ggdb)
+	IF(EXISTS ${PROJECT_SOURCE_DIR}/examples/${EXAMPLE_NAME}.cpp)
+		add_executable(${EXAMPLE_NAME}_EXAMPLE ${PROJECT_SOURCE_DIR}/examples/${EXAMPLE_NAME}.cpp)
+		target_link_libraries(${EXAMPLE_NAME}_EXAMPLE ${LIBS})
+		target_compile_options(${EXAMPLE_NAME}_EXAMPLE PUBLIC -ggdb)
+	ELSEIF(EXISTS "${PROJECT_SOURCE_DIR}/examples/${EXAMPLE_NAME}/CMakeLists.txt")
+			add_subdirectory(${EXAMPLE_NAME})
+	ENDIF()
 endforeach(EXAMPLE_NAME)
 
 #Old way of creating examples
+
 #[[
 SET(1_EXAMPLE_NAME one)
 SET(2_EXAMPLE_NAME bullet)
