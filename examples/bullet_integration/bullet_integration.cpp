@@ -167,7 +167,7 @@ int main(void) {
 
 		collisionShapes.push_back(groundShape);
 		btCollisionObject* ground = new btCollisionObject();
-		ground->getWorldTransform().setOrigin(btVector3(-5, 5, 0));
+		ground->getWorldTransform().setOrigin(btVector3(-5, -5, 0));
 
 		ground->setCollisionShape(groundShape);
 
@@ -175,7 +175,7 @@ int main(void) {
 		btCollisionShape* colShape = new btSphereShape(btScalar(1.));
 		collisionShapes.push_back(colShape);
 		btCollisionObject* sphere = new btCollisionObject();
-		sphere->getWorldTransform().setOrigin(btVector3(0,-15,0));
+		sphere->getWorldTransform().setOrigin(btVector3(0,0,0));
 		sphere->setCollisionShape(colShape);
 
 		collisionWorld->addCollisionObject(ground);
@@ -196,12 +196,13 @@ int main(void) {
 	//Minus half lengths of bulletbox because our objects origins are at
 	//bottom left, not middle of object
 	rectangle.getMoveable().setPos(glm::vec3(
-				rectOrigin.getX()-10,rectOrigin.getY()-10,rectOrigin.getZ()));
+				rectOrigin.getX()-10,rectOrigin.getY()-2.5,rectOrigin.getZ()));
 
 	Geometry::Circle circle;
 	circle.setLogicContext(&logicContext);
 	circle.setShaderLocations(vertShaderLocation);
 	circle.buildStatic();
+	circle.getMoveable().setPos(glm::vec3(0.0,12.0,0.0));
 
 
 	drawQueue.push_back(&circle);
@@ -218,16 +219,14 @@ int main(void) {
     double accumulator = 0.0;
 
 	PrintNode sampleNode;
+	sphere->setUserPointer(&sampleNode);
+	ground->setUserPointer(&sampleNode);
 
 	while (!glfwWindowShouldClose(window)) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glPolygonMode(GL_FRONT, GL_FILL);
 		glUniformMatrix4fv(uloc_project, 1, GL_FALSE, glm::value_ptr(VisualContext::projection_matrix));
 
-		btTransform sphereTrans = sphere->getWorldTransform();
-		btVector3& sphereOrigin = sphereTrans.getOrigin();
-		//circle.getMoveable().setPos(glm::vec3(
-		//			sphereOrigin.getX(),sphereOrigin.getY(),sphereOrigin.getZ()));
 	///-----stepsimulation_end-----
 		clock_gettime(CLOCK_MONOTONIC, &newTime);
 		double frameTime = (newTime.tv_sec + (newTime.tv_nsec/1.0e9)) - (currentTime.tv_sec + (currentTime.tv_nsec/1.0e9));
@@ -244,13 +243,7 @@ int main(void) {
 		//	previousState = currentState;
 		//	integrate( currentState, t, dt );
 			//fmt::printf("-9.8*dt = %f\n", -9.8*dt);
-			circle.getMoveable().translate(glm::vec3(0.0, -9.8*dt, 0.0));
-			btTransform& groundTrans = ground->getWorldTransform();
-		
-			groundTrans.setOrigin(
-					groundTrans.getOrigin()*btVector3(0.0,-9.8*dt,0.0)
-					);
-			ground->setWorldTransform(groundTrans);
+			circle.getMoveable().translate(glm::vec3(0.0, -0.8*dt, 0.0));
 			
 			glm::vec3 circlePos = circle.getMoveable().getPosAsVec3();
 			//fmt::printf("Circle pos %f,%f,%f\n", circlePos.x, circlePos.y, circlePos.z);
@@ -258,19 +251,29 @@ int main(void) {
 			accumulator -= dt;
 		}
 
+		//circle.getMoveable().setPos(glm::vec3( sphereOrigin.getX(),sphereOrigin.getY(),sphereOrigin.getZ()));
+		//btTransform sphereTrans = sphere->getWorldTransform();
+		//btVector3& sphereOrigin = sphereTrans.getOrigin();
+		glm::vec3 circlePos = circle.getMoveable().getPosAsVec3();
+		sphere->getWorldTransform().setOrigin(btVector3(circlePos.x, circlePos.y, circlePos.z));
 		const double alpha = accumulator / dt;
 	
 		collisionWorld->performDiscreteCollisionDetection();
 
 		int numManifolds = collisionWorld->getDispatcher()->getNumManifolds();
-	//	if(numManifolds > 0){
+		if(numManifolds > 0){
 			fmt::printf("Manifolds: %d\n", numManifolds);
-	//	}
+		}
 
 		for (int i = 0; i < numManifolds; i++) {
 			btPersistentManifold* contactManifold = collisionWorld->getDispatcher()->getManifoldByIndexInternal(i);
 			const btCollisionObject* obA = static_cast<const btCollisionObject*>(contactManifold->getBody0());
 			const btCollisionObject* obB = static_cast<const btCollisionObject*>(contactManifold->getBody1());
+			if(obA->getUserPointer() != nullptr){
+				INode* node = static_cast<INode*>(obA->getUserPointer());
+				node->visit(node);
+
+			}
 			contactManifold->refreshContactPoints(obA->getWorldTransform(), obB->getWorldTransform());
 			int numContacts = contactManifold->getNumContacts();
 			//For each contact point in that manifold
