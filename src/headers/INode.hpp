@@ -2,6 +2,7 @@
 #define COLLISION_INODE_H
 class Command;
 class Node;
+class BulletNode;
 namespace Geometry{
 	class Moveable;
 }

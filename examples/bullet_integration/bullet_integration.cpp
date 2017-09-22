@@ -27,6 +27,7 @@
 #include "luae/scriptriangle.hpp"
 #include "luae/scriptmouse.hpp"
 #include "print_node.hpp"
+#include "bullet_node.hpp"
 
 #include "collision/simpleworld.hpp"
 #include "collision/spherecollider.hpp"
@@ -243,7 +244,7 @@ int main(void) {
 		//	previousState = currentState;
 		//	integrate( currentState, t, dt );
 			//fmt::printf("-9.8*dt = %f\n", -9.8*dt);
-			circle.getMoveable().translate(glm::vec3(0.0, -0.8*dt, 0.0));
+			circle.getMoveable().translate(glm::vec3(0.0, -4.8*dt, 0.0));
 			
 			glm::vec3 circlePos = circle.getMoveable().getPosAsVec3();
 			//fmt::printf("Circle pos %f,%f,%f\n", circlePos.x, circlePos.y, circlePos.z);
@@ -261,9 +262,6 @@ int main(void) {
 		collisionWorld->performDiscreteCollisionDetection();
 
 		int numManifolds = collisionWorld->getDispatcher()->getNumManifolds();
-		if(numManifolds > 0){
-			fmt::printf("Manifolds: %d\n", numManifolds);
-		}
 
 		for (int i = 0; i < numManifolds; i++) {
 			btPersistentManifold* contactManifold = collisionWorld->getDispatcher()->getManifoldByIndexInternal(i);

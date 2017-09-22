@@ -23,6 +23,7 @@ SET(MAIN_SRC
 	${PROJECT_SOURCE_DIR}/src/src/collision_aabbcollider.cpp
 	${PROJECT_SOURCE_DIR}/src/src/collision_sphere.cpp
 	${PROJECT_SOURCE_DIR}/src/src/geometry_moveable.cpp
+	${PROJECT_SOURCE_DIR}/src/src/bullet_node.cpp
 	)
 SET(JELLY_ENGINE_SRC ${MAIN_SRC} PARENT_SCOPE)
 
@@ -62,6 +63,7 @@ SET(MAIN_HEADERS
 	${PROJECT_SOURCE_DIR}/src/headers/triangle.hpp
 	${PROJECT_SOURCE_DIR}/src/headers/visualcontext.hpp
 	${PROJECT_SOURCE_DIR}/src/headers/VisualServer.hpp
+	${PROJECT_SOURCE_DIR}/src/headers/bullet_node.hpp
 	)
 
 set(JELLY_ENGINE_HEADERS ${MAIN_HEADERS} PARENT_SCOPE)
