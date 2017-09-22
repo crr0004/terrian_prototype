@@ -1,7 +1,6 @@
 -I.
 -I./include
 -I./src/headers
--I/home/crhodes/dev/projects/terrian_prototype/fmt/
+-I./fmt/
+-I/mingw64/include/bullet
 -std=c++11
--I"E:\Users\crr00\dev\projects\glfw-3.2.1.bin.WIN64\include"
--I"E:\Users\crr00\dev\projects\glm"
