@@ -219,9 +219,10 @@ int main(void) {
 	clock_gettime(CLOCK_MONOTONIC, &currentTime);
     double accumulator = 0.0;
 
-	PrintNode sampleNode;
-	sphere->setUserPointer(&sampleNode);
-	ground->setUserPointer(&sampleNode);
+	BulletNode sampleNode1(1);
+	BulletNode sampleNode2(2);
+	sphere->setUserPointer(&sampleNode1);
+	ground->setUserPointer(&sampleNode2);
 
 	while (!glfwWindowShouldClose(window)) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -267,10 +268,13 @@ int main(void) {
 			btPersistentManifold* contactManifold = collisionWorld->getDispatcher()->getManifoldByIndexInternal(i);
 			const btCollisionObject* obA = static_cast<const btCollisionObject*>(contactManifold->getBody0());
 			const btCollisionObject* obB = static_cast<const btCollisionObject*>(contactManifold->getBody1());
-			if(obA->getUserPointer() != nullptr){
-				INode* node = static_cast<INode*>(obA->getUserPointer());
-				node->visit(node);
-
+			if(obA->getUserPointer() != nullptr && obB->getUserPointer() != nullptr){
+				INode* nodeA = static_cast<BulletNode*>(obA->getUserPointer());
+				INode* nodeB = static_cast<BulletNode*>(obB->getUserPointer());
+				nodeA->setLastManifold(contactManifold);
+				nodeB->setLastManifold(contactManifold);
+				nodeA->visit(nodeB);
+				nodeB->visit(nodeA);
 			}
 			contactManifold->refreshContactPoints(obA->getWorldTransform(), obB->getWorldTransform());
 			int numContacts = contactManifold->getNumContacts();

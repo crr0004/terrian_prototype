@@ -13,5 +13,11 @@ class BulletNode : public INode{
 		virtual void setParent(INode*);
 		virtual INode* getParent();
 		virtual int visit(INode*);
+		int visit(BulletNode*);
+		virtual void setLastManifold(btPersistentManifold*);
+		BulletNode(int);
+	private:
+		int ID;
+		btPersistentManifold* lastManifold;
 };
 #endif

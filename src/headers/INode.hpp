@@ -19,6 +19,7 @@ class INode{
 		virtual int visit(INode*) = 0;
 		virtual int visit(Geometry::Moveable*){return -1;}
 		virtual int visit(Node*){return -1;}
+		virtual int visit(BulletNode*){return -1;}
 		virtual ~INode(){}
 };
 #endif //COLLISION_INODE_H

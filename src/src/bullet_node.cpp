@@ -1,5 +1,19 @@
 #include "bullet_node.hpp"
+#include <fmt/format.h>
 
+
+/* -------------------------------*/
+/** 
+ * @brief BulletNode constuctor mainly used for debugging. No guarantee it
+ * will remain
+ * 
+ * @Param ID set to whatever is needed, initially used for debugging.
+ */
+/* ---------------------------------*/
+BulletNode::BulletNode(int ID){
+
+	this->ID = ID;
+}
 
 void BulletNode::operation(){
 
@@ -30,4 +44,14 @@ INode* BulletNode::getParent(){
 int BulletNode::visit(INode* node){
 	node->visit(this);
 	return 0;
+}
+
+int BulletNode::visit(BulletNode* node){
+	fmt::printf("Inside BulletNode bulletnode ID: %d\n", this->ID);
+	//Don't hold onto the manifold
+	this->lastManifold = nullptr;
+	return 0;
+}
+void BulletNode::setLastManifold(btPersistentManifold* manifold){
+	this->lastManifold = manifold;
 }
