@@ -1,4 +1,5 @@
 #include "bullet_node.hpp"
+#include "bullet_contactmanifold_node.hpp"
 #include <fmt/format.h>
 
 
@@ -48,10 +49,9 @@ int BulletNode::visit(INode* node){
 
 int BulletNode::visit(BulletNode* node){
 	fmt::printf("Inside BulletNode bulletnode ID: %d\n", this->ID);
-	//Don't hold onto the manifold
-	this->lastManifold = nullptr;
 	return 0;
 }
-void BulletNode::setLastManifold(btPersistentManifold* manifold){
-	this->lastManifold = manifold;
+int BulletNode::visit(BulletContactManifoldNode* node){
+	fmt::printf("Inside BulletNode with contact manifold\n");
+	return 0;
 }

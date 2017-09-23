@@ -28,6 +28,7 @@
 #include "luae/scriptmouse.hpp"
 #include "print_node.hpp"
 #include "bullet_node.hpp"
+#include "bullet_contactmanifold_node.hpp"
 
 #include "collision/simpleworld.hpp"
 #include "collision/spherecollider.hpp"
@@ -269,12 +270,13 @@ int main(void) {
 			const btCollisionObject* obA = static_cast<const btCollisionObject*>(contactManifold->getBody0());
 			const btCollisionObject* obB = static_cast<const btCollisionObject*>(contactManifold->getBody1());
 			if(obA->getUserPointer() != nullptr && obB->getUserPointer() != nullptr){
-				INode* nodeA = static_cast<BulletNode*>(obA->getUserPointer());
-				INode* nodeB = static_cast<BulletNode*>(obB->getUserPointer());
-				nodeA->setLastManifold(contactManifold);
-				nodeB->setLastManifold(contactManifold);
-				nodeA->visit(nodeB);
-				nodeB->visit(nodeA);
+				BulletContactManifoldNode manifoldNode(contactManifold);
+				BulletNode* nodeA = static_cast<BulletNode*>(obA->getUserPointer());
+				BulletNode* nodeB = static_cast<BulletNode*>(obB->getUserPointer());
+				//Visit nodeA and B so we can tell them we have a
+				//manifoldNode class.
+				manifoldNode.visit(nodeA);
+				manifoldNode.visit(nodeB);
 			}
 			contactManifold->refreshContactPoints(obA->getWorldTransform(), obB->getWorldTransform());
 			int numContacts = contactManifold->getNumContacts();
