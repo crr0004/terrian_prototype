@@ -11,6 +11,7 @@ SET(TESTS_SRC
 	${PROJECT_SOURCE_DIR}/tests/luaeutilitiestest.cpp
 	${PROJECT_SOURCE_DIR}/tests/collision_compositetests.cpp
 	${PROJECT_SOURCE_DIR}/tests/geometry_moveable.cpp
+	${PROJECT_SOURCE_DIR}/tests/dynamicstests.cpp
 )
 
 SET(JELLY_ENGINE_TESTS ${TESTS_SRC} PARENT_SCOPE)

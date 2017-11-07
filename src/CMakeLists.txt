@@ -25,6 +25,7 @@ SET(MAIN_SRC
 	${PROJECT_SOURCE_DIR}/src/src/geometry_moveable.cpp
 	${PROJECT_SOURCE_DIR}/src/src/bullet_node.cpp
 	${PROJECT_SOURCE_DIR}/src/src/bullet_contactmanifold_node.cpp
+	${PROJECT_SOURCE_DIR}/src/src/dynamic_node.cpp
 	)
 SET(JELLY_ENGINE_SRC ${MAIN_SRC} PARENT_SCOPE)
 
@@ -66,6 +67,8 @@ SET(MAIN_HEADERS
 	${PROJECT_SOURCE_DIR}/src/headers/VisualServer.hpp
 	${PROJECT_SOURCE_DIR}/src/headers/bullet_node.hpp
 	${PROJECT_SOURCE_DIR}/src/headers/bullet_contactmanifold_node.hpp
+	${PROJECT_SOURCE_DIR}/src/headers/dynamics/dynamic_node.hpp
+
 	)
 
 set(JELLY_ENGINE_HEADERS ${MAIN_HEADERS} PARENT_SCOPE)
