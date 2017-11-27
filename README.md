@@ -1,12 +1,12 @@
 # Terrian Prototype
 A prototype for creating a terrian &amp; heightmap.
 
-#Building
+# Building
 Uses CMake for build system.
 
 Currently building on Fedora and Windows (MSVC).
 
-##To Be Built On In The Future:
+## To Be Built On In The Future:
 - mingw (Windows and cross compile)
 - cygwin
 - Mac OSX (when I get a system to)
@@ -22,7 +22,7 @@ Uses GLAD, is built in source
 
 Tests suite uses [Catch](https://github.com/philsquared/Catch/tree/v1.2.1). It's header only and included in the repo
 
-#Fedora 23
+# Fedora 23
 I think these names are wrong.
 
 		dnf -y install glew-devel glfw-devel glm-devel
