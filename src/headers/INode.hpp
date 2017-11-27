@@ -3,6 +3,9 @@
 class Command;
 class Node;
 class BulletNode;
+namespace Dynamics {
+	class DynamicNode;
+} // namespace Dynamics
 namespace Geometry{
 	class Moveable;
 }
@@ -20,6 +23,7 @@ class INode{
 		virtual int visit(Geometry::Moveable*){return -1;}
 		virtual int visit(Node*){return -1;}
 		virtual int visit(BulletNode*){return -1;}
+		virtual int visit(Dynamics::DynamicNode*){return -1;}
 		virtual ~INode(){}
 };
 #endif //COLLISION_INODE_H

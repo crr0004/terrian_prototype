@@ -29,6 +29,46 @@ TEST_CASE("DynamicDriver tests", "[current]"){
 
 	driver.add(mockPrintDynamicNode);
 	*/
+
+	SECTION("Visit fires correctly"){
+		//Make sure when calling visit on DynamicNode that it calls the
+		//caller with itself correctly. In this case, DynamicDriver gets
+		//called with DynamicNode.
+		Mock<DynamicDriver> mockDriver;
+		DynamicNode node;
+		Fake(OverloadedMethod(mockDriver, visit, int(DynamicNode*)));
+		INode* driverNode = (INode*)&mockDriver.get();
+		node.visit(driverNode);
+		Verify(OverloadedMethod(mockDriver, visit, int(DynamicNode*)).Using(&node));
+
+	}
+	SECTION("Operation calls on child nodes"){
+		Mock<DynamicNode> mockNode;
+		DynamicNode node2;
+		DynamicDriver driver;
+		Fake(OverloadedMethod(mockNode, visit, int(INode*)));
+		Fake(Method(mockNode, setParent));
+		Fake(Method(mockNode, operation));
+
+		DynamicNode* node = (DynamicNode*)&mockNode.get();
+		driver.add(node);
+		driver.add(&node2);
+		driver.operation();
+
+		REQUIRE(Verify(OverloadedMethod(mockNode, visit, int(INode*)).Using(&driver)));
+
+	}
+	SECTION("Visit call to DynamicNode result in a step call"){
+		Mock<DynamicNode> mockNode;
+		DynamicDriver driver;
+		Fake(OverloadedMethod(mockNode, visit, int(INode*)));
+		Fake(Method(mockNode, step));
+
+		DynamicNode* node = (DynamicNode*)&mockNode.get();
+		driver.visit(node);
+
+		Verify(Method(mockNode, step).Using(-1, -2));
+	}
 	SECTION("Times are correct"){
 		double t = 0.0;
 		double dt = 0.01;
@@ -41,7 +81,7 @@ TEST_CASE("DynamicDriver tests", "[current]"){
 		double accumulator = 0.0;
 		clock_gettime(CLOCK_MONOTONIC, &newTime);
 		double frameTime = (newTime.tv_sec + (newTime.tv_nsec/1.0e9)) - (currentTime.tv_sec + (currentTime.tv_nsec/1.0e9));
-		frameTime = 0.02;
+		frameTime = 0.02; //fix the frameTime in place for testing reasons. Remove this when using in non-test code
 		//	fmt::printf("frame time in seconds %f\n", frameTime);
 		if ( frameTime > 0.25 )
 			frameTime = 0.25;
@@ -65,6 +105,6 @@ TEST_CASE("DynamicDriver tests", "[current]"){
 }
 TEST_CASE("Dynamics use"){
 
-	DyanamicNode dynamicNode();
+	DynamicNode dynamicNode();
 
 }
