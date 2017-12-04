@@ -7,8 +7,8 @@
 #include <stdio.h>
 #include <fmt/format.h>
 #include <iostream>
-//#include <chrono>
-//#include <thread>
+#include <chrono>
+#include <thread>
 #include "terrian_config.hpp"
 
 #include "dynamics/dynamic_node.hpp"
@@ -54,8 +54,12 @@ TEST_CASE("DynamicDriver tests", "[current]"){
 		driver.add(node);
 		driver.add(&node2);
 		driver.operation();
+		//We sleep so operation will see some sort of time pass
+		//Idealy this should be dependancy injected but meh
+		std::this_thread::sleep_for(std::chrono::milliseconds(100));
+		driver.operation();
 
-		REQUIRE(Verify(OverloadedMethod(mockNode, visit, int(INode*)).Using(&driver)));
+		Verify(OverloadedMethod(mockNode, visit, int(INode*)).Using(&driver));
 
 	}
 	SECTION("Visit call to DynamicNode result in a step call"){
@@ -67,7 +71,7 @@ TEST_CASE("DynamicDriver tests", "[current]"){
 		DynamicNode* node = (DynamicNode*)&mockNode.get();
 		driver.visit(node);
 
-		Verify(Method(mockNode, step).Using(-1, -2));
+		Verify(Method(mockNode, step));
 	}
 	SECTION("Times are correct"){
 		double t = 0.0;
