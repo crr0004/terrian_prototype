@@ -21,6 +21,9 @@ add_subdirectory(fmt EXCLUDE_FROM_ALL)
 #Revert options for fmt
 set(CMAKE_BUILD_TYPE Debug)
 
+#Disable GLM experimental features
+add_definitions(-DGLM_ENABLE_EXPERIMENTAL=false)
+
 #Project headers
 include_directories("${PROJECT_SOURCE_DIR}/include")
 include_directories("${PROJECT_SOURCE_DIR}/src/headers")
@@ -31,6 +34,7 @@ if(!MSVC)
 else()
 	SET(bullet3Location "${CMAKE_CURRENT_SOURCE_DIR}/../bullet3/" CACHE PATH "Bullet3 Library Location")
 	include("${bullet3Location}/lib/cmake/bullet/BulletConfig.cmake")
+	link_directories("${bullet3Location}/lib")
 	#include("${bullet3Location}/lib/cmake/bullet/UseBullet.cmake")
 endif()
 

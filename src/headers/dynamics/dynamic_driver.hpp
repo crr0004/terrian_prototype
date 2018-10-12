@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <fmt/format.h>
 #include <iostream>
+#include <chrono>
 namespace Dynamics {
 	class DynamicDriver : public Node{
 		public:
@@ -17,7 +18,8 @@ namespace Dynamics {
 			virtual int visit(DynamicNode*);
 		private:
 			double frameTime,t,dt,accumulator;
-			struct timespec currentTime, newTime;	
+			//struct timespec currentTime, newTime;
+			std::chrono::time_point<std::chrono::steady_clock> currentTime, newtime;
 	};
 	
 } // namespace Dynamics

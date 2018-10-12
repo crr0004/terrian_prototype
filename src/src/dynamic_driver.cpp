@@ -3,7 +3,12 @@
 using namespace Dynamics;
 DynamicDriver::DynamicDriver(){
 
-	clock_gettime(CLOCK_MONOTONIC, &currentTime);
+	
+	currentTime = std::chrono::steady_clock::now();
+	//clock_gettime(CLOCK_MONOTONIC, &currentTime);
+	
+	//double frameTime = (newTime.tv_sec + (newTime.tv_nsec/1.0e9)) - (currentTime.tv_sec + (currentTime.tv_nsec/1.0e9));
+	
     accumulator = 0.0;
 }
 
@@ -12,13 +17,16 @@ void DynamicDriver::operation(){
     dt = 0.01;
 
 
-	clock_gettime(CLOCK_MONOTONIC, &newTime);
-	frameTime = (newTime.tv_sec + (newTime.tv_nsec/1.0e9)) - (currentTime.tv_sec + (currentTime.tv_nsec/1.0e9));
+	//clock_gettime(CLOCK_MONOTONIC, &newTime);
+	newtime = std::chrono::steady_clock::now();
+	//frameTime = (newTime.tv_sec + (newTime.tv_nsec/1.0e9)) - (currentTime.tv_sec + (currentTime.tv_nsec/1.0e9));
+	frameTime = std::chrono::duration_cast<std::chrono::milliseconds>(newtime - currentTime).count();
 	//	fmt::printf("frame time in seconds %f\n", frameTime);
 	if ( frameTime > 0.25 )
 		frameTime = 0.25;
 
-	clock_gettime(CLOCK_MONOTONIC, &currentTime);
+	//clock_gettime(CLOCK_MONOTONIC, &currentTime);
+	currentTime = std::chrono::steady_clock::now();
 
 	accumulator += frameTime;
 

@@ -9,6 +9,7 @@
 #include <fmt/format.h>
 #include <btBulletDynamicsCommon.h>
 #include <time.h>
+#include <chrono>
 
 #include "terrian_config.hpp"
 #include "matrixstacksingleton.hpp"
@@ -37,8 +38,6 @@
 #define xstr(s) str(s)
      #define str(s) #s
 #define concat(first, second) first second
-
-#define GLM_ENABLE_EXPERIMENTAL false
 
 static struct LogicContext logicContext;
 static glm::vec3 ray_world;
@@ -218,7 +217,9 @@ int main(void) {
     double t = 0.0;
     double dt = 0.01;
 
-	struct timespec currentTime, newTime;	
+	std::chrono::time_point<std::chrono::steady_clock> currentTime, newtime;
+	currentTime = std::chrono::steady_clock::now();
+	//double now_mili = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch()).count();
 	//clock_gettime(CLOCK_MONOTONIC, &currentTime);
     double accumulator = 0.0;
 
@@ -234,8 +235,11 @@ int main(void) {
 
 	///-----stepsimulation_end-----
 		//clock_gettime(CLOCK_MONOTONIC, &newTime);
-		double frameTime = (newTime.tv_sec + (newTime.tv_nsec/1.0e9)) - (currentTime.tv_sec + (currentTime.tv_nsec/1.0e9));
-	//	fmt::printf("frame time in seconds %f\n", frameTime);
+		newtime = std::chrono::steady_clock::now();
+		//double frameTime = (newTime.tv_sec + (newTime.tv_nsec/1.0e9)) - (currentTime.tv_sec + (currentTime.tv_nsec/1.0e9));
+		double frameTime = std::chrono::duration_cast<std::chrono::seconds>(newtime - currentTime).count();
+		//	fmt::printf("frame time in seconds %f\n", frameTime);
+		//frameTime = 0;
 		if ( frameTime > 0.25 )
 			frameTime = 0.25;
 
