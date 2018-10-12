@@ -16,7 +16,7 @@ add_subdirectory(lua EXCLUDE_FROM_ALL)
 
 #fmt
 set(CMAKE_BUILD_TYPE RelWithDebugInfo)
-set(FMT_USE_CPP11 OFF CACHE BOOL "")
+set(FMT_USE_CPP11 ON CACHE BOOL "")
 add_subdirectory(fmt EXCLUDE_FROM_ALL)
 #Revert options for fmt
 set(CMAKE_BUILD_TYPE Debug)
