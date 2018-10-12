@@ -38,6 +38,8 @@
      #define str(s) #s
 #define concat(first, second) first second
 
+#define GLM_ENABLE_EXPERIMENTAL false
+
 static struct LogicContext logicContext;
 static glm::vec3 ray_world;
 
@@ -217,7 +219,7 @@ int main(void) {
     double dt = 0.01;
 
 	struct timespec currentTime, newTime;	
-	clock_gettime(CLOCK_MONOTONIC, &currentTime);
+	//clock_gettime(CLOCK_MONOTONIC, &currentTime);
     double accumulator = 0.0;
 
 	BulletNode sampleNode1(1);
@@ -231,13 +233,13 @@ int main(void) {
 		glUniformMatrix4fv(uloc_project, 1, GL_FALSE, glm::value_ptr(VisualContext::projection_matrix));
 
 	///-----stepsimulation_end-----
-		clock_gettime(CLOCK_MONOTONIC, &newTime);
+		//clock_gettime(CLOCK_MONOTONIC, &newTime);
 		double frameTime = (newTime.tv_sec + (newTime.tv_nsec/1.0e9)) - (currentTime.tv_sec + (currentTime.tv_nsec/1.0e9));
 	//	fmt::printf("frame time in seconds %f\n", frameTime);
 		if ( frameTime > 0.25 )
 			frameTime = 0.25;
 
-		clock_gettime(CLOCK_MONOTONIC, &currentTime);
+		//clock_gettime(CLOCK_MONOTONIC, &currentTime);
 
 		accumulator += frameTime;
 

@@ -25,8 +25,14 @@ set(CMAKE_BUILD_TYPE Debug)
 include_directories("${PROJECT_SOURCE_DIR}/include")
 include_directories("${PROJECT_SOURCE_DIR}/src/headers")
 
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(BULLET REQUIRED bullet)
+if(!MSVC)
+	find_package(PkgConfig REQUIRED)
+	pkg_check_modules(BULLET REQUIRED bullet)
+else()
+	SET(bullet3Location "${CMAKE_CURRENT_SOURCE_DIR}/../bullet3/" CACHE PATH "Bullet3 Library Location")
+	include("${bullet3Location}/lib/cmake/bullet/BulletConfig.cmake")
+	#include("${bullet3Location}/lib/cmake/bullet/UseBullet.cmake")
+endif()
 
 
 #Library locations (root directories)
@@ -35,7 +41,6 @@ set(GlmLocation "${CMAKE_CURRENT_SOURCE_DIR}/../glm/" CACHE PATH "GLM Library Lo
 
 #Library file and header file locations for each library
 if(MSVC)
-
 	find_library(GLFW3 glfw3 PATHS "${GlfwLocation}" PATH_SUFFIXES "lib-vc2015")
 elseif(MINGW)
 	find_library(GLFW3 glfw3 PATHS "${GlfwLocation}" PATH_SUFFIXES "lib-mingw")
@@ -52,7 +57,7 @@ include_directories(SYSTEM ${GLFWH})
 include_directories(SYSTEM ${GLMH})
 include_directories(SYSTEM ${FMT_HEADERS})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
-include_directories(${BULLET_INCLUDE_DIRS})
+include_directories("${bullet3Location}/${BULLET_INCLUDE_DIR}")
 
 set(LIBS ${GLFW3} liblua fmt ${BULLET_LIBRARIES})
 
