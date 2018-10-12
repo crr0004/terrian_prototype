@@ -12,7 +12,9 @@ Currently building on Fedora and Windows (MSVC).
 - Mac OSX (when I get a system to)
 - Possibly Nintedo 3ds
 
-Depends on GLFW3, glm
+Depends on GLFW3, glm, bullet3 and c++11.
+
+You need to build bullet3 on windows first. I will eventually add it to build in source so you don't have to.
 
 Uses GLAD, is built in source
 
