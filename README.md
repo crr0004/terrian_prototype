@@ -52,4 +52,9 @@ An example that shows how I might be intergrating bullet into my existing system
 
 <img width=512 height=407 src="https://i.imgur.com/bJit09L.png"></img>
 
+## One Example
+An example that shows using lua scripts to interact with the engine. Uses triangle_drawing.lua script in lua_scripts. See one.cpp in [examples folder link](https://github.com/crr0004/terrian_prototype/tree/master/examples).
+
+<img width=512 height=283 src="https://i.imgur.com/WrUsRr0.png"/>
+
 
