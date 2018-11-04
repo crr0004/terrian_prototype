@@ -241,9 +241,9 @@ int main(void) {
 		//	fmt::printf("frame time in seconds %f\n", frameTime);
 		//frameTime = 0;
 		if ( frameTime > 0.25 )
-			frameTime = 0.25;
+			frameTime = 0;
 
-		//clock_gettime(CLOCK_MONOTONIC, &currentTime);
+		//currentTime = std::chrono::steady_clock::now();
 
 		accumulator += frameTime;
 
@@ -252,7 +252,7 @@ int main(void) {
 		//	previousState = currentState;
 		//	integrate( currentState, t, dt );
 			//fmt::printf("-9.8*dt = %f\n", -9.8*dt);
-			circle.getMoveable().translate(glm::vec3(0.0, -4.8*dt, 0.0));
+			circle.getMoveable().translate(glm::vec3(0.0, -1.8*dt, 0.0));
 			
 			glm::vec3 circlePos = circle.getMoveable().getPosAsVec3();
 			//fmt::printf("Circle pos %f,%f,%f\n", circlePos.x, circlePos.y, circlePos.z);

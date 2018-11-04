@@ -9,6 +9,7 @@
 #include <fmt/format.h>
 #include <btBulletDynamicsCommon.h>
 #include <time.h>
+#include <chrono>
 
 #include "terrian_config.hpp"
 #include "matrixstacksingleton.hpp"
@@ -212,8 +213,8 @@ int main(void) {
     double t = 0.0;
     double dt = 0.01;
 
-	struct timespec currentTime, newTime;	
-	clock_gettime(CLOCK_MONOTONIC, &currentTime);
+	std::chrono::time_point<std::chrono::steady_clock> currentTime, newtime;
+	currentTime = std::chrono::steady_clock::now();
     double accumulator = 0.0;
 
 	while (!glfwWindowShouldClose(window)) {
@@ -226,13 +227,14 @@ int main(void) {
 		//circle.getMoveable().setPos(glm::vec3(
 		//			sphereOrigin.getX(),sphereOrigin.getY(),sphereOrigin.getZ()));
 	///-----stepsimulation_end-----
-		clock_gettime(CLOCK_MONOTONIC, &newTime);
-		double frameTime = (newTime.tv_sec + (newTime.tv_nsec/1.0e9)) - (currentTime.tv_sec + (currentTime.tv_nsec/1.0e9));
+		newtime = std::chrono::steady_clock::now();
+		//double frameTime = (newTime.tv_sec + (newTime.tv_nsec/1.0e9)) - (currentTime.tv_sec + (currentTime.tv_nsec/1.0e9));
+		double frameTime = std::chrono::duration_cast<std::chrono::seconds>(newtime - currentTime).count();
 	//	fmt::printf("frame time in seconds %f\n", frameTime);
 		if ( frameTime > 0.25 )
 			frameTime = 0.25;
 
-		clock_gettime(CLOCK_MONOTONIC, &currentTime);
+		currentTime = std::chrono::steady_clock::now();
 
 		accumulator += frameTime;
 
