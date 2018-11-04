@@ -121,7 +121,7 @@ int main(void) {
 	logicContext.modelview = glm::rotate(logicContext.modelview, 0.0f, glm::vec3(-1.0f, 0.0f, 0.0f));
 	glViewport(0,0,VisualContext::width, VisualContext::height);
 	//Setup background colour
-	glClearColor(0.0f, 0.0f, 1.0f, 0.0f);
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	//END Setup for windows
 	//Create a draw queue
 	std::vector<Geometry::Polygon*> drawQueue;
