@@ -4,17 +4,12 @@ A prototype for creating a terrian &amp; heightmap.
 # Building
 Uses CMake for build system.
 
-Currently building on Fedora and Windows (MSVC).
-
-## To Be Built On In The Future:
-- mingw (Windows and cross compile)
-- cygwin
-- Mac OSX (when I get a system to)
-- Possibly Nintedo 3ds
+Currently building on Fedora, Windows (MSVC), mingw-w64.
 
 Depends on GLFW3, glm, bullet3 and c++11.
 
 You need to build bullet3 on windows first. I will eventually add it to build in source so you don't have to.
+- You can get bullet for mingw-w64 here: https://github.com/crr0004/bullet3/releases/tag/2.87
 
 Uses GLAD, is built in source
 
