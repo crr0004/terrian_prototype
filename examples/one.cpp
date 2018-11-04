@@ -103,6 +103,7 @@ static void calcWorldPickRay(GLFWwindow *window){
 
 int main(void) {
 
+	setbuf(stdout, NULL);
 	GLFWwindow *window = VisualContext::CreateGLFWWindow(key_callback);
 	GLuint shader_program = VisualContext::make_shader_program(concat(xstr(SHADERS_DIR), "/shader.vert"), concat(xstr(SHADERS_DIR), "/shader.frag"));
 	glUseProgram(shader_program);
