@@ -88,6 +88,13 @@ if(${CMAKE_VERSION} VERSION_GREATER "3.8.2")
 
 endif()
 
+set_source_files_properties(
+	  src/glad.c
+	  PROPERTIES
+	  LANGUAGE CXX
+)
+message(STATUS ${CMAKE_CXX_FLAGS} ${CMAKE_CXX_FLAGS_DEBUG})
+
 #Compiler options for Visual Studios
 if(MSVC)
 	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -W0")

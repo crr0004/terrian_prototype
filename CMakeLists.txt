@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.6)
 set(CMAKE_INSTALL_PREFIX "install" CACHE PATH "")
 set_property( GLOBAL PROPERTY USE_FOLDERS ON)
 project(Jelly_Engine)
+set(CMAKE_BUILD_TYPE Debug)
 
 #Lua options
 set(LUA_ANSI ON CACHE BOOL "")
@@ -15,11 +16,9 @@ set(LUA_USE_CURSES OFF CACHE BOOL "")
 add_subdirectory(lua EXCLUDE_FROM_ALL)
 
 #fmt
-set(CMAKE_BUILD_TYPE RelWithDebugInfo)
-set(FMT_USE_CPP11 ON CACHE BOOL "")
+#set(FMT_USE_CPP11 ON CACHE BOOL "")
 add_subdirectory(fmt EXCLUDE_FROM_ALL)
 #Revert options for fmt
-set(CMAKE_BUILD_TYPE Debug)
 
 #Disable GLM experimental features
 add_definitions(-DGLM_ENABLE_EXPERIMENTAL=false)
@@ -28,47 +27,50 @@ add_definitions(-DGLM_ENABLE_EXPERIMENTAL=false)
 include_directories("${PROJECT_SOURCE_DIR}/include")
 include_directories("${PROJECT_SOURCE_DIR}/src/headers")
 
-if(!MSVC)
+if(NOT MSVC)
 	find_package(PkgConfig REQUIRED)
 	pkg_check_modules(BULLET REQUIRED bullet)
+	message(STATUS ${BULLET_INCLUDE_DIR})
+	include_directories("F:/dev/msys64/mingw64/include/bullet")
 else()
 	SET(bullet3Location "${CMAKE_CURRENT_SOURCE_DIR}/../bullet3/" CACHE PATH "Bullet3 Library Location")
 	include("${bullet3Location}/lib/cmake/bullet/BulletConfig.cmake")
 	link_directories("${bullet3Location}/lib")
+	include_directories("${bullet3Location}/${BULLET_INCLUDE_DIR}")
 	#include("${bullet3Location}/lib/cmake/bullet/UseBullet.cmake")
 endif()
 
 
 #Library locations (root directories)
-set(GlfwLocation "${CMAKE_CURRENT_SOURCE_DIR}/../glfw-3.2.1.bin.WIN64/" CACHE PATH "GLFW Library Location")
-set(GlmLocation "${CMAKE_CURRENT_SOURCE_DIR}/../glm/" CACHE PATH "GLM Library Location")
+set(Location_GLFW3 "${CMAKE_CURRENT_SOURCE_DIR}/../glfw-3.2.1.bin.WIN64/" CACHE PATH "GLFW Library Location")
+set(Location_GLM "${CMAKE_CURRENT_SOURCE_DIR}/../glm/" CACHE PATH "GLM Library Location")
+set(Location_EIGEN "${CMAKE_CURRENT_SOURCE_DIR}/../eigen-3.3.5/" CACHE PATH "Eigen Template Library Location")
 
 #Library file and header file locations for each library
 if(MSVC)
-	find_library(GLFW3 glfw3 PATHS "${GlfwLocation}" PATH_SUFFIXES "lib-vc2015")
+	find_library(INTERNAL_GLFW3 glfw3 PATHS "${Location_GLFW3}" PATH_SUFFIXES "lib-vc2015")
 elseif(MINGW)
-	find_library(GLFW3 glfw3 PATHS "${GlfwLocation}" PATH_SUFFIXES "lib-mingw")
+	find_library(INTERNAL_GLFW3 glfw3 PATHS "${Location_GLFW3}" PATH_SUFFIXES "lib-mingw")
 else()
-	find_library(GLFW3 glfw PATHS "${GlfwLocation}")
+	find_library(INTERNAL_GLFW3 glfw PATHS "${Location_GLFW3}")
 endif()
 
-find_path(GLFWH GLFW/glfw3.h PATHS "${GlfwLocation}" PATH_SUFFIXES "include")
+find_path(INTERNAL_GLFWH GLFW/glfw3.h PATHS "${Location_GLFW3}" PATH_SUFFIXES "include")
+find_path(INTERNAL_GLMH glm/glm.hpp PATHS "${Location_GLM}" PATH_SUFFIXES "include")
+find_path(INTERNAL_EIGENH Eigen/Dense PATHS "${Location_EIGEN}")
 
-find_path(GLMH glm/glm.hpp PATHS "${GlmLocation}" PATH_SUFFIXES "include")
-
-include_directories(SYSTEM ${GLFWH})
-#include_directories(${GLEWH})
-include_directories(SYSTEM ${GLMH})
+include_directories(SYSTEM ${INTERNAL_GLFWH})
+include_directories(SYSTEM ${INTERNAL_GLMH})
 include_directories(SYSTEM ${FMT_HEADERS})
+include_directories(SYSTEM ${INTERNAL_EIGENH})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
-include_directories("${bullet3Location}/${BULLET_INCLUDE_DIR}")
 
-set(LIBS ${GLFW3} liblua fmt ${BULLET_LIBRARIES})
+set(LIBS ${INTERNAL_GLFW3} liblua fmt ${BULLET_LIBRARIES})
 
 if(WIN32)
 	set(LIBS ${LIBS} OpenGL32 glu32)
 else()
-	set(LIBS ${LIBS} GLU GLU)
+	set(LIBS ${LIBS} GLU)
 endif()
 
 
@@ -101,7 +103,7 @@ ADD_SUBDIRECTORY(examples)
 
 
 
-set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT main)
+#set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT main)
 
 set(SHADERS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/shaders/" CACHE PATH "Directory containing shaders")
 set(SCRIPTS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lua_scripts/" CACHE PATH "Directory containing lua scripts")
