@@ -5,3 +5,4 @@
 [submodule "fmt"]
 	path = fmt
 	url = https://github.com/fmtlib/fmt.git
+	commit = 3e75ad9822980e41bc591938f26548f24eb88907
