@@ -136,8 +136,8 @@ TEST_CASE("Collision volumes are transformed"){
 	REQUIRE(aabb.visitCollide(&aabb2));
 	REQUIRE(aabb.visitCollide(&sphere));
 
-	fmt::printf("Min %s\n", glm::to_string(aabb.getTransformedMin()));
-	fmt::printf("Max %s\n", glm::to_string(aabb.getTransformedMax()));
+	fmt::print("Min {}\n", glm::to_string(aabb.getTransformedMin()));
+	fmt::print("Max {}\n", glm::to_string(aabb.getTransformedMax()));
 
 
 

@@ -10,8 +10,8 @@ GLfloat VisualContext::view_angle = 45.0f;
 int VisualContext::width = 800;
 int VisualContext::height= 600;
 GLfloat VisualContext::aspect_ratio = 4.0f/3.0f;
-GLfloat VisualContext::z_near = 0.00001f;
-GLfloat VisualContext::z_far = 10000.f;
+GLfloat VisualContext::z_near = 0.0001f;
+GLfloat VisualContext::z_far = 1000.f;
 
 glm::mat4 VisualContext::projection_matrix;
 
@@ -125,7 +125,7 @@ GLFWwindow* VisualContext::CreateGLFWWindow(GLFWkeyfun key_callback){
         exit(EXIT_FAILURE);
 
 
-	//glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_FALSE);
+	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
 	glfwWindowHint(GLFW_SAMPLES, 4);
 	window = glfwCreateWindow(width, height, "Simple example", NULL, NULL);
 
@@ -147,8 +147,8 @@ GLFWwindow* VisualContext::CreateGLFWWindow(GLFWkeyfun key_callback){
 	glDepthFunc(GL_LESS); 
 
 	// Cull triangles which normal is not towards the camera
-	glEnable(GL_CULL_FACE);
-	glCullFace(GL_BACK);
+	//glEnable(GL_CULL_FACE);
+	//glCullFace(GL_BACK);
 
 
 

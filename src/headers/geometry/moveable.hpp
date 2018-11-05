@@ -24,8 +24,8 @@ namespace Geometry {
 			virtual glm::mat4* getTransitiveMatrix();
 			virtual ~Moveable();
 		protected:
-			glm::mat4 model_matrix;
-			glm::mat4 transitiveMatrix;
+			glm::mat4 model_matrix = glm::mat4(1.0f);
+			glm::mat4 transitiveMatrix = glm::mat4(1.0f);
 	};
 } // namespace Geometry
 #endif

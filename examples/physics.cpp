@@ -191,7 +191,7 @@ int main(void) {
 			//fmt::printf("-9.8*dt = %f\n", -9.8*dt);
 			circle.getMoveable().translate(glm::vec3(0.0, -9.8*dt, 0.0));
 			glm::vec3 circlePos = circle.getMoveable().getPosAsVec3();
-			fmt::printf("Circle pos %f,%f,%f\n", circlePos.x, circlePos.y, circlePos.z);
+			fmt::print("Circle pos {},{},{}\n", circlePos.x, circlePos.y, circlePos.z);
 			t += dt;
 			accumulator -= dt;
 		}

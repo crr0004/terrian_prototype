@@ -20,7 +20,7 @@ void AddToDrawQueueCommand::execute(){
 	if(queue != 0){
 		queue->push_back(drawHost);
 	}else{
-		fmt::fprintf(stderr,"Error in AddToDrawQueueCommand, queue not set\n");
+		fmt::print(stderr,"Error in AddToDrawQueueCommand, queue not set\n");
 	}
 
 }

@@ -34,7 +34,7 @@ lua_State* ScriptManager::getState() {
 void ScriptManager::NewMetaLib(const struct luaL_Reg lib[], const char* name){
 	/*
 	int nup = 0;
-	fmt::printf("Table count %d\n", sizeof(lib)/sizeof((lib)[0]) -1);
+	fmt::print("Table count %d\n", sizeof(lib)/sizeof((lib)[0]) -1);
 	lua_createtable(state, 0, sizeof(lib)/sizeof((lib)[0]) -1);
 	luaL_checkversion(state);
 	luaL_checkstack(state, nup, "too many upvalues");

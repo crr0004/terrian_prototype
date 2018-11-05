@@ -263,7 +263,7 @@ int main(void) {
 
 		int numManifolds = collisionWorld->getDispatcher()->getNumManifolds();
 	//	if(numManifolds > 0){
-			fmt::printf("Manifolds: %d\n", numManifolds);
+			fmt::print("Manifolds: {}\n", numManifolds);
 	//	}
 
 		for (int i = 0; i < numManifolds; i++) {

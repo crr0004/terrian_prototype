@@ -56,7 +56,7 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 		printf("Triangle 1 Model Matrix: %s\n", glm::to_string(logicContext.modelview).c_str());
 	}
 	if(key == GLFW_KEY_R && action == GLFW_RELEASE){
-		logicContext.modelview = glm::mat4();
+		logicContext.modelview = glm::mat4(1.0f);
 
 	}
 	if(key == GLFW_KEY_LEFT && mods == GLFW_MOD_SHIFT){
@@ -124,6 +124,7 @@ int main(void) {
 	logicContext.uloc_modelview = uloc_modelview;
 
 	/* Set the camera position  */
+	logicContext.modelview = glm::mat4(1.0f);
 	logicContext.modelview = glm::translate(logicContext.modelview, glm::vec3(0.0f, 0.0f, -20.0f));
 	logicContext.modelview = glm::rotate(logicContext.modelview, 0.0f, glm::vec3(-1.0f, 0.0f, 0.0f));
 	glViewport(0,0,VisualContext::width, VisualContext::height);

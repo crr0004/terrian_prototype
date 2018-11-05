@@ -43,14 +43,17 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 	glm::vec3 right = glm::vec3(glm::vec4(1.0, 0.0, 0.0, 1.0) * logicContext.modelview);
 	glm::vec3 back = glm::vec3(glm::vec4(0.0, 0.0, -1.0, 1.0) * logicContext.modelview);
 	glm::vec3 forward = glm::vec3(glm::vec4(0.0, 0.0, 1.0, 1.0) * logicContext.modelview);
+	if(key == GLFW_KEY_P && action == GLFW_PRESS){
+		fmt::print("Projection matrix: {}\n", glm::to_string(VisualContext::projection_matrix));
+	}
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS){
 		glfwSetWindowShouldClose(window, GL_TRUE);
 	}
 	if (key == GLFW_KEY_SPACE && action == GLFW_PRESS){
-		printf("Triangle 1 Model Matrix: %s\n", glm::to_string(logicContext.modelview).c_str());
+		fmt::print("Triangle 1 Model Matrix: {}\n", glm::to_string(logicContext.modelview).c_str());
 	}
 	if(key == GLFW_KEY_R && action == GLFW_RELEASE){
-		logicContext.modelview = glm::mat4();
+		logicContext.modelview = glm::mat4(1.0f);
 
 	}
 	if(key == GLFW_KEY_LEFT && mods == GLFW_MOD_SHIFT){
@@ -66,16 +69,18 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 		logicContext.modelview = glm::translate(logicContext.modelview, right * 0.1f);
 	}
 	if(key == GLFW_KEY_UP && mods == 0){
+		fmt::print("Translating\n{}\n up by 0.1f\n", glm::to_string(logicContext.modelview));
 		logicContext.modelview = glm::translate(logicContext.modelview, up * 0.1f);
+		fmt::print("Translating\n{}\n up by 0.1f\n", glm::to_string(logicContext.modelview));
 	}
 	else if(key == GLFW_KEY_DOWN && mods == 0){
 		logicContext.modelview = glm::translate(logicContext.modelview, down * 0.1f);
 	}
 	else if(key == GLFW_KEY_UP && mods == GLFW_MOD_SHIFT){
-		logicContext.modelview = glm::rotate(logicContext.modelview, 0.1f, left);
+		logicContext.modelview = glm::rotate(logicContext.modelview, 0.5f, left);
 	}
 	else if(key == GLFW_KEY_DOWN && mods == GLFW_MOD_SHIFT){
-		logicContext.modelview = glm::rotate(logicContext.modelview, 0.1f, right);
+		logicContext.modelview = glm::rotate(logicContext.modelview, 0.5f, right);
 
 	}else if(key == GLFW_KEY_UP && mods == GLFW_MOD_CONTROL){
 		logicContext.modelview = glm::translate(logicContext.modelview, back * 0.1f);
@@ -118,6 +123,7 @@ int main(void) {
 	logicContext.uloc_modelview = uloc_modelview;
 
 	/* Set the camera position  */
+	logicContext.modelview = glm::mat4(1.0f);
 	logicContext.modelview = glm::translate(logicContext.modelview, glm::vec3(0.0f, 0.0f, -20.0f));
 	logicContext.modelview = glm::rotate(logicContext.modelview, 0.0f, glm::vec3(-1.0f, 0.0f, 0.0f));
 
@@ -153,7 +159,7 @@ int main(void) {
 
 	sphere1.getMoveable().add(&circle.getMoveable());
 	sphere2.getMoveable().add(&circle2.getMoveable());
-	fmt::printf("circle matrix: %s", glm::to_string(sphere1.getMoveable().getCulumativeMatrix()));
+	fmt::print("circle matrix: {}", glm::to_string(sphere1.getMoveable().getCulumativeMatrix()));
 	//sphere1.getMoveable().translate(glm::vec3(-3,0,0));
 
 	Collision::SimpleWorld world;
@@ -189,8 +195,8 @@ int main(void) {
 		glm::vec3 rayWordEndPoint = glm::vec3(glm::vec4(0.0f, 0.0f, -100.0f, 1.0f) * logicContext.modelview);
 
 		worldLine.setStartEnd(ray_world, rayWordEndPoint);
-		worldLine.update();
-		worldLine.draw();
+		//worldLine.update();
+		//worldLine.draw();
 
 		world.operation();
 		circle.update();
@@ -207,7 +213,7 @@ int main(void) {
 		for(std::vector<Geometry::Polygon*>::iterator drawHost = drawQueue.begin();
 				drawHost != drawQueue.end();
 				drawHost++){
-			glDisable(GL_CULL_FACE);
+			//glDisable(GL_CULL_FACE);
 			/**
 			 * TODO This is okay for now, however the logicContext will become
 			 * the shader from a shader manager/factory 

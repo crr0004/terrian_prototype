@@ -48,10 +48,10 @@ int BulletNode::visit(INode* node){
 }
 
 int BulletNode::visit(BulletNode* node){
-	fmt::printf("Inside BulletNode bulletnode ID: %d\n", this->ID);
+	fmt::print("Inside BulletNode bulletnode ID: %d\n", this->ID);
 	return 0;
 }
 int BulletNode::visit(BulletContactManifoldNode* node){
-	fmt::printf("Inside BulletNode with contact manifold\n");
+	fmt::print("Inside BulletNode with contact manifold\n");
 	return 0;
 }
